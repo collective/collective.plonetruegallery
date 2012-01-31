@@ -14,6 +14,9 @@ Changelog
 - switch to using collective.js.highslide
   [vangheem]
 
+- switch to using collective.fancybox
+  [vangheem]
+
 
 1.3.3 (2011-09-28)
 ------------------

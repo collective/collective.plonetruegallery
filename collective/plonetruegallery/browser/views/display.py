@@ -120,18 +120,14 @@ class FancyBoxDisplayType(BatchingDisplayType):
     description = _(u"label_fancybox_display_type",
         default=u"Fancy Box")
 
-    def __init__(self, context, request):
-        super(FancyBoxDisplayType, self).__init__(context, request)
-        self.staticFiles += '/jquery.fancybox/fancybox'
-
     def javascript(self):
         return """
 <script type="text/javascript"
-    src="%(staticFiles)s/jquery.easing-1.3.pack.js"></script>
+    src="%(portal_url)s/++resource++collective.fancybox/jquery.easing-1.3.pack.js"></script>
 <script type="text/javascript"
-    src="%(staticFiles)s/jquery.mousewheel-3.0.2.pack.js"></script>
+    src="%(portal_url)s/++resource++collective.fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 <script type="text/javascript"
-    src="%(staticFiles)s/jquery.fancybox-1.3.1.pack.js"></script>
+    src="%(portal_url)s/++resource++collective.fancybox/jquery.fancybox.js"></script>
   <script type="text/javascript">
     var auto_start = %(start_automatically)s;
     var start_image_index = %(start_index_index)i;
@@ -154,13 +150,13 @@ class FancyBoxDisplayType(BatchingDisplayType):
         """ % {
             'start_automatically': str(self.start_automatically).lower(),
             'start_index_index': self.start_image_index,
-            'staticFiles': self.staticFiles
+            'portal_url': self.portal_url
         }
 
     def css(self):
         return """
 <link rel="stylesheet" type="text/css"
-    href="%(staticFiles)s/jquery.fancybox-1.3.1.css" media="screen" />
+    href="%(staticFiles)s/jquery.fancybox.css" media="screen" />
 """ % {'staticFiles': self.staticFiles}
 FancyBoxSettings = createSettingsFactory(FancyBoxDisplayType.schema)
 

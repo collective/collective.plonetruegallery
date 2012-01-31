@@ -26,7 +26,7 @@
         provides="collective.plonetruegallery.interfaces.IHighSlideDisplaySettings"
         factory=".display.HighSlideSettings"
     />
-    <adapter
+    <adapter zcml:condition="installed collective.fancybox"
         for="collective.plonetruegallery.interfaces.IGallery"
         provides="collective.plonetruegallery.interfaces.IFancyBoxDisplaySettings"
         factory=".display.FancyBoxSettings"
@@ -57,14 +57,14 @@
         provides="collective.plonetruegallery.interfaces.IDisplayType"
         name="galleryview-highslide" />
 
-    <browser:page
+    <browser:page zcml:condition="installed collective.fancybox"
         for="collective.plonetruegallery.interfaces.IGallery"
         name="galleryview-fancybox"
         class=".display.FancyBoxDisplayType"
         template="fancybox.pt"
         permission="zope2.View"
     />
-    <utility
+    <utility zcml:condition="installed collective.fancybox"
         component=".display.FancyBoxDisplayType"
         provides="collective.plonetruegallery.interfaces.IDisplayType"
         name="galleryview-fancybox" />
