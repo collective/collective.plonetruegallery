@@ -1,0 +1,24 @@
+# Manually defined message ids
+msgid ""
+msgstr ""
+"Project-Id-Version: Truegallery VERSION\n"
+"POT-Creation-Date: 2007-08-15 02:32+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.plonetruegallery\n"
+
+
+#. Default: "Gallery View"
+#: ./browser/views/configure.zcml
+msgid "Gallery View"
+msgstr ""
+
+

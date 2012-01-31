@@ -1,0 +1,493 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# Diego Rubert, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.plonetruegallery\n"
+"POT-Creation-Date: 2010-07-28 14:17+0000\n"
+"PO-Revision-Date: 2009-05-19 16:17-0400\n"
+"Last-Translator: Enrique Pérez <eperez@yaco.es>\n"
+"Language-Team: Spanish <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.plonetruegallery\n"
+"X-Generator: Lokalize 0.3\n"
+
+#: ./browser/views/settings.py:78
+msgid "Apply"
+msgstr "Aplicar"
+
+#: ./browser/views/settings.py:63
+msgid "Display Type Settings"
+msgstr "Mostrar configuración de tipos"
+
+#: ./profiles/default/actions.xml
+msgid "Gallery Settings"
+msgstr "Configuración de galería"
+
+#. Default: "Gallery View"
+#: ./browser/views/configure.zcml
+msgid "Gallery View"
+msgstr "Vista de galería"
+
+#: ./browser/views/settings.py:17
+msgid "Main"
+msgstr "Principal"
+
+#. Default: "The amount of images shown in one page. This is not used for all display types."
+#: ./interfaces.py:278
+msgid "description_batch_size"
+msgstr "Cantidad de imágenes mostradas en una página. No todos los tipos de visualización lo usan."
+
+#. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
+#: ./content/gallery.py:90
+#: ./interfaces.py:250
+msgid "description_delay"
+msgstr "Si hay temporizador, el retraso especifica los milisegundos entre imagen e imagen."
+
+#. Default: "The amount of time the change effect should take in miliseconds."
+#: ./content/gallery.py:101
+#: ./interfaces.py:260
+#, fuzzy
+msgid "description_fade_in_duration"
+msgstr "Milisegundos que tarda en cambiar el efecto."
+
+#. Default: "Name/id of your flickr set.(*flickr* gallery type)"
+#: ./interfaces.py:369
+#, fuzzy
+msgid "description_flickr_set"
+msgstr "Nombre/id de flickr."
+
+#. Default: "The username/id of your flickr account. (*flickr* gallery type)"
+#: ./interfaces.py:360
+msgid "description_flickr_username"
+msgstr "Nombre de usuario para flickr"
+
+#. Default: "Configure the parameters for this gallery."
+#: ./browser/views/settings.py:28
+msgid "description_gallery_settings_form"
+msgstr "Configurar parámetros para esta galería."
+
+#. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints."
+#: ./interfaces.py:216
+msgid "description_gallery_size"
+msgstr "Los tamaños pueden variar dependiendo del tipo de galería."
+
+#. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
+#: ./content/gallery.py:24
+#: ./interfaces.py:202
+msgid "description_gallery_type"
+msgstr "Seleccionar el tipo de galería."
+
+#. Default: "The style of the border around the image. (*Highslide* display type)"
+#: ./interfaces.py:334
+msgid "description_highslide_outlineType"
+msgstr "Estilo del borde de la imagen."
+
+#. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
+#: ./interfaces.py:389
+#, fuzzy
+msgid "description_picasa_album"
+msgstr "Nombre del album de picasa: Bien su dirección web, bien su nombre completo."
+
+#. Default: "GMail address of who this album belongs to(including @gmail.com). (*Picasa* gallery type)"
+#: ./interfaces.py:380
+msgid "description_picasa_username"
+msgstr "Dirección de gmail del dueño del álbum"
+
+#. Default: "Show Carousel for Slideshow type? (*Slideshow 2* display type)"
+#: ./interfaces.py:296
+msgid "description_show_carousel"
+msgstr "¿Mostrar carrusel?"
+
+#. Default: "Show Info pane for Slideshow type? (*Slideshow 2* display type)"
+#: ./interfaces.py:306
+msgid "description_show_info_pane"
+msgstr "¿Mostrar panel de información?"
+
+#. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
+#: ./interfaces.py:269
+msgid "description_show_subgalleries"
+msgstr "¿Mostrar previsualización de subgalerías?"
+
+#. Default: "Select the effect you want to use. (*Slideshow 2* display type)"
+#: ./content/gallery.py:126
+#: ./interfaces.py:316
+msgid "description_slideshowEffect"
+msgstr "Seleccione el efecto que desea usar."
+
+#. Default: "Should this gallery automatically change images for the user?"
+#: ./content/gallery.py:80
+#: ./interfaces.py:242
+msgid "description_timed"
+msgstr "¿Cambiar imágenes automáticamente?"
+
+#. Default: "Select the transition you want to use when an image is being added(only for classic gallery)."
+#: ./content/gallery.py:113
+msgid "description_transition"
+msgstr "Seleccione una transición"
+
+#. Default: "This portlet allows you to show gallery images in a portlet."
+#: ./portlets.py:191
+msgid "gallery_portlet_add_form_description"
+msgstr "Puede mostrar las imágenes de la galería en un portlet"
+
+#. Default: "Add Gallery"
+#: ./portlets.py:190
+msgid "gallery_portlet_add_form_title"
+msgstr "Añadir galería"
+
+#. Default: "Edit Gallery Portlet"
+#: ./portlets.py:201
+msgid "gallery_portlet_edit_form_description"
+msgstr "Editar portlet de la galería"
+
+#. Default: "The gallery to show in this portlet."
+#: ./portlets.py:33
+msgid "gallery_portlet_gallery_description"
+msgstr "La galería que se mostrará en este portlet"
+
+#. Default: "Gallery"
+#: ./portlets.py:32
+msgid "gallery_portlet_gallery_title"
+msgstr "Galería"
+
+#. Default: "Hide Controls"
+#: ./portlets.py:56
+msgid "gallery_portlet_hide_controls"
+msgstr "Ocultar controles"
+
+#. Default: "Hide portlet gallery controls"
+#: ./portlets.py:57
+msgid "gallery_portlet_hide_controls_description"
+msgstr "Ocultar controles del portlet"
+
+#. Default: "Check to show the title of the gallery in the portlet"
+#: ./portlets.py:26
+msgid "gallery_portlet_show_title_description"
+msgstr "Mostrar título de la galería en el portlet"
+
+#. Default: "Show Title?"
+#: ./portlets.py:25
+msgid "gallery_portlet_show_title_title"
+msgstr "Mostrar título"
+
+#. Default: "Do you want the gallery to be timed?"
+#: ./portlets.py:49
+msgid "gallery_portlet_timed_description"
+msgstr "¿Desea un temporalizador en la galería?"
+
+#. Default: "Timed"
+#: ./portlets.py:48
+msgid "gallery_portlet_timed_title"
+msgstr "Temporalizar"
+
+#. Default: "The width of the image in the portlet"
+#: ./portlets.py:41
+msgid "gallery_portlet_width_description"
+msgstr "Ancho de la imágen en el portlet"
+
+#. Default: "Width"
+#: ./portlets.py:40
+msgid "gallery_portlet_width_title"
+msgstr "Ancho"
+
+#. Default: "Gallery"
+#: ./browser/views/settings.py:27
+msgid "heading_gallery_settings_form"
+msgstr "Galería"
+
+#. Default: "sub galleries"
+#: ./browser/views/subgallery.pt:3
+msgid "heading_sub_galleries"
+msgstr "Sub galerías"
+
+#. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
+#: ./galleryadapters/base.py:22
+msgid "label_base_gallery_type"
+msgstr ""
+
+#. Default: "Batch Size"
+#: ./interfaces.py:277
+msgid "label_batch_size"
+msgstr "Número de imágenes por página"
+
+#. Default: "Use Plone To Manage Images"
+#: ./galleryadapters/basic.py:25
+msgid "label_default_gallery_type"
+msgstr "Usar imágenes guardadas en plone"
+
+#. Default: "Delay"
+#: ./content/gallery.py:89
+#: ./interfaces.py:249
+msgid "label_delay"
+msgstr "Retraso"
+
+#. Default: "Fade"
+#: ./content/config.py:8
+msgid "label_fade"
+msgstr "Desvanecer"
+
+#. Default: "Fancy Box"
+#: ./browser/views/display.py:244
+msgid "label_fancybox_display_type"
+msgstr "Fancy box"
+
+#. Default: "Flickr"
+#: ./galleryadapters/flickr.py:28
+msgid "label_flickr_gallery_type"
+msgstr "Galería de Flickr"
+
+#. Default: "Flickr Set"
+#: ./interfaces.py:368
+#, fuzzy
+msgid "label_flickr_set"
+msgstr "Conjunto"
+
+#. Default: "flickr username"
+#: ./interfaces.py:359
+#, fuzzy
+msgid "label_flickr_username"
+msgstr "Nombre de usuario/id de flickr"
+
+#. Default: "Gallery Display Type"
+#: ./content/gallery.py:50
+#: ./interfaces.py:229
+msgid "label_gallery_display_type"
+msgstr "Tipo de exibición de la Galeria"
+
+#. Default: "Choose the method in which the gallery should be displayed"
+#: ./content/gallery.py:51
+#: ./interfaces.py:230
+msgid "label_gallery_display_type_description"
+msgstr "Escoger el modo de exhibición de la galería"
+
+#. Default: "Gallery Name"
+#: ./content/gallery.py:14
+msgid "label_gallery_name"
+msgstr "Nombre de la Galeria"
+
+#. Default: "Size"
+#: ./content/gallery.py:37
+#: ./interfaces.py:215
+msgid "label_gallery_size"
+msgstr "Tamaño"
+
+#. Default: "Type"
+#: ./content/gallery.py:23
+#: ./interfaces.py:201
+msgid "label_gallery_type"
+msgstr "Tipo"
+
+#. Default: "Highslide - verify terms of use"
+#: ./browser/views/display.py:286
+msgid "label_highslide_display_type"
+msgstr "Highslide - téminos de uso"
+
+#. Default: "Image outline type"
+#: ./interfaces.py:333
+msgid "label_highslide_outlineType"
+msgstr "Modo de resaltar las imágenes"
+
+#. Default: "Drop Shadow"
+#: ./interfaces.py:345
+msgid "label_highslide_outlineType_drop_shadow"
+msgstr "Sombrear"
+
+#. Default: "Glossy Dark"
+#: ./interfaces.py:347
+msgid "label_highslide_outlineType_glossy_dark"
+msgstr "Oscuro brillante"
+
+#. Default: "Outer Glow"
+#: ./interfaces.py:343
+msgid "label_highslide_outlineType_outer_glow"
+msgstr "Despedir brillo"
+
+#. Default: "Rounded White"
+#: ./interfaces.py:341
+msgid "label_highslide_outlineType_rounded_white"
+msgstr "Redondeado blanco"
+
+#. Default: "You can only use the Highslide gallery for non-commercial use unless you purchase a commercial license. Please visit http://highslide.com/ for details."
+#: ./browser/views/display.py:288
+msgid "label_highslide_user_warning"
+msgstr "No se puede usar la galería Highslide con ánimo comercial a no ser que compres un licencia. Ver http://highslide.com/"
+
+#. Default: "Change Duration"
+#: ./content/gallery.py:100
+#: ./interfaces.py:259
+msgid "label_image_change_duration"
+msgstr "Duración de los cambios"
+
+#. Default: "There are no images in this gallery."
+#: ./browser/views/layout.pt:25
+msgid "label_no_images_in_gallery"
+msgstr "No hay imágenes en esta galería."
+
+#. Default: "Picasa Album"
+#: ./interfaces.py:388
+#, fuzzy
+msgid "label_picasa_album"
+msgstr "Álbum de Picasa"
+
+#. Default: "Picasa Web Albums"
+#: ./galleryadapters/picasa.py:31
+msgid "label_picasa_gallery_type"
+msgstr "Galerias de Picasa"
+
+#. Default: "GMail address"
+#: ./interfaces.py:379
+#, fuzzy
+msgid "label_picasa_username"
+msgstr "Dirección de gmail"
+
+#. Default: "Show"
+#: ./content/config.py:9
+msgid "label_show"
+msgstr "Mostrar"
+
+#. Default: "Carousel"
+#: ./content/gallery.py:63
+#: ./interfaces.py:295
+#, fuzzy
+msgid "label_show_carousel"
+msgstr "Carrusel"
+
+#. Default: "Info Pane"
+#: ./content/gallery.py:71
+#: ./interfaces.py:305
+#, fuzzy
+msgid "label_show_info_pane"
+msgstr "Panel de información"
+
+#. Default: "Show Sub-Galleries?"
+#: ./interfaces.py:268
+msgid "label_show_subgalleries"
+msgstr "Mostrar sub-galerías"
+
+#. Default: "Large"
+#: ./content/gallery.py:42
+#: ./interfaces.py:224
+msgid "label_size_large"
+msgstr "Grande"
+
+#. Default: "Medium"
+#: ./content/gallery.py:41
+#: ./interfaces.py:223
+msgid "label_size_medium"
+msgstr "Medio"
+
+#. Default: "Small"
+#: ./content/gallery.py:40
+#: ./interfaces.py:222
+msgid "label_size_small"
+msgstr "Pequeño"
+
+#. Default: "Slideshow type effect"
+#: ./content/gallery.py:125
+#: ./interfaces.py:315
+msgid "label_slideshowEffect"
+msgstr "Tipo de efecto de exhibición"
+
+#. Default: "Flash"
+#: ./content/gallery.py:131
+#: ./interfaces.py:322
+msgid "label_slideshowEffect_flash"
+msgstr "Flash"
+
+#. Default: "Fold"
+#: ./content/gallery.py:132
+#: ./interfaces.py:323
+msgid "label_slideshowEffect_fold"
+msgstr "Doblar"
+
+#. Default: "Ken Burns"
+#: ./content/gallery.py:133
+#: ./interfaces.py:324
+msgid "label_slideshowEffect_kenburns"
+msgstr "Ken Burns"
+
+#. Default: "none"
+#: ./content/gallery.py:135
+#: ./interfaces.py:326
+msgid "label_slideshowEffect_none"
+msgstr "Ninguno"
+
+#. Default: "Push"
+#: ./content/gallery.py:134
+#: ./interfaces.py:325
+msgid "label_slideshowEffect_push"
+msgstr "Empujar"
+
+#. Default: "Slideshow 2"
+#: ./browser/views/display.py:111
+msgid "label_slideshow_display_type"
+msgstr "Exhibición de tipo 2"
+
+#. Default: "Timed?"
+#: ./content/gallery.py:79
+#: ./interfaces.py:241
+msgid "label_timed"
+msgstr "Temporizado?"
+
+#. Default: "Transition"
+#: ./content/gallery.py:112
+msgid "label_transition"
+msgstr "Transición"
+
+#. Default: "Could not find flickr set."
+#: ./validators.py:72
+#, fuzzy
+msgid "label_validate_flickr_find_set"
+msgstr "No se ha encontrado colección de flickr"
+
+#. Default: "You must specify a flickr set to use."
+#: ./validators.py:61
+#, fuzzy
+msgid "label_validate_flickr_specify_user"
+msgstr "Hay que especificar una colección de flickr"
+
+#. Default: "You must specify a username."
+#: ./validators.py:96
+#, fuzzy
+msgid "label_validate_flickr_specify_username"
+msgstr "Hay que especificar un nombre de usuario"
+
+#. Default: "Could not find flickr user."
+#: ./validators.py:105
+#, fuzzy
+msgid "label_validate_flickr_user"
+msgstr "No se ha encontrado usuario de flickr"
+
+#. Default: "You must specify a picasa album."
+#: ./validators.py:148
+msgid "label_validate_picasa_ablum_empty"
+msgstr "Hay que especificar un álbum de Picasa"
+
+#. Default: "Could not find album."
+#: ./validators.py:157
+#, fuzzy
+msgid "label_validate_picasa_find_album"
+msgstr "No se ha encontrado el álbun"
+
+#. Default: "You must specify a picasa username with the '@gmail.com'"
+#: ./validators.py:127
+#, fuzzy
+msgid "label_validate_picasa_specify_username"
+msgstr "El nombre de usuario de picasa ha de acabar en '@gmail.com'"
+
+#. Default: "There are no changes in the Gallery settings."
+#: ./browser/views/settings.py:31
+msgid "noChangesMessage_gallery_settings_form"
+msgstr "No hay cambios en la configuración de la galería"
+
+#. Default: "Gallery Settings Saved."
+#: ./browser/views/settings.py:30
+msgid "successMessage_gallery_settings_form"
+msgstr "Cambios guardados."
+

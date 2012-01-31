@@ -1,0 +1,84 @@
+div.gallery-portlet-controls{
+    text-align:center;
+}
+
+dl.applied-portlet-gallery{
+    position:relative;
+}
+
+dl.applied-portlet-gallery dd.portletItem{
+    padding:0;
+    margin:0;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls{
+    position:absolute;
+    top:35px;
+    width:95px;
+    height:27px;
+    margin:auto;
+    display:none;
+    z-index:5;
+    background-image:url(++resource++plonetruegallery.resources/portlet/control.png);
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span{
+    position:absolute;
+    top:6px;
+}
+dl.applied-portlet-gallery div.gallery-portlet-controls span a{
+    color:transparent;
+    display: block;
+    cursor: pointer;
+    height:15px;
+}
+
+dl.applied-portlet-gallery dd a{
+    color:transparent !important;
+    border-bottom:none !important;
+}
+
+dl.applied-portlet-gallery a:hover{
+    color:transparent !important;
+    border-bottom:none !important;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span.next{
+    left:65px;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span.next a{
+    background-image:url(++resource++plonetruegallery.resources/portlet/next.png);
+    width:25px;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span.prev a{
+    background-image:url(++resource++plonetruegallery.resources/portlet/prev.png);
+    width:25px;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span.prev{
+    left:5px;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span.play-pause{
+    left:40px;
+    top:5px;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span.play-pause a{
+    background-image:url(++resource++plonetruegallery.resources/portlet/play.png);
+    width:20px;
+    height:17px;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span.timed{
+    left:40px;
+    top:7px;
+}
+
+dl.applied-portlet-gallery div.gallery-portlet-controls span.timed a{
+    background-image:url(++resource++plonetruegallery.resources/portlet/pause.png);
+    width:16px;
+    height:13px;
+}

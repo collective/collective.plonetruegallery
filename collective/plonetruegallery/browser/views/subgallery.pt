@@ -1,0 +1,17 @@
+<tal:show tal:condition="view/show_subgalleries"
+          i18n:domain="collective.plonetruegallery">
+  <h3 class="centered-title" i18n:translate="heading_sub_galleries">sub galleries</h3>
+  <div class="plone-true-gallery-subgalleries">
+    <tal:galleries tal:repeat="gallery view/adapter/subgalleries">
+      <dl tal:define="adapted python:view.getAdaptedGallery(gallery.getObject())">
+        <a tal:attributes="href gallery/getURL">
+          <div class="subgallery" tal:define="image adapted/get_random_image">
+            <dt class="subgallery-title" tal:content="gallery/Title"> </dt>
+            <img tal:condition="image" tal:attributes="src image/thumb_url" />
+          </div>
+        </a>
+      </dl>
+    </tal:galleries>
+  </div>
+  <div class="clear"></div>
+</tal:show>

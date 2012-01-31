@@ -1,0 +1,10 @@
+<div class="plonetruegallery">
+  <p class="plonetruegallery"> 
+    <a tal:repeat="image view/batch"  
+       class="fancyzoom-gallery" rel="group" 
+       tal:attributes="title string:${image/title}-${image/description};
+                       href image/image_url;">
+      <img tal:attributes="src image/thumb_url; alt image/description" />
+  	</a>
+  </p>
+</div>

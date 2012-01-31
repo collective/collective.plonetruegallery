@@ -1,0 +1,25 @@
+<div id="container">
+    <div id="gallery" class="content"> 
+        <div id="controls" class="controls"></div> 
+        <div class="slideshow-container"> 
+            <div id="loading" class="loader"></div> 
+            <div id="slideshow" class="slideshow"></div> 
+            <div id="caption" class="caption-container"></div> 
+        </div> 
+    </div> 
+    <div id="thumbs">
+        <ul class="thumbs noscript">
+            <li tal:repeat="img view/adapter/cooked_images">
+                <a class="thumb" name="optionalCustomIdentifier" href="path/to/slide" title="your image title"
+                    tal:attributes="href img/image_url; title img/title">
+                    <img src="path/to/thumbnail" alt="your image title again for graceful degradation"
+                        tal:attributes="src img/thumb_url; alt string:${img/title} - ${img/description};" />
+                </a>
+                <div class="caption">
+                    <div class="image-title" tal:content="img/title">Title</div> 
+                    <div class="image-desc" tal:content="structure img/description">Description</div> 
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

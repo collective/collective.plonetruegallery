@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.plonetruegallery">
+
+	<include package=".views" />
+
+    <browser:page
+        name="plonetruegallery_util"
+        for="*"
+        permission="zope2.View"
+        class=".util.PTGUtility"
+        allowed_interface=".interfaces.IPTGUtility"
+        />
+    
+    <!-- We need to make the request annotatable for this to work -->
+    <class class="ZPublisher.BaseRequest.BaseRequest">
+        <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
+    </class>
+
+    <browser:resource
+        name="plonetruegallery-portlet.css"
+        file="files/portlet/portlet.css"
+    />
+    
+    <browser:resource
+        name="plonetruegallery-portlet.js"
+        file="files/portlet/portlet.js"
+    />
+
+    <browser:resourceDirectory
+        name="plonetruegallery.resources"
+        directory="files"
+    />
+
+</configure>

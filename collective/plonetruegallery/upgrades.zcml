@@ -1,0 +1,40 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:gs="http://namespaces.zope.org/genericsetup"
+  i18n_domain="collective.plonetruegallery">
+        
+  <gs:upgradeStep
+    title="Upgrade collective.plonetruegallery to 0.8a1"
+    description="collective.plonetruegallery upgrade step"
+    source="*"
+    destination="0.8a1"
+    handler=".upgrades.upgrade_to_0_8a1"
+    profile="collective.plonetruegallery:default"/>
+
+  <gs:upgradeStep
+    title="Upgrade collective.plonetruegallery to 0.8.1a3"
+    description="collective.plonetruegallery upgrade step"
+    checker=".upgrades.check_should_upgrade_to_0_8_1a3"
+    handler=".upgrades.upgrade_to_0_8_1a3"
+    profile="collective.plonetruegallery:default" 
+    />
+    
+  <gs:upgradeStep
+    title="Upgrade collective.plonetruegallery to 0.9.0b1"
+    description="collective.plonetruegallery upgrade step"
+    checker=".upgrades.check_should_upgrade_to_0_9_0b1"
+    handler=".upgrades.upgrade_to_0_9_0b1"
+    profile="collective.plonetruegallery:default" 
+    />
+
+  <gs:upgradeStep
+    title="Upgrade collective.plonetruegallery to 1.0.5"
+    description="collective.plonetruegallery upgrade step"
+    source="*"
+    destination="1.0.5"
+    handler=".upgrades.upgrade_to_1_0_5"
+    profile="collective.plonetruegallery:default" 
+    />
+
+               
+</configure>

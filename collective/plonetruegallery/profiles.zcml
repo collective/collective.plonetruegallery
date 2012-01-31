@@ -1,0 +1,31 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  i18n_domain="collective.plonetruegallery">
+
+  <genericsetup:registerProfile
+    name="default"
+    title="collective.plonetruegallery"
+    directory="profiles/default"
+    description='Extension profile for the "collective.plonetruegallery" Plone product.'
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+      
+  <genericsetup:registerProfile
+    name="uninstall"
+    title="collective.plonetruegallery Uninstall Profile"
+    directory="profiles/uninstall"
+    description="Removes collective.plonetruegallery."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    />
+        
+  <genericsetup:registerProfile
+    name="upgrade_to_0_8a1"
+    title="collective.plonetruegallery Upgrade to 0.8 profile"
+    directory="profiles/to_0_8a1"
+    description='Extension profile for the "collective.plonetruegallery" Plone product.'
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+        
+</configure>

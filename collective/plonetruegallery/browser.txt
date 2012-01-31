@@ -1,0 +1,274 @@
+collective.plonetruegallery doc tests
+=====================================
+
+This file demonstrates the use of galleries in various ways and ensures
+a consistent behavior through code changes. It will go through creating
+galleries, selecting settings, adding sub-galleries, validation, and
+using different gallery types.
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> from zope.testbrowser import interfaces
+    >>> from zope.interface.verify import verifyObject
+    >>> self.setRoles(("Manager",))
+
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    >>> portal_url = self.portal.absolute_url()
+    >>> from Products.PloneTestCase.setup import portal_owner, default_password
+
+    >>> browser.open(portal_url + '/login_form?came_from=' + portal_url)
+    >>> browser.getControl(name='__ac_name').value = portal_owner
+    >>> browser.getControl(name='__ac_password').value = default_password
+    >>> browser.getControl(name='submit').click()
+
+You *must* remove portlets to ensure you're testing some of these things
+properly
+
+We then turn off the various portlets, because they sometimes duplicate links
+and text (e.g. the navtree, the recent recent items listing) that we wish to
+test for in our own views. Having no portlets makes things easier.
+
+    >>> from zope.component import getUtility, getMultiAdapter
+    >>> from plone.portlets.interfaces import IPortletManager
+    >>> from plone.portlets.interfaces import IPortletAssignmentMapping
+
+    >>> left_column = getUtility(IPortletManager, name=u"plone.leftcolumn")
+    >>> left_assignable = getMultiAdapter((self.portal, left_column), IPortletAssignmentMapping)
+    >>> for name in left_assignable.keys():
+    ...     del left_assignable[name]
+
+    >>> right_column = getUtility(IPortletManager, name=u"plone.rightcolumn")
+    >>> right_assignable = getMultiAdapter((self.portal, right_column), IPortletAssignmentMapping)
+    >>> for name in right_assignable.keys():
+    ...     del right_assignable[name]
+
+    >>> browser.open(self.portal.absolute_url())
+
+
+Creating Galleries
+------------------
+
+First, create a folder to house the gallery.
+
+    >>> browser.getLink(text="Folder").click()
+    >>> browser.getControl("Title").value = "My Gallery"
+    >>> browser.getControl("Save").click()
+
+Now, change the folder view to a gallery view.
+
+    >>> browser.getLink(text="Gallery View").click()
+
+There should not be any images in the gallery though...
+
+    >>> "There are no images in this gallery." in browser.contents
+    True
+
+Now we'll add images to the gallery--there is no easy
+way put images on these tests so we'll just do it manually
+
+    >>> my_gallery = self.portal['my-gallery']
+    >>> my_gallery.invokeFactory(id='1', type_name="Image")
+    '1'
+    >>> my_gallery['1'].setDescription("My Description 1")
+    >>> my_gallery['1'].setTitle("My Title 1")
+    >>> my_gallery['1'].indexObject()
+
+    >>> my_gallery.invokeFactory(id='2', type_name="Image")
+    '2'
+    >>> my_gallery['2'].setDescription("My Description 2")
+    >>> my_gallery['2'].setTitle("My Title 2")
+    >>> my_gallery['2'].indexObject()
+
+    >>> my_gallery.invokeFactory(id='3', type_name="Image")
+    '3'
+    >>> my_gallery['3'].setDescription("My Description 3")
+    >>> my_gallery['3'].setTitle("My Title 3")
+    >>> my_gallery['3'].indexObject()
+
+It should display images now...
+
+    >>> browser.getLink("My Gallery").click()
+    >>> "There are no images in this gallery." in browser.contents
+    False
+    
+Make sure the slideshow 2 gallery is used and then check that it
+displays the images...
+
+    >>> browser.getLink("Gallery Settings").click()
+    >>> browser.getControl(name="form.widgets.display_type:list").value = ["slideshow"]
+    >>> browser.getControl("Apply").click()
+    >>> browser.getLink("My Gallery").click()
+
+    >>> "new Slideshow.KenBurns(" in browser.contents
+    True
+    >>> my_gallery['1'].absolute_url() in browser.contents
+    True
+    >>> my_gallery['2'].absolute_url() in browser.contents
+    True
+    >>> my_gallery['3'].absolute_url() in browser.contents
+    True
+
+Change the slideshow 2 effect and make sure it generates the correct code.
+    >>> browser.getLink("Gallery Settings").click()
+    >>> browser.getControl(name="form.widgets.slideshow_effect:list").value = ["flash:Slideshow.Flash"]
+    >>> browser.getControl("Apply").click()
+
+    >>> browser.getLink("My Gallery").click()
+    >>> "new Slideshow.Flash(" in browser.contents
+    True
+
+    >>> browser.getLink("Gallery Settings").click()
+    >>> browser.getControl(name="form.widgets.slideshow_effect:list").value = ["fold:Slideshow.Fold"]
+    >>> browser.getControl("Apply").click()
+
+    >>> browser.getLink("My Gallery").click()
+    >>> "new Slideshow.Fold(" in browser.contents
+    True
+	
+Right now there are not any sub-galleries, so there shouldn't be a header showing...
+    >>> "<h3 class=\"centered-title\">sub-galleries</h3>" in browser.contents
+    False
+
+
+Adding Sub-Galleries
+--------------------
+
+    >>> my_gallery.invokeFactory(id='subgallery-1', type_name="Folder")
+    'subgallery-1'
+    >>> my_gallery['subgallery-1'].setTitle('Sub-Gallery 1')
+    >>> my_gallery['subgallery-1'].indexObject()
+
+    >>> my_gallery.invokeFactory(id='subgallery-2', type_name="Folder")
+    'subgallery-2'
+    >>> my_gallery['subgallery-2'].setTitle('Sub-Gallery 2')
+    >>> my_gallery['subgallery-2'].indexObject()
+
+Select the gallery view for each of these folders
+
+    >>> browser.open(my_gallery['subgallery-1'].absolute_url())
+    >>> browser.getLink(text="Gallery View").click()
+    >>> browser.open(my_gallery['subgallery-2'].absolute_url())
+    >>> browser.getLink(text="Gallery View").click()
+
+They still shouldn't be showing until we select the gallery view for them..
+
+    >>> browser.open(my_gallery.absolute_url())
+    >>> "Sub-Gallery 1" in browser.contents
+    True
+    >>> "Sub-Gallery 2" in browser.contents
+    True
+
+Now, make sure those sub-galleries are showing...
+
+    >>> browser.open(my_gallery.absolute_url())
+    >>> my_gallery['subgallery-1'].Title() in browser.contents
+    True
+    >>> my_gallery['subgallery-2'].Title() in browser.contents
+    True
+
+Now, de-select their the Gallery View to make sure they are not shown
+
+    >>> browser.open(my_gallery['subgallery-1'].absolute_url())
+    >>> browser.getLink(text="Summary view").click()
+    >>> browser.open(my_gallery['subgallery-2'].absolute_url())
+    >>> browser.getLink(text="Summary view").click()
+
+    >>> browser.open(my_gallery.absolute_url())
+    >>> my_gallery['subgallery-1'].Title() in browser.contents
+    False
+    >>> my_gallery['subgallery-2'].Title() in browser.contents
+    False
+
+Select them again since we'll need them...
+
+    >>> browser.open(my_gallery['subgallery-1'].absolute_url())
+    >>> browser.getLink(text="Gallery View").click()
+    >>> browser.open(my_gallery['subgallery-2'].absolute_url())
+    >>> browser.getLink(text="Gallery View").click()
+
+
+We'll make some more nested galleries to make sure the galleries show up
+in the correct places.    
+
+    >>> sub1 = my_gallery['subgallery-1']
+    >>> sub1.invokeFactory(id='subgallery-3', type_name="Folder")
+    'subgallery-3'
+    >>> sub1['subgallery-3'].indexObject()
+
+    >>> sub1.invokeFactory(id='subgallery-4', type_name="Folder")
+    'subgallery-4'
+    >>> sub1['subgallery-4'].indexObject()
+
+    >>> sub1['subgallery-3'].invokeFactory(id='subgallery-5', type_name="Folder")
+    'subgallery-5'
+    >>> sub1['subgallery-3']['subgallery-5'].indexObject()
+
+Select Gallery View for each of them too.
+
+    >>> browser.open(sub1['subgallery-3'].absolute_url())
+    >>> browser.getLink(text="Gallery View").click()    
+    >>> browser.open(sub1['subgallery-4'].absolute_url())
+    >>> browser.getLink(text="Gallery View").click()
+    >>> browser.open(sub1['subgallery-3']['subgallery-5'].absolute_url())
+    >>> browser.getLink(text="Gallery View").click()
+
+Again, check the first gallery to only have those two sub-galleries
+
+    >>> browser.open(my_gallery.absolute_url())
+    >>> my_gallery['subgallery-1'].absolute_url() in browser.contents
+    True
+    >>> my_gallery['subgallery-2'].absolute_url() in browser.contents
+    True
+    >>> sub1['subgallery-3'].absolute_url() in browser.contents
+    False
+    >>> sub1['subgallery-4'].absolute_url() in browser.contents
+    False
+    >>> sub1['subgallery-3']['subgallery-5'].absolute_url() in browser.contents
+    False
+
+Traverse down one and check it again,
+
+    >>> browser.open(sub1.absolute_url())
+    >>> "Sub-Gallery 1" in browser.contents
+    True
+    >>> "Sub-Gallery 2" in browser.contents
+    False
+    >>> sub1['subgallery-3'].absolute_url() in browser.contents
+    True
+    >>> sub1['subgallery-4'].absolute_url() in browser.contents
+    True
+    >>> sub1['subgallery-3']['subgallery-5'].absolute_url() in browser.contents
+    False
+
+Traverse again and see that none are shown
+
+    >>> browser.open(sub1['subgallery-4'].absolute_url())
+
+Should be in because of breadcrumbs..
+
+    >>> "Sub-Gallery 1" in browser.contents
+    True
+    >>> "Sub-Gallery 2" in browser.contents
+    False
+    >>> sub1['subgallery-3'].absolute_url() in browser.contents
+    False
+    >>> sub1['subgallery-4'].absolute_url() in browser.contents
+    True
+    >>> sub1['subgallery-3']['subgallery-5'].absolute_url() in browser.contents
+    False
+
+Also check to make sure that when you choose to not display sub-galleries it
+actually does not display them.
+
+    >>> browser.open(my_gallery.absolute_url())
+    >>> browser.getLink("Gallery Settings").click()
+    >>> browser.getControl(name="form.widgets.show_subgalleries:list").value = False
+    >>> browser.getControl("Apply").click()
+    >>> browser.open(my_gallery.absolute_url())
+
+    >>> '<dt class="subgallery-title">Sub-Gallery 1</dt>' in browser.contents
+    False
+    >>> '<dt class="subgallery-title">Sub-Gallery 2</dt>' in browser.contents
+    False
+
+

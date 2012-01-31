@@ -1,0 +1,156 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+	xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:gallery="http://namespaces.zope.org/gallery"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.plonetruegallery">
+
+    <include package="plone.app.contentmenu" />
+
+    <browser:page
+        name="gallery-settings"
+        for="collective.plonetruegallery.interfaces.IGallery"
+        class=".settings.GallerySettingsView"
+        permission="collective.plonetruegallery.manage"
+    />
+
+    <adapter
+        for="collective.plonetruegallery.interfaces.IGallery"
+        provides="collective.plonetruegallery.interfaces.IGallerySettings"
+        factory="collective.plonetruegallery.settings.GallerySettings"
+    />
+    <adapter
+        for="collective.plonetruegallery.interfaces.IGallery"
+        provides="collective.plonetruegallery.interfaces.IHighSlideDisplaySettings"
+        factory=".display.HighSlideSettings"
+    />
+    <adapter
+        for="collective.plonetruegallery.interfaces.IGallery"
+        provides="collective.plonetruegallery.interfaces.IFancyBoxDisplaySettings"
+        factory=".display.FancyBoxSettings"
+    />
+    <adapter
+        for="collective.plonetruegallery.interfaces.IGallery"
+        provides="collective.plonetruegallery.interfaces.ISlideShowDisplaySettings"
+        factory=".display.SlideshowSettings"
+    />
+    <adapter
+        for="collective.plonetruegallery.interfaces.IGallery"
+        provides="collective.plonetruegallery.interfaces.IGallerifficDisplaySettings"
+        factory=".display.GallerifficSettings"
+    />
+
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="galleryview"
+        class=".galleryview.GalleryView"
+        template="layout.pt"
+        permission="zope2.View"
+    />
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="galleryview-slideshow"
+        class=".display.SlideshowDisplayType"
+        template="slideshow.pt"
+        permission="zope2.View"
+    />
+    <utility
+        component=".display.SlideshowDisplayType"
+        provides="collective.plonetruegallery.interfaces.IDisplayType"
+        name="galleryview-slideshow" />
+
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="galleryview-highslide"
+        class=".display.HighSlideDisplayType"
+        template="highslide.pt"
+        permission="zope2.View"
+    />
+    <utility
+        component=".display.HighSlideDisplayType"
+        provides="collective.plonetruegallery.interfaces.IDisplayType"
+        name="galleryview-highslide" />
+
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="galleryview-fancybox"
+        class=".display.FancyBoxDisplayType"
+        template="fancybox.pt"
+        permission="zope2.View"
+    />
+    <utility
+        component=".display.FancyBoxDisplayType"
+        provides="collective.plonetruegallery.interfaces.IDisplayType"
+        name="galleryview-fancybox" />
+
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="galleryview-galleriffic"
+        class=".display.GallerifficDisplayType"
+        template="galleriffic.pt"
+        permission="zope2.View"
+    />
+    <utility
+        component=".display.GallerifficDisplayType"
+        provides="collective.plonetruegallery.interfaces.IDisplayType"
+        name="galleryview-galleriffic" />
+
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="placegalleryview"
+        class=".galleryview.GalleryView"
+        template="placelayout.pt"
+        permission="zope2.View"
+    />
+
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="refresh"
+        class=".galleryview.ForceCookingOfImages"
+        permission="collective.plonetruegallery.manage"
+    />
+
+    <browser:page
+        for="*"
+        name="refresh_all_galleries"
+        class=".galleryview.ForceCookingOfAllGalleries"
+        permission="collective.plonetruegallery.manage"
+    />
+
+    <browser:menuItem zcml:condition="not-installed zope.browsermenu"
+        for="collective.plonetruegallery.interfaces.IGallery"
+        menu="plone_displayviews"
+        title="Gallery View"
+        action="galleryview"
+        description="Displays a gallery."
+        i18n:attributes="title; description"
+    />
+
+    <browser:menuItem zcml:condition="installed zope.browsermenu"
+        for="collective.plonetruegallery.interfaces.IGallery"
+        menu="plone.app.contentmenu.interfaces.IDisplayViewsMenu"
+        title="Gallery View"
+        action="galleryview"
+        description="Displays a gallery."
+        i18n:attributes="title; description"
+    />
+
+    <browser:page
+        for="*"
+        name="get-image-for-gallery-portlet"
+        class=".galleryview.AJAX"
+        attribute="get_image"
+        permission="zope2.View"
+    />
+
+    <!-- Enable re-use of view template macro -->
+    <browser:page
+        for="*"
+        name="collective.plonetruegallery.macros"
+        template="layout.pt"
+        permission="zope2.View"
+    />
+
+</configure>

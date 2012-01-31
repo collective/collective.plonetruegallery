@@ -1,0 +1,5 @@
+recursive-include collective *
+recursive-include docs *
+global-exclude *pyc
+global-exclude collective/plonetruegallery/i18n/._*
+global-exclude collective/plonetruegallery/i18n/.registration.cache

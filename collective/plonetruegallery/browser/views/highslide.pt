@@ -1,0 +1,16 @@
+<div class="highslide-gallery plonetruegallery"
+     tal:define="batch view/batch;">
+  <p>
+    <span tal:repeat="image batch">
+      <a class="highslide" rel="group" onclick="return hs.expand(this)"
+         tal:attributes="title string:${image/title} - ${image/description};
+                         href image/image_url;">
+        <img tal:attributes="src image/thumb_url; 
+                             alt string:${image/title} - ${image/description}" />
+      </a>
+      <span class="highslide-heading">
+        <a href="image" tal:content="image/title" tal:attributes="href image/link">Image Title</a>
+      </span>
+    </span>
+  </p>
+</div>

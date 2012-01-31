@@ -1,0 +1,29 @@
+<metal:page define-macro="master"> 
+  <html>
+  <head>
+    <div tal:replace="structure provider:plone.htmlhead" />
+    <tal:replace tal:replace="structure view/displayer/css" />
+    <tal:replace tal:replace="structure view/displayer/javascript" />
+  </head>
+
+  <body class="placelayout">
+    <div class="noimages" tal:condition="python: view.adapter.number_of_images == 0">
+      <p class="discreet" i18n:translate="label_no_images_in_gallery">
+        There are no images in this gallery.
+      </p>
+    </div>
+
+    <tal:display tal:condition="python: view.adapter.number_of_images > 0" tal:content="structure view/displayer/content" />
+	
+    <tal:batch tal:condition="view/is_batch">
+      <tal:def tal:define="batch view/displayer/batch">
+    	<div metal:use-macro="view/context/batch_macros/macros/navigation"> 
+	  Navigation
+        </div>
+      </tal:def>
+    </tal:batch>
+    <tal:subgallery tal:replace="structure view/subgallery_template" />	
+ 
+  </body>
+  </html>
+</metal:page>

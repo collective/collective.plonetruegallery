@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<portlets>
+
+    <!-- Portlet type registrations -->
+    <portlet
+        addview="collective.plonetruegallery.gallery"
+        title="Plone True Gallery Portlet"
+        description="A portlet shows gallery images."
+    />
+
+</portlets>

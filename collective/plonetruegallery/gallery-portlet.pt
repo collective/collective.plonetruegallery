@@ -1,0 +1,42 @@
+<dl class="portlet portletGallery"
+    i18n:domain="plone"
+    tal:condition="python: view.gallery and view.gallery_adapter.number_of_images > 0"
+    tal:attributes="
+      id string:gallery-portlet-${view/gallery/getId};
+      class python: view.style_classes">
+	
+    <dt class="portletHeader" tal:condition="view/data/show_title">
+        <span class="portletTopLeft"></span>
+        <a tal:attributes="href view/gallery/absolute_url">
+            <span tal:content="view/gallery/Title" />
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+    
+    <dd class="portletItem"
+        tal:define="image view/current_image">
+        <div tal:attributes="class python: view.hide_controls() and 'gallery-portlet-controls hide' or 'gallery-portlet-controls'">
+          
+          <span class="prev">
+            <a href="#" 
+            tal:attributes="href string:${view/context/absolute_url}?${view/portlet_adapter/prev_image_url_params}">prev</a>
+          </span>
+          <span style="display:none" class='play-pause'><a href='#'>pause</a></span>
+          <span class="next">
+            <a href="#" 
+            tal:attributes="href string:${view/context/absolute_url}?${view/portlet_adapter/next_image_url_params}">next</a>
+          </span>
+        </div>
+        <a href="#"
+           class="image-container"
+           tal:attributes="href python: view.portlet_adapter.image_link(image);
+                           title image/description">
+            <img tal:attributes="src image/image_url;
+                                 title image/title; 
+                                 alt image/description;
+                                 width string:${view/data/width}px;"
+             />
+        </a>
+    </dd>
+
+</dl>

@@ -1,0 +1,498 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# Finnish translations for collective.plonetruegallery package.
+# Ilja Everilä <ilja.everila@twinapex.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.plonetruegallery 0.7rc1-py2.4.egg\n"
+"POT-Creation-Date: 2010-07-28 14:17+0000\n"
+"PO-Revision-Date: 2009-08-28 16:49+0300\n"
+"Last-Translator: Ilja Everilä <ilja.everila@twinapex.com>\n"
+"Language-Team: Finnish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Code: fi\n"
+"Language-Name: Finnish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.plonetruegallery\n"
+
+#: ./browser/views/settings.py:78
+msgid "Apply"
+msgstr ""
+
+#: ./browser/views/settings.py:63
+msgid "Display Type Settings"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Gallery Settings"
+msgstr ""
+
+#. Default: "Gallery View"
+#: ./browser/views/configure.zcml
+msgid "Gallery View"
+msgstr ""
+
+#: ./browser/views/settings.py:17
+msgid "Main"
+msgstr ""
+
+#. Default: "The amount of images shown in one page. This is not used for all display types."
+#: ./interfaces.py:278
+msgid "description_batch_size"
+msgstr ""
+
+#. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
+#: ./content/gallery.py:90
+#: ./interfaces.py:250
+msgid "description_delay"
+msgstr "Viive ennen seuraavan kuvan näyttämistä millisekunteina, jos diaesitys on ajastettu."
+
+#. Default: "The amount of time the change effect should take in miliseconds."
+#: ./content/gallery.py:101
+#: ./interfaces.py:260
+msgid "description_fade_in_duration"
+msgstr "Muutosefektin kesto millisekunteina."
+
+#. Default: "Name/id of your flickr set.(*flickr* gallery type)"
+#: ./interfaces.py:369
+#, fuzzy
+msgid "description_flickr_set"
+msgstr "Flickr kuvasarjan nimi tai tunniste."
+
+#. Default: "The username/id of your flickr account. (*flickr* gallery type)"
+#: ./interfaces.py:360
+msgid "description_flickr_username"
+msgstr ""
+
+#. Default: "Configure the parameters for this gallery."
+#: ./browser/views/settings.py:28
+msgid "description_gallery_settings_form"
+msgstr ""
+
+#. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints."
+#: ./interfaces.py:216
+msgid "description_gallery_size"
+msgstr ""
+
+#. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
+#: ./content/gallery.py:24
+#: ./interfaces.py:202
+msgid "description_gallery_type"
+msgstr "Valitse haluamasi galleriatyyppi. Jos valitset muun kuin vakiotyypin, niin sinun tulee täyttää valitun galleriatyypin välilehden tiedot."
+
+#. Default: "The style of the border around the image. (*Highslide* display type)"
+#: ./interfaces.py:334
+msgid "description_highslide_outlineType"
+msgstr ""
+
+#. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
+#: ./interfaces.py:389
+#, fuzzy
+msgid "description_picasa_album"
+msgstr "Picasa verkkoalbumisi nimi. Tämä on osoitekentässä näkyvä hyväksytty nimi. Esimerkiksi albumin \"Omat Suosikit\" osoitekentässä lukee \"OmatSuosikit\". Käytä tätä nimeä."
+
+#. Default: "GMail address of who this album belongs to(including @gmail.com). (*Picasa* gallery type)"
+#: ./interfaces.py:380
+msgid "description_picasa_username"
+msgstr ""
+
+#. Default: "Show Carousel for Slideshow type? (*Slideshow 2* display type)"
+#: ./interfaces.py:296
+msgid "description_show_carousel"
+msgstr ""
+
+#. Default: "Show Info pane for Slideshow type? (*Slideshow 2* display type)"
+#: ./interfaces.py:306
+msgid "description_show_info_pane"
+msgstr ""
+
+#. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
+#: ./interfaces.py:269
+msgid "description_show_subgalleries"
+msgstr ""
+
+#. Default: "Select the effect you want to use. (*Slideshow 2* display type)"
+#: ./content/gallery.py:126
+#: ./interfaces.py:316
+#, fuzzy
+msgid "description_slideshowEffect"
+msgstr "Valitse efekti, jota haluat käyttää (vain Slideshow 2 gallerialle)."
+
+#. Default: "Should this gallery automatically change images for the user?"
+#: ./content/gallery.py:80
+#: ./interfaces.py:242
+msgid "description_timed"
+msgstr "Tuleeko tämän gallerian vaihtaa kuvaa automaattisesti käyttäjän puolesta?"
+
+#. Default: "Select the transition you want to use when an image is being added(only for classic gallery)."
+#: ./content/gallery.py:113
+msgid "description_transition"
+msgstr "Valitse käytettävä siirtymä jota haluat käyttää, kun kuva lisätään (vain classic gallerialle)."
+
+#. Default: "This portlet allows you to show gallery images in a portlet."
+#: ./portlets.py:191
+msgid "gallery_portlet_add_form_description"
+msgstr ""
+
+#. Default: "Add Gallery"
+#: ./portlets.py:190
+msgid "gallery_portlet_add_form_title"
+msgstr ""
+
+#. Default: "Edit Gallery Portlet"
+#: ./portlets.py:201
+msgid "gallery_portlet_edit_form_description"
+msgstr ""
+
+#. Default: "The gallery to show in this portlet."
+#: ./portlets.py:33
+msgid "gallery_portlet_gallery_description"
+msgstr ""
+
+#. Default: "Gallery"
+#: ./portlets.py:32
+msgid "gallery_portlet_gallery_title"
+msgstr ""
+
+#. Default: "Hide Controls"
+#: ./portlets.py:56
+msgid "gallery_portlet_hide_controls"
+msgstr ""
+
+#. Default: "Hide portlet gallery controls"
+#: ./portlets.py:57
+msgid "gallery_portlet_hide_controls_description"
+msgstr ""
+
+#. Default: "Check to show the title of the gallery in the portlet"
+#: ./portlets.py:26
+msgid "gallery_portlet_show_title_description"
+msgstr ""
+
+#. Default: "Show Title?"
+#: ./portlets.py:25
+msgid "gallery_portlet_show_title_title"
+msgstr ""
+
+#. Default: "Do you want the gallery to be timed?"
+#: ./portlets.py:49
+msgid "gallery_portlet_timed_description"
+msgstr ""
+
+#. Default: "Timed"
+#: ./portlets.py:48
+msgid "gallery_portlet_timed_title"
+msgstr ""
+
+#. Default: "The width of the image in the portlet"
+#: ./portlets.py:41
+msgid "gallery_portlet_width_description"
+msgstr ""
+
+#. Default: "Width"
+#: ./portlets.py:40
+msgid "gallery_portlet_width_title"
+msgstr ""
+
+#. Default: "Gallery"
+#: ./browser/views/settings.py:27
+msgid "heading_gallery_settings_form"
+msgstr ""
+
+#. Default: "sub galleries"
+#: ./browser/views/subgallery.pt:3
+msgid "heading_sub_galleries"
+msgstr ""
+
+#. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
+#: ./galleryadapters/base.py:22
+msgid "label_base_gallery_type"
+msgstr "base: tämä ei ole oikea galleriatyyppi. Vertaa abstraktit luokat..."
+
+#. Default: "Batch Size"
+#: ./interfaces.py:277
+msgid "label_batch_size"
+msgstr ""
+
+#. Default: "Use Plone To Manage Images"
+#: ./galleryadapters/basic.py:25
+#, fuzzy
+msgid "label_default_gallery_type"
+msgstr "vakio: Käytä Plonea kuvien hallintaan"
+
+#. Default: "Delay"
+#: ./content/gallery.py:89
+#: ./interfaces.py:249
+msgid "label_delay"
+msgstr "Viive"
+
+#. Default: "Fade"
+#: ./content/config.py:8
+msgid "label_fade"
+msgstr "Häivytys"
+
+#. Default: "Fancy Box"
+#: ./browser/views/display.py:244
+msgid "label_fancybox_display_type"
+msgstr ""
+
+#. Default: "Flickr"
+#: ./galleryadapters/flickr.py:28
+#, fuzzy
+msgid "label_flickr_gallery_type"
+msgstr "flickr: Galleria, joka käyttää Flickr sarjaa kuville"
+
+#. Default: "Flickr Set"
+#: ./interfaces.py:368
+#, fuzzy
+msgid "label_flickr_set"
+msgstr "Sarja"
+
+#. Default: "flickr username"
+#: ./interfaces.py:359
+#, fuzzy
+msgid "label_flickr_username"
+msgstr "Flickr tunnuksesi nimi tai tunniste"
+
+#. Default: "Gallery Display Type"
+#: ./content/gallery.py:50
+#: ./interfaces.py:229
+msgid "label_gallery_display_type"
+msgstr "Gallerian esitystapa"
+
+#. Default: "Choose the method in which the gallery should be displayed"
+#: ./content/gallery.py:51
+#: ./interfaces.py:230
+msgid "label_gallery_display_type_description"
+msgstr "Valitse esitystapa, jolla galleria näytetään"
+
+#. Default: "Gallery Name"
+#: ./content/gallery.py:14
+msgid "label_gallery_name"
+msgstr "Gallerian nimi"
+
+#. Default: "Size"
+#: ./content/gallery.py:37
+#: ./interfaces.py:215
+msgid "label_gallery_size"
+msgstr "Koko"
+
+#. Default: "Type"
+#: ./content/gallery.py:23
+#: ./interfaces.py:201
+msgid "label_gallery_type"
+msgstr "Tyyppi"
+
+#. Default: "Highslide - verify terms of use"
+#: ./browser/views/display.py:286
+msgid "label_highslide_display_type"
+msgstr ""
+
+#. Default: "Image outline type"
+#: ./interfaces.py:333
+msgid "label_highslide_outlineType"
+msgstr ""
+
+#. Default: "Drop Shadow"
+#: ./interfaces.py:345
+msgid "label_highslide_outlineType_drop_shadow"
+msgstr ""
+
+#. Default: "Glossy Dark"
+#: ./interfaces.py:347
+msgid "label_highslide_outlineType_glossy_dark"
+msgstr ""
+
+#. Default: "Outer Glow"
+#: ./interfaces.py:343
+msgid "label_highslide_outlineType_outer_glow"
+msgstr ""
+
+#. Default: "Rounded White"
+#: ./interfaces.py:341
+msgid "label_highslide_outlineType_rounded_white"
+msgstr ""
+
+#. Default: "You can only use the Highslide gallery for non-commercial use unless you purchase a commercial license. Please visit http://highslide.com/ for details."
+#: ./browser/views/display.py:288
+msgid "label_highslide_user_warning"
+msgstr ""
+
+#. Default: "Change Duration"
+#: ./content/gallery.py:100
+#: ./interfaces.py:259
+msgid "label_image_change_duration"
+msgstr "Vaihdon kesto"
+
+#. Default: "There are no images in this gallery."
+#: ./browser/views/layout.pt:25
+msgid "label_no_images_in_gallery"
+msgstr "Tässä galleriassa ei ole yhtään kuvaa."
+
+#. Default: "Picasa Album"
+#: ./interfaces.py:388
+#, fuzzy
+msgid "label_picasa_album"
+msgstr "Albumi"
+
+#. Default: "Picasa Web Albums"
+#: ./galleryadapters/picasa.py:31
+#, fuzzy
+msgid "label_picasa_gallery_type"
+msgstr "picasa: Galleria, joka käyttää Picasa verkkoalbumia kuville"
+
+#. Default: "GMail address"
+#: ./interfaces.py:379
+#, fuzzy
+msgid "label_picasa_username"
+msgstr "Albumin omistajan sähköpostiosoite (mukaanlukien @gmail.com)"
+
+#. Default: "Show"
+#: ./content/config.py:9
+msgid "label_show"
+msgstr "Näytä"
+
+#. Default: "Carousel"
+#: ./content/gallery.py:63
+#: ./interfaces.py:295
+#, fuzzy
+msgid "label_show_carousel"
+msgstr "Näytetäänkö karuselli?"
+
+#. Default: "Info Pane"
+#: ./content/gallery.py:71
+#: ./interfaces.py:305
+#, fuzzy
+msgid "label_show_info_pane"
+msgstr "Näytetäänkö infopaneeli?"
+
+#. Default: "Show Sub-Galleries?"
+#: ./interfaces.py:268
+msgid "label_show_subgalleries"
+msgstr ""
+
+#. Default: "Large"
+#: ./content/gallery.py:42
+#: ./interfaces.py:224
+msgid "label_size_large"
+msgstr "Suuri"
+
+#. Default: "Medium"
+#: ./content/gallery.py:41
+#: ./interfaces.py:223
+msgid "label_size_medium"
+msgstr "Keskikokoinen"
+
+#. Default: "Small"
+#: ./content/gallery.py:40
+#: ./interfaces.py:222
+msgid "label_size_small"
+msgstr "Pieni"
+
+#. Default: "Slideshow type effect"
+#: ./content/gallery.py:125
+#: ./interfaces.py:315
+#, fuzzy
+msgid "label_slideshowEffect"
+msgstr "Diaesityksen efekti"
+
+#. Default: "Flash"
+#: ./content/gallery.py:131
+#: ./interfaces.py:322
+msgid "label_slideshowEffect_flash"
+msgstr "Välähdys"
+
+#. Default: "Fold"
+#: ./content/gallery.py:132
+#: ./interfaces.py:323
+msgid "label_slideshowEffect_fold"
+msgstr "Taitos"
+
+#. Default: "Ken Burns"
+#: ./content/gallery.py:133
+#: ./interfaces.py:324
+msgid "label_slideshowEffect_kenburns"
+msgstr "Ken Burns"
+
+#. Default: "none"
+#: ./content/gallery.py:135
+#: ./interfaces.py:326
+msgid "label_slideshowEffect_none"
+msgstr "ei mitään"
+
+#. Default: "Push"
+#: ./content/gallery.py:134
+#: ./interfaces.py:325
+msgid "label_slideshowEffect_push"
+msgstr "Työntö"
+
+#. Default: "Slideshow 2"
+#: ./browser/views/display.py:111
+#, fuzzy
+msgid "label_slideshow_display_type"
+msgstr "Slideshow 2 javascript galleria"
+
+#. Default: "Timed?"
+#: ./content/gallery.py:79
+#: ./interfaces.py:241
+msgid "label_timed"
+msgstr "Ajastettu?"
+
+#. Default: "Transition"
+#: ./content/gallery.py:112
+msgid "label_transition"
+msgstr "Siirtymä"
+
+#. Default: "Could not find flickr set."
+#: ./validators.py:72
+#, fuzzy
+msgid "label_validate_flickr_find_set"
+msgstr "Flickr virhe: Flickr sarjaa ei löytynyt."
+
+#. Default: "You must specify a flickr set to use."
+#: ./validators.py:61
+#, fuzzy
+msgid "label_validate_flickr_specify_user"
+msgstr "Flickr virhe: Käytettävä flickr sarja on määriteltävä."
+
+#. Default: "You must specify a username."
+#: ./validators.py:96
+#, fuzzy
+msgid "label_validate_flickr_specify_username"
+msgstr "Flickr virhe: Flickr käyttäjä on määriteltävä."
+
+#. Default: "Could not find flickr user."
+#: ./validators.py:105
+#, fuzzy
+msgid "label_validate_flickr_user"
+msgstr "Flickr virhe: Ei voitu validoida flickr käyttäjää."
+
+#. Default: "You must specify a picasa album."
+#: ./validators.py:148
+msgid "label_validate_picasa_ablum_empty"
+msgstr ""
+
+#. Default: "Could not find album."
+#: ./validators.py:157
+#, fuzzy
+msgid "label_validate_picasa_find_album"
+msgstr "Picasa virhe: Albumia ei löytynyt."
+
+#. Default: "You must specify a picasa username with the '@gmail.com'"
+#: ./validators.py:127
+#, fuzzy
+msgid "label_validate_picasa_specify_username"
+msgstr "Picasa virhe: Picasa tunnus on määriteltävä \"@gmail.com\" päätteen kanssa."
+
+#. Default: "There are no changes in the Gallery settings."
+#: ./browser/views/settings.py:31
+msgid "noChangesMessage_gallery_settings_form"
+msgstr ""
+
+#. Default: "Gallery Settings Saved."
+#: ./browser/views/settings.py:30
+msgid "successMessage_gallery_settings_form"
+msgstr ""
+

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<import-steps>
+    <import-step id="collective.plonetruegallery.uninstall" version="1"
+        handler="collective.plonetruegallery.exportimport.uninstall"
+        title="Uninstall step for plonetruegallery">
+    </import-step>
+</import-steps>

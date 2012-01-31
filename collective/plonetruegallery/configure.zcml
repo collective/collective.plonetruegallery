@@ -1,0 +1,49 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:i18n="http://namespaces.zope.org/i18n"
+  xmlns:five="http://namespaces.zope.org/five"
+  i18n_domain="collective.plonetruegallery">
+
+	<!-- permission for managing galleries -->
+  <permission
+    id="collective.plonetruegallery.manage"
+    title="collective.plonetruegallery: manage galleries"
+    />
+
+  <include package="plone.app.z3cform" />
+
+  <!-- the order of these three lines is very important -->
+  <include package=".meta" />
+  <include package=".galleryadapters" />
+  <include package=".browser" />
+
+  <include file="portlets.zcml" />
+  <include file="profiles.zcml" />
+  <include file="upgrades.zcml" />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <class class="Products.ATContentTypes.content.folder.ATFolder">
+    <implements interface=".interfaces.IGallery" />
+  </class>
+  <class class="Products.ATContentTypes.content.folder.ATBTreeFolder">
+    <implements interface=".interfaces.IGallery" />
+  </class>
+  <class class="Products.ATContentTypes.content.topic.ATTopic">
+    <implements interface=".interfaces.IGallery" />
+  </class>
+
+  <utility
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    component=".vocabularies.GalleryTypeVocabulary"
+    name="collective.plonetruegallery.GalleryTypeVocabulary"
+    />
+
+  <utility
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    component=".vocabularies.DisplayTypeVocabulary"
+    name="collective.plonetruegallery.DisplayTypes"
+    />
+
+</configure>

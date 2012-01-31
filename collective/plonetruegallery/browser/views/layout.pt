@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="collective.plonetruegallery">
+
+  <metal:css fill-slot="style_slot">
+    <tal:replace tal:replace="structure view/displayer/css" />
+  </metal:css>
+  <metal:js fill-slot="javascript_head_slot">
+    <tal:replace tal:replace="structure view/displayer/javascript" />
+  </metal:js>
+
+  <body>
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main">
+        <h1 tal:content="context/Title" />
+        <p tal:content="context/Description|nothing" />
+        <p tal:replace="structure context/getText|nothing" />
+	
+        <div class="noimages" tal:condition="python: view.adapter.number_of_images == 0">
+          <p class="discreet" i18n:translate="label_no_images_in_gallery">
+	         There are no images in this gallery.
+          </p>
+        </div>
+
+        <tal:display tal:condition="python: view.adapter.number_of_images > 0" tal:content="structure view/displayer/content" />
+
+        <tal:batch tal:condition="view/is_batch">
+          <tal:def tal:define="batch view/displayer/batch">
+            <div metal:use-macro="view/context/batch_macros/macros/navigation">
+              Navigation
+            </div>
+          </tal:def>
+        </tal:batch>
+
+        <tal:subgallery tal:replace="structure view/subgallery_template" />
+
+      </tal:main-macro>
+    </metal:main>
+  </body>
+</html>

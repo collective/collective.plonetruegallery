@@ -1,0 +1,23 @@
+<div id="plonetruegallery-container">
+  <div id="show" class="plonetruegallery slideshow">
+  </div>
+  <table id="plonetruegallery-dropshadow" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="topleft"/>
+        <td class="topmiddle"/>
+        <td class="topright"/>
+      </tr>
+      <tr>
+        <td class="centerleft"/>
+        <td class="centermiddle" />
+        <td class="centerright"/>
+      </tr>
+      <tr>
+        <td class="bottomleft" />
+        <td class="bottommiddle" />
+        <td class="bottomright" />
+      </tr>
+    </tbody>
+  </table>
+</div>

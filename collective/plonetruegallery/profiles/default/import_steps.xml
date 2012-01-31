@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<import-steps>
+    <import-step id="collective.plonetruegallery.install" version="2"
+        handler="collective.plonetruegallery.exportimport.install"
+        title="Installing step for plonetruegallery">
+    </import-step>
+</import-steps>

@@ -1,0 +1,17 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+	xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="collective.plonetruegallery">
+
+	<plone:portlet
+	  name="collective.plonetruegallery.gallery"
+    interface=".portlets.IGalleryPortlet"
+    assignment=".portlets.GalleryAssignment"
+    view_permission="zope2.View"
+    edit_permission="collective.plonetruegallery.manage"
+    renderer=".portlets.GalleryRenderer"
+    addview=".portlets.GalleryAddForm"
+    editview=".portlets.GalleryEditForm"
+    />
+    	
+</configure>
