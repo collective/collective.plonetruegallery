@@ -311,9 +311,9 @@ ul.thumbs li{
     def javascript(self):
         return """
 <script type="text/javascript"
-    src="%(staticFiles)s/galleriffic/js/jquery.galleriffic.js"></script>
+    src="%(portal_url)s/++resource++jquery.galleriffic.js"></script>
 <script type="text/javascript"
-    src="%(staticFiles)s/galleriffic/js/jquery.opacityrollover.js"></script>
+    src="%(portal_url)s/++resource++jquery.opacityrollover.js"></script>
 <script type="text/javascript">
     document.write('<style>.noscript { display: none; }</style>');
 
@@ -394,7 +394,7 @@ $(document).ready(function() {
 
 </script>
 """ % {
-    'staticFiles': self.staticFiles,
+    'portal_url': self.portal_url,
     'timed': jsbool(self.settings.timed),
     'delay': self.settings.delay,
     'duration': self.settings.duration,

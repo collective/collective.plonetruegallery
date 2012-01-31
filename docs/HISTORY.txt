@@ -1,6 +1,17 @@
 Changelog
 =========
 
+2.0a (unreleased)
+-----------------
+
+- Remove Slideshow 2 display type
+  (depends on mootools and has loads of conflicts)
+  [vangheem]
+
+- switch to using collective.js.galleriffic
+  [vangheem]
+
+
 1.3.3 (2011-09-28)
 ------------------
 

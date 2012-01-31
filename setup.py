@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = "1.3.3"
+version = "2.0a1"
 
 setup(name='collective.plonetruegallery',
       version=version,
@@ -26,7 +26,8 @@ setup(name='collective.plonetruegallery',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.app.z3cform'
+          'plone.app.z3cform',
+          'collective.js.galleriffic'
       ],
       extras_require=dict(
           tests=[
