@@ -99,4 +99,3 @@ def upgrade_to_1_0_5(context):
     jsregistry = getToolByName(context, 'portal_javascripts')
     jsregistry.unregisterResource('++resource++mootools.js')
     jsregistry.unregisterResource('++resource++slideshow.js')
-    

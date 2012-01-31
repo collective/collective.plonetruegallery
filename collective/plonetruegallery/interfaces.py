@@ -158,44 +158,6 @@ class IBatchingDisplayType(Interface):
     batch = Attribute("")
 
 
-class ISlideshowDisplayType(IDisplayType):
-    """
-    Using Slideshow 2 to display the gallery
-    """
-
-    image_buffer_ratio = Attribute("ratio an image size can be "
-                                   "off with plone sizes")
-    burns_zoom = Attribute("how far it zooms so you can calculate "
-                           "it correctly..")
-    offset = Attribute("size needed for border offset.")
-
-    def image_data():
-        """
-        assembles the image data to be set for the javascript
-        """
-
-    def css():
-        """
-        Returns the dynamic css needed.
-        """
-
-    def javascript():
-        """
-        Returns the dynamic javascript needed.
-        """
-
-    def assemble_image(image):
-        """
-        Creates image data for a given image
-        """
-
-    def get_width_and_height():
-        """
-        calculates a more safe width and height to compensate
-        for potential stretching and kenburns effect...
-        """
-
-
 class IGallery(Interface):
     """
     marker interface for content types that implement
@@ -319,61 +281,6 @@ class IBaseSettings(Interface):
 
 class IFancyBoxDisplaySettings(IBaseSettings):
     pass
-
-
-class ISlideShowDisplaySettings(IBaseSettings):
-
-    show_slideshow_carousel = schema.Bool(
-        title=_(u"label_show_carousel", default=u"Carousel"),
-        description=_(u"description_show_carousel",
-            default=u"Show Carousel for Slideshow type? "
-                    u"(*Slideshow 2* display type)"
-        ),
-        required=False,
-        default=True
-    )
-
-    show_slideshow_infopane = schema.Bool(
-        title=_(u"label_show_info_pane", default=u"Info Pane"),
-        description=_(u"description_show_info_pane",
-            default=u"Show Info pane for Slideshow type? "
-                    u"(*Slideshow 2* display type)"
-        ),
-        required=False,
-        default=True
-    )
-
-    slideshow_effect = schema.Choice(
-        title=_(u"label_slideshowEffect", default=u"Slideshow type effect"),
-        description=_(u"description_slideshowEffect",
-            default=u"Select the effect you want to use. "
-                    u"(*Slideshow 2* display type)"
-        ),
-        default='kenburns:Slideshow.KenBurns',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('flash:Slideshow.Flash', 'flash:Slideshow.Flash',
-                    _(u"label_slideshowEffect_flash", default=u"Flash")),
-            SimpleTerm('fold:Slideshow.Fold', 'fold:Slideshow.Fold',
-                    _(u"label_slideshowEffect_fold", default=u"Fold")),
-            SimpleTerm('kenburns:Slideshow.KenBurns',
-                'kenburns:Slideshow.KenBurns',
-                _(u"label_slideshowEffect_kenburns", default=u"Ken Burns")),
-            SimpleTerm('push:Slideshow.Push', 'push:Slideshow.Push',
-                _(u"label_slideshowEffect_push", default=u"Push")),
-            SimpleTerm(':Slideshow', ':Slideshow',
-                _(u"label_slideshowEffect_none", default=u"none"))
-        ])
-    )
-
-    link_to_image = schema.Bool(
-        title=_(u"label_link_to_image", default=u"Link to images"),
-        description=_(u"description_link_to_image",
-            default=u"Should images be clickable?"
-                    u"(*Slideshow 2* display type)"
-        ),
-        required=False,
-        default=True
-    )
 
 
 class IHighSlideDisplaySettings(IBaseSettings):

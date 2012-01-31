@@ -90,40 +90,6 @@ It should display images now...
     >>> browser.getLink("My Gallery").click()
     >>> "There are no images in this gallery." in browser.contents
     False
-    
-Make sure the slideshow 2 gallery is used and then check that it
-displays the images...
-
-    >>> browser.getLink("Gallery Settings").click()
-    >>> browser.getControl(name="form.widgets.display_type:list").value = ["slideshow"]
-    >>> browser.getControl("Apply").click()
-    >>> browser.getLink("My Gallery").click()
-
-    >>> "new Slideshow.KenBurns(" in browser.contents
-    True
-    >>> my_gallery['1'].absolute_url() in browser.contents
-    True
-    >>> my_gallery['2'].absolute_url() in browser.contents
-    True
-    >>> my_gallery['3'].absolute_url() in browser.contents
-    True
-
-Change the slideshow 2 effect and make sure it generates the correct code.
-    >>> browser.getLink("Gallery Settings").click()
-    >>> browser.getControl(name="form.widgets.slideshow_effect:list").value = ["flash:Slideshow.Flash"]
-    >>> browser.getControl("Apply").click()
-
-    >>> browser.getLink("My Gallery").click()
-    >>> "new Slideshow.Flash(" in browser.contents
-    True
-
-    >>> browser.getLink("Gallery Settings").click()
-    >>> browser.getControl(name="form.widgets.slideshow_effect:list").value = ["fold:Slideshow.Fold"]
-    >>> browser.getControl("Apply").click()
-
-    >>> browser.getLink("My Gallery").click()
-    >>> "new Slideshow.Fold(" in browser.contents
-    True
 	
 Right now there are not any sub-galleries, so there shouldn't be a header showing...
     >>> "<h3 class=\"centered-title\">sub-galleries</h3>" in browser.contents

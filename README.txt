@@ -24,8 +24,7 @@ Features
 * Customize gallery size, transition(limited transitions right now), timed and
   other settings
 * Can use nested galleries
-* Slideshow 2(with transition types), Highslide JS, Galleriffic and Fancybox
-  display types
+* Highslide JS, Galleriffic and Fancybox display types
 * Pre-fetches gallery images
 * Gallery portlet(limiting with how it handles image sizes)
 

@@ -33,11 +33,6 @@
     />
     <adapter
         for="collective.plonetruegallery.interfaces.IGallery"
-        provides="collective.plonetruegallery.interfaces.ISlideShowDisplaySettings"
-        factory=".display.SlideshowSettings"
-    />
-    <adapter
-        for="collective.plonetruegallery.interfaces.IGallery"
         provides="collective.plonetruegallery.interfaces.IGallerifficDisplaySettings"
         factory=".display.GallerifficSettings"
     />
@@ -49,17 +44,6 @@
         template="layout.pt"
         permission="zope2.View"
     />
-    <browser:page
-        for="collective.plonetruegallery.interfaces.IGallery"
-        name="galleryview-slideshow"
-        class=".display.SlideshowDisplayType"
-        template="slideshow.pt"
-        permission="zope2.View"
-    />
-    <utility
-        component=".display.SlideshowDisplayType"
-        provides="collective.plonetruegallery.interfaces.IDisplayType"
-        name="galleryview-slideshow" />
 
     <browser:page
         for="collective.plonetruegallery.interfaces.IGallery"
