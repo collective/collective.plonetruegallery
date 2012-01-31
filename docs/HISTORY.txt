@@ -17,6 +17,9 @@ Changelog
 - switch to using collective.fancybox
   [vangheem]
 
+- finally remove remains to gallery type. Can not upgrade
+  directly to this product version now.
+  [vangheem]
 
 1.3.3 (2011-09-28)
 ------------------
