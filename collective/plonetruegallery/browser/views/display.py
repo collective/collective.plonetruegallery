@@ -181,8 +181,8 @@ class HighSlideDisplayType(BatchingDisplayType):
     def css(self):
         return """
 <link rel="stylesheet" type="text/css"
-    href="%(staticFiles)s/highslide/highslide.css" />
-""" % {'staticFiles': self.staticFiles}
+    href="%(portal_url)s/++resource++highslide/highslide.css" />
+""" % {'portal_url': self.portal_url}
 
     def javascript(self):
         outlineType = "hs.outlineType = '%s';" % \
@@ -201,15 +201,15 @@ class HighSlideDisplayType(BatchingDisplayType):
 
         return """
 <script type="text/javascript"
-    src="%(staticFiles)s/highslide/highslide-with-gallery.js"></script>
+    src="%(portal_url)s/++resource++highslide/highslide-with-gallery.js"></script>
 
 <!--[if lt IE 7]>
 <link rel="stylesheet" type="text/css"
-  href="%(staticFiles)s/highslide/highslide-ie6.css" />
+  href="%(portal_url)s/++resource++highslide/highslide-ie6.css" />
 <![endif]-->
 
 <script type="text/javascript">
-hs.graphicsDir = '%(staticFiles)s/highslide/graphics/';
+hs.graphicsDir = '%(portal_url)s/++resource++highslide/graphics/';
 hs.align = 'center';
 hs.transitions = ['expand', 'crossfade'];
 hs.fadeInOut = true;
@@ -262,7 +262,7 @@ $(document).ready(function() {
             'start_automatically': jsbool(
                 self.start_automatically or self.settings.timed),
             'start_index_index': self.start_image_index,
-            'staticFiles': self.staticFiles
+            'portal_url': self.portal_url
         }
 HighSlideSettings = createSettingsFactory(HighSlideDisplayType.schema)
 

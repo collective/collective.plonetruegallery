@@ -21,7 +21,7 @@
         provides="collective.plonetruegallery.interfaces.IGallerySettings"
         factory="collective.plonetruegallery.settings.GallerySettings"
     />
-    <adapter
+    <adapter zcml:condition="installed collective.js.highslide"
         for="collective.plonetruegallery.interfaces.IGallery"
         provides="collective.plonetruegallery.interfaces.IHighSlideDisplaySettings"
         factory=".display.HighSlideSettings"
@@ -45,14 +45,14 @@
         permission="zope2.View"
     />
 
-    <browser:page
+    <browser:page zcml:condition="installed collective.js.highslide"
         for="collective.plonetruegallery.interfaces.IGallery"
         name="galleryview-highslide"
         class=".display.HighSlideDisplayType"
         template="highslide.pt"
         permission="zope2.View"
     />
-    <utility
+    <utility zcml:condition="installed collective.js.highslide"
         component=".display.HighSlideDisplayType"
         provides="collective.plonetruegallery.interfaces.IDisplayType"
         name="galleryview-highslide" />

@@ -11,6 +11,9 @@ Changelog
 - switch to using collective.js.galleriffic
   [vangheem]
 
+- switch to using collective.js.highslide
+  [vangheem]
+
 
 1.3.3 (2011-09-28)
 ------------------
