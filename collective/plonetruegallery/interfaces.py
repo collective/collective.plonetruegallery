@@ -221,7 +221,7 @@ class IGallerySettings(Interface):
             default=u"Choose the method in which the "
                     u"gallery should be displayed"
         ),
-        default="slideshow",
+        default="galleriffic",
         vocabulary="collective.plonetruegallery.DisplayTypes"
     )
 
@@ -311,6 +311,10 @@ class IHighSlideDisplaySettings(IBaseSettings):
 
 
 class IGallerifficDisplaySettings(IBaseSettings):
+    pass
+
+
+class IGalleriaDisplaySettings(IBaseSettings):
     pass
 
 

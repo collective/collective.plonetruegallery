@@ -3,6 +3,7 @@ from collective.plonetruegallery.interfaces import IFancyBoxDisplaySettings
 from collective.plonetruegallery.interfaces import IHighSlideDisplaySettings
 from collective.plonetruegallery.interfaces import IBatchingDisplayType
 from collective.plonetruegallery.interfaces import IGallerifficDisplaySettings
+from collective.plonetruegallery.interfaces import IGalleriaDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -177,7 +178,7 @@ class HighSlideDisplayType(BatchingDisplayType):
     def css(self):
         return """
 <link rel="stylesheet" type="text/css"
-    href="%(portal_url)s/++resource++highslide/highslide.css" />
+    href="%(portal_url)s/++resource++collective.js.highslide/highslide.css" />
 """ % {'portal_url': self.portal_url}
 
     def javascript(self):
@@ -197,15 +198,15 @@ class HighSlideDisplayType(BatchingDisplayType):
 
         return """
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++highslide/highslide-with-gallery.js"></script>
+    src="%(portal_url)s/++resource++collective.js.highslide/highslide-with-gallery.js"></script>
 
 <!--[if lt IE 7]>
 <link rel="stylesheet" type="text/css"
-  href="%(portal_url)s/++resource++highslide/highslide-ie6.css" />
+  href="%(portal_url)s/++resource++collective.js.highslide/highslide-ie6.css" />
 <![endif]-->
 
 <script type="text/javascript">
-hs.graphicsDir = '%(portal_url)s/++resource++highslide/graphics/';
+hs.graphicsDir = '%(portal_url)s/++resource++collective.js.highslide/graphics/';
 hs.align = 'center';
 hs.transitions = ['expand', 'crossfade'];
 hs.fadeInOut = true;
@@ -397,3 +398,46 @@ $(document).ready(function() {
     'batch_size': self.settings.batch_size
 }
 GallerifficSettings = createSettingsFactory(GallerifficDisplayType.schema)
+
+
+class GalleriaDisplayType(BaseDisplayType):
+    implements(IDisplayType)
+
+    name = u"galleria"
+    schema = IGalleriaDisplaySettings
+    description = _(u"label_galleria_display_type",
+        default=u"Galleria")
+
+    def css(self):
+        return """
+<link rel="stylesheet" type="text/css"
+    href="%(portal_url)s/++resource++collective.galleria.classic.css" />
+<style>
+#galleria{height:467px}
+</style>
+""" % {
+            'portal_url': self.portal_url,
+        }
+
+    def javascript(self):
+        return """
+<script type="text/javascript"
+    src="%(portal_url)s/++resource++collective.galleria.js"></script>
+<script type="text/javascript"
+    src="%(portal_url)s/++resource++collective.galleria.classic.js"></script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+    // Load the classic theme
+    //Galleria.loadTheme('++resource++collective.galleria.classic.js');
+
+    // Initialize Galleria
+    $('#galleria').galleria();
+});
+})(jQuery);
+
+</script>
+""" % {
+    'portal_url': self.portal_url
+}
+GalleriaSettings = createSettingsFactory(GalleriaDisplayType.schema)
