@@ -408,15 +408,32 @@ class GalleriaDisplayType(BaseDisplayType):
     description = _(u"label_galleria_display_type",
         default=u"Galleria")
 
+    js_theme_files = {
+        'dark': '++resource++plonetruegallery.resources/galleria/dark.js',
+        'light': '++resource++plonetruegallery.resources/galleria/light.js',
+        'classic': '++resource++collective.galleria.classic.js'
+    }
+    css_theme_files = {
+        'dark': '++resource++plonetruegallery.resources/galleria/dark.css',
+        'light': '++resource++plonetruegallery.resources/galleria/light.css',
+        'classic': '++resource++collective.galleria.classic.css'
+    }
+
     def css(self):
         return """
 <link rel="stylesheet" type="text/css"
-    href="%(portal_url)s/++resource++collective.galleria.classic.css" />
+    href="%(portal_url)s/%(css_file)s" />
 <style>
-#galleria{height:467px}
+#galleria{
+    height: %(height)ipx;
+    width: %(width)ipx;
+}
 </style>
 """ % {
             'portal_url': self.portal_url,
+            'width': self.width,
+            'height': self.height,
+            'css_file': self.css_theme_files[self.settings.galleria_theme]
         }
 
     def javascript(self):
@@ -424,20 +441,25 @@ class GalleriaDisplayType(BaseDisplayType):
 <script type="text/javascript"
     src="%(portal_url)s/++resource++collective.galleria.js"></script>
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.galleria.classic.js"></script>
+    src="%(portal_url)s/%(js_file)s"></script>
 <script type="text/javascript">
 (function($){
 $(document).ready(function() {
-    // Load the classic theme
-    //Galleria.loadTheme('++resource++collective.galleria.classic.js');
-
     // Initialize Galleria
-    $('#galleria').galleria();
+    $('#galleria').galleria({
+        transitionSpeed: %(duration)i,
+        transition: "%(transition)s",
+        autoplay: %(autoplay)s
+    });
 });
 })(jQuery);
 
 </script>
 """ % {
-    'portal_url': self.portal_url
+    'portal_url': self.portal_url,
+    'js_file': self.js_theme_files[self.settings.galleria_theme],
+    'duration': self.settings.duration,
+    'transition': self.settings.galleria_transition,
+    'autoplay': self.settings.timed and str(self.settings.delay) or 'false'
 }
 GalleriaSettings = createSettingsFactory(GalleriaDisplayType.schema)

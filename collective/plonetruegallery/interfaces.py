@@ -315,7 +315,37 @@ class IGallerifficDisplaySettings(IBaseSettings):
 
 
 class IGalleriaDisplaySettings(IBaseSettings):
-    pass
+    galleria_theme = schema.Choice(
+        title=_(u"galleria_theme_title", default=u"Galleria Theme"),
+        default='dark',
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('dark', 'dark', _(u"label_dark", default=u"Dark")),
+            SimpleTerm('light', 'light', _(u"label_light", default=u"Light")),
+            SimpleTerm('classic', 'classic', _(u"label_classic",
+                                               default=u"Classic"))
+        ])
+    )
+
+    galleria_transition = schema.Choice(
+        title=_(u"galleria_transition", default=u"Galleria Transition"),
+        default='fadeslide',
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('fadeslide', 'fadeslide', _(u"label_fadeslide",
+                default=u"Fade Slide - fade between images and "
+                        u"slide slightly at the same time")),
+            SimpleTerm('fade', 'fade', _(u"label_fade",
+                default=u"Fade - crossfade betweens images")),
+            SimpleTerm('flash', 'flash', _(u"label_flash",
+                default=u"Flash - fades into background color "
+                        u"between images")),
+            SimpleTerm('pulse', 'pulse', _(u"label_pulse",
+                default=u"Pulse - quickly removes the image into background "
+                        u"color, then fades the next image")),
+            SimpleTerm('slide', 'slide', _(u"label_slide",
+                default=u"Slide - slides the images depending on image "
+                        u"position"))
+        ])
+    )
 
 
 class IBasicGallerySettings(IBaseSettings):
