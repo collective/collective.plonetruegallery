@@ -449,7 +449,8 @@ $(document).ready(function() {
     $('#galleria').galleria({
         transitionSpeed: %(duration)i,
         transition: "%(transition)s",
-        autoplay: %(autoplay)s
+        autoplay: %(autoplay)s,
+        clicknext: true
     });
 });
 })(jQuery);

@@ -15,11 +15,11 @@ Galleria.addTheme({
     author: 'plone',
     css: '++resource++plonetruegallery.resources/galleria/light.css',
     defaults: {
-        transition: 'slide',
+        transition: 'fadeslide',
         thumbCrop:  'height',
         
-		// set this to false if you want to show the caption all the time:
-        _toggleInfo: false
+        // set this to false if you want to show the caption all the time:
+        _toggleInfo: true
     },
     init: function(options) {
         
@@ -33,6 +33,30 @@ Galleria.addTheme({
         var info = this.$('info-link,info-close,info-text'),
             touch = Galleria.TOUCH,
             click = touch ? 'touchstart' : 'click';
+        $('.galleria-info-link').html("Show info");
+
+
+        $(this._target).parent().append('<a href="#" class="play" id="galleria-player" />');
+        var player = $('#galleria-player');
+        if(this._options.autoplay === false){
+            player.addClass('play');
+        }else{
+            player.addClass('pause');
+        }
+
+        var galleria = this;
+        player.bind(click, function(){
+            galleria.playToggle();
+            if(player.hasClass('pause')){
+                player.removeClass('pause');
+                player.addClass('play');
+            }else{
+                player.removeClass('play');
+                player.addClass('pause');
+            }
+            return false;
+        });
+
         
         // show loader & counter with opacity
         this.$('loader,counter').show().css('opacity', 0.4);
@@ -50,9 +74,9 @@ Galleria.addTheme({
                 info.toggle();
             });
         } else {
-			info.show();
-			this.$('info-link, info-close').hide();
-		}
+            info.show();
+            this.$('info-link, info-close').hide();
+        }
         
         // bind some stuff
         this.bind('thumbnail', function(e) {

@@ -7,7 +7,6 @@
 .galleria-container {
     position: relative;
     overflow: hidden;
-    background: #000;
 }
 .galleria-container img {
     -moz-user-select: none;
@@ -21,6 +20,7 @@
     left: 10px;
     right: 10px;
     overflow:hidden;
+    background: #000;
 }
 .galleria-thumbnails-container {
     height: 50px;
@@ -37,7 +37,6 @@
 .galleria-thumbnails .galleria-image {
     height: 40px;
     width: 60px;
-    background: #000;
     margin: 0 5px 0 0;
     border: 1px solid #000;
     float: left;
@@ -64,16 +63,17 @@
     background: url(++resource++collective.galleria/classic-loader.gif) no-repeat 2px 2px;
 }
 .galleria-info {
-    width: 50%;
-    top: 15px;
-    left: 15px;
-    z-index: 2;
     position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    left: 10px;
 }
 .galleria-info-text {
-    background-color: #000;
-    padding: 12px;
+    background-color: #313131;
     display: none;
+    opacity: 0.75;
+    padding: 12px;
     /* IE7 */ zoom:1;
 }
 .galleria-info-title {
@@ -108,14 +108,17 @@
     filter: alpha(opacity=100);
 }
 .galleria-info-link {
-    background-position: -669px -5px;
+    background-position: -674px -6px;
     opacity: .7;
     filter: alpha(opacity=70);
     position: absolute;
-    width: 20px;
+    width: 67px;
     height: 20px;
     cursor: pointer;
     background-color: #000;
+    right: 0;
+    padding-left: 12px;
+    color: white;
 }
 .notouch .galleria-info-link:hover {
     opacity: 1;
@@ -216,4 +219,45 @@
 .galleria-image-nav-right {
     background-image: url(++resource++collective.galleria/classic-map.png);
     background-repeat: no-repeat;
+}
+
+#content{
+    background: #282828 url(++resource++plonetruegallery.resources/galleria/bg-mc.gif) top repeat-x;
+}
+
+#content h1{
+    color: white;
+    padding: 0 10px;
+}
+
+#galleria{
+    margin: auto;
+}
+
+#content a#galleria-player{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    height: 38px;
+    width: 38px;
+    text-indent: -9000px;
+    float: right;
+    margin: 74px 15px 0 0;
+    border: none;
+}
+
+#galleria-player.play{
+    background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat 0px -38px;
+}
+
+#galleria-player.play:hover{
+    background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat -38px -38px;
+}
+
+#galleria-player.pause{
+    background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat 0px 0px;
+}
+#galleria-player.pause:hover{
+    background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat -38px 0px;
 }

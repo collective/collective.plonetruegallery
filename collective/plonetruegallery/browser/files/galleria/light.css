@@ -7,7 +7,6 @@
 .galleria-container {
     position: relative;
     overflow: hidden;
-    background: #000;
 }
 .galleria-container img {
     -moz-user-select: none;
@@ -29,6 +28,8 @@
     left: 10px;
     right: 10px;
     z-index: 2;
+    padding-top: 6px;
+    background: #636363;
 }
 .galleria-carousel .galleria-thumbnails-list {
     margin-left: 30px;
@@ -37,9 +38,8 @@
 .galleria-thumbnails .galleria-image {
     height: 40px;
     width: 60px;
-    background: #000;
     margin: 0 5px 0 0;
-    border: 1px solid #000;
+    border: 1px solid #848484;
     float: left;
     cursor: pointer;
 }
@@ -48,7 +48,7 @@
     bottom: 10px;
     left: 10px;
     text-align: right;
-    color: #fff;
+    color: #111;
     font: normal 11px/1 arial,sans-serif;
     z-index: 1;
 }
@@ -64,28 +64,30 @@
     background: url(++resource++collective.galleria/classic-loader.gif) no-repeat 2px 2px;
 }
 .galleria-info {
-    width: 50%;
-    top: 15px;
-    left: 15px;
-    z-index: 2;
     position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    left: 10px;
 }
 .galleria-info-text {
-    background-color: #000;
-    padding: 12px;
+    background-color: #DDD;
     display: none;
+    opacity: 0.75;
+    padding: 12px;
+    color: black;
     /* IE7 */ zoom:1;
 }
 .galleria-info-title {
     font: bold 12px/1.1 arial,sans-serif;
     margin: 0;
-    color: #fff;
-	margin-bottom: 7px;
+    color: #111;
+    margin-bottom: 7px;
 }
 .galleria-info-description {
     font: italic 12px/1.4 georgia,serif;
     margin: 0;
-    color: #bbb;
+    color: #111;
 }
 .galleria-info-close {
     width: 9px;
@@ -108,14 +110,17 @@
     filter: alpha(opacity=100);
 }
 .galleria-info-link {
-    background-position: -669px -5px;
+    background-position: -674px -6px;
     opacity: .7;
     filter: alpha(opacity=70);
     position: absolute;
-    width: 20px;
+    width: 67px;
     height: 20px;
     cursor: pointer;
-    background-color: #000;
+    background-color: #DDD;
+    right: 0;
+    padding-left: 12px;
+    color: black;
 }
 .notouch .galleria-info-link:hover {
     opacity: 1;
@@ -190,13 +195,13 @@
 .notouch .galleria-thumb-nav-right:hover {
     opacity: 1;
     filter: alpha(opacity=100);
-    background-color: #111;
+    background-color: #848484;
 }
 .touch .galleria-thumb-nav-left:active,
 .touch .galleria-thumb-nav-right:active {
     opacity: 1;
     filter: alpha(opacity=100);
-    background-color: #111;
+    background-color: #848484;
 }
 .notouch .galleria-thumbnails-container .disabled:hover {
     opacity: .2;
@@ -216,4 +221,45 @@
 .galleria-image-nav-right {
     background-image: url(++resource++collective.galleria/classic-map.png);
     background-repeat: no-repeat;
+}
+
+#content{
+}
+
+#content h1{
+    padding: 0 10px;
+}
+
+#galleria{
+    margin: auto;
+    box-shadow:0 0 14px 7px #888888;
+    -moz-box-shadow:0 0 14px 7px #888888;
+    -webkit-box-shadow:0 0 14px 7px #888888;
+}
+#content a#galleria-player{
+    position: absolute;
+    top: 0;
+    right: 10%;
+    display: block;
+    height: 38px;
+    width: 38px;
+    text-indent: -9000px;
+    float: right;
+    margin: 74px 15px 0 0;
+    border: none;
+}
+
+#galleria-player.play{
+    background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat 0px -38px;
+}
+
+#galleria-player.play:hover{
+    background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat -38px -38px;
+}
+
+#galleria-player.pause{
+    background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat 0px 0px;
+}
+#galleria-player.pause:hover{
+    background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat -38px 0px;
 }
