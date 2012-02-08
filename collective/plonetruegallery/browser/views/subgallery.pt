@@ -1,17 +1,33 @@
-<tal:show tal:condition="view/show_subgalleries"
-          i18n:domain="collective.plonetruegallery">
-  <h3 class="centered-title" i18n:translate="heading_sub_galleries">sub galleries</h3>
-  <div class="plone-true-gallery-subgalleries">
+<div id="subgallery-browse-wrapper" tal:condition="view/show_subgalleries">
+  <div id="subgallery-search">
+    <span>Browse By</span>
+    <div id="categories">
+      <ul>
+        <tal:cat tal:repeat="category view/categories|nothing">
+          <li tal:content="category" />
+        </tal:cat>
+      </ul>
+    </div>
+    <span>or</span>
+    <form>
+      <input name="q" />
+      <input type="submit" name="submit" value="Search" />
+    </form>
+    <button name="showall" value="Show All" />
+  </div>
+  <div id="subgallery-info">
+  </div>
+  <div id="subgallery-galleries">
     <tal:galleries tal:repeat="gallery view/adapter/subgalleries">
-      <dl tal:define="adapted python:view.getAdaptedGallery(gallery.getObject())">
+      <div class="gallery" tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
+                                       image adapted/get_random_image">
         <a tal:attributes="href gallery/getURL">
-          <div class="subgallery" tal:define="image adapted/get_random_image">
-            <dt class="subgallery-title" tal:content="gallery/Title"> </dt>
-            <img tal:condition="image" tal:attributes="src image/thumb_url" />
-          </div>
+          <img tal:condition="image" tal:attributes="src image/thumb_url" />
         </a>
-      </dl>
+        <p tal:content="gallery/Title" />
+      </div>
     </tal:galleries>
   </div>
-  <div class="clear"></div>
-</tal:show>
+  <div id="subgallery-paging">
+  </div>
+</div>

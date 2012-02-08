@@ -57,6 +57,10 @@ Galleria.addTheme({
             return false;
         });
 
+        this.bind('pause', function(){
+            player.removeClass('pause');
+            player.addClass('play');
+        });
         
         // show loader & counter with opacity
         this.$('loader,counter').show().css('opacity', 0.4);
