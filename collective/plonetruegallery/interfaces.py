@@ -312,6 +312,10 @@ class IHighSlideDisplaySettings(IBaseSettings):
 
 class IGallerifficDisplaySettings(IBaseSettings):
     pass
+    
+    
+class IGalleriffic2DisplaySettings(IBaseSettings):
+    pass
 
 
 class IGalleriaDisplaySettings(IBaseSettings):
