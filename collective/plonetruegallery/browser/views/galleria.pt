@@ -1,5 +1,4 @@
-<div id="container">
-    <div id="galleria" class="galleria-container">
+<div id="galleria">
         <tal:images tal:repeat="img view/adapter/cooked_images">
             <a href="" tal:attributes="href img/link">
                 <img title="Locomotives Roundhouse"
@@ -10,5 +9,5 @@
                                      src img/image_url" />
             </a>
         </tal:images>
-    </div>
+    
 </div>
