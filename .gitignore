@@ -1,1 +1,4 @@
 dist
+*.pyc
+*.mo
+*egg-info*
