@@ -1,5 +1,7 @@
-    <div id="galleria" class="galleria-container">
-        <tal:images tal:repeat="img view/adapter/cooked_images">
+ <div class="pikachoose">
+	<ul id="pikame" class="jcarousel-skin-pika" > 
+	<tal:images tal:repeat="img view/adapter/cooked_images">
+		<li>
             <a href="" tal:attributes="href img/link">
                 <img title="Locomotives Roundhouse"
                      alt=""
@@ -8,9 +10,10 @@
                                      alt img/description;
                                      src img/image_url" />
             </a>
-        </tal:images>
-    </div>
-
+           <span tal:content="img/title">Title 
+           </span>
+        </li>
+    </tal:images>     
+    </ul> 
+</div>
  
- 
-  

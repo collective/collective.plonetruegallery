@@ -311,12 +311,31 @@ class IHighSlideDisplaySettings(IBaseSettings):
 
 
 class IGallerifficDisplaySettings(IBaseSettings):
-    pass
+
+    gallerific_style = schema.Choice(
+        title=_(u"label_gallerific-style", default=u"Galleriffic Layout"),
+        description=_(u"description_gallerific-style",
+            default=u"The style of the Galleriffic layout. "
+                    u"(*Galleriffic* layout)"
+        ),
+        default='style.css',
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('style.css', 'style.css',
+                _(u"label_gallerific_style",
+                                    default=u"Gallerific Default Layout")),
+            SimpleTerm('style2.css', 'style2.css',
+                _(u"label_gallerific_style2",
+                                    default=u"Gallerific Linklayout")
+            )                        
+        ])
+    )
     
     
-class IGalleriffic2DisplaySettings(IBaseSettings):
+class IS3sliderDisplaySettings(IBaseSettings):
     pass
 
+class IPikachooseDisplaySettings(IBaseSettings):
+    pass
 
 class IGalleriaDisplaySettings(IBaseSettings):
     galleria_theme = schema.Choice(

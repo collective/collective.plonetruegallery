@@ -4,6 +4,8 @@ from collective.plonetruegallery.interfaces import IHighSlideDisplaySettings
 from collective.plonetruegallery.interfaces import IBatchingDisplayType
 from collective.plonetruegallery.interfaces import IGallerifficDisplaySettings
 from collective.plonetruegallery.interfaces import IGalleriaDisplaySettings
+from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
+from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -426,12 +428,12 @@ class GalleriaDisplayType(BaseDisplayType):
 <style>
 #galleria{
     height: %(height)ipx;
-    width: %(width)ipx;
 }
 </style>
 """ % {
             'portal_url': self.portal_url,
             'width': self.width,
+            'boxwidth': self.width + 100,
             'height': self.height,
             'css_file': self.css_theme_files[self.settings.galleria_theme]
         }
@@ -464,3 +466,117 @@ $(document).ready(function() {
     'autoplay': self.settings.timed and str(self.settings.delay) or 'false'
 }
 GalleriaSettings = createSettingsFactory(GalleriaDisplayType.schema)
+
+
+class S3sliderDisplayType(BatchingDisplayType):
+    implements(IDisplayType, IBatchingDisplayType)
+
+    name = u"s3slider"
+    schema = IS3sliderDisplaySettings
+    description = _(u"label_s3slider_display_type",
+        default=u"s3slider")
+
+    def javascript(self):
+        return """
+<script type="text/javascript"
+    src="%(portal_url)s/++resource++s3Slider.js"></script>
+    
+<script type="text/javascript">
+$(document).ready(function() { 
+   $('#s3slider').s3Slider({ 
+      timeOut: 4000 
+   });
+})(jQuery);
+</script>
+        """ 
+
+    def css(self):
+        return """
+        <style>
+    #s3slider {
+   height: %(height)ipx;
+   width: %(width)ipx;
+   position: relative; /* important */
+   overflow: hidden; /* important */
+}
+
+#s3sliderContent {
+   width: 400px; /* important to be same as image width or wider */
+   position: absolute; /* important */
+   top: 0; /* important */
+   margin-left: 0; /* important */
+}
+
+.s3sliderImage {
+   float: left; /* important */
+   position: relative; /* important */
+   display: none;
+}
+
+.s3sliderImage span {
+   position: absolute; /* important */
+   left: 0;
+   font: 10px/15px Arial, Helvetica, sans-serif;
+   padding: 10px 13px;
+   width: 374px;
+   background-color: #000;
+   filter: alpha(opacity=70); /* here you can set the opacity of box with text */
+   -moz-opacity: 0.7; /* here you can set the opacity of box with text */
+   -khtml-opacity: 0.7; /* here you can set the opacity of box with text */
+   opacity: 0.7; /* here you can set the opacity of box with text */
+   color: #fff;
+   display: none; /* important */
+   top: 0;
+
+  
+}
+
+.clear {
+   clear: both;
+} 
+ </style>       
+        
+""" % {
+        'staticFiles': self.staticFiles,
+        'height': self.height,
+        'width': self.width 
+       }
+
+S3sliderSettings = createSettingsFactory(S3sliderDisplayType.schema)
+
+
+class PikachooseDisplayType(BatchingDisplayType):
+    implements(IDisplayType, IBatchingDisplayType)
+
+    name = u"pikachoose"
+    schema = IPikachooseDisplaySettings
+    description = _(u"label_pikachoose_display_type",
+        default=u"Pikachoose")
+
+    def javascript(self):
+        return """
+<script type="text/javascript"
+    src="%(portal_url)s/++resource++collective.jquery.pikachoose.js"></script>
+<script type="text/javascript"
+    src="%(portal_url)s/++resource++jquery.jcarousel.js"></script>
+    <script language="javascript">
+			$(document).ready(
+				function (){
+					$("#pikame").PikaChoose({carousel:false, carouselVertical:true, transition:[4]});
+				})(jQuery);
+				
+		</script>
+        """ 
+
+    def css(self):
+        return """
+        <link type="text/css" href="base.css"/>
+        <link type="text/css" href="left.css"/>
+        """ 
+
+PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
+
+
+
+
+
