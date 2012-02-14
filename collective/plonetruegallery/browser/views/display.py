@@ -484,7 +484,7 @@ class S3sliderDisplayType(BatchingDisplayType):
 <script type="text/javascript">
 $(document).ready(function() { 
    $('#s3slider').s3Slider({ 
-      timeOut: 4000 
+      timeOut: 5000 
    });
 })(jQuery);
 </script>
@@ -493,18 +493,19 @@ $(document).ready(function() {
     def css(self):
         return """
         <style>
-    #s3slider {
+#s3slider {
    height: %(height)ipx;
    width: %(width)ipx;
    position: relative;  
    overflow: hidden;   
 }
 
-#s3sliderContent {
-   width: 400px; 
+ul#s3sliderContent {
+   width: %(width)ipx;
    position: absolute;  
    top: 0;  
    margin-left: 0; 
+   overflow: hidden !important;	
 }
 
 .s3sliderImage {
@@ -517,7 +518,7 @@ $(document).ready(function() {
    position: absolute;  
    left: 0;
    font: 10px/15px Arial, Helvetica, sans-serif;
-   padding: 10px 13px;
+   padding: 20px 13px;
    background-color: #000;
    filter: alpha(opacity=70);  
    -moz-opacity: 0.7;  
@@ -526,13 +527,19 @@ $(document).ready(function() {
    color: #fff;
    display: none; 
    top: 0;
+   height: %(height)ipx;
+   width: %(textwidth)ipx;
 }
-
  
 ul#s3sliderContent li {
 	text-decoration: none;
 	list-style-image: none;
 	list-style-type: none;
+}
+
+div.image-title {
+	font-size: 16px;
+	margin-bottom: 4px;
 }
 
 .clear {
@@ -544,7 +551,7 @@ ul#s3sliderContent li {
         'staticFiles': self.staticFiles,
         'height': self.height,
         'width': self.width,
-        'textwidth': self.width / 4
+        'textwidth': self.width / 5
        }
 
 S3sliderSettings = createSettingsFactory(S3sliderDisplayType.schema)
