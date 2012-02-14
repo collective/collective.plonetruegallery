@@ -578,12 +578,15 @@ class PikachooseDisplayType(BatchingDisplayType):
 				})(jQuery);
 				
 		</script>
-        """ 
+        """
+        {
+        'portal_url': self.portal_url
+        }
 
     def css(self):
         return """
-        <link type="text/css" href="base.css"/>
-        <link type="text/css" href="left.css"/>
-        """ 
+        <link type="text/css" href="%(portal_url)s/++resource++base.css"/>
+        <link type="text/css" href="%(portal_url)s/++resource++left.css"/>
+        """  % { 'portal_url': self.portal_url }
 
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
