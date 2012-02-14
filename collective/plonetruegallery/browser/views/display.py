@@ -568,7 +568,7 @@ class PikachooseDisplayType(BatchingDisplayType):
     def javascript(self):
         return """
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.jquery.pikachoose.js"></script>
+    src="%(portal_url)s/++resource++jquery.pikachoose-4.0.4.js"></script>
 <script type="text/javascript"
     src="%(portal_url)s/++resource++jquery.jcarousel.js"></script>
     <script language="javascript">
