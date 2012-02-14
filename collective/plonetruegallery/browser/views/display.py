@@ -496,39 +496,43 @@ $(document).ready(function() {
     #s3slider {
    height: %(height)ipx;
    width: %(width)ipx;
-   position: relative; /* important */
-   overflow: hidden; /* important */
+   position: relative;  
+   overflow: hidden;   
 }
 
 #s3sliderContent {
-   width: 400px; /* important to be same as image width or wider */
-   position: absolute; /* important */
-   top: 0; /* important */
-   margin-left: 0; /* important */
+   width: 400px; 
+   position: absolute;  
+   top: 0;  
+   margin-left: 0; 
 }
 
 .s3sliderImage {
-   float: left; /* important */
-   position: relative; /* important */
+   float: left;  
+   position: relative; 
    display: none;
 }
 
 .s3sliderImage span {
-   position: absolute; /* important */
+   position: absolute;  
    left: 0;
    font: 10px/15px Arial, Helvetica, sans-serif;
    padding: 10px 13px;
-   width: 374px;
    background-color: #000;
-   filter: alpha(opacity=70); /* here you can set the opacity of box with text */
-   -moz-opacity: 0.7; /* here you can set the opacity of box with text */
-   -khtml-opacity: 0.7; /* here you can set the opacity of box with text */
-   opacity: 0.7; /* here you can set the opacity of box with text */
+   filter: alpha(opacity=70);  
+   -moz-opacity: 0.7;  
+   -khtml-opacity: 0.7; 
+   opacity: 0.7;  
    color: #fff;
-   display: none; /* important */
+   display: none; 
    top: 0;
+}
 
-  
+ 
+ul#s3sliderContent li {
+	text-decoration: none;
+	list-style-image: none;
+	list-style-type: none;
 }
 
 .clear {
@@ -539,7 +543,8 @@ $(document).ready(function() {
 """ % {
         'staticFiles': self.staticFiles,
         'height': self.height,
-        'width': self.width 
+        'width': self.width,
+        'textwidth': self.width / 4
        }
 
 S3sliderSettings = createSettingsFactory(S3sliderDisplayType.schema)
@@ -575,8 +580,3 @@ class PikachooseDisplayType(BatchingDisplayType):
         """ 
 
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
-
-
-
-
-

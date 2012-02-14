@@ -1,20 +1,21 @@
 <div id="s3slider">
-        <div id="s3sliderContent">
+        <ul id="s3sliderContent">
            <tal:images tal:repeat="img view/adapter/cooked_images">
-		<a class="s3sliderImage" href="" tal:attributes="href img/link">
-               <img title="Locomotives Roundhouse"
+		    <li>
+		        <a class="s3sliderImage" href="" tal:attributes="href img/link">
+                <img title="Locomotives Roundhouse"
                     alt=""
                     src=""
                     tal:attributes="title img/title;
                                     alt img/description;
                                     src img/image_url" />
-         	<span class="right">
+         	    <span class="right">
                    <div class="image-title" tal:content="img/title">Title</div> 
                    <div class="image-desc" tal:content="structure img/description">Description</div> 
-               </span>
-           	</a>
-
+                </span>
+           	    </a>
+            </li>
            </tal:images>
-       </div>    
+       </ul>    
 </div>
 
