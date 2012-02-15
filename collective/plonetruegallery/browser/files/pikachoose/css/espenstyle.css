@@ -27,7 +27,7 @@
 	color:#ccc;
 	position:absolute;
 	bottom:0;
-       left:0;
+    left:0;
 	z-index: 11;}
 	
 .pika-textnav{
@@ -54,7 +54,7 @@
 		rgb(36,36,36) 86%);
 	position: absolute;
 	bottom: 2px;
-       left:0;
+    left:0;
 	z-index:11;}	
 
 .pika-imgnav a {

@@ -588,11 +588,14 @@ class PikachooseDisplayType(BatchingDisplayType):
 					self.hiddenTray = !self.hiddenTray;
 				});
 			}
-			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, carousel:true, transition:[4],});
+			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, carousel:true, transition:[%(transition)i], animationSpeed: %(duration)i, autoPlay: %(autoplay)i });
 		});
 </script>
 """ % {
-        'portal_url': self.portal_url
+        'portal_url': self.portal_url,
+        'duration': self.settings.duration, 
+        'transition': 4, 
+        'autoplay': self.start_automatically
     }
 
     def css(self):
