@@ -568,25 +568,46 @@ class PikachooseDisplayType(BatchingDisplayType):
     def javascript(self):
         return """
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++jquery.pikachoose-4.0.4.js"></script>
+    src="%(portal_url)s/++resource++plonetruegallery.resources/pikachoose/javascript/jquery.pikachoose.js"></script>
 <script type="text/javascript"
     src="%(portal_url)s/++resource++jquery.jcarousel.js"></script>
-    <script language="javascript">
-			$(document).ready(
-				function (){
-					$("#pikame").PikaChoose({carousel:false, carouselVertical:true, transition:[4]});
-				})(jQuery);
-				
-		</script>
-        """
-        {
+<script language="javascript">
+	$(document).ready(
+		function (){
+			var preventStageHoverEffect = function(self){
+				self.wrap.unbind('mouseenter').unbind('mouseleave');
+				self.imgNav.append('<a class="tray"></a>');
+				self.imgNav.show();
+				self.hiddenTray = true;
+				self.imgNav.find('.tray').bind('click',function(){
+					if(self.hiddenTray){
+						self.list.parents('.jcarousel-container').animate({height:"80px"});
+					}else{
+						self.list.parents('.jcarousel-container').animate({height:"1px"});
+					}
+					self.hiddenTray = !self.hiddenTray;
+				});
+			}
+			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, carousel:true, transition:[4],});
+		});
+</script>
+""" % {
         'portal_url': self.portal_url
-        }
+    }
 
     def css(self):
         return """
-        <link type="text/css" href="%(portal_url)s/++resource++base.css"/>
-        <link type="text/css" href="%(portal_url)s/++resource++left.css"/>
-        """  % { 'portal_url': self.portal_url }
-
+        <style>
+.pikachoose, 
+.pika-stage {
+   height: %(height)ipx;
+   width: %(width)ipx; 
+}
+</style>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/espenstyle.css"/>
+""" % {
+        'height': self.height,
+        'width': self.width,
+       }
+        
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
