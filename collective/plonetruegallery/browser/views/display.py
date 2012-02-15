@@ -595,7 +595,7 @@ class PikachooseDisplayType(BatchingDisplayType):
         'portal_url': self.portal_url,
         'duration': self.settings.duration, 
         'transition': 4, 
-        'autoplay': str(self.start_automatically).lower()
+        'autoplay': jsbool(self.settings.timed)
     }
 
     def css(self):
