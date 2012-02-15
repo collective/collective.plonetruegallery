@@ -1,15 +1,13 @@
-/* @override http://localhost:8080/Plone/galleri/++resource++plonetruegallery.resources/pikachoose/css/espenstyle.css */
-
 
 .pikachoose{
 	position:relative;
-	margin: auto;
-    border: 3px solid black;;
+	float:  left;
 }
 	
 .pika-stage {
 	position: absolute;
 	top:0px;
+	overflow: hidden;
 	left:0px;}
 
 .pika-stage img{
@@ -39,7 +37,7 @@
 	display:none;}
 
 .pika-imgnav{
-	width: 850px;
+	width: 100%;
 	height: 25px;
 	background: black;
 	background-image: -webkit-gradient(
@@ -55,7 +53,7 @@
 		rgb(41,41,41) 48%,
 		rgb(36,36,36) 86%);
 	position: absolute;
-	bottom: 0;
+	bottom: 2px;
        left:0;
 	z-index:11;}	
 
@@ -91,7 +89,7 @@
 		right:152px;}
 
 .pika-thumbs li{
-	background:url(++resource++plonetruegallery.resources/pikachoose/css/thumb-background.png) top left no-repeat;
+	background:url(++resource++plonetruegallery.resources/pikachoose/css/pikai.png) top left no-repeat;
 	float:left;
 	list-style: none;
 	width: 100px;
@@ -105,7 +103,7 @@
 	overflow: hidden;}
 
 #pikame{
-	width: 850px;}
+	}
 
 ul#pikame.jcarousel-skin-pika.pika-thumbs {
 	position: absolute;
@@ -119,13 +117,12 @@ ul#pikame.jcarousel-skin-pika.pika-thumbs {
 
 	
 .jcarousel-clip-horizontal{
-	width:750px;
 	overflow:hidden;
 	left:47px;}
 
 .jcarousel-container{
+	width:  100%;
 	position:absolute !important;
-	width:850px;
 	background:black;
 	background:rgba(0,0,0,0.7);
 	bottom:16px;
