@@ -15,7 +15,7 @@ setup(name='collective.plonetruegallery',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='gallery plone slideshow photo photos image images picasa '
-               'flickr highslide fancybox galleriffic',
+               'flickr highslide fancybox galleriffic galleria',
       author='Nathan Van Gheem',
       author_email='vangheem@gmail.com',
       url='http://www.plone.org/products/plone-true-gallery',
