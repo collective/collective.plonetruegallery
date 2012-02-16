@@ -23,12 +23,12 @@
 	font-family:Helvetica;
 	font-size:12px;
 	padding:5px;
-	width:500px;
 	color:#ccc;
 	position:absolute;
 	bottom:0;
     left:0;
-	z-index: 11;}
+    margin-right: 100px;
+    z-index: 11;}
 	
 .pika-textnav{
 	display:none;}
