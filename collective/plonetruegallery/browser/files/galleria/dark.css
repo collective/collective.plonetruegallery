@@ -221,11 +221,12 @@
     background-repeat: no-repeat;
 }
 
-#content{
+#container{
     background: #282828 url(++resource++plonetruegallery.resources/galleria/bg-mc.gif) top repeat-x;
 }
 
 #content h1{
+    background: black;
     color: white;
     padding: 0 10px;
 }

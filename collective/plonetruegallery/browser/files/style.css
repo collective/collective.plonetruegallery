@@ -67,3 +67,16 @@ div.plone-true-gallery-subgalleries dl div.subgallery img{
     cursor:pointer;
 }
 
+div#subgallery-browse-wrapper{
+    padding: 10px 0 0 0;
+}
+
+div#subgallery-search{
+    background-color: #DDD;
+    padding: 10px;
+}
+
+div#subgallery-search span, div#subgallery-search #categories, div#subgallery-search form{
+    display: inline-block;
+}
+

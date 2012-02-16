@@ -34,6 +34,15 @@ class GalleryView(BrowserView):
     def getAdaptedGallery(self, gallery):
         return getGalleryAdapter(gallery, self.request)
 
+    @property
+    def subgallery_categories(self):
+        cats = set()
+        if self.adapter.subgalleries:
+            for gallery in self.adapter.subgalleries:
+                cats = cats | set(getattr(gallery, 'Subject'))
+
+        return list(cats)
+
 
 class ForceCookingOfImages(BrowserView):
 
