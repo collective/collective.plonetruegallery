@@ -136,7 +136,6 @@
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-galleriffic" />
 
-	/>
 	<utility zcml:condition="installed collective.js.galleria"
 		component=".display.GalleriaDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"

@@ -15,9 +15,9 @@
 
   <body>
     <metal:main fill-slot="main">
-      <tal:main-macro metal:define-macro="main">
-        <h1 tal:content="context/Title" />
-        <p tal:content="context/Description|nothing" />
+      <tal:main-macro metal:define-macro="main" tal:define="desc context/Description|nothing">
+        <h1 class="gallery-title" tal:content="context/Title" />
+        <p class="gallery-desc" tal:content="desc" tal:condition="desc" />
         <p tal:replace="structure context/getText|nothing" />
 	
         <div class="noimages" tal:condition="python: view.adapter.number_of_images == 0">

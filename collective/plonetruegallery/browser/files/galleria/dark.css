@@ -221,13 +221,13 @@
     background-repeat: no-repeat;
 }
 
-#content{
-    background: #282828 url(++resource++plonetruegallery.resources/galleria/bg-mc.gif) top repeat-x;
-}
-
 #content h1{
     color: white;
     padding: 0 10px;
+}
+
+.gallery-desc, #content h1, #galleria{
+    background: #282828 url(++resource++plonetruegallery.resources/galleria/bg-mc.gif) top repeat-x;
 }
 
 #galleria{
