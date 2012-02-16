@@ -588,7 +588,7 @@ class PikachooseDisplayType(BatchingDisplayType):
 					self.hiddenTray = !self.hiddenTray;
 				});
 			}
-			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, carousel: %(carousel)s, transition:[%(transition)i], animationSpeed: %(duration)i, fadeThumbsIn: %(fadethumbsin)s, speed: %(speed)s, carouselVertical: %(carouselvertical)s, showCaption: %(showcaption)s, thumbOpacity: 0.4, autoPlay: %(autoplay)s, showTooltips: %(showtooltips)s });
+			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, transition:[%(transition)i], animationSpeed: %(duration)i, fadeThumbsIn: %(fadethumbsin)s, speed: %(speed)s, carouselVertical: %(vertical)s, showCaption: %(showcaption)s, thumbOpacity: 0.4, autoPlay: %(autoplay)s, carousel: %(carousel)s, showTooltips: %(showtooltips)s });
 		});
 </script>
 """ % {
@@ -601,7 +601,7 @@ class PikachooseDisplayType(BatchingDisplayType):
 		'showcaption': self.settings.showcaption,
 		'showtooltips': self.settings.showtooltips,
 		'carousel': self.settings.showcarousel,
-		'carouselvertical': self.settings.vertical,
+		'vertical': self.settings.vertical,
 		'thumbopacity': 0.4,
 		'fadethumbsin': 'false',
     }
