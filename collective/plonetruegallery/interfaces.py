@@ -58,7 +58,7 @@ class IBasicAdapter(IGalleryAdapter):
     """
 
     size_map = Attribute("allows us to map specific sizes to plone urls")
-
+    
 
 class IFlickrAdapter(IGalleryAdapter):
     """
@@ -335,7 +335,21 @@ class IS3sliderDisplaySettings(IBaseSettings):
     pass
 
 class IPikachooseDisplaySettings(IBaseSettings):
-    pass
+    showtooltip = schema.Choice(
+        title=_(u"label_tooltip", default=u"Show tooltip on pikachoose"),
+        description=_(u"description_tooltip",
+            default=u"false"
+                    u"(*Pikachoose* show tooltip)"
+        ),
+        default='false',
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('false', 'false',
+                _(u"label_tooltip", default=u"false")),
+            SimpleTerm('true', 'true',
+                _(u"label_tooltip2", default=u"true")
+            )                        
+        ])
+    )
 
 class IGalleriaDisplaySettings(IBaseSettings):
     galleria_theme = schema.Choice(
@@ -373,7 +387,6 @@ class IGalleriaDisplaySettings(IBaseSettings):
 
 class IBasicGallerySettings(IBaseSettings):
     pass
-
 
 class IFlickrGallerySettings(IBaseSettings):
 

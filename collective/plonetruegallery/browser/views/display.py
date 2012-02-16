@@ -588,14 +588,22 @@ class PikachooseDisplayType(BatchingDisplayType):
 					self.hiddenTray = !self.hiddenTray;
 				});
 			}
-			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, carousel:true, transition:[%(transition)i], animationSpeed: %(duration)i, autoPlay: %(autoplay)s });
+			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, carousel: %(carousel)s, transition:[%(transition)i], animationSpeed: %(duration)i, fadeThumbsIn: %(fadethumbsin)s, speed: %(speed)s, carouselVertical: %(carouselvertical)s, showCaption: %(showcaption)s, thumbOpacity: 0.4, autoPlay: %(autoplay)s, showTooltips: %(showtooltips)s });
 		});
 </script>
 """ % {
         'portal_url': self.portal_url,
-        'duration': self.settings.duration, 
+        'duration': self.settings.duration,
+        'speed': self.settings.delay,
         'transition': 4, 
-        'autoplay': jsbool(self.settings.timed)
+        'autoplay': 'true',
+		'text': '{ play: "", stop: "", previous: "Previous", next: "Next", loading: "Loading" }',
+		'showcaption': 'true',
+		'showtooltips': 'false',
+		'carousel': 'true',
+		'carouselvertical': 'true',
+		'thumbopacity': 0.4,
+		'fadethumbsin': 'false',
     }
 
     def css(self):
@@ -606,6 +614,10 @@ class PikachooseDisplayType(BatchingDisplayType):
    height: %(height)ipx;
    width: %(width)ipx; 
 }
+
+.jcarousel-skin-pika .jcarousel-container-vertical,
+.jcarousel-skin-pika .jcarousel-clip-vertical {  
+   height: %(height)ipx;
 </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/espenstyle.css"/>
 """ % {
