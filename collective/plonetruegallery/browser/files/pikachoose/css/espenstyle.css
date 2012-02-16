@@ -31,10 +31,10 @@
 	z-index: 11;}
 	
 .pika-textnav{
-	display:none;}
+	Xdisplay:none;}
 
 .pika-counter{
-	display:none;}
+	Xdisplay:none;}
 
 .pika-imgnav{
 	width: 100%;
@@ -169,6 +169,6 @@ ul#pikame.jcarousel-skin-pika.pika-thumbs {
 
 		
 /* jCarousel Styles for vertical*/
-.jcarousel-skin-pika .jcarousel-container-vertical { width: 125px; padding: 20px 20px 20px 20px; overflow:hidden; margin-top:20px;}
+.jcarousel-skin-pika .jcarousel-container-vertical { width: 125px; padding: 20px; overflow:hidden; margin:20px 0 0 0; height:1px;}
 .jcarousel-skin-pika .jcarousel-clip-vertical { width:  125px;}
 .jcarousel-skin-pika .jcarousel-item-vertical { margin-top: 10px;}

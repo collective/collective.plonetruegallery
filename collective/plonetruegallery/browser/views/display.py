@@ -599,9 +599,9 @@ class PikachooseDisplayType(BatchingDisplayType):
         'autoplay': 'true',
 		'text': '{ play: "", stop: "", previous: "Previous", next: "Next", loading: "Loading" }',
 		'showcaption': 'true',
-		'showtooltips': 'false',
-		'carousel': 'true',
-		'carouselvertical': 'true',
+		'showtooltips': self.settings.showtooltips,
+		'carousel': self.settings.showcarousel,
+		'carouselvertical': 'false',
 		'thumbopacity': 0.4,
 		'fadethumbsin': 'false',
     }
@@ -617,12 +617,13 @@ class PikachooseDisplayType(BatchingDisplayType):
 
 .jcarousel-skin-pika .jcarousel-container-vertical,
 .jcarousel-skin-pika .jcarousel-clip-vertical {  
-   height: %(height)ipx;
+   height: %(lowerheight)ipx;
 </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/espenstyle.css"/>
 """ % {
         'height': self.height,
         'width': self.width,
+        'lowerheight': self.height - 58,
        }
         
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)

@@ -335,7 +335,7 @@ class IS3sliderDisplaySettings(IBaseSettings):
     pass
 
 class IPikachooseDisplaySettings(IBaseSettings):
-    showtooltip = schema.Choice(
+    showtooltips = schema.Choice(
         title=_(u"label_tooltip", default=u"Show tooltip on pikachoose"),
         description=_(u"description_tooltip",
             default=u"false"
@@ -347,6 +347,21 @@ class IPikachooseDisplaySettings(IBaseSettings):
                 _(u"label_tooltip", default=u"false")),
             SimpleTerm('true', 'true',
                 _(u"label_tooltip2", default=u"true")
+            )                        
+        ])
+    )
+    showcarousel = schema.Choice(
+        title=_(u"label_carousel", default=u"Hide carousel on pikachoose"),
+        description=_(u"description_carousel",
+            default=u"false"
+                    u"(*Pikachoose* show carousel)"
+        ),
+        default='false',
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('false', 'false',
+                _(u"label_carousel", default=u"false")),
+            SimpleTerm('true', 'true',
+                _(u"label_carousel2", default=u"true")
             )                        
         ])
     )
