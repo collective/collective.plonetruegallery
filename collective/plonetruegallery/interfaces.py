@@ -203,7 +203,7 @@ class IGallerySettings(Interface):
             default=u"The size of thumbnail images. "
                     u"(*Fancybox* display type)"
         ),
-        default='tile',
+        default='thumb',
         vocabulary=SimpleVocabulary([
             SimpleTerm('tile', 'tile', _(u"label_tile", default=u"tile")),
             SimpleTerm('thumb', 'thumb', _(u"label_thumb", default=u"thumb")),

@@ -7,6 +7,12 @@ from Products.CMFCore.utils import getToolByName
 from collective.plonetruegallery.settings import GallerySettings
 from collective.plonetruegallery.portlets import PortletGalleryAdapter
 from collective.plonetruegallery.interfaces import IBatchingDisplayType
+from plone.memoize import ram
+from time import time
+
+
+def render_20mincache(method, self):
+    return time() // (20 * 60)
 
 
 class GalleryView(BrowserView):
@@ -33,6 +39,27 @@ class GalleryView(BrowserView):
 
     def getAdaptedGallery(self, gallery):
         return getGalleryAdapter(gallery, self.request)
+
+    @property
+    @ram.cache(render_20mincache)
+    def categories(self):
+        subgalleries = self.subgalleries
+        cats = set([])
+        if subgalleries:
+            for item in subgalleries:
+                cats = cats | set(getattr(item, 'Subject'))
+
+        return list(cats)
+
+    @property
+    @memoize
+    def subgalleries(self):
+        kwargs = {}
+        if 'q' in self.request.form:
+            kwargs['SearchableText'] = self.request.get('q')
+        elif 'category' in self.request.form:
+            kwargs['Subject'] = self.request.get('category')
+        return self.adapter.get_subgalleries(**kwargs)
 
 
 class ForceCookingOfImages(BrowserView):

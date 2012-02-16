@@ -14,56 +14,58 @@ p.plonetruegallery a img {
 	margin: 10px 5px 10px 0;
 }
 
-div.plone-true-gallery-subgalleries{
-    display:table;
-    margin:auto;
-    text-align: center;
-}
-div.plone-true-gallery-subgalleries dl{
-	border: 1px solid #CCC;
-    width:110px;
-    height:130px;
-    padding:3px;
-    margin:5px;
-    float:left;
-    cursor:pointer;
-}
-h3.centered-title{
-    text-align:center;
-    margin:auto;
-}
-div.plone-true-gallery-subgalleries dl a{
-    cursor:pointer;
-}
-div.plone-true-gallery-subgalleries dl:hover{
-    border-color:gray;
-    background-color:#f1f1f1;
-}
-div.plone-true-gallery-subgalleries dl div.subgallery{
-    padding:4px;
-    height:100px;
-    width:100px;
-    margin:auto;
-    text-align:center;
-    cursor:pointer;
-}
-div.plone-true-gallery-subgalleries dl div.subgallery dt{
-    color:#E27419;
-    cursor:pointer;
-    overflow:hidden;
+#subgallery-browse-wrapper{
+    margin-top:10px;
 }
 
-div.plone-true-gallery-subgalleries dl div.subgallery dd{
-    color:white;
-    float:left;
-    left:-30px;
-    cursor:pointer;
-}
-div.plone-true-gallery-subgalleries dl div.subgallery img{
-    top:0;
-    padding:2px;
-    border: 1px solid #C7C7C7;
-    margin:15px auto auto;
-    cursor:pointer;
+#subgallery-search *{
+    color: white;
 }
 
+#subgallery-search{
+    background-color: #A8A8A8;
+    padding: 10px;
+}
+
+#subgallery-search span{
+    font-weight: bold;
+}
+
+#subgallery-search form{
+    display:inline;
+}
+
+#subgallery-search input, #subgallery-search button{
+    color: black;
+}
+
+#subgallery-galleries{
+    list-style-type: none;
+}
+
+#subgallery-galleries li{
+    float: left;
+    font-size: 12px;
+    list-style-type: none;
+    margin: 0 3px 0 4px;
+    padding: 0;
+    letter-spacing: normal;
+}
+
+#subgallery-galleries li a{
+    display: block;
+    width: 160px;
+    height: 120px;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#subgallery-galleries li a:hover{
+    background-color: #DDD;
+}
+
+#subgallery-galleries li a img{
+    max-height: 100px;
+}

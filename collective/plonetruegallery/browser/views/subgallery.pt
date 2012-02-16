@@ -1,33 +1,36 @@
 <div id="subgallery-browse-wrapper" tal:condition="view/show_subgalleries">
   <div id="subgallery-search">
     <span>Browse By</span>
-    <div id="categories">
-      <ul>
-        <tal:cat tal:repeat="category view/categories|nothing">
-          <li tal:content="category" />
-        </tal:cat>
-      </ul>
-    </div>
+    <form>
+      <select name="category" onchange="this.form.submit()">
+        <option value="">Select Category</option>
+        <option tal:repeat="category view/categories|nothing"
+          tal:attributes="value category" tal:content="category" />
+      </select>
+    </form>
     <span>or</span>
     <form>
-      <input name="q" />
-      <input type="submit" name="submit" value="Search" />
+      <input name="q" tal:attributes="value request/q|nothing" />
+      <input type="submit" name="submit" value="Search Galleries" />
     </form>
-    <button name="showall" value="Show All" />
+    <form>
+      <input name="q" type="hidden" />
+      <input type="submit" name="submit" value="Show All" />
+    </form>
   </div>
   <div id="subgallery-info">
   </div>
-  <div id="subgallery-galleries">
-    <tal:galleries tal:repeat="gallery view/adapter/subgalleries">
-      <div class="gallery" tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
+  <ul id="subgallery-galleries">
+    <tal:galleries tal:repeat="gallery view/subgalleries">
+      <li class="gallery" tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
                                        image adapted/get_random_image">
         <a tal:attributes="href gallery/getURL">
           <img tal:condition="image" tal:attributes="src image/thumb_url" />
+          <p tal:content="gallery/Title" />
         </a>
-        <p tal:content="gallery/Title" />
-      </div>
+      </li>
     </tal:galleries>
-  </div>
+  </ul>
   <div id="subgallery-paging">
   </div>
 </div>

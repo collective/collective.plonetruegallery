@@ -12,6 +12,7 @@ from zope.component import adapts, getMultiAdapter
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 from Products.CMFCore.utils import getToolByName
+from plone.memoize.instance import memoize
 
 
 class BaseAdapter(object):
@@ -34,17 +35,21 @@ class BaseAdapter(object):
         self.request = request
         self.settings = GallerySettings(self.gallery, interfaces=[self.schema])
 
-        self.subgalleries = self.get_subgalleries()
-
         if self.time_to_cook():
             self.cook()
 
-    def get_subgalleries(self):
+    @property
+    @memoize
+    def subgalleries(self):
+        return self.get_subgalleries()
+
+    def get_subgalleries(self, **kwargs):
         catalog = getToolByName(self.gallery, 'portal_catalog')
         gallery_path = self.gallery.getPhysicalPath()
         results = catalog.searchResults(
             path='/'.join(gallery_path),
-            object_provides=IGallery.__identifier__
+            object_provides=IGallery.__identifier__,
+            **kwargs
         )
         uid = self.gallery.UID()
 
