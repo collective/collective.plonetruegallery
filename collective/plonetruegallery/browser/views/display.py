@@ -615,6 +615,11 @@ class PikachooseDisplayType(BatchingDisplayType):
    width: %(width)ipx; 
 }
 
+.pika-stage {
+   height: %(height)ipx;
+   width: %(width)ipx; 
+}
+
 .jcarousel-skin-pika .jcarousel-container-vertical,
 .jcarousel-skin-pika .jcarousel-clip-vertical {  
    height: %(lowerheight)ipx;
