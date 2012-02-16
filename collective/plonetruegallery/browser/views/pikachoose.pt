@@ -8,7 +8,8 @@
                      src=""
                      tal:attributes="title img/title;
                                      alt img/description;
-                                     src img/image_url" />
+                                     src img/thumb_url;
+                                     ref img/image_url"/>
             </a>
            <span class="caption" tal:content="img/title">Title 
            </span>
@@ -16,3 +17,4 @@
     </tal:images>     
     </ul> 
 </div>
+

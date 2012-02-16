@@ -601,7 +601,7 @@ class PikachooseDisplayType(BatchingDisplayType):
 		'showcaption': self.settings.showcaption,
 		'showtooltips': self.settings.showtooltips,
 		'carousel': self.settings.showcarousel,
-		'carouselvertical': 'false',
+		'carouselvertical': self.settings.vertical,
 		'thumbopacity': 0.4,
 		'fadethumbsin': 'false',
     }

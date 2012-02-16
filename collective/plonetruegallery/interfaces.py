@@ -395,6 +395,21 @@ class IPikachooseDisplaySettings(IBaseSettings):
             )                        
         ])
     )
+    vertical = schema.Choice(
+        title=_(u"label_vertical", default=u"Vertical Pikachoose slideshow"),
+        description=_(u"description_vertical",
+            default=u"false"
+                    u"(*Pikachoose* vertical)"
+        ),
+        default='false',
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('false', 'false',
+                _(u"label_vertical", default=u"false")),
+            SimpleTerm('true', 'true',
+                _(u"label_vertical2", default=u"true")
+            )                        
+        ])
+    )
     transitions = schema.Choice(
         title=_(u"label_transitions", default=u"transitions pikachoose slideshow"),
         description=_(u"description_transitions",
