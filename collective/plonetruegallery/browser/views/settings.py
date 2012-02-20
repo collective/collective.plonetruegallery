@@ -60,11 +60,11 @@ class GallerySettingsForm(group.GroupForm, form.EditForm):
         displaytypes = getAllDisplayTypes()
         for t in gallerytypes:
             if len(t.schema.names()) > 0:
-                self.add_fields_to_group(t, _(u"Type Settings"))
+                self.add_fields_to_group(t, t.name)
 
         for t in displaytypes:
             if len(t.schema.names()) > 0:
-                self.add_fields_to_group(t, _(u"Display Type Settings"))
+                self.add_fields_to_group(t, t.name)
 
         super(GallerySettingsForm, self).update()
 
