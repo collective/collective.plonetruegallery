@@ -588,14 +588,22 @@ class PikachooseDisplayType(BatchingDisplayType):
 					self.hiddenTray = !self.hiddenTray;
 				});
 			}
-			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, carousel:true, transition:[%(transition)i], animationSpeed: %(duration)i, autoPlay: %(autoplay)s });
+			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, transition:[%(transition)i], animationSpeed: %(duration)i, fadeThumbsIn: %(fadethumbsin)s, speed: %(speed)s, carouselVertical: %(vertical)s, showCaption: %(showcaption)s, thumbOpacity: 0.4, autoPlay: %(autoplay)s, carousel: %(carousel)s, showTooltips: %(showtooltips)s });
 		});
 </script>
 """ % {
         'portal_url': self.portal_url,
-        'duration': self.settings.duration, 
-        'transition': 4, 
-        'autoplay': jsbool(self.settings.timed)
+        'duration': self.settings.duration,
+        'speed': self.settings.delay,
+        'transition': self.settings.transitions, 
+        'autoplay': self.settings.autoplay,
+		'text': '{ play: "", stop: "", previous: "Previous", next: "Next", loading: "Loading" }',
+		'showcaption': self.settings.showcaption,
+		'showtooltips': self.settings.showtooltips,
+		'carousel': self.settings.showcarousel,
+		'vertical': self.settings.vertical,
+		'thumbopacity': 0.4,
+		'fadethumbsin': 'false',
     }
 
     def css(self):
@@ -606,11 +614,21 @@ class PikachooseDisplayType(BatchingDisplayType):
    height: %(height)ipx;
    width: %(width)ipx; 
 }
+
+.pika-stage {
+   height: %(height)ipx;
+   width: %(width)ipx; 
+}
+
+.jcarousel-skin-pika .jcarousel-container-vertical,
+.jcarousel-skin-pika .jcarousel-clip-vertical {  
+   height: %(lowerheight)ipx;
 </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/espenstyle.css"/>
 """ % {
         'height': self.height,
         'width': self.width,
+        'lowerheight': self.height - 58,
        }
         
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
