@@ -58,7 +58,7 @@ class IBasicAdapter(IGalleryAdapter):
     """
 
     size_map = Attribute("allows us to map specific sizes to plone urls")
-    
+
 
 class IFlickrAdapter(IGalleryAdapter):
     """
@@ -289,7 +289,6 @@ class IHighSlideDisplaySettings(IBaseSettings):
         title=_(u"label_highslide_outlineType", default=u"Image outline type"),
         description=_(u"description_highslide_outlineType",
             default=u"The style of the border around the image. "
-                    u"(*Highslide* display type)"
         ),
         default='drop-shadow',
         vocabulary=SimpleVocabulary([
@@ -313,109 +312,50 @@ class IHighSlideDisplaySettings(IBaseSettings):
 class IGallerifficDisplaySettings(IBaseSettings):
 
     gallerific_style = schema.Choice(
-        title=_(u"label_gallerific-style", default=u"Galleriffic Layout"),
+        title=_(u"label_gallerific-style", default=u"Layout"),
         description=_(u"description_gallerific-style",
             default=u"The style of the Galleriffic layout. "
-                    u"(*Galleriffic* layout)"
         ),
         default='style.css',
         vocabulary=SimpleVocabulary([
             SimpleTerm('style.css', 'style.css',
                 _(u"label_gallerific_style",
-                                    default=u"Gallerific Default Layout")),
+                                    default=u"Default Layout")),
             SimpleTerm('style2.css', 'style2.css',
                 _(u"label_gallerific_style2",
-                                    default=u"Gallerific Linklayout")
-            )                        
+                                    default=u"Linklayout")
+            )
         ])
     )
-    
-    
+
+
 class IS3sliderDisplaySettings(IBaseSettings):
     pass
 
+
 class IPikachooseDisplaySettings(IBaseSettings):
-    showtooltips = schema.Choice(
-        title=_(u"label_tooltip", default=u"Show tooltip on pikachoose"),
-        description=_(u"description_tooltip",
-            default=u"false"
-                    u"(*Pikachoose* show tooltip)"
-        ),
-        default='false',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('false', 'false',
-                _(u"label_tooltip", default=u"false")),
-            SimpleTerm('true', 'true',
-                _(u"label_tooltip2", default=u"true")
-            )                        
-        ])
+    pikachoose_showtooltips = schema.Bool(
+        title=_(u"label_pikachoose_tooltip", default=u"Show tooltip"),
+        default=False
     )
-    showcarousel = schema.Choice(
-        title=_(u"label_carousel", default=u"Hide carousel on pikachoose"),
-        description=_(u"description_carousel",
-            default=u"false"
-                    u"(*Pikachoose* show carousel)"
-        ),
-        default='false',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('false', 'false',
-                _(u"label_carousel", default=u"false")),
-            SimpleTerm('true', 'true',
-                _(u"label_carousel2", default=u"true")
-            )                        
-        ])
+
+    pikachoose_showcarousel = schema.Bool(
+        title=_(u"label_pikachoose_carousel", default=u"Hide carousel"),
+        default=False
     )
-    showcaption = schema.Choice(
-        title=_(u"label_caption", default=u"Show caption on pikachoose"),
-        description=_(u"description_caption",
-            default=u"false"
-                    u"(*Pikachoose* show caption)"
-        ),
-        default='true',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('false', 'false',
-                _(u"label_caption", default=u"false")),
-            SimpleTerm('true', 'true',
-                _(u"label_caption2", default=u"true")
-            )                        
-        ])
+
+    pikachoose_showcaption = schema.Bool(
+        title=_(u"label_pikachoose_caption", default=u"Show caption"),
+        default=True
     )
-    autoplay = schema.Choice(
-        title=_(u"label_autoplay", default=u"Autoplay Pikachoose slideshow"),
-        description=_(u"description_autoplay",
-            default=u"false"
-                    u"(*Pikachoose* autoplay)"
-        ),
-        default='true',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('false', 'false',
-                _(u"label_autoplay", default=u"false")),
-            SimpleTerm('true', 'true',
-                _(u"label_autoplay2", default=u"true")
-            )                        
-        ])
+
+    pikachoose_vertical = schema.Bool(
+        title=_(u"label_pikachoose_vertical", default=u"Vertical"),
+        default=False
     )
-    vertical = schema.Choice(
-        title=_(u"label_vertical", default=u"Vertical Pikachoose slideshow"),
-        description=_(u"description_vertical",
-            default=u"false"
-                    u"(*Pikachoose* vertical)"
-        ),
-        default='false',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('false', 'false',
-                _(u"label_vertical", default=u"false")),
-            SimpleTerm('true', 'true',
-                _(u"label_vertical2", default=u"true")
-            )                        
-        ])
-    )
-    transitions = schema.Choice(
-        title=_(u"label_transitions", default=u"transitions pikachoose slideshow"),
-        description=_(u"description_transitions",
-            default=u"false"
-                    u"(*Pikachoose* transitions)"
-        ),
+
+    pikachoose_transition = schema.Choice(
+        title=_(u"label_pikachoose_transition", default=u"Transition"),
         default=4,
         vocabulary=SimpleVocabulary([
             SimpleTerm(1, 1,
@@ -432,13 +372,14 @@ class IPikachooseDisplaySettings(IBaseSettings):
                 _(u"label_transitions6", default=u"Full image blind slide")),
             SimpleTerm(0, 0,
                 _(u"label_transitions7", default=u"Fade out then fade in")
-            )                        
+            )
         ])
     )
-    
+
+
 class IGalleriaDisplaySettings(IBaseSettings):
     galleria_theme = schema.Choice(
-        title=_(u"galleria_theme_title", default=u"Galleria Theme"),
+        title=_(u"galleria_theme_title", default=u"Theme"),
         default='dark',
         vocabulary=SimpleVocabulary([
             SimpleTerm('dark', 'dark', _(u"label_dark", default=u"Dark")),
@@ -449,7 +390,7 @@ class IGalleriaDisplaySettings(IBaseSettings):
     )
 
     galleria_transition = schema.Choice(
-        title=_(u"galleria_transition", default=u"Galleria Transition"),
+        title=_(u"galleria_transition", default=u"Transition"),
         default='fadeslide',
         vocabulary=SimpleVocabulary([
             SimpleTerm('fadeslide', 'fadeslide', _(u"label_fadeslide",
@@ -472,6 +413,7 @@ class IGalleriaDisplaySettings(IBaseSettings):
 
 class IBasicGallerySettings(IBaseSettings):
     pass
+
 
 class IFlickrGallerySettings(IBaseSettings):
 

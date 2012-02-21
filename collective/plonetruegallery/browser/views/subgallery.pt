@@ -1,3 +1,4 @@
+<div class="spacer" tal:condition="view/show_subgalleries">&nbsp;</div>
 <div id="subgallery-browse-wrapper" tal:condition="view/show_subgalleries">
   <div id="subgallery-search">
     <span>Browse By</span>

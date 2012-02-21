@@ -69,3 +69,9 @@ p.plonetruegallery a img {
 #subgallery-galleries li a img{
     max-height: 100px;
 }
+
+div.spacer {
+    clear: both;
+    font-size: 1px;
+    line-height: 1px;
+}

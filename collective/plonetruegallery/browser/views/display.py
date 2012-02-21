@@ -572,36 +572,46 @@ class PikachooseDisplayType(BatchingDisplayType):
 <script type="text/javascript"
     src="%(portal_url)s/++resource++jquery.jcarousel.js"></script>
 <script language="javascript">
-	$(document).ready(
-		function (){
-			var preventStageHoverEffect = function(self){
-				self.wrap.unbind('mouseenter').unbind('mouseleave');
-				self.imgNav.append('<a class="tray"></a>');
-				self.imgNav.show();
-				self.hiddenTray = true;
-				self.imgNav.find('.tray').bind('click',function(){
-					if(self.hiddenTray){
-						self.list.parents('.jcarousel-container').animate({height:"80px"});
-					}else{
-						self.list.parents('.jcarousel-container').animate({height:"1px"});
-					}
-					self.hiddenTray = !self.hiddenTray;
-				});
+$(document).ready(function(){
+	var preventStageHoverEffect = function(self){
+		self.wrap.unbind('mouseenter').unbind('mouseleave');
+		self.imgNav.append('<a class="tray"></a>');
+		self.imgNav.show();
+		self.hiddenTray = true;
+		self.imgNav.find('.tray').bind('click',function(){
+			if(self.hiddenTray){
+				self.list.parents('.jcarousel-container').animate({height:"80px"});
+			}else{
+				self.list.parents('.jcarousel-container').animate({height:"1px"});
 			}
-			$("#pikame").PikaChoose({bindsFinished: preventStageHoverEffect, transition:[%(transition)i], animationSpeed: %(duration)i, fadeThumbsIn: %(fadethumbsin)s, speed: %(speed)s, carouselVertical: %(vertical)s, showCaption: %(showcaption)s, thumbOpacity: 0.4, autoPlay: %(autoplay)s, carousel: %(carousel)s, showTooltips: %(showtooltips)s });
+			self.hiddenTray = !self.hiddenTray;
 		});
+	}
+	$("#pikame").PikaChoose({
+        bindsFinished: preventStageHoverEffect,
+        transition:[%(transition)i],
+        animationSpeed: %(duration)i,
+        fadeThumbsIn: %(fadethumbsin)s,
+        speed: %(speed)s,
+        carouselVertical: %(vertical)s,
+        showCaption: %(showcaption)s,
+        thumbOpacity: 0.4,
+        autoPlay: %(autoplay)s,
+        carousel: %(carousel)s,
+        showTooltips: %(showtooltips)s });
+});
 </script>
 """ % {
         'portal_url': self.portal_url,
         'duration': self.settings.duration,
         'speed': self.settings.delay,
-        'transition': self.settings.transitions, 
-        'autoplay': self.settings.autoplay,
+        'transition': self.settings.pikachoose_transition,
+        'autoplay': jsbool(self.settings.timed),
 		'text': '{ play: "", stop: "", previous: "Previous", next: "Next", loading: "Loading" }',
-		'showcaption': self.settings.showcaption,
-		'showtooltips': self.settings.showtooltips,
-		'carousel': self.settings.showcarousel,
-		'vertical': self.settings.vertical,
+		'showcaption': jsbool(self.settings.pikachoose_showcaption),
+		'showtooltips': jsbool(self.settings.pikachoose_showtooltips),
+		'carousel': jsbool(self.settings.pikachoose_showcarousel),
+		'vertical': jsbool(self.settings.pikachoose_vertical),
 		'thumbopacity': 0.4,
 		'fadethumbsin': 'false',
     }
