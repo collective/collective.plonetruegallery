@@ -433,7 +433,6 @@ class GalleriaDisplayType(BaseDisplayType):
 """ % {
             'portal_url': self.portal_url,
             'width': self.width,
-            'boxwidth': self.width + 100,
             'height': self.height,
             'css_file': self.css_theme_files[self.settings.galleria_theme]
         }
@@ -449,6 +448,7 @@ class GalleriaDisplayType(BaseDisplayType):
 $(document).ready(function() {
     // Initialize Galleria
     $('#galleria').galleria({
+        theme: 'classic',
         transitionSpeed: %(duration)i,
         transition: "%(transition)s",
         autoplay: %(autoplay)s,
@@ -480,15 +480,15 @@ class S3sliderDisplayType(BatchingDisplayType):
         return """
 <script type="text/javascript"
     src="%(portal_url)s/++resource++s3Slider.js"></script>
-    
+
 <script type="text/javascript">
-$(document).ready(function() { 
-   $('#s3slider').s3Slider({ 
-      timeOut: 5000 
+$(document).ready(function() {
+   $('#s3slider').s3Slider({
+      timeOut: 5000
    });
 })(jQuery);
 </script>
-        """ 
+        """
 
     def css(self):
         return """
@@ -496,57 +496,57 @@ $(document).ready(function() {
 #s3slider {
    height: %(height)ipx;
    width: %(width)ipx;
-   position: relative;  
-   overflow: hidden;   
+   position: relative;
+   overflow: hidden;
 }
 
 ul#s3sliderContent {
    width: %(width)ipx;
-   position: absolute;  
-   top: 0;  
-   margin-left: 0; 
-   overflow: hidden !important;	
+   position: absolute;
+   top: 0;
+   margin-left: 0;
+   overflow: hidden !important;
 }
 
 .s3sliderImage {
-   float: left;  
-   position: relative; 
+   float: left;
+   position: relative;
    display: none;
 }
 
 .s3sliderImage span {
-   position: absolute;  
+   position: absolute;
    left: 0;
    font: 10px/15px Arial, Helvetica, sans-serif;
    padding: 20px 13px;
    background-color: #000;
-   filter: alpha(opacity=70);  
-   -moz-opacity: 0.7;  
-   -khtml-opacity: 0.7; 
-   opacity: 0.7;  
+   filter: alpha(opacity=70);
+   -moz-opacity: 0.7;
+   -khtml-opacity: 0.7;
+   opacity: 0.7;
    color: #fff;
-   display: none; 
+   display: none;
    top: 0;
    height: %(height)ipx;
    width: %(textwidth)ipx;
 }
- 
+
 ul#s3sliderContent li {
-	text-decoration: none;
-	list-style-image: none;
-	list-style-type: none;
+    text-decoration: none;
+    list-style-image: none;
+    list-style-type: none;
 }
 
 div.image-title {
-	font-size: 16px;
-	margin-bottom: 4px;
+    font-size: 16px;
+    margin-bottom: 4px;
 }
 
 .clear {
    clear: both;
-} 
- </style>       
-        
+}
+ </style>
+
 """ % {
         'staticFiles': self.staticFiles,
         'height': self.height,
@@ -573,21 +573,21 @@ class PikachooseDisplayType(BatchingDisplayType):
     src="%(portal_url)s/++resource++jquery.jcarousel.js"></script>
 <script language="javascript">
 $(document).ready(function(){
-	var preventStageHoverEffect = function(self){
-		self.wrap.unbind('mouseenter').unbind('mouseleave');
-		self.imgNav.append('<a class="tray"></a>');
-		self.imgNav.show();
-		self.hiddenTray = true;
-		self.imgNav.find('.tray').bind('click',function(){
-			if(self.hiddenTray){
-				self.list.parents('.jcarousel-container').animate({height:"80px"});
-			}else{
-				self.list.parents('.jcarousel-container').animate({height:"1px"});
-			}
-			self.hiddenTray = !self.hiddenTray;
-		});
-	}
-	$("#pikame").PikaChoose({
+    var preventStageHoverEffect = function(self){
+        self.wrap.unbind('mouseenter').unbind('mouseleave');
+        self.imgNav.append('<a class="tray"></a>');
+        self.imgNav.show();
+        self.hiddenTray = true;
+        self.imgNav.find('.tray').bind('click',function(){
+            if(self.hiddenTray){
+                self.list.parents('.jcarousel-container').animate({height:"80px"});
+            }else{
+                self.list.parents('.jcarousel-container').animate({height:"1px"});
+            }
+            self.hiddenTray = !self.hiddenTray;
+        });
+    }
+    $("#pikame").PikaChoose({
         bindsFinished: preventStageHoverEffect,
         transition:[%(transition)i],
         animationSpeed: %(duration)i,
@@ -607,31 +607,31 @@ $(document).ready(function(){
         'speed': self.settings.delay,
         'transition': self.settings.pikachoose_transition,
         'autoplay': jsbool(self.settings.timed),
-		'text': '{ play: "", stop: "", previous: "Previous", next: "Next", loading: "Loading" }',
-		'showcaption': jsbool(self.settings.pikachoose_showcaption),
-		'showtooltips': jsbool(self.settings.pikachoose_showtooltips),
-		'carousel': jsbool(self.settings.pikachoose_showcarousel),
-		'vertical': jsbool(self.settings.pikachoose_vertical),
-		'thumbopacity': 0.4,
-		'fadethumbsin': 'false',
+        'text': '{ play: "", stop: "", previous: "Previous", next: "Next", loading: "Loading" }',
+        'showcaption': jsbool(self.settings.pikachoose_showcaption),
+        'showtooltips': jsbool(self.settings.pikachoose_showtooltips),
+        'carousel': jsbool(self.settings.pikachoose_showcarousel),
+        'vertical': jsbool(self.settings.pikachoose_vertical),
+        'thumbopacity': 0.4,
+        'fadethumbsin': 'false',
     }
 
     def css(self):
         return """
         <style>
-.pikachoose, 
+.pikachoose,
 .pika-stage {
    height: %(height)ipx;
-   width: %(width)ipx; 
+   width: %(width)ipx;
 }
 
 .pika-stage {
    height: %(height)ipx;
-   width: %(width)ipx; 
+   width: %(width)ipx;
 }
 
 .jcarousel-skin-pika .jcarousel-container-vertical,
-.jcarousel-skin-pika .jcarousel-clip-vertical {  
+.jcarousel-skin-pika .jcarousel-clip-vertical {
    height: %(lowerheight)ipx;
 </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/espenstyle.css"/>
@@ -640,5 +640,5 @@ $(document).ready(function(){
         'width': self.width,
         'lowerheight': self.height - 58,
        }
-        
+
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)

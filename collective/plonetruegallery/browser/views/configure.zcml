@@ -31,7 +31,7 @@
 		provides="collective.plonetruegallery.interfaces.IFancyBoxDisplaySettings"
 		factory=".display.FancyBoxSettings"
 	/>
-	<adapter
+	<adapter zcml:condition="installed collective.js.galleriffic"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGallerifficDisplaySettings"
 		factory=".display.GallerifficSettings"
@@ -78,7 +78,7 @@
 		permission="zope2.View"
 	/>
 
-	<browser:page
+	<browser:page zcml:condition="installed collective.js.galleriffic"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-galleriffic"
 		class=".display.GallerifficDisplayType"
@@ -86,7 +86,7 @@
 		permission="zope2.View"
 	/>
 
-	<browser:page
+	<browser:page zcml:condition="installed collective.js.pikachoose"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-pikachoose"
 		class=".display.PikachooseDisplayType"
@@ -95,7 +95,7 @@
 	/>
 
 
-	<browser:page
+	<browser:page zcml:condition="installed collective.js.s3slider"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-s3slider"
 		class=".display.S3sliderDisplayType"
@@ -131,7 +131,7 @@
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-s3slider" />
 
-	<utility
+	<utility zcml:condition="installed collective.js.galleriffic"
 		component=".display.GallerifficDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-galleriffic" />

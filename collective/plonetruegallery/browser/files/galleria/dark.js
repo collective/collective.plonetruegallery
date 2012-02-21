@@ -13,7 +13,6 @@
 Galleria.addTheme({
     name: 'dark',
     author: 'plone',
-    css: '++resource++plonetruegallery.resources/galleria/dark.css',
     defaults: {
         transition: 'fadeslide',
         thumbCrop:  'height',
