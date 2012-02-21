@@ -221,7 +221,7 @@ class IGallerySettings(Interface):
             default=u"Choose the method in which the "
                     u"gallery should be displayed"
         ),
-        default="galleriffic",
+        default="galleria",
         vocabulary="collective.plonetruegallery.DisplayTypes"
     )
 
