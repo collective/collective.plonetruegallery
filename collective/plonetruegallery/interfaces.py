@@ -178,6 +178,18 @@ class IGallerySettings(Interface):
         default="basic"
     )
 
+    display_type = schema.Choice(
+        title=_(u"label_gallery_display_type",
+                default=u"Gallery Display Type"),
+        description=_(
+            u"label_gallery_display_type_description",
+            default=u"Choose the method in which the "
+                    u"gallery should be displayed"
+        ),
+        default="galleria",
+        vocabulary="collective.plonetruegallery.DisplayTypes"
+    )
+
     # the specific options for the gallery types will be added
     # dynamcially in the form
     size = schema.Choice(
@@ -201,7 +213,7 @@ class IGallerySettings(Interface):
         title=_(u"label_thumb_size", default=u"Thumbnail image size"),
         description=_(u"description_thumb_size",
             default=u"The size of thumbnail images. "
-                    u"(*Fancybox* display type)"
+                    u"Will only work with plone image gallery type."
         ),
         default='thumb',
         vocabulary=SimpleVocabulary([
@@ -211,18 +223,6 @@ class IGallerySettings(Interface):
             SimpleTerm('preview', 'preview', _(u"label_preview",
                                                 default=u"preview")),
         ])
-    )
-
-    display_type = schema.Choice(
-        title=_(u"label_gallery_display_type",
-                default=u"Gallery Display Type"),
-        description=_(
-            u"label_gallery_display_type_description",
-            default=u"Choose the method in which the "
-                    u"gallery should be displayed"
-        ),
-        default="galleria",
-        vocabulary="collective.plonetruegallery.DisplayTypes"
     )
 
     # the options for the display type will also be added dynamically

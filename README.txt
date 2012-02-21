@@ -6,7 +6,7 @@ Introduction
 collective.plonetruegallery is a Plone product that implements a very
 customizable and sophisticated gallery. It allows you to add regular
 Plone Galleries, Picasa Web Albums or even Flickr sets.  It also allows
-the user to display the gallery in 3 different sizes, choose between two
+the user to display the gallery in different sizes, choose between many
 different javascript gallery display types and customize transitions, effects,
 and timing.  This project aims to be everything you need for a Gallery in
 Plone.
@@ -18,15 +18,41 @@ item for any Folder or Collection content type. Once that is done, a
 ``Gallery Settings`` tab is enabled for the type. With this, you can customize
 the various settings for the Gallery.
 
+
+Supported Display Types
+-----------------------
+
+To install any of the various extra display types, you need to install
+the dependant js package in buildout
+
+ - galleria(ship with)
+ - galleriffic(collective.js.galleriffic)
+ - highslide(collective.js.highslide)
+ - fancybox(collective.js.fancybox)
+ - pikachoose(collective.js.s3slider)
+ - s3slider(collective.js.pikachoose)
+
+Buildout configuration
+~~~~~~~~~~~~~~~~~~~~~~
+
+  eggs = 
+    ...
+    collective.plonetruegallery
+    collective.js.highslide
+    collective.js.fancybox
+    collective.js.galleriffic
+    collective.js.s3slider
+    collective.js.pikachoose
+
 Features
 --------
 * Flickr and Picasa Support!
 * Customize gallery size, transition(limited transitions right now), timed and
   other settings
 * Can use nested galleries
-* Highslide JS, Galleriffic and Fancybox display types
-* Pre-fetches gallery images
-* Gallery portlet(limiting with how it handles image sizes)
+* searching and category selection for nested galleries
+* Galleria, Galleriffic, Highslide JS, s3slider, Pikachoose and Fancybox display types
+* display gallery inline
 
 
 Flickr and Picasa Web Album Support
@@ -44,10 +70,11 @@ Flickr and Picasa Web Album Support
     collective.plonetruegallery[flickr] # for flickr support
     collective.plonetruegallery[all] # for both flickr and picasa support
 
-Hidden features
----------------
-* A view (@@placegalleryview) for pop-up and for placing in other content
-  has been added.
+
+Displaying Gallery inline
+-------------------------
+A view (@@placegalleryview) can be used to place the gallery inside of
+other content.
 
 * For pop-up effect, you could do this:
   1) Install http://plone.org/products/collective.prettyphoto
@@ -62,8 +89,9 @@ Hidden features
 * You will have to "whitelist" <object> and <param> in portal_transform
   safe-html.
 
+
 Troubleshouting safe-html
-_________________________
+-------------------------
 
   If you have trouble, do this:
   Go to safe_html in portal_transforms tool
@@ -83,6 +111,9 @@ at the top of safe_html in portal_transforms.
 
 Upgrading
 ---------
+
+From 0.8*
+~~~~~~~~~
 The upgrade to version 0.8* is an important and large update. Basically, it
 gets rid of the Gallery type, replaces it with the regular Folder type along
 with a new view applied to the folder, namely the "Gallery View."
@@ -99,6 +130,11 @@ On versions earlier than 0.9.1rc3, there was a bug that made the zodb grow
 when using a gallery portlet. Packing the zodb fixes it--it was just that
 on basic galleries, a zodb write was happening on every new image request
 when it was not necessary.
+
+From 1.x to 2.x
+~~~~~~~~~~~~~~~
+
+No longer support Slideshow 2 gallery which has been replaced with galleria.
 
 
 Installation
@@ -148,14 +184,6 @@ any other product. Then, go to ``portal_setup`` in the zmi and click on
 the ``Import`` tab. Once there, select the 
 ``collective.plonetruegallery Uninstall Profile`` profile and run all the
 steps. Once that is done, you can remove the egg from your buildout.
-
-
-Tested On
----------
-* Firefox
-* Safari
-* Opera
-* Google Chrome
 
 
 Fetching of Images Explained
