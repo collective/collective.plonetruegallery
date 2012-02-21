@@ -380,7 +380,7 @@ class IPikachooseDisplaySettings(IBaseSettings):
 class IGalleriaDisplaySettings(IBaseSettings):
     galleria_theme = schema.Choice(
         title=_(u"galleria_theme_title", default=u"Theme"),
-        default='dark',
+        default='light',
         vocabulary=SimpleVocabulary([
             SimpleTerm('dark', 'dark', _(u"label_dark", default=u"Dark")),
             SimpleTerm('light', 'light', _(u"label_light", default=u"Light")),
@@ -408,6 +408,13 @@ class IGalleriaDisplaySettings(IBaseSettings):
                 default=u"Slide - slides the images depending on image "
                         u"position"))
         ])
+    )
+
+    galleria_auto_show_info = schema.Bool(
+        title=_(u'galleria_label_auto_show_info', default="Auto show info"),
+        description=_(u'galleria_desc_auto_show_info',
+            default="start gallery out with info showing"),
+        default=True
     )
 
 

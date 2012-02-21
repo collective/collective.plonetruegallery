@@ -27,7 +27,7 @@ setup(name='collective.plonetruegallery',
       install_requires=[
           'setuptools',
           'plone.app.z3cform',
-          'collective.js.galleriffic'
+          'collective.js.galleria'
       ],
       extras_require=dict(
           tests=[

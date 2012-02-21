@@ -432,8 +432,7 @@ class GalleriaDisplayType(BaseDisplayType):
 </style>
 """ % {
             'portal_url': self.portal_url,
-            'width': self.width,
-            'height': self.height,
+            'height': self.height + 60,
             'css_file': self.css_theme_files[self.settings.galleria_theme]
         }
 
@@ -452,7 +451,8 @@ $(document).ready(function() {
         transitionSpeed: %(duration)i,
         transition: "%(transition)s",
         autoplay: %(autoplay)s,
-        clicknext: true
+        clicknext: true,
+        showInfo: %(showInfo)s
     });
 });
 })(jQuery);
@@ -463,7 +463,8 @@ $(document).ready(function() {
     'js_file': self.js_theme_files[self.settings.galleria_theme],
     'duration': self.settings.duration,
     'transition': self.settings.galleria_transition,
-    'autoplay': self.settings.timed and str(self.settings.delay) or 'false'
+    'autoplay': self.settings.timed and str(self.settings.delay) or 'false',
+    'showInfo': jsbool(self.settings.galleria_auto_show_info)
 }
 GalleriaSettings = createSettingsFactory(GalleriaDisplayType.schema)
 

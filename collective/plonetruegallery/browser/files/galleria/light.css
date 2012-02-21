@@ -238,8 +238,8 @@
 }
 #content a#galleria-player{
     position: absolute;
-    top: 0;
-    right: 10%;
+    top: 8%;
+    right: 0%;
     display: block;
     height: 38px;
     width: 38px;
@@ -262,4 +262,15 @@
 }
 #galleria-player.pause:hover{
     background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat -38px 0px;
+}
+
+div.galleria-image-nav-left, div.galleria-image-nav-right{
+    width: 60px;
+    background-color: #DDD;
+}
+div.galleria-image-nav-left{
+    background-position: 19px 46px;
+}
+div.galleria-image-nav-right{
+    background-position: -275px 46px;
 }
