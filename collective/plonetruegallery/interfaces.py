@@ -339,11 +339,6 @@ class IPikachooseDisplaySettings(IBaseSettings):
         default=False
     )
 
-    pikachoose_showcarousel = schema.Bool(
-        title=_(u"label_pikachoose_carousel", default=u"Hide carousel"),
-        default=False
-    )
-
     pikachoose_showcaption = schema.Bool(
         title=_(u"label_pikachoose_caption", default=u"Show caption"),
         default=True

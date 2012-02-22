@@ -1,0 +1,178 @@
+
+ .pikachoose{
+position:relative;
+float: left;
+}
+
+.pika-stage {
+position: absolute;
+top:0px;
+overflow: hidden;
+left:0px;}
+
+.pika-stage img{
+border:0;}
+
+.pika-stage .pika-aniwrap{
+position: absolute;
+top: 0px;
+left: 0px;
+z-index:9;}
+
+.pika-stage .caption{
+font-family:Helvetica;
+font-size:12px;
+padding:5px;
+color:#ccc;
+position:absolute;
+bottom:0;
+left:0;
+margin-right: 100px;
+z-index: 11;}
+
+.pika-textnav{
+display:none;}
+
+.pika-counter{
+display:none;}
+
+.pika-imgnav{
+width: 100%;
+height: 25px;
+background: black;
+background-image: -webkit-gradient(
+linear,
+left bottom,
+left top,
+color-stop(0.26, rgb(28,28,28)),
+color-stop(0.48, rgb(41,41,41)),
+color-stop(0.86, rgb(36,36,36)));
+background-image: -moz-linear-gradient(
+center bottom,
+rgb(28,28,28) 26%,
+rgb(41,41,41) 48%,
+rgb(36,36,36) 86%);
+position: absolute;
+bottom: 0;
+left:0;
+z-index:11;}
+
+.pika-imgnav a {
+position: absolute;
+text-indent: -5000px;
+height: 25px;
+width: 35px;
+display: block;
+z-index:11;
+background:url(++resource++plonetruegallery.resources/pikachoose/css/controls.png) 0 0 no-repeat;
+cursor:pointer;
+top:0px;
+right:10px;
+border-left:1px solid #222;}
+
+.pika-imgnav a.pause {
+background-position:17px -15px;}
+
+.pika-imgnav a.play, .pika-imgnav a.next {
+background-position:17px 5px;
+right:10px;}
+
+.pika-imgnav a.tray{
+background-position:17px -55px;
+right:62px;}
+
+.pika-imgnav a.next{
+right:105px;}
+
+.pika-imgnav a.previous {
+background-position:17px -35px;
+right:152px;}
+
+.pika-thumbs li{
+background:url(++resource++plonetruegallery.resources/pikachoose/css/pikai.png) top left no-repeat;
+float:left;
+list-style: none;
+width: 100px;
+height:55px;
+overflow:hidden;
+margin:3px 10px;}
+
+.pika-thumbs li .clip{
+position:relative;
+height:100%;
+overflow: hidden;}
+
+#pikame{
+}
+
+ul#pikame.jcarousel-skin-pika.pika-thumbs {
+position: absolute;
+bottom: 35px;;
+margin: 0
+}
+
+.pika-stage, .pika-thumbs li{
+border: 3px solid #111;
+background:#222;}
+
+
+.jcarousel-clip-horizontal{
+overflow:hidden;
+height:100%;
+left:0px;
+margin-right: 35px;
+margin-left: 35px;
+}
+
+.jcarousel-container{
+width: 100%;
+position:absolute !important;
+background:black;
+background:rgba(0,0,0,0.7);
+bottom:16px;
+left:3px;
+padding-top:8px;
+height:1px;
+z-index:10;
+overflow:hidden;}
+
+.jcarousel-container *{
+   z-index:10;}
+
+.jcarousel-prev,.jcarousel-next{
+width:25px;
+height:18px;
+background:url(++resource++plonetruegallery.resources/pikachoose/css/controls.png) top left no-repeat;
+display:block;
+position:absolute;
+right:0;
+top:35px;
+cursor:pointer;
+filter:alpha(opacity=60);
+opacity:0.6;}
+
+.jcarousel-prev:hover, .jcarousel-next:hover{
+filter:alpha(opacity=100);
+opacity:1.0;}
+
+.jcarousel-prev-disabled:hover, .jcarousel-next-disabled:hover{
+filter:alpha(opacity=60);
+opacity:0.6;}
+
+.jcarousel-next{
+background-position: 0 0;}
+
+.jcarousel-prev{
+background-position: 0 -40px;
+left:10px;}
+
+
+.pika-image .caption {position: absolute; background: red url(++resource++plonetruegallery.resources/pikachoose/css/75-black.png); border: 1px solid #141414; font-size: 11px; color: #fafafa; padding: 10px; text-align: right; bottom: 50px; right: 10px;}
+.pika-image .caption p {padding: 0; margin: 0; line-height: 14px;}
+
+
+
+/* jCarousel Styles for vertical*/
+.jcarousel-skin-pika .jcarousel-container-vertical { width: 125px; padding: 0 20px; overflow:hidden; margin:20px 0 0 0; height:1px;}
+.jcarousel-skin-pika .jcarousel-clip-vertical { width: 125px;}
+.jcarousel-skin-pika .jcarousel-item-vertical { margin-top: 10px;}
