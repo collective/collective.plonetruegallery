@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0a2 (unreleased)
+2.0a2 (2012-02-22)
 ------------------
 
 - allow you to place full gallery in portlet
