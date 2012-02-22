@@ -21,52 +21,65 @@ class IGalleryPortlet(IPortletDataProvider):
         title=_(u"gallery_portlet_show_title_title", default=u"Show Title?"),
         description=_(u"gallery_portlet_show_title_description",
             default=u"Check to show the title of the gallery in the portlet"),
-        default=True
-    )
+        default=True)
 
     gallery = schema.Choice(
         title=_(u"gallery_portlet_gallery_title", default=u"Gallery"),
         description=_(u"gallery_portlet_gallery_description",
             default=u"The gallery to show in this portlet."),
         source=GallerySearchabelTextSourceBinder(),
-        required=True
-    )
+        required=True)
+
+    mini = schema.Bool(
+        title=_(u'gallery_portlet_mini', default=u"Mini gallery"),
+        description=_(u'gallery_portlet_mini_desc',
+                default=u"If false, the actual full gallery will render "
+                        u"in an iframe and will follow the width and "
+                        u"height settings"),
+        default=True)
 
     width = schema.Int(
         title=_(u"gallery_portlet_width_title", default=u"Width"),
         description=_(u"gallery_portlet_width_description",
             default=u"The width of the image in the portlet"),
         required=True,
-        default=200
-    )
+        default=200)
+
+    height = schema.Int(
+        title=_(u"gallery_portlet_height_title", default=u"Height"),
+        description=_(u"gallery_portlet_height_description",
+            default=u"The height of the image in the portlet."
+                    u"If 0, no height is set."),
+        required=True,
+        default=0)
 
     timed = schema.Bool(
         title=_(u"gallery_portlet_timed_title", default=u"Timed"),
         description=_(u"gallery_portlet_timed_description",
             default=u"Do you want the gallery to be timed?"),
         required=True,
-        default=True
-    )
+        default=True)
 
     hide_controls = schema.Bool(
         title=_(u"gallery_portlet_hide_controls", default="Hide Controls"),
         description=_(u"gallery_portlet_hide_controls_description",
             default="Hide portlet gallery controls"),
         required=False,
-        default=False
-    )
+        default=False)
 
 
 class GalleryAssignment(base.Assignment):
     implements(IGalleryPortlet)
 
     def __init__(self, show_title=True, gallery=None, width=200, timed=True,
-                 hide_controls=False):
+                 hide_controls=False, mini=True, height=0):
         self.show_title = show_title
         self.gallery = gallery
         self.width = width
         self.timed = timed
         self._hide_controls = hide_controls
+        self._mini = mini
+        self._height = height
 
     def get_hide_controls(self):
         return getattr(self, '_hide_controls', False)
@@ -74,6 +87,20 @@ class GalleryAssignment(base.Assignment):
     def set_hide_controls(self, val):
         self._hide_controls = val
     hide_controls = property(get_hide_controls, set_hide_controls)
+
+    def get_mini(self):
+        return getattr(self, '_mini', True)
+
+    def set_mini(self, val):
+        self._mini = val
+    mini = property(get_mini, set_mini)
+
+    def get_height(self):
+        return getattr(self, '_height', 0)
+
+    def set_height(self, val):
+        self._height = val
+    height = property(get_height, set_height)
 
     @property
     def title(self):

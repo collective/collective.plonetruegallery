@@ -1,6 +1,9 @@
+<tal:defs tal:define="height view/data/height|nothing;
+                      mini view/data/mini|nothing;
+                      mini python: mini == None and True or mini">
 <dl class="portlet portletGallery"
     i18n:domain="plone"
-    tal:condition="python: view.gallery and view.gallery_adapter.number_of_images > 0"
+    tal:condition="python: view.data.mini and view.gallery and view.gallery_adapter.number_of_images > 0"
     tal:attributes="
       id string:gallery-portlet-${view/gallery/getId};
       class python: view.style_classes">
@@ -34,9 +37,17 @@
             <img tal:attributes="src image/image_url;
                                  title image/title; 
                                  alt image/description;
-                                 width string:${view/data/width}px;"
+                                 width string:${view/data/width}px;
+                                 height python: height and str(height) + 'px' or '';"
              />
         </a>
     </dd>
 
 </dl>
+<iframe class="full-gallery-portlet"
+  tal:condition="not: view/data/mini"
+  frameborder="0"
+  tal:attributes="src string:${view/gallery/absolute_url}/@@placegalleryview;
+                  width view/data/width;
+                  height python: height and str(height) + 'px' or '';" />
+</tal:defs>

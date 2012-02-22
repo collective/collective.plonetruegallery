@@ -45,6 +45,9 @@
                 var newimg = document.createElement('img');
                 newimg.src = json.src;
                 newimg.width = img.width();
+                if(img.attr('height') !== undefined){
+                    newimg.height = img.height();
+                }
                 newimg = $(newimg);
                 newimg.css('display', 'none');
                 portlet_item.css('height', img.height());

@@ -1,8 +1,15 @@
 Changelog
 =========
 
-2.0a (unreleased)
------------------
+2.0a2 (unreleased)
+------------------
+
+- allow you to place full gallery in portlet
+  [vangheem]
+
+
+2.0a1 (2012-02-22)
+------------------
 
 - Remove Slideshow 2 display type
   (depends on mootools and has loads of conflicts)

@@ -77,18 +77,27 @@ Displaying Gallery inline
 A view (@@placegalleryview) can be used to place the gallery inside of
 other content.
 
-* For pop-up effect, you could do this:
-  1) Install http://plone.org/products/collective.prettyphoto
-  2) Mark the link to the gallery with "prettyPhoto" style (which 
-     has now been added) from Kupu or TinyMCE
+Pop-up effect 
+-------------
 
-* For showing a gallery in another page, try something like this::
+you could do this::
+
+1) Install http://plone.org/products/collective.prettyphoto
+2) Mark the link to the gallery with "prettyPhoto" style (which 
+   has now been added) from Kupu or TinyMCE
+
+Inline Gallery
+--------------
+
+For showing a gallery in another page, try something like this::
+
   <object data="path/to/gallery/@@placegalleryview" height="400" width="500">
     <param name="data" value="path/to/gallery" />
   </object>
 
-* You will have to "whitelist" <object> and <param> in portal_transform
-  safe-html.
+You will have to "whitelist" <object> and <param> in portal_transform safe-html.
+
+Or you can do the same with an iframe
 
 
 Troubleshouting safe-html
