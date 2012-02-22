@@ -14,12 +14,22 @@ Changelog
 - switch to using collective.js.highslide
   [vangheem]
 
-- switch to using collective.fancybox
+- switch to using collective.js.fancybox
   [vangheem]
 
-- finally remove remains to gallery type. Can not upgrade
-  directly to this product version now.
+- finally remove remains to gallery content type. Can not
+  upgrade directly to this product version now.
   [vangheem]
+
+- fix error with unicode-titled images
+  [silviot]
+
+- added pikachoose support
+  [espen]
+
+- added s3slider support
+  [espen]
+
 
 1.3.3 (2011-09-28)
 ------------------

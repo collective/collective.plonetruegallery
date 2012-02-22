@@ -69,6 +69,7 @@ class TestUtils(PTGTestCase):
     def test_getDisplayAdapter(self):
         gadapter = getGalleryAdapter(self.portal['test_gallery'],
                                      TestRequest())
+        alsoProvides(IAttributeAnnotatable, gadapter.request)
         displayer = getDisplayAdapter(gadapter)
         self.failUnless(displayer.name == 'slideshow')
         self.failUnless(gadapter.settings.display_type == 'slideshow')
@@ -79,6 +80,7 @@ class TestUtils(PTGTestCase):
             TestRequest(),
             gallery_type="foobar"
         )
+        alsoProvides(IAttributeAnnotatable, gadapter.request)
         displayer = getDisplayAdapter(gadapter)
         self.failUnless(displayer.name == 'slideshow')
         self.failUnless(gadapter.settings.display_type == 'slideshow')

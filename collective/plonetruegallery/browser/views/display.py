@@ -124,7 +124,7 @@ class FancyBoxDisplayType(BatchingDisplayType):
         default=u"Fancy Box")
 
     def javascript(self):
-        return """
+        return u"""
 <script type="text/javascript"
     src="%(portal_url)s/++resource++collective.fancybox/jquery.easing-1.3.pack.js"></script>
 <script type="text/javascript"
@@ -157,7 +157,7 @@ class FancyBoxDisplayType(BatchingDisplayType):
         }
 
     def css(self):
-        return """
+        return u"""
 <link rel="stylesheet" type="text/css"
     href="%(staticFiles)s/jquery.fancybox.css" media="screen" />
 """ % {'staticFiles': self.staticFiles}
@@ -178,7 +178,7 @@ class HighSlideDisplayType(BatchingDisplayType):
     )
 
     def css(self):
-        return """
+        return u"""
 <link rel="stylesheet" type="text/css"
     href="%(portal_url)s/++resource++collective.js.highslide/highslide.css" />
 """ % {'portal_url': self.portal_url}
@@ -198,7 +198,7 @@ class HighSlideDisplayType(BatchingDisplayType):
         else:
             wrapperClassName = "'%s'" % wrapperClassName
 
-        return """
+        return u"""
 <script type="text/javascript"
     src="%(portal_url)s/++resource++collective.js.highslide/highslide-with-gallery.js"></script>
 
@@ -275,7 +275,7 @@ class GallerifficDisplayType(BaseDisplayType):
         default=u"Galleriffic")
 
     def css(self):
-        return """
+        return u"""
 <link rel="stylesheet" type="text/css"
     href="%(staticFiles)s/galleriffic/css/style.css" />
 
@@ -308,7 +308,7 @@ ul.thumbs li{
         }
 
     def javascript(self):
-        return """
+        return u"""
 <script type="text/javascript"
     src="%(portal_url)s/++resource++jquery.galleriffic.js"></script>
 <script type="text/javascript"
@@ -422,7 +422,7 @@ class GalleriaDisplayType(BaseDisplayType):
     }
 
     def css(self):
-        return """
+        return u"""
 <link rel="stylesheet" type="text/css"
     href="%(portal_url)s/%(css_file)s" />
 <style>
@@ -437,7 +437,7 @@ class GalleriaDisplayType(BaseDisplayType):
         }
 
     def javascript(self):
-        return """
+        return u"""
 <script type="text/javascript"
     src="%(portal_url)s/++resource++collective.galleria.js"></script>
 <script type="text/javascript"
@@ -478,7 +478,7 @@ class S3sliderDisplayType(BatchingDisplayType):
         default=u"s3slider")
 
     def javascript(self):
-        return """
+        return u"""
 <script type="text/javascript"
     src="%(portal_url)s/++resource++s3Slider.js"></script>
 
@@ -492,7 +492,7 @@ $(document).ready(function() {
         """
 
     def css(self):
-        return """
+        return u"""
         <style>
 #s3slider {
    height: %(height)ipx;
@@ -567,7 +567,7 @@ class PikachooseDisplayType(BatchingDisplayType):
         default=u"Pikachoose")
 
     def javascript(self):
-        return """
+        return u"""
 <script type="text/javascript"
     src="%(portal_url)s/++resource++jquery.pikachoose.js"></script>
 <script type="text/javascript"
@@ -620,7 +620,7 @@ $(document).ready(function(){
     }
 
     def css(self):
-        return """
+        return u"""
         <style>
 .pikachoose,
 .pika-stage {
