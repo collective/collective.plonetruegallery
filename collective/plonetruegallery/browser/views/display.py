@@ -6,6 +6,7 @@ from collective.plonetruegallery.interfaces import IGallerifficDisplaySettings
 from collective.plonetruegallery.interfaces import IGalleriaDisplaySettings
 from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
+from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -653,4 +654,38 @@ $(document).ready(function(){
        }
 
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
+
+class NivosliderDisplayType(BatchingDisplayType):
+    implements(IDisplayType, IBatchingDisplayType)
+
+    name = u"nivoslider"
+    schema = INivosliderDisplaySettings
+    description = _(u"label_nivoslider_display_type",
+        default=u"Nivoslider")
+
+    def javascript(self):
+        return u"""
+ 
+<script language="javascript">
+ 
+</script>
+""" % {
+         'height': self.height,
+    }
+
+    def css(self):
+        return u"""
+        <style>
+        div.slider-wrapper.theme-default {
+        height: %(height)ipx;
+        width: %(width)ipx;        
+        }
+        </style>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/style.css"/>
+""" % {
+        'height': self.height,
+        'width': self.width,
+       }
+
+NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
 

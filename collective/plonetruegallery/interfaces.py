@@ -332,6 +332,8 @@ class IGallerifficDisplaySettings(IBaseSettings):
 class IS3sliderDisplaySettings(IBaseSettings):
     pass
 
+class INivosliderDisplaySettings(IBaseSettings):
+    pass
 
 class IPikachooseDisplaySettings(IBaseSettings):
     pikachoose_showtooltips = schema.Bool(

@@ -54,6 +54,12 @@
 		factory=".display.S3sliderSettings"
 	/>
 
+	<adapter for="collective.plonetruegallery.interfaces.IGallery"
+		provides="collective.plonetruegallery.interfaces.INivosliderDisplaySettings"
+		factory=".display.NivosliderSettings"
+	/>
+
+ 
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview"
@@ -103,6 +109,13 @@
 		permission="zope2.View"
 	/>
 
+	<browser:page  for="collective.plonetruegallery.interfaces.IGallery"
+		name="galleryview-nivoslider"
+		class=".display.NivosliderDisplayType"
+		template="nivoslider.pt"
+		permission="zope2.View"
+	/>
+
 	<browser:page zcml:condition="installed collective.js.galleria"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-galleria"
@@ -130,6 +143,10 @@
 		component=".display.S3sliderDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-s3slider" />
+
+	<utility component=".display.NivosliderDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-nivoslider" />
 
 	<utility zcml:condition="installed collective.js.galleriffic"
 		component=".display.GallerifficDisplayType"
