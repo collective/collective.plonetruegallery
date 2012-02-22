@@ -636,6 +636,10 @@ $(document).ready(function(){
    width: %(width)ipx;
 }
 
+.pika-stage, .pika-thumbs li{
+    background-color: #%(backgroundcolor)s;
+}
+
 .jcarousel-skin-pika .jcarousel-container-vertical,
 .jcarousel-skin-pika .jcarousel-clip-vertical {
    height: %(lowerheight)ipx;
@@ -645,6 +649,8 @@ $(document).ready(function(){
         'height': self.height,
         'width': self.width,
         'lowerheight': self.height - 18,
+        'backgroundcolor' : self.settings.pikachoose_backgroundcolor,
        }
 
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
+

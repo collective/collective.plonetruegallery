@@ -339,6 +339,22 @@ class IPikachooseDisplaySettings(IBaseSettings):
         default=False
     )
 
+    pikachoose_backgroundcolor = schema.Choice(
+        title=_(u"label_pikachoose_backgroundcolor", default=u"backgroundcolor"),
+        default='222',
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('222', '222',
+                _(u"label_backgroundcolors", default=u"Dark")),
+            SimpleTerm('DDD', 'DDD',
+                _(u"label_backgroundcolors2", default=u"Grey")),
+            SimpleTerm('f6f6f6', 'f6f6f6',
+                _(u"label_backgroundcolors3", default=u"Offwhite")),
+            SimpleTerm('FFF', 'FFF',
+                _(u"label_backgroundcolors4", default=u"White")
+            )
+        ])
+    )
+    
     pikachoose_showcaption = schema.Bool(
         title=_(u"label_pikachoose_caption", default=u"Show caption"),
         default=True
