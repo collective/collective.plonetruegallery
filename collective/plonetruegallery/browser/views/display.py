@@ -581,7 +581,8 @@ $(document).ready(function(){
         self.hiddenTray = true;
         self.imgNav.find('.tray').bind('click',function(){
             if(self.hiddenTray){
-                self.list.parents('.jcarousel-container').animate({height:"80px"});
+                self.list.parents('.jcarousel-container.jcarousel-container-vertical').animate({height:"%(verticalheight)ipx"});
+                self.list.parents('.jcarousel-container.jcarousel-container-horizontal').animate({height:"80px"});
             }else{
                 self.list.parents('.jcarousel-container').animate({height:"1px"});
             }
@@ -598,7 +599,7 @@ $(document).ready(function(){
         showCaption: %(showcaption)s,
         thumbOpacity: 0.4,
         autoPlay: %(autoplay)s,
-        carousel: %(carousel)s,
+        carousel: 'false',
         showTooltips: %(showtooltips)s });
 });
 </script>
@@ -615,6 +616,7 @@ $(document).ready(function(){
         'vertical': jsbool(self.settings.pikachoose_vertical),
         'thumbopacity': 0.4,
         'fadethumbsin': 'false',
+        'verticalheight': self.height - 18,
     }
 
     def css(self):
@@ -635,11 +637,11 @@ $(document).ready(function(){
 .jcarousel-skin-pika .jcarousel-clip-vertical {
    height: %(lowerheight)ipx;
 </style>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/espenstyle.css"/>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/style.css"/>
 """ % {
         'height': self.height,
         'width': self.width,
-        'lowerheight': self.height - 58,
+        'lowerheight': self.height - 18,
        }
 
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
