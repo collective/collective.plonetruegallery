@@ -485,11 +485,14 @@ class S3sliderDisplayType(BatchingDisplayType):
 <script type="text/javascript">
 $(document).ready(function() {
    $('#s3slider').s3Slider({
-      timeOut: 5000
+      timeOut: %(delay)i
    });
 })(jQuery);
 </script>
-        """
+        """ % {
+        'portal_url': self.portal_url,
+        'delay': self.settings.delay
+        }
 
     def css(self):
         return u"""
