@@ -25,7 +25,7 @@ Supported Display Types
 To install any of the various extra display types, you need to install
 the dependant js package in buildout
 
- - galleria(ship with)
+ - galleria(ships with)
  - galleriffic(collective.js.galleriffic)
  - highslide(collective.js.highslide)
  - fancybox(collective.js.fancybox)
@@ -43,6 +43,7 @@ Buildout configuration
     collective.js.galleriffic
     collective.js.s3slider
     collective.js.pikachoose
+    ...
 
 Features
 --------
@@ -118,18 +119,9 @@ The upgrade to version 0.8* is an important and large update. Basically, it
 gets rid of the Gallery type, replaces it with the regular Folder type along
 with a new view applied to the folder, namely the "Gallery View."
 
-Also, when you install the new product, your galleries will *NOT* work until
-you've run the upgrade step.
+You can only successfully upgrade from the 0.8* series by first upgrading
+to a 1.x series release and then upgrading to the 2.x series.
 
-One more thing, upgrading will also mean that the ``classic`` display type is
-no longer supported. Your gallery will be gracefully migrated, so no worries
-on that end. Also, the new gallery display types are much more appealing in
-many ways. It is just that you may not like the change in look of the gallery.
-
-On versions earlier than 0.9.1rc3, there was a bug that made the zodb grow
-when using a gallery portlet. Packing the zodb fixes it--it was just that
-on basic galleries, a zodb write was happening on every new image request
-when it was not necessary.
 
 From 1.x to 2.x
 ~~~~~~~~~~~~~~~
@@ -140,9 +132,9 @@ No longer support Slideshow 2 gallery which has been replaced with galleria.
 Installation
 ------------
 Since this product depends on plone.app.z3cform, you'll need to add a few
-overrides for products versions in your buildout. Good news is that is
-you're using any other product that uses plone.app.z3cform, you'll already
-be good to go.
+overrides for products versions in your buildout if you aren't using recent
+versions of Plone. Good news is that is you're using any other product that
+uses plone.app.z3cform, you'll already be good to go.
 
 Basically, you'll need to add these to your buildout versions section
 ONLY IF you're running a plone < 4.1.
@@ -169,6 +161,9 @@ and Plone 3.x::
 	zope.app.zcmlfiles = 3.4.3
 
 
+These versions are not the exact versions plonetruegallery requires, it's
+just a known working set. If you already have plone.app.z3cform installed
+under different versions or wish to upgrade versions, you're fine doing so.
 
 
 Then once you run buildout with this configuration, install
