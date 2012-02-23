@@ -332,6 +332,33 @@ class IGallerifficDisplaySettings(IBaseSettings):
 class IS3sliderDisplaySettings(IBaseSettings):
     pass
 
+class INivosliderDisplaySettings(IBaseSettings):
+    nivoslider_controlnavthumbs = schema.Bool(
+        title=_(u"label_nivoslider_controlnavthumbs", default=u"Thumbs for controlnavigation?"),
+        default=True
+    )
+    nivoslider_randomstart = schema.Bool(
+        title=_(u"label_nivoslider_randomstart", default=u"Start on random image?"),
+        default=False
+    )
+
+class INivogalleryDisplaySettings(IBaseSettings):
+    nivogallery_directionnav = schema.Bool(
+        title=_(u"label_nivogallery_directionnav", default=u"Show navigation arrows on the image"),
+        default=True
+    )
+    nivogallery_progressbar = schema.Bool(
+        title=_(u"label_nivogallery_progressbar", default=u"Show progressbar at the top"),
+        default=True
+    )
+    nivogallery_height = schema.TextLine(
+        title=_(u"label_nivogallery_height", default=u"Height of the gallery. You can not set the height in %"),
+        default=u"350px"
+    )
+    nivogallery_width = schema.TextLine(
+        title=_(u"label_nivogallery_width", default=u"Width of the gallery"),
+        default=u"600px"
+    )
 
 class IPikachooseDisplaySettings(IBaseSettings):
     pikachoose_showtooltips = schema.Bool(

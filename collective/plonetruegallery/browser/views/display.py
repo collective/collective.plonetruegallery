@@ -6,6 +6,8 @@ from collective.plonetruegallery.interfaces import IGallerifficDisplaySettings
 from collective.plonetruegallery.interfaces import IGalleriaDisplaySettings
 from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
+from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
+from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -653,4 +655,90 @@ $(document).ready(function(){
        }
 
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
+
+class NivosliderDisplayType(BatchingDisplayType):
+    implements(IDisplayType, IBatchingDisplayType)
+
+    name = u"nivoslider"
+    schema = INivosliderDisplaySettings
+    description = _(u"label_nivoslider_display_type",
+        default=u"Nivoslider")
+
+    def javascript(self):
+        return u"""
+ 
+<script language="javascript">
+ 
+</script>
+""" % {
+         'height': self.height,
+    }
+
+    def css(self):
+        return u"""
+        <style>
+        div.slider-wrapper {
+        height: %(height)ipx;
+        width: %(width)ipx;        
+        }
+        </style>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/style.css"/>
+""" % {
+        'height': self.height,
+        'width': self.width,
+       }
+
+NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
+
+class NivogalleryDisplayType(BatchingDisplayType):
+    implements(IDisplayType, IBatchingDisplayType)
+
+    name = u"nivogallery"
+    schema = INivogalleryDisplaySettings
+    description = _(u"label_nivogallery_display_type",
+        default=u"Nivogallery")
+
+    def javascript(self):
+        return u"""
+        <script type="text/javascript"
+    src="%(portal_url)s/++resource++jquery.nivo.gallery.js"></script>
+    <script type="text/javascript">
+$(document).ready(function() {
+    $('#gallery').nivoGallery({
+    pauseTime: %(delay)i,
+    animSpeed: %(duration)i,
+    effect: 'fade',
+    startPaused: false,
+    directionNav: %(directionnav)s,
+    progressBar: %(progressbar)s,
+    });
+});
+</script>
+
+""" % {
+         'portal_url': self.portal_url,
+         'duration': self.settings.duration,
+         'timed': jsbool(self.settings.timed),
+         'delay': self.settings.delay,
+         'start_automatically': jsbool(
+                self.start_automatically or self.settings.timed),
+         'directionnav' : jsbool(self.settings.nivogallery_directionnav),
+         'progressbar' : jsbool(self.settings.nivogallery_progressbar),
+    }
+
+    def css(self):
+        return u"""
+        <style>
+       .nivoGallery {
+        height: %(height)s;
+        width: %(width)s;        
+        }
+        </style>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivogallery/css/style.css"/>
+""" % {
+        'height': self.settings.nivogallery_height,
+        'width': self.settings.nivogallery_width,
+       }
+
+NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
 
