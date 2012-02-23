@@ -344,7 +344,7 @@ class INivosliderDisplaySettings(IBaseSettings):
 
 class INivogalleryDisplaySettings(IBaseSettings):
     nivogallery_directionnav = schema.Bool(
-        title=_(u"label_nivogallery_directionnav", default=u"Directionnav"),
+        title=_(u"label_nivogallery_directionnav", default=u"Show navigation arrows on the image"),
         default=True
     )
     nivogallery_progressbar = schema.Bool(

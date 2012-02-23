@@ -709,9 +709,9 @@ $(document).ready(function() {
     animSpeed: %(duration)i,
     effect: 'fade',
     startPaused: false,
-    directionNav: true,
-    progressBar: true
-});
+    directionNav: %(directionnav)s,
+    progressBar: %(progressbar)s,
+    });
 });
 </script>
 
@@ -722,8 +722,8 @@ $(document).ready(function() {
          'delay': self.settings.delay,
          'start_automatically': jsbool(
                 self.start_automatically or self.settings.timed),
-         'directionnav' : self.settings.nivogallery_directionnav,
-         'progressbar' : self.settings.nivogallery_progressbar,
+         'directionnav' : jsbool(self.settings.nivogallery_directionnav),
+         'progressbar' : jsbool(self.settings.nivogallery_progressbar),
     }
 
     def css(self):
