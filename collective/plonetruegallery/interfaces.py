@@ -333,10 +333,24 @@ class IS3sliderDisplaySettings(IBaseSettings):
     pass
 
 class INivosliderDisplaySettings(IBaseSettings):
-    pass
+    nivoslider_controlnavthumbs = schema.Bool(
+        title=_(u"label_nivoslider_controlnavthumbs", default=u"Thumbs for controlnavigation?"),
+        default=True
+    )
+    nivoslider_randomstart = schema.Bool(
+        title=_(u"label_nivoslider_randomstart", default=u"Start on random image?"),
+        default=False
+    )
 
 class INivogalleryDisplaySettings(IBaseSettings):
-    pass
+    nivogallery_directionnav = schema.Bool(
+        title=_(u"label_nivogallery_directionnav", default=u"Directionnav"),
+        default=True
+    )
+    nivogallery_progressbar = schema.Bool(
+        title=_(u"label_nivogallery_progressbar", default=u"Show progressbar at the top"),
+        default=True
+    )
 
 class IPikachooseDisplaySettings(IBaseSettings):
     pikachoose_showtooltips = schema.Bool(

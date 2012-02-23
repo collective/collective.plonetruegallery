@@ -677,7 +677,7 @@ class NivosliderDisplayType(BatchingDisplayType):
     def css(self):
         return u"""
         <style>
-        div.slider-wrapper.theme-default {
+        div.slider-wrapper {
         height: %(height)ipx;
         width: %(width)ipx;        
         }
@@ -704,20 +704,25 @@ class NivogalleryDisplayType(BatchingDisplayType):
     src="%(portal_url)s/++resource++jquery.nivo.gallery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        $('#gallery').nivoGallery();
+        $('#gallery').nivoGallery({ pauseTime: %(delay)i,  animSpeed: %(duration)i, effect: 'fade',
+            startPaused: %(start_automatically)s, directionNav: %(directionnav)s, progressBar: %(progressbar)s 
+        });
     });
     </script>
-    <script src="modernizr-1.7.min.js">
-    </script>
 """ % {
-         'height': self.height,
          'portal_url': self.portal_url,
+         'duration': self.settings.duration,
+         'delay': self.settings.delay,
+         'start_automatically': jsbool(
+                self.start_automatically or self.settings.timed),
+         'directionnav' : self.settings.nivoslider_directionnav,
+         'progressbar' : self.settings.nivoslider_progressbar,
     }
 
     def css(self):
         return u"""
         <style>
-        #wrapper {
+        .nivoGallery {
         height: %(height)ipx;
         width: %(width)ipx;        
         }
