@@ -341,7 +341,22 @@ class INivosliderDisplaySettings(IBaseSettings):
         title=_(u"label_nivoslider_randomstart", default=u"Start on random image?"),
         default=False
     )
-
+    
+    nivoslider_theme = schema.Choice(
+        title=_(u"nivoslider_theme", default=u"Nivoslider Theme"),
+        default=u"default",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("default", "default",
+                _(u"label_nivoslider_theme1", default=u"Default Theme")),
+            SimpleTerm("orman", "orman",
+                _(u"label_nivoslider_theme2", default=u"Orman Theme")),
+            SimpleTerm("pascal", "pascal",
+                _(u"label_nivoslider_theme3", default=u"Pascal Theme")
+            )
+        ])
+    )
+    
+       
 class INivogalleryDisplaySettings(IBaseSettings):
     nivogallery_directionnav = schema.Bool(
         title=_(u"label_nivogallery_directionnav", default=u"Show navigation arrows on the image"),

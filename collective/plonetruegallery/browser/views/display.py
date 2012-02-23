@@ -682,10 +682,12 @@ class NivosliderDisplayType(BatchingDisplayType):
         width: %(width)ipx;        
         }
         </style>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/nivoslider.css"/>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/%(nivoslider_theme)s/style.css"/>
 """ % {
         'height': self.height,
         'width': self.width,
+         'nivoslider_theme' : self.settings. nivoslider_theme,
        }
 
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
