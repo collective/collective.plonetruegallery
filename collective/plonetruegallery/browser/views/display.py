@@ -666,12 +666,52 @@ class NivosliderDisplayType(BatchingDisplayType):
 
     def javascript(self):
         return u"""
- 
-<script language="javascript">
- 
+<script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+        effect: %(effect)s, // Specify sets like: 'fold,fade,sliceDown'
+        slices: %(slices)i, // For slice animations
+        boxCols: %(boxcols)i, // For box animations
+        boxRows: %(boxrows)i, // For box animations
+        animSpeed: %(animspeed)i, // Slide transition speed
+        pauseTime: %(delay), // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: %(directionnav)s, // Next & Prev navigation
+        directionNavHide: %(directionnavhide)s, // Only show on hover
+        controlNav: true, // 1,2,3... navigation
+        controlNavThumbs: false, // Use thumbnails for Control Nav
+        controlNavThumbsFromRel: true, // Use image rel for thumbs
+        controlNavThumbsSearch: '.jpg', // Replace this with...
+        controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
+        keyboardNav: true, // Use left & right arrows
+        pauseOnHover: %(pauseonhover)s, // Stop animation while hovering
+        manualAdvance: false, // Force manual transitions
+        captionOpacity: 0.8, // Universal caption opacity
+        prevText: 'Prev', // Prev directionNav text
+        nextText: 'Next', // Next directionNav text
+        randomStart: %(randomstart)s, // Start on a random slide
+        beforeChange: function(){}, // Triggers before a slide transition
+        afterChange: function(){}, // Triggers after a slide transition
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+        afterLoad: function(){} // Triggers when slider has loaded
+    });
+});
 </script>
 """ % {
+         'portal_url': self.portal_url,
          'height': self.height,
+         'effect': self.settings.nivoslider_effect,
+         'slices': self.settings.nivoslider_slices,
+         'boxcols': self.settings.nivoslider_boxcols,
+         'boxrows': self.settings.nivoslider_boxrows ,
+         'animspeed': self.settings.duration,
+         'delay': self.settings.delay,
+         'directionnav': jsbool(self.settings.nivoslider_directionnav),
+         'directionnavhide': jsbool(self.settings.nivoslider_directionnavhide),
+         'pauseonhover': jsbool(self.settings.nivoslider_pauseonhover),
+         'randomstart': jsbool(self.settings.nivoslider_randomstart),
     }
 
     def css(self):
