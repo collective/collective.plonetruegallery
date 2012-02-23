@@ -681,7 +681,7 @@ $(window).load(function() {
         directionNavHide: %(directionnavhide)s, // Only show on hover
         controlNav: true, // 1,2,3... navigation
         controlNavThumbs: false, // Use thumbnails for Control Nav
-        controlNavThumbsFromRel: false, // Use image rel for thumbs
+        controlNavThumbsFromRel: true, // Use image rel for thumbs
         controlNavThumbsSearch: '.jpg', // Replace this with...
         controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
         keyboardNav: true, // Use left & right arrows
@@ -698,7 +698,7 @@ $(window).load(function() {
         afterLoad: function(){} // Triggers when slider has loaded
     });
 });
-</script>
+</script>);
 """ % {
          'portal_url': self.portal_url,
          'height': self.height,
