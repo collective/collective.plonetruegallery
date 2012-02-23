@@ -351,6 +351,14 @@ class INivogalleryDisplaySettings(IBaseSettings):
         title=_(u"label_nivogallery_progressbar", default=u"Show progressbar at the top"),
         default=True
     )
+    nivogallery_height = schema.TextLine(
+        title=_(u"label_nivogallery_height", default=u"Height of the gallery. You can not set the height in %"),
+        default=u"350px"
+    )
+    nivogallery_width = schema.TextLine(
+        title=_(u"label_nivogallery_width", default=u"Width of the gallery"),
+        default=u"600px"
+    )
 
 class IPikachooseDisplaySettings(IBaseSettings):
     pikachoose_showtooltips = schema.Bool(

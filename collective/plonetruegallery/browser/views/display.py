@@ -705,7 +705,7 @@ class NivogalleryDisplayType(BatchingDisplayType):
     <script type="text/javascript">
 $(document).ready(function() {
     $('#gallery').nivoGallery({
-    pauseTime: %(duration)i,
+    pauseTime: %(delay)i,
     animSpeed: %(duration)i,
     effect: 'fade',
     startPaused: false,
@@ -730,14 +730,14 @@ $(document).ready(function() {
         return u"""
         <style>
        .nivoGallery {
-        height: %(height)ipx;
-        width: %(width)ipx;        
+        height: %(height)s;
+        width: %(width)s;        
         }
         </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivogallery/css/style.css"/>
 """ % {
-        'height': self.height,
-        'width': self.width,
+        'height': self.settings.nivogallery_height,
+        'width': self.settings.nivogallery_width,
        }
 
 NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)

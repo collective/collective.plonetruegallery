@@ -12,14 +12,15 @@
 .nivoGallery {
     position:relative;
     background:#000 url(++resource++plonetruegallery.resources/nivogallery/css/loading.gif) no-repeat 50% 50%;
-    margin-bottom:28px;
+    border:  1px solid #222;
+    margin-bottom: 28px;
 }
 .nivoGallery.loaded {
     background:#000; /* Remove the loading gif */
 }
 .nivoGallery ul {
     list-style:none;
-    margin:0;
+    margin:0 !important;
     padding:0;
 }
 .nivoGallery ul li {
@@ -34,8 +35,9 @@
 }
 .nivoGallery ul img {
     display:block;
-    max-width:100%;
-    max-height:100%;
+     /* removed by espen 
+     ax-width:100%;  
+     max-height:100%;*/
     position:absolute; 
     top:0; 
     bottom:0; 
@@ -104,7 +106,7 @@
 .nivoGallery-bar {
     position:absolute;
     bottom:-28px;
-    left:0;
+    left:-1px;
     height:28px;
     width:100%;
     font: 11px/28px arial,sans-serif;
@@ -117,6 +119,8 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#515151', endColorstr='#0e0e0e',GradientType=0 );
     background: linear-gradient(top, #515151 0%,#0e0e0e 100%);
     border-top:1px solid #222;
+    border-right:1px solid #222;
+    border-left:1px solid #222;
     z-index:5;
 }
 .nivoGallery-play {
