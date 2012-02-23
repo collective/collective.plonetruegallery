@@ -7,6 +7,7 @@ from collective.plonetruegallery.interfaces import IGalleriaDisplaySettings
 from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
+from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -688,4 +689,44 @@ class NivosliderDisplayType(BatchingDisplayType):
        }
 
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
+
+class NivogalleryDisplayType(BatchingDisplayType):
+    implements(IDisplayType, IBatchingDisplayType)
+
+    name = u"nivogallery"
+    schema = INivogalleryDisplaySettings
+    description = _(u"label_nivogallery_display_type",
+        default=u"Nivogallery")
+
+    def javascript(self):
+        return u"""
+       <script type="text/javascript"
+    src="%(portal_url)s/++resource++jquery.nivo.gallery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#gallery').nivoGallery();
+    });
+    </script>
+    <script src="modernizr-1.7.min.js">
+    </script>
+""" % {
+         'height': self.height,
+         'portal_url': self.portal_url,
+    }
+
+    def css(self):
+        return u"""
+        <style>
+        #wrapper {
+        height: %(height)ipx;
+        width: %(width)ipx;        
+        }
+        </style>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivogallery/css/style.css"/>
+""" % {
+        'height': self.height,
+        'width': self.width,
+       }
+
+NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
 

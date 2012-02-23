@@ -1,157 +1,215 @@
-/*=================================*/
-/* Nivo Gallery Demo
-/* October 2011
-/* By: Gilbert Pellegrom
-/* http://dev7studios.com
-/*=================================*/
+/*
+ * jQuery Nivo Gallery v0.7.1
+ * http://dev7studios.com
+ *
+ * Copyright 2011, Gilbert Pellegrom
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * October 2011
+ */
+ 
+.nivoGallery {
+    position:relative;
+    background:#000 url(images/loading.gif) no-repeat 50% 50%;
+    width:100%; /* Width can be fixed px or dynamic % value */
+    height:400px; /* Height must be fixed px value */
+    margin-bottom:28px;
+}
+.nivoGallery.loaded {
+    background:#000; /* Remove the loading gif */
+}
+.nivoGallery ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.nivoGallery ul li {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:none;
+    font: 14px/1.6em arial,sans-serif;
+    color:#fff;
+}
+.nivoGallery ul img {
+    display:block;
+    max-width:100%;
+    max-height:100%;
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    left:0; 
+    right:0;
+	margin:auto;
+    -ms-interpolation-mode:bicubic;
+}
 
-/*====================*/
-/*=== Reset Styles ===*/
-/*====================*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin:0;
-	padding:0;
+.nivoGallery-slides {
+    position:relative;
+    height:100%;
+    overflow:hidden;
+}
+
+.nivoGallery-htmlwrap {
+    padding:20px;
+    height:100%;
+    overflow:auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.nivoGallery-videowrap video,
+.nivoGallery-videowrap iframe,  
+.nivoGallery-videowrap object,  
+.nivoGallery-videowrap embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+.nivoGallery-directionNav a {
+    position:absolute;
+    top:45%;
+    cursor:pointer;
+    display:block;
+	width:32px;
+	height:34px;
+	background:url(images/arrows.png) no-repeat;
+	text-indent:-9999px;
 	border:0;
-	outline:0;
-	font-weight:inherit;
-	font-style:inherit;
-	font-size:100%;
-	font-family:inherit;
-	vertical-align:baseline;
+    opacity:0;
+    z-index:5;
+    -webkit-transition:opacity 150ms ease-in-out;
+    -moz-transition:opacity 150ms ease-in-out;
+    -o-transition:opacity 150ms ease-in-out;
+    transition:opacity 150ms ease-in-out;
 }
-body {
-	line-height:1;
-	color:black;
-	background:white;
+.nivoGallery-directionNav .nivoGallery-prev {
+    left:10px;
 }
-table {
-	border-collapse:separate;
-	border-spacing:0;
+.nivoGallery-directionNav .nivoGallery-next {
+    right:10px;
+    background-position:-32px 0;
 }
-caption, th, td {
-	text-align:left;
-	font-weight:normal;
+.nivoGallery:hover .nivoGallery-directionNav a {
+    opacity:0.7;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content:"";
-}
-blockquote, q {
-	quotes:"" "";
-}
-/* HTML5 tags */
-header, section, footer,
-aside, nav, article, figure {
-	display: block;
+.nivoGallery:hover .nivoGallery-directionNav a:hover {
+    opacity:1;
 }
 
-/*===================*/
-/*=== Main Styles ===*/
-/*===================*/
-body {
-	font:14px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color:#000;
-	background:#fff;
+.nivoGallery-bar {
+    position:absolute;
+    bottom:-28px;
+    left:0;
+    height:28px;
+    width:100%;
+    font: 11px/28px arial,sans-serif;
+    background: #515151;
+    background: -moz-linear-gradient(top, #515151 0%, #0e0e0e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#515151), color-stop(100%,#0e0e0e));
+    background: -webkit-linear-gradient(top, #515151 0%,#0e0e0e 100%);
+    background: -o-linear-gradient(top, #515151 0%,#0e0e0e 100%);
+    background: -ms-linear-gradient(top, #515151 0%,#0e0e0e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#515151', endColorstr='#0e0e0e',GradientType=0 );
+    background: linear-gradient(top, #515151 0%,#0e0e0e 100%);
+    border-top:1px solid #222;
+    z-index:5;
+}
+.nivoGallery-play {
+    display:inline-block;
+    width:32px;
+    height:28px;
+    border:0;
+    background:url(images/playpause.png) no-repeat 50% 8px;
+    cursor:pointer;
+    border-right:1px solid rgba(0,0,0,0.3);
+}
+.nivoGallery-play.playing {
+    background-position:50% -92px;
+}
+.nivoGallery-count {
+    display:inline-block;
+    vertical-align:top;
+    height:28px;
+    padding:0 8px;
+    color:#aaa;
+    border-left:1px solid rgba(255,255,255,0.2);
+    border-right:1px solid rgba(0,0,0,0.3);
+    text-shadow:0 1px 0 #000;
+}
+.nivoGallery-caption {
+    display:inline-block;
+    vertical-align:top;
+    height:28px;
+    border-left:1px solid rgba(255,255,255,0.2);
+    padding:0 15px;
+    overflow:hidden;
+    color:#aaa;
+    text-shadow:0 1px 0 #000;
+}
+.nivoGallery-captionTitle {
+    color:#fff;
+    font-weight:bold;
+    margin-right:5px;
+}
+.nivoGallery-fullscreen {
+    float:right;
+    display:inline-block;
+    width:32px;
+    height:28px;
+    border:0;
+    background:url(images/fullscreen.png) no-repeat 50% 5px;
+    cursor:pointer;
+    border-left:1px solid rgba(0,0,0,0.3);
 }
 
-a, a:visited {
-	color:blue;
-	text-decoration:none;
-	border-bottom:1px solid blue;
-}
-a:hover, a:active {
-	color:#000;
-	text-decoration:none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	line-height:1.2;
-	margin-bottom:0.6em;
-}
-h1 { /* Assume used once for page title */
-	font-size:2.2em;
-}
-h2 { /* Assume used for page headings */
-	font-size:1.9em;
-}
-h3 { /* Assume used for sub-headings */
-	font-size:1.7em;
-	margin-top:2em;
-}
-h4 {
-	font-size:1.5em;
-}
-h5 {
-	font-size:1.3em;
-}
-h6 {
-	font-size:1.2em;
-}
-p {
-	margin-bottom:1em;
+.nivoGallery-progress {
+    position:absolute;
+    top:0;
+    left:0;
+    background:#fff;
+    opacity:0.5;
+    width:100%;
+    height:2px;
+    z-index:5;
 }
 
-ol, ul {
-	padding-left:30px;
-	margin-bottom:1em;
+.nivoGallery.fullscreen {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100% !important;
+    max-width:100%;
+    height:100% !important;
+    z-index:10000;
 }
-
-b, strong {
-	font-weight:bold;
+.nivoGallery.fullscreen .nivoGallery-caption {
+    position:fixed;
+    top:0;
+    left:0;
+    display:block;
+    width:100%;
+    background:#000;
+    padding:20px;
+    opacity:0.8;
 }
-i, em {
-	font-style:italic;
+.nivoGallery.fullscreen .nivoGallery-play {
+    position:fixed;
+    top:20px;
+    right:45px;
+    z-index:6;
 }
-u {
-	text-decoration:underline;
+.nivoGallery.fullscreen .nivoGallery-fullscreen {
+    position:fixed;
+    top:20px;
+    right:20px;
 }
-abbr, acronym {
-	cursor:help;
-	border-bottom:.1em dotted;
-}
-td, td img { vertical-align:top; }
-sub { vertical-align:sub; font-size:smaller; }
-sup { vertical-align:super; font-size:smaller; }
-
-code {
-	font-family:Courier,"Courier New",Monaco,Tahoma;
-	background:#eee;
-	color:#000;
-	padding:0px 2px;
-}
-pre {
-	background:#eee;
-	padding:20px;
-	margin-bottom:1em;
-    /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
-    white-space: pre; /* CSS2 */
-    white-space: pre-wrap; /* CSS 2.1 */
-    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
-    word-wrap: break-word; /* IE */
-}
-blockquote {
-	font-style:italic;
-	margin:0 0 1em 15px;
-	padding-left:10px;
-	border-left:5px solid #000;
-}
-
-/* hand cursor on clickable input elements */
-label, input[type=button], input[type=submit], button { cursor: pointer; }
-/* make buttons play nice in IE:   
-    www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
-button {  width: auto; overflow: visible; }
-
-/*========================*/
-/*=== Structure Styles ===*/
-/*========================*/
-#wrapper {
-    margin:200px;
+.nivoGallery.fullscreen .nivoGallery-htmlwrap {
+    padding:90px 20px 20px 20px;
 }

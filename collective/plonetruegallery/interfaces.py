@@ -335,6 +335,9 @@ class IS3sliderDisplaySettings(IBaseSettings):
 class INivosliderDisplaySettings(IBaseSettings):
     pass
 
+class INivogalleryDisplaySettings(IBaseSettings):
+    pass
+
 class IPikachooseDisplaySettings(IBaseSettings):
     pikachoose_showtooltips = schema.Bool(
         title=_(u"label_pikachoose_tooltip", default=u"Show tooltip"),

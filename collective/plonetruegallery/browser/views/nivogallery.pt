@@ -1,0 +1,14 @@
+<div id="wrapper">
+    <div id="gallery" class="nivoGallery">
+        <ul>
+            <li tal:repeat="img view/adapter/cooked_images">
+                <img title="Locomotives Roundhouse"
+                     alt=""
+                     src=""
+                     tal:attributes="title img/title;
+                                     alt img/description;
+                                     src img/image_url"/>
+            </li>
+        </ul>
+    </div>
+</div>
