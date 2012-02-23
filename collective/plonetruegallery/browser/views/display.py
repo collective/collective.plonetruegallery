@@ -701,7 +701,7 @@ class NivogalleryDisplayType(BatchingDisplayType):
     def javascript(self):
         return u"""
         <script type="text/javascript"
-    src="%(portal_url)s/++resource++jquery.nivo.gallery.js"></script>
+    src="%(portal_url)s/++resource++jquery.nivo.gallery.min.js"></script>
     <script type="text/javascript">
 $(document).ready(function() {
     $('#gallery').nivoGallery({
