@@ -675,7 +675,7 @@ $(window).load(function() {
         boxCols: %(boxcols)i, // For box animations
         boxRows: %(boxrows)i, // For box animations
         animSpeed: %(animspeed)i, // Slide transition speed
-        pauseTime: %(delay), // How long each slide will show
+        pauseTime: %(delay)i, // How long each slide will show
         startSlide: 0, // Set starting Slide (0 index)
         directionNav: %(directionnav)s, // Next & Prev navigation
         directionNavHide: %(directionnavhide)s, // Only show on hover
@@ -705,13 +705,13 @@ $(window).load(function() {
          'effect': self.settings.nivoslider_effect,
          'slices': self.settings.nivoslider_slices,
          'boxcols': self.settings.nivoslider_boxcols,
-         'boxrows': self.settings.nivoslider_boxrows ,
+         'boxrows': self.settings.nivoslider_boxrows,
          'animspeed': self.settings.duration,
          'delay': self.settings.delay,
          'directionnav': jsbool(self.settings.nivoslider_directionnav),
          'directionnavhide': jsbool(self.settings.nivoslider_directionnavhide),
          'pauseonhover': jsbool(self.settings.nivoslider_pauseonhover),
-         'randomstart': jsbool(self.settings.nivoslider_randomstart),
+         'randomstart': jsbool(self.settings.nivoslider_randomstart)
     }
 
     def css(self):

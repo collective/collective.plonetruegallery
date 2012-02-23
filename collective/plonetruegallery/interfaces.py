@@ -415,15 +415,15 @@ class INivosliderDisplaySettings(IBaseSettings):
         default=False
     )     
     nivoslider_slices = schema.Int(
-        title=_(u"label_nivoslider_slices", default=u"For slice animations"),
+        title=_(u"label_nivoslider_slices", default=u"Nuber of slices, for slice animations"),
         default=False
     )     
     nivoslider_boxcols = schema.Int(
-        title=_(u"label_nivoslider_boxcols", default=u"For box animations"),
+        title=_(u"label_nivoslider_boxcols", default=u"Number of columns for box animations"),
         default=False
     )     
     nivoslider_boxrows = schema.Int(
-        title=_(u"label_nivoslider_boxrows", default=u"For box animations"),
+        title=_(u"label_nivoslider_boxrows", default=u"Number of rows for box animations"),
         default=False
     ) 
    
