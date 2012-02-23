@@ -342,6 +342,15 @@ class INivosliderDisplaySettings(IBaseSettings):
         default=False
     )
     
+    nivoslider_width = schema.TextLine(
+        title=_(u"label_nivoslider_width", default=u"Width of the gallery"),
+        default=u"600px"
+    )
+    nivoslider_height = schema.TextLine(
+        title=_(u"label_nivoslider_height", default=u"Height of the gallery. You can not set the height in %"),
+        default=u"350px"
+    )
+
     nivoslider_theme = schema.Choice(
         title=_(u"nivoslider_theme", default=u"Nivoslider Theme"),
         default=u"default",
@@ -366,15 +375,15 @@ class INivogalleryDisplaySettings(IBaseSettings):
         title=_(u"label_nivogallery_progressbar", default=u"Show progressbar at the top"),
         default=True
     )
-    nivogallery_height = schema.TextLine(
-        title=_(u"label_nivogallery_height", default=u"Height of the gallery. You can not set the height in %"),
-        default=u"350px"
-    )
     nivogallery_width = schema.TextLine(
         title=_(u"label_nivogallery_width", default=u"Width of the gallery"),
         default=u"600px"
     )
-
+    nivogallery_height = schema.TextLine(
+        title=_(u"label_nivogallery_height", default=u"Height of the gallery. You can not set the height in %"),
+        default=u"350px"
+    )
+    
 class IPikachooseDisplaySettings(IBaseSettings):
     pikachoose_showtooltips = schema.Bool(
         title=_(u"label_pikachoose_tooltip", default=u"Show tooltip"),

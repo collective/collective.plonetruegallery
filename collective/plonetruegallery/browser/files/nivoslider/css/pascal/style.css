@@ -1,3 +1,5 @@
+/* @override http://localhost:8080/test/portal_css/Sunburst%20Theme/++resource++plonetruegallery.resources/style.css */
+
 /*
 Skin Name: Pascal Theme
 Skin URI: http://nivo.dev7studios.com
@@ -11,9 +13,7 @@ Author URI: http://dev7studios.com
 */
 
 .slider-wrapper {
-    background:url(slider.png) no-repeat;
-    width:668px;
-    height:299px;
+    background:url(++resource++plonetruegallery.resources/nivoslider/css/pascal/slider.png) no-repeat;
     margin:0 auto;
     padding-top:17px;
     position:relative;
@@ -21,18 +21,15 @@ Author URI: http://dev7studios.com
 
  .nivoSlider {
     position:relative;
-    width:630px;
-    height:235px;
     margin-left:19px;
-    background:url(loading.gif) no-repeat 50% 50%;
+    background:url(++resource++plonetruegallery.resources/nivoslider/css/pascal/loading.gif) no-repeat 50% 50%;
 }
  .nivoSlider img {
     position:absolute;
     top:0px;
     left:0px;
     display:none;
-    width:630px; /* Make sure your images are the same size */
-    height:235px; /* Make sure your images are the same size */
+
 }
  .nivoSlider a {
     border:0;
@@ -40,27 +37,24 @@ Author URI: http://dev7studios.com
 }
 
  .nivo-controlNav {
-    background:url(controlnav.png) no-repeat;
-    width:251px;
     height:40px;
     position:absolute;
-    left:200px; /* Tweak this to center bullets */
     bottom:-42px;
-    padding:8px 0 0 82px;
     z-index:20;
+    width: 100%;
+    text-align: center;
 }
  .nivo-controlNav a {
-    display:block;
+    display:inline-block;
     width:22px;
     height:22px;
-    background:url(bullets.png) no-repeat;
+    background: #DDD url(++resource++plonetruegallery.resources/nivoslider/css/pascal/bullets.png) no-repeat ;
+    background-position: 4px 5px;
     text-indent:-9999px;
     border:0;
-    margin-right:3px;
-    float:left;
 }
  .nivo-controlNav a.active {
-    background-position:0 -22px;
+    background-position: 4px -17px;
 }
 
  .nivo-directionNav a {
@@ -68,11 +62,10 @@ Author URI: http://dev7studios.com
 }
 
  .nivo-caption {
-    bottom:40%;
+    bottom:80px;
     left:auto;
     right:0px;
     width:auto;
-    max-width:630px;
     overflow:hidden;
     background:#fff;
     text-shadow:none;
@@ -94,11 +87,11 @@ Author URI: http://dev7studios.com
 }
 
  .ribbon {
-    background:url(ribbon.png) no-repeat;
+    background:url(++resource++plonetruegallery.resources/nivoslider/css/pascalribbon.png) no-repeat;
     width:111px;
     height:111px;
     position:absolute;
     top:-8px;
     left:-8px;
-    z-index:300;
+    z-index:30;
 }

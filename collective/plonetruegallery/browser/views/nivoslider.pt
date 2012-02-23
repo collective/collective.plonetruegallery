@@ -1,5 +1,4 @@
-<div id="wrapper">
-	<div class="slider-wrapper theme-default">
+<div class="slider-wrapper">
     <div class="ribbon"></div>
     <div id="slider" class="nivoSlider">	
 	<tal:images tal:repeat="img view/adapter/cooked_images">
@@ -15,8 +14,8 @@
            
     </tal:images>     
     </div>
-    </div>
 </div>
+
 
 <script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript">
@@ -33,7 +32,7 @@ $(window).load(function() {
         directionNavHide: true, // Only show on hover
         controlNav: true, // 1,2,3... navigation
         controlNavThumbs: false, // Use thumbnails for Control Nav
-        controlNavThumbsFromRel: false, // Use image rel for thumbs
+        controlNavThumbsFromRel: true, // Use image rel for thumbs
         controlNavThumbsSearch: '.jpg', // Replace this with...
         controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
         keyboardNav: true, // Use left & right arrows
@@ -51,10 +50,4 @@ $(window).load(function() {
     });
 });
 </script>
-
-    <link rel="stylesheet" href="default.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="nivoslider.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
- 
- 
  

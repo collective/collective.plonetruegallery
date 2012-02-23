@@ -677,17 +677,20 @@ class NivosliderDisplayType(BatchingDisplayType):
     def css(self):
         return u"""
         <style>
-        div.slider-wrapper {
-        height: %(height)ipx;
-        width: %(width)ipx;        
+        .nivoSlider {
+        height: %(height)s !important;
+        width: %(width)s !important;        
+        }
+        a.nivo-imageLink {
+        height: 200px;
         }
         </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/nivoslider.css"/>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/%(nivoslider_theme)s/style.css"/>
 """ % {
-        'height': self.height,
-        'width': self.width,
-         'nivoslider_theme' : self.settings. nivoslider_theme,
+        'height': self.settings.nivoslider_height,
+        'width': self.settings.nivoslider_width,
+        'nivoslider_theme' : self.settings.nivoslider_theme,
        }
 
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)

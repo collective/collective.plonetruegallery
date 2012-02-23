@@ -10,7 +10,7 @@ Author URI: http://dev7studios.com
 
 .nivoSlider {
 	position:relative;
-	background:#fff url(loading.gif) no-repeat 50% 50%;
+	background:#fff url(++resource++plonetruegallery.resources/nivoslider/css/default/loading.gif) no-repeat 50% 50%;
     margin-bottom:50px;
     -webkit-box-shadow: 0px 1px 5px 0px #4a4a4a;
     -moz-box-shadow: 0px 1px 5px 0px #4a4a4a;
@@ -29,19 +29,18 @@ Author URI: http://dev7studios.com
 
 .nivo-controlNav {
 	position:absolute;
-	left:50%;
 	bottom:-42px;
-    margin-left:-40px; /* Tweak this to center bullets */
+    width:  100%;
+    text-align: center;
 }
 .nivo-controlNav a {
-	display:block;
+	display:inline-block;
 	width:22px;
 	height:22px;
-	background:url(bullets.png) no-repeat;
+	background:url(++resource++plonetruegallery.resources/nivoslider/css/default/bullets.png) no-repeat;
 	text-indent:-9999px;
 	border:0;
 	margin-right:3px;
-	float:left;
 }
 .nivo-controlNav a.active {
 	background-position:0 -22px;
@@ -51,7 +50,7 @@ Author URI: http://dev7studios.com
 	display:block;
 	width:30px;
 	height:30px;
-	background:url(arrows.png) no-repeat;
+	background:url(++resource++plonetruegallery.resources/nivoslider/css/default/arrows.png) no-repeat;
 	text-indent:-9999px;
 	border:0;
 }
