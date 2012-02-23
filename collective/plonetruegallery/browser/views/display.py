@@ -662,11 +662,11 @@ class NivosliderDisplayType(BatchingDisplayType):
     name = u"nivoslider"
     schema = INivosliderDisplaySettings
     description = _(u"label_nivoslider_display_type",
-        default=u"Nivoslider")
+    default=u"Nivoslider")
 
     def javascript(self):
         return u"""
-<script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="++resource++jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript">
 $(window).load(function() {
     $('#slider').nivoSlider({
@@ -681,7 +681,7 @@ $(window).load(function() {
         directionNavHide: %(directionnavhide)s, // Only show on hover
         controlNav: true, // 1,2,3... navigation
         controlNavThumbs: false, // Use thumbnails for Control Nav
-        controlNavThumbsFromRel: true, // Use image rel for thumbs
+        controlNavThumbsFromRel: false, // Use image rel for thumbs
         controlNavThumbsSearch: '.jpg', // Replace this with...
         controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
         keyboardNav: true, // Use left & right arrows
