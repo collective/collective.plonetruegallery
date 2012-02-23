@@ -700,15 +700,14 @@ class NivogalleryDisplayType(BatchingDisplayType):
 
     def javascript(self):
         return u"""
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
        <script type="text/javascript"
-    src="%(portal_url)s/++resource++jquery.nivo.gallery.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('#gallery').nivoGallery({ pauseTime: %(delay)i,  animSpeed: %(duration)i, effect: 'fade',
-            startPaused: %(start_automatically)s, directionNav: %(directionnav)s, progressBar: %(progressbar)s 
-        });
-    });
-    </script>
+    src="%(portal_url)s/jquery.nivo.gallery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('#gallery').nivoGallery( {pauseTime: %(delay)i,  animSpeed: %(duration)i, effect: 'fade', startPaused: %(start_automatically)s, directionNav: %(directionnav)s, progressBar: %(progressbar)s } );
+});
+</script>
 """ % {
          'portal_url': self.portal_url,
          'duration': self.settings.duration,
@@ -722,7 +721,7 @@ class NivogalleryDisplayType(BatchingDisplayType):
     def css(self):
         return u"""
         <style>
-        .nivoGallery {
+       .nivoGallery {
         height: %(height)ipx;
         width: %(width)ipx;        
         }
