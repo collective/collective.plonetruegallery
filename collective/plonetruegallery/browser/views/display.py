@@ -700,22 +700,30 @@ class NivogalleryDisplayType(BatchingDisplayType):
 
     def javascript(self):
         return u"""
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-       <script type="text/javascript"
-    src="%(portal_url)s/jquery.nivo.gallery.js"></script>
-<script type="text/javascript">
+        <script type="text/javascript"
+    src="%(portal_url)s/++resource++jquery.nivo.gallery.js"></script>
+    <script type="text/javascript">
 $(document).ready(function() {
-$('#gallery').nivoGallery( {pauseTime: %(delay)i,  animSpeed: %(duration)i, effect: 'fade', startPaused: %(start_automatically)s, directionNav: %(directionnav)s, progressBar: %(progressbar)s } );
+    $('#gallery').nivoGallery({
+    pauseTime: %(duration)i,
+    animSpeed: %(duration)i,
+    effect: 'fade',
+    startPaused: false,
+    directionNav: true,
+    progressBar: true
+});
 });
 </script>
+
 """ % {
          'portal_url': self.portal_url,
          'duration': self.settings.duration,
+         'timed': jsbool(self.settings.timed),
          'delay': self.settings.delay,
          'start_automatically': jsbool(
                 self.start_automatically or self.settings.timed),
-         'directionnav' : self.settings.nivoslider_directionnav,
-         'progressbar' : self.settings.nivoslider_progressbar,
+         'directionnav' : self.settings.nivogallery_directionnav,
+         'progressbar' : self.settings.nivogallery_progressbar,
     }
 
     def css(self):

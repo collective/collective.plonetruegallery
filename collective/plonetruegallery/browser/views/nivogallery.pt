@@ -1,33 +1,20 @@
- 
 <head>
-       
-    
     <!--[if IE]>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<script type="text/javascript" src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
- 
 </head>
-<body>
-sadfasdfasdf
-    <div id="wrapper">
-
-        <div id="gallery" class="nivoGallery">
-            <ul>
-                <li data-title="Lorem ipsum 1" data-caption="dolor sit amet, consectetur adipiscing elit"><img src="images/1.jpg" alt="" />
-                 
-                </li>
-            </ul>
-        </div>
-        
-    </div>
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script src="jquery.nivo.gallery.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('#gallery').nivoGallery();
-    });
-    </script>
-</body>
+<div id="gallery" class="nivoGallery">
+    <ul>
+    <li tal:repeat="img view/adapter/cooked_images">
+	<img title="Locomotives Roundhouse"
+         alt=""
+         src=""
+         tal:attributes="title img/title;
+                                alt img/description;
+                                src img/image_url"/>           
+    </li>     
+    </ul>
+</div>
+ 
  
