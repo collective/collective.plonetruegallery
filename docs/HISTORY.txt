@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1a1 (unreleased)
+2.1a1 (2012-02-24)
 ------------------
 
 - nivo slider and gallery integration
