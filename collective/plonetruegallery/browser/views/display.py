@@ -69,7 +69,7 @@ class BaseDisplayType(BrowserView):
 
 
 class BatchingDisplayType(BaseDisplayType):
-    implements(IDisplayType)
+    implements(IDisplayType, IBatchingDisplayType)
 
     @memoize
     def uses_start_image(self):
@@ -118,7 +118,6 @@ class BatchingDisplayType(BaseDisplayType):
 
 
 class FancyBoxDisplayType(BatchingDisplayType):
-    implements(IDisplayType, IBatchingDisplayType)
 
     name = u"fancybox"
     schema = IFancyBoxDisplaySettings
@@ -167,7 +166,6 @@ FancyBoxSettings = createSettingsFactory(FancyBoxDisplayType.schema)
 
 
 class HighSlideDisplayType(BatchingDisplayType):
-    implements(IDisplayType, IBatchingDisplayType)
 
     name = u"highslide"
     schema = IHighSlideDisplaySettings
@@ -269,7 +267,6 @@ HighSlideSettings = createSettingsFactory(HighSlideDisplayType.schema)
 
 
 class GallerifficDisplayType(BaseDisplayType):
-    implements(IDisplayType)
 
     name = u"galleriffic"
     schema = IGallerifficDisplaySettings
@@ -405,7 +402,6 @@ GallerifficSettings = createSettingsFactory(GallerifficDisplayType.schema)
 
 
 class GalleriaDisplayType(BaseDisplayType):
-    implements(IDisplayType)
 
     name = u"galleria"
     schema = IGalleriaDisplaySettings
@@ -471,8 +467,7 @@ $(document).ready(function() {
 GalleriaSettings = createSettingsFactory(GalleriaDisplayType.schema)
 
 
-class S3sliderDisplayType(BatchingDisplayType):
-    implements(IDisplayType, IBatchingDisplayType)
+class S3sliderDisplayType(BaseDisplayType):
 
     name = u"s3slider"
     schema = IS3sliderDisplaySettings
@@ -563,8 +558,7 @@ div.image-title {
 S3sliderSettings = createSettingsFactory(S3sliderDisplayType.schema)
 
 
-class PikachooseDisplayType(BatchingDisplayType):
-    implements(IDisplayType, IBatchingDisplayType)
+class PikachooseDisplayType(BaseDisplayType):
 
     name = u"pikachoose"
     schema = IPikachooseDisplaySettings
@@ -657,7 +651,6 @@ PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
 
 
 class NivosliderDisplayType(BatchingDisplayType):
-    implements(IDisplayType, IBatchingDisplayType)
 
     name = u"nivoslider"
     schema = INivosliderDisplaySettings
@@ -722,8 +715,7 @@ $(window).load(function() {
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
 
 
-class NivogalleryDisplayType(BatchingDisplayType):
-    implements(IDisplayType, IBatchingDisplayType)
+class NivogalleryDisplayType(BaseDisplayType):
 
     name = u"nivogallery"
     schema = INivogalleryDisplaySettings
@@ -752,8 +744,7 @@ $(document).ready(function() {
          'duration': self.settings.duration,
          'timed': jsbool(self.settings.timed),
          'delay': self.settings.delay,
-         'start_automatically': jsbool(
-                self.start_automatically or self.settings.timed),
+         'start_automatically': jsbool(self.settings.timed),
          'directionnav': jsbool(self.settings.nivogallery_directionnav),
          'progressbar': jsbool(self.settings.nivogallery_progressbar),
     }

@@ -31,6 +31,9 @@ the dependant js package in buildout
  - fancybox(collective.js.fancybox)
  - pikachoose(collective.js.s3slider)
  - s3slider(collective.js.pikachoose)
+ - nivo slider(collective.js.nivoslider)
+ - nivo gallery(collective.js.nivogallery)
+
 
 Buildout configuration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -43,6 +46,8 @@ Buildout configuration
     collective.js.galleriffic
     collective.js.s3slider
     collective.js.pikachoose
+    collective.js.nivoslider
+    collective.js.nivogallery
     ...
 
 Features

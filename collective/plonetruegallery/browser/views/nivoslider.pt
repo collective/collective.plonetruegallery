@@ -1,7 +1,7 @@
 <div class="slider-wrapper">
     <div class="ribbon"></div>
     <div id="slider" class="nivoSlider">	
-	<tal:images tal:repeat="img view/adapter/cooked_images">
+	<tal:images tal:repeat="img view/batch">
 		    <a href="" tal:attributes="href img/link">
                 <img title="Locomotives Roundhouse"
                      alt=""

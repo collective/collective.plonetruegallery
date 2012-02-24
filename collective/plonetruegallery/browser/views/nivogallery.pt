@@ -13,7 +13,7 @@
          tal:attributes="title img/title;
                                 alt img/description;
                                 src img/image_url"/>           
-    </li>     
+    </li>
     </ul>
 </div>
  
