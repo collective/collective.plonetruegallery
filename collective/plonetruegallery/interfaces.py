@@ -332,15 +332,21 @@ class IGallerifficDisplaySettings(IBaseSettings):
 class IS3sliderDisplaySettings(IBaseSettings):
     pass
 
+
 class INivosliderDisplaySettings(IBaseSettings):
+
     nivoslider_width = schema.TextLine(
         title=_(u"label_nivoslider_width", default=u"Width of the gallery"),
         default=u"600px"
     )
+
     nivoslider_height = schema.TextLine(
-        title=_(u"label_nivoslider_height", default=u"Height of the gallery. You can not set the height in %"),
+        title=_(u"label_nivoslider_height",
+            default=u"Height of the gallery. "
+                    u"You can not set the height in %"),
         default=u"350px"
     )
+
     nivoslider_theme = schema.Choice(
         title=_(u"nivoslider_theme", default=u"Nivoslider Theme"),
         default=u"default",
@@ -353,7 +359,8 @@ class INivosliderDisplaySettings(IBaseSettings):
                 _(u"label_nivoslider_theme3", default=u"Pascal Theme")
             )
         ])
-    )    
+    )
+
     nivoslider_effect = schema.Choice(
         title=_(u"label_nivoslider_effect", default=u"Transition Effect"),
         default='random',
@@ -387,65 +394,90 @@ class INivosliderDisplaySettings(IBaseSettings):
             SimpleTerm('boxRainGrow', 'boxRainGrow',
                 _(u"label_nivoslider_effect13", default=u"Box Rain Grow")),
             SimpleTerm('boxRainGrowReverse', 'boxRainGrowReverse',
-                _(u"label_nivoslider_effect14", default=u"box Rain Grow Reverse")),
+                _(u"label_nivoslider_effect14",
+                        default=u"box Rain Grow Reverse")),
             SimpleTerm('random', 'random',
                 _(u"label_nivoslider_effect15", default=u"Random")
             )
         ])
-    )  
-    
+    )
+
     nivoslider_controlnavthumbs = schema.Bool(
-        title=_(u"label_nivoslider_controlnavthumbs", default=u"Thumbs for controlnavigation?"),
+        title=_(u"label_nivoslider_controlnavthumbs",
+            default=u"Thumbs for controlnavigation?"),
         default=True
     )
+
     nivoslider_randomstart = schema.Bool(
-        title=_(u"label_nivoslider_randomstart", default=u"Start on random image?"),
+        title=_(u"label_nivoslider_randomstart",
+            default=u"Start on random image?"),
         default=False
-    )    
+    )
+
     nivoslider_directionnav = schema.Bool(
-        title=_(u"label_nivoslider_r_directionnar", default=u"Next & Prev navigation??"),
+        title=_(u"label_nivoslider_r_directionnar",
+            default=u"Next & Prev navigation??"),
         default=False
-    )     
+    )
+
     nivoslider_directionnavhide = schema.Bool(
-        title=_(u"label_nivoslider_directionnavhide", default=u"Only show Next & Prev on hover"),
+        title=_(u"label_nivoslider_directionnavhide",
+            default=u"Only show Next & Prev on hover"),
         default=True
     )
+
     nivoslider_pauseonhover = schema.Bool(
-        title=_(u"label_nivoslider_pauseonhover", default=u"Stop animation while hovering?"),
+        title=_(u"label_nivoslider_pauseonhover",
+            default=u"Stop animation while hovering?"),
         default=False
-    )     
+    )
+
     nivoslider_slices = schema.Int(
-        title=_(u"label_nivoslider_slices", default=u"Nuber of slices, for slice animations"),
-        default=False
-    )     
+        title=_(u"label_nivoslider_slices",
+            default=u"Nuber of slices, for slice animations"),
+        default=15
+    )
+
     nivoslider_boxcols = schema.Int(
-        title=_(u"label_nivoslider_boxcols", default=u"Number of columns for box animations"),
-        default=False
-    )     
+        title=_(u"label_nivoslider_boxcols",
+            default=u"Number of columns for box animations"),
+        default=8
+    )
+
     nivoslider_boxrows = schema.Int(
-        title=_(u"label_nivoslider_boxrows", default=u"Number of rows for box animations"),
-        default=False
-    ) 
-   
-   
+        title=_(u"label_nivoslider_boxrows",
+            default=u"Number of rows for box animations"),
+        default=4
+    )
+
+
 class INivogalleryDisplaySettings(IBaseSettings):
+
     nivogallery_directionnav = schema.Bool(
-        title=_(u"label_nivogallery_directionnav", default=u"Show navigation arrows on the image"),
+        title=_(u"label_nivogallery_directionnav",
+            default=u"Show navigation arrows on the image"),
         default=True
     )
+
     nivogallery_progressbar = schema.Bool(
-        title=_(u"label_nivogallery_progressbar", default=u"Show progressbar at the top"),
+        title=_(u"label_nivogallery_progressbar",
+            default=u"Show progressbar at the top"),
         default=True
     )
+
     nivogallery_width = schema.TextLine(
-        title=_(u"label_nivogallery_width", default=u"Width of the gallery"),
+        title=_(u"label_nivogallery_width",
+            default=u"Width of the gallery"),
         default=u"600px"
     )
+
     nivogallery_height = schema.TextLine(
-        title=_(u"label_nivogallery_height", default=u"Height of the gallery. You can not set the height in %"),
+        title=_(u"label_nivogallery_height",
+            default=u"Height of the gallery. You can not set the height in %"),
         default=u"350px"
     )
-    
+
+
 class IPikachooseDisplaySettings(IBaseSettings):
     pikachoose_showtooltips = schema.Bool(
         title=_(u"label_pikachoose_tooltip", default=u"Show tooltip"),
@@ -453,7 +485,8 @@ class IPikachooseDisplaySettings(IBaseSettings):
     )
 
     pikachoose_backgroundcolor = schema.Choice(
-        title=_(u"label_pikachoose_backgroundcolor", default=u"backgroundcolor"),
+        title=_(u"label_pikachoose_backgroundcolor",
+                default=u"backgroundcolor"),
         default='222',
         vocabulary=SimpleVocabulary([
             SimpleTerm('222', '222',
@@ -467,7 +500,7 @@ class IPikachooseDisplaySettings(IBaseSettings):
             )
         ])
     )
-    
+
     pikachoose_showcaption = schema.Bool(
         title=_(u"label_pikachoose_caption", default=u"Show caption"),
         default=True

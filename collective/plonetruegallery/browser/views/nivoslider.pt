@@ -8,16 +8,12 @@
                      src=""
                      tal:attributes="title img/title;
                                      alt img/description;
-                                     src img/image_url"/>
+                                     src img/image_url;
+                                     rel img/thumb_url;"/>
             </a>
            
            
     </tal:images>     
     </div>
+<div class="spacer">&nbsp;</div>
 </div>
-    <script type="text/javascript" src="../jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider();
-    });
-    </script>

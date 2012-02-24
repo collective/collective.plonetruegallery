@@ -9,6 +9,8 @@
 
 	<include package="plone.app.contentmenu" />
 
+	<include file="collage.zcml" zcml:condition="installed Products.Collage" />
+
 	<browser:page
 		name="gallery-settings"
 		for="collective.plonetruegallery.interfaces.IGallery"

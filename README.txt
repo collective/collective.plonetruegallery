@@ -54,6 +54,7 @@ Features
 * searching and category selection for nested galleries
 * Galleria, Galleriffic, Highslide JS, s3slider, Pikachoose and Fancybox display types
 * display gallery inline
+* Products.Collage integration
 
 
 Flickr and Picasa Web Album Support

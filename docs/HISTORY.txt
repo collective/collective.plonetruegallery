@@ -1,6 +1,16 @@
 Changelog
 =========
 
+2.1a1 (unreleased)
+------------------
+
+- nivo slider and gallery integration
+  [espen]
+
+- Products.Collage integration(taken from collective.collage.plonetruegallery)
+  [vangheem]
+
+
 2.0a2 (2012-02-22)
 ------------------
 

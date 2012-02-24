@@ -651,10 +651,10 @@ $(document).ready(function(){
         'height': self.height,
         'width': self.width,
         'lowerheight': self.height - 18,
-        'backgroundcolor' : self.settings.pikachoose_backgroundcolor,
-       }
-
+        'backgroundcolor': self.settings.pikachoose_backgroundcolor,
+    }
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
+
 
 class NivosliderDisplayType(BatchingDisplayType):
     implements(IDisplayType, IBatchingDisplayType)
@@ -662,43 +662,30 @@ class NivosliderDisplayType(BatchingDisplayType):
     name = u"nivoslider"
     schema = INivosliderDisplaySettings
     description = _(u"label_nivoslider_display_type",
-    default=u"Nivoslider")
+        default=u"Nivoslider")
 
     def javascript(self):
         return u"""
-<script type="text/javascript" src="++resource++jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="%(portal_url)s/++resource++jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript">
 $(window).load(function() {
     $('#slider').nivoSlider({
-        effect: %(effect)s, // Specify sets like: 'fold,fade,sliceDown'
+        effect: '%(effect)s', // Specify sets like: 'fold,fade,sliceDown'
         slices: %(slices)i, // For slice animations
         boxCols: %(boxcols)i, // For box animations
         boxRows: %(boxrows)i, // For box animations
         animSpeed: %(animspeed)i, // Slide transition speed
         pauseTime: %(delay)i, // How long each slide will show
-        startSlide: 0, // Set starting Slide (0 index)
         directionNav: %(directionnav)s, // Next & Prev navigation
         directionNavHide: %(directionnavhide)s, // Only show on hover
         controlNav: true, // 1,2,3... navigation
-        controlNavThumbs: false, // Use thumbnails for Control Nav
+        controlNavThumbs: true, // Use thumbnails for Control Nav
         controlNavThumbsFromRel: true, // Use image rel for thumbs
-        controlNavThumbsSearch: '.jpg', // Replace this with...
-        controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
-        keyboardNav: true, // Use left & right arrows
         pauseOnHover: %(pauseonhover)s, // Stop animation while hovering
-        manualAdvance: false, // Force manual transitions
-        captionOpacity: 0.8, // Universal caption opacity
-        prevText: 'Prev', // Prev directionNav text
-        nextText: 'Next', // Next directionNav text
-        randomStart: %(randomstart)s, // Start on a random slide
-        beforeChange: function(){}, // Triggers before a slide transition
-        afterChange: function(){}, // Triggers after a slide transition
-        slideshowEnd: function(){}, // Triggers after all slides have been shown
-        lastSlide: function(){}, // Triggers when last slide is shown
-        afterLoad: function(){} // Triggers when slider has loaded
+        randomStart: %(randomstart)s // Start on a random slide
     });
 });
-</script>);
+</script>
 """ % {
          'portal_url': self.portal_url,
          'height': self.height,
@@ -719,7 +706,7 @@ $(window).load(function() {
         <style>
         .nivoSlider {
         height: %(height)s !important;
-        width: %(width)s !important;        
+        width: %(width)s !important;
         }
         a.nivo-imageLink {
         height: 200px;
@@ -730,10 +717,10 @@ $(window).load(function() {
 """ % {
         'height': self.settings.nivoslider_height,
         'width': self.settings.nivoslider_width,
-        'nivoslider_theme' : self.settings.nivoslider_theme,
+        'nivoslider_theme': self.settings.nivoslider_theme,
        }
-
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
+
 
 class NivogalleryDisplayType(BatchingDisplayType):
     implements(IDisplayType, IBatchingDisplayType)
@@ -755,7 +742,7 @@ $(document).ready(function() {
     effect: 'fade',
     startPaused: false,
     directionNav: %(directionnav)s,
-    progressBar: %(progressbar)s,
+    progressBar: %(progressbar)s
     });
 });
 </script>
@@ -767,8 +754,8 @@ $(document).ready(function() {
          'delay': self.settings.delay,
          'start_automatically': jsbool(
                 self.start_automatically or self.settings.timed),
-         'directionnav' : jsbool(self.settings.nivogallery_directionnav),
-         'progressbar' : jsbool(self.settings.nivogallery_progressbar),
+         'directionnav': jsbool(self.settings.nivogallery_directionnav),
+         'progressbar': jsbool(self.settings.nivogallery_progressbar),
     }
 
     def css(self):
@@ -776,7 +763,7 @@ $(document).ready(function() {
         <style>
        .nivoGallery {
         height: %(height)s;
-        width: %(width)s;        
+        width: %(width)s;
         }
         </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivogallery/css/style.css"/>
@@ -786,4 +773,3 @@ $(document).ready(function() {
        }
 
 NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
-
