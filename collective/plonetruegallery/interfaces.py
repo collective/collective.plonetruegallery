@@ -356,7 +356,10 @@ class INivosliderDisplaySettings(IBaseSettings):
             SimpleTerm("orman", "orman",
                 _(u"label_nivoslider_theme2", default=u"Orman Theme")),
             SimpleTerm("pascal", "pascal",
-                _(u"label_nivoslider_theme3", default=u"Pascal Theme")
+                _(u"label_nivoslider_theme3", default=u"Pascal Theme")),
+            SimpleTerm("thumbnail", "thumbnail",
+                _(u"label_nivoslider_theme4", default=u"Thumbnail Theme")   
+            
             )
         ])
     )
