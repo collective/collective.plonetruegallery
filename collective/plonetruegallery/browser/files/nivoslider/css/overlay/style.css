@@ -39,6 +39,7 @@ Author URI: http://medialog.no
 	overflow: hidden;
 	border:  1px solid #666;
 	background: #EEE;
+	z-index: 9;
 }
 .nivo-controlNav a.active {
 	background-position:0 -22px;
@@ -58,6 +59,11 @@ Author URI: http://medialog.no
 	text-indent:-9999px;
 	border:0;
 }
+
+.nivo-directionNav a {
+	top:77%;
+}
+
 a.nivo-nextNav {
 	background-position:-30px 0;
 	right:15px;
