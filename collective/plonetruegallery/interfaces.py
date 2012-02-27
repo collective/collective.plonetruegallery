@@ -406,7 +406,7 @@ class INivosliderDisplaySettings(IBaseSettings):
 
     nivoslider_controlnavthumbs = schema.Bool(
         title=_(u"label_nivoslider_controlnavthumbs",
-            default=u"Thumbs for controlnavigation?"),
+            default=u"Thumbs for controlnavigation? (requires the Thumb Theme)"),
         default=True
     )
 
