@@ -1,3 +1,5 @@
+/* @override http://localhost:8080/nivo/dfasdfasdfasdf/++resource++plonetruegallery.resources/nivoslider/css/pascal/style.css */
+
 /*
 Skin Name: Pascal Theme
 Skin URI: http://nivo.dev7studios.com
@@ -11,11 +13,11 @@ Author URI: http://dev7studios.com
 */
 
 .slider-wrapper {
-    background:url(++resource++plonetruegallery.resources/nivoslider/css/pascal/slider.png) no-repeat;
-    margin:0 0 70px 0;
-    padding-top:15px;
+    margin:0;
+    padding-top:0;
     position:relative;
-    background-size: 100% 105% !important;
+    margin-top: 20px;
+
 }
 
  .nivoSlider {
@@ -28,6 +30,7 @@ Author URI: http://dev7studios.com
     top:0px;
     left:0px;
     display:none;
+        padding-bottom: 50px;
 
 }
  .nivoSlider a {
@@ -36,18 +39,19 @@ Author URI: http://dev7studios.com
 }
 
  .nivo-controlNav {
-    height:40px;
+    height:22px;
     position:absolute;
-    bottom:-48px;
+    bottom:-40px;
     z-index:20;
     width: 100%;
     text-align: center;
+    z-index: 99;
 }
  .nivo-controlNav a {
     display:inline-block;
     width:22px;
     height:22px;
-    background: #DDD url(++resource++plonetruegallery.resources/nivoslider/css/pascal/bullets.png) no-repeat ;
+    background: url(++resource++plonetruegallery.resources/nivoslider/css/pascal/bullets.png) no-repeat;
     background-position: 4px 5px;
     text-indent:-9999px;
     border:0;
@@ -61,9 +65,9 @@ Author URI: http://dev7studios.com
 }
 
  .nivo-caption {
-    bottom:40px;
+    bottom:30px;
     left:auto;
-    right:0px;
+    right:50px;
     width:auto;
     overflow:hidden;
     background:#fff;
@@ -86,11 +90,12 @@ Author URI: http://dev7studios.com
 }
 
  .ribbon {
-    background:url(++resource++plonetruegallery.resources/nivoslider/css/pascal/ribbon.png) no-repeat;
-    width:111px;
-    height:111px;
+    background: url(++resource++plonetruegallery.resources/nivoslider/css/photoframe.png) no-repeat center top ;
+    width:100%;
+    height:95%;
+    background-size:100% 100%; 
     position:absolute;
-    top:-8px;
-    left:-8px;
+    top:0;
+    left:0;
     z-index:98;
 }
