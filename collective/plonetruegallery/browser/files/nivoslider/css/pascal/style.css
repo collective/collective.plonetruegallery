@@ -86,11 +86,11 @@ Author URI: http://dev7studios.com
 }
 
  .ribbon {
-    background:url(++resource++plonetruegallery.resources/nivoslider/css/pascalribbon.png) no-repeat;
+    background:url(++resource++plonetruegallery.resources/nivoslider/css/pascal/ribbon.png) no-repeat;
     width:111px;
     height:111px;
     position:absolute;
     top:-8px;
     left:-8px;
-    z-index:30;
+    z-index:98;
 }
