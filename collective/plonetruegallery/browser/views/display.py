@@ -705,8 +705,12 @@ $(window).load(function() {
         return u"""
         <style>
         .nivoSlider {
-        height: %(height)s !important;
-        width: %(width)s !important;
+        height: %(height)ipx !important;
+        width: %(width)ipx !important;
+        }
+        div.slider-wrapper  {
+        height: %(imageheight)ipx;
+        width: %(imagewidth)ipx;
         }
         a.nivo-imageLink {
         height: 200px;
@@ -717,6 +721,8 @@ $(window).load(function() {
 """ % {
         'height': self.settings.nivoslider_height,
         'width': self.settings.nivoslider_width,
+        'imageheight': self.settings.nivoslider_height + 50,
+        'imagewidth': self.settings.nivoslider_width + 40,
         'nivoslider_theme': self.settings.nivoslider_theme,
        }
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)

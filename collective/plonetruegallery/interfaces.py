@@ -335,16 +335,15 @@ class IS3sliderDisplaySettings(IBaseSettings):
 
 class INivosliderDisplaySettings(IBaseSettings):
 
-    nivoslider_width = schema.TextLine(
-        title=_(u"label_nivoslider_width", default=u"Width of the gallery"),
-        default=u"600px"
+    nivoslider_width = schema.Int(
+        title=_(u"label_nivoslider_width", default=u"Width of the gallery in pixels"),
+        default=600
     )
 
-    nivoslider_height = schema.TextLine(
+    nivoslider_height = schema.Int(
         title=_(u"label_nivoslider_height",
-            default=u"Height of the gallery. "
-                    u"You can not set the height in %"),
-        default=u"350px"
+            default=u"Height of the gallery in pixels"),
+        default=350
     )
 
     nivoslider_theme = schema.Choice(

@@ -1,5 +1,3 @@
-/* @override http://localhost:8080/test/portal_css/Sunburst%20Theme/++resource++plonetruegallery.resources/style.css */
-
 /*
 Skin Name: Pascal Theme
 Skin URI: http://nivo.dev7studios.com
@@ -14,14 +12,15 @@ Author URI: http://dev7studios.com
 
 .slider-wrapper {
     background:url(++resource++plonetruegallery.resources/nivoslider/css/pascal/slider.png) no-repeat;
-    margin:0 auto;
-    padding-top:17px;
+    margin:0 0 70px 0;
+    padding-top:15px;
     position:relative;
+    background-size: 100% 105% !important;
 }
 
  .nivoSlider {
     position:relative;
-    margin-left:19px;
+    margin:auto;
     background:url(++resource++plonetruegallery.resources/nivoslider/css/pascal/loading.gif) no-repeat 50% 50%;
 }
  .nivoSlider img {
@@ -39,7 +38,7 @@ Author URI: http://dev7studios.com
  .nivo-controlNav {
     height:40px;
     position:absolute;
-    bottom:-42px;
+    bottom:-75px;
     z-index:20;
     width: 100%;
     text-align: center;
@@ -62,7 +61,7 @@ Author URI: http://dev7studios.com
 }
 
  .nivo-caption {
-    bottom:80px;
+    bottom:40px;
     left:auto;
     right:0px;
     width:auto;
