@@ -90,7 +90,7 @@ Author URI: http://dev7studios.com
 }
 
  .ribbon {
-    background: url(++resource++plonetruegallery.resources/nivoslider/css/photoframe.png) no-repeat center top ;
+    background: url(++resource++plonetruegallery.resources/nivoslider/css/oldframe/photoframe.png) no-repeat center top ;
     width:100%;
     height:95%;
     background-size:100% 100%; 
