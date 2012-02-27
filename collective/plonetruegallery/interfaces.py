@@ -358,8 +358,10 @@ class INivosliderDisplaySettings(IBaseSettings):
                 _(u"label_nivoslider_theme3", default=u"Pascal Theme")),
             SimpleTerm("oldframe", "oldframe",
                 _(u"label_nivoslider_theme4", default=u"Old Frame Theme")),
+            SimpleTerm("overlay", "overlay",
+                _(u"label_nivoslider_theme5", default=u"Overlay Theme")),
             SimpleTerm("thumbnail", "thumbnail",
-                _(u"label_nivoslider_theme5", default=u"Thumbnail Theme")   
+                _(u"label_nivoslider_theme6", default=u"Thumbnail Theme")   
             
             )
         ])

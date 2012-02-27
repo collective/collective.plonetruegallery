@@ -1,0 +1,78 @@
+/*
+Skin Name: Nivo Slider Overlay Theme
+Description: Alternative skin for the Nivo Slider.
+Version: 1.0
+Author: Espen Moe-Nilssen
+Author URI: http://medialog.no
+*/
+
+.nivoSlider {
+	position:relative;
+	background:#fff url(++resource++plonetruegallery.resources/nivoslider/css/default/loading.gif) no-repeat 50% 50%;
+    margin-top:20px;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.nivoSlider a {
+	border:0;
+	display:block;
+}
+
+.nivo-controlNav {
+	position:absolute;
+	top: 7px;
+	right: 7px;
+    width:  50%;
+    text-align: right;
+    height:  30px;
+    display: inline-table;
+}
+.nivo-controlNav a {
+	display: inline-table;
+	width:84px;
+	height:64px;
+	margin: 2px;
+	overflow: hidden;
+	border:  1px solid #666;
+	background: #EEE;
+}
+.nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+.nivo-control img {
+	display: block;
+	width: 80px;
+	height: 60px;;
+	margin:  1px;
+}
+
+.nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(++resource++plonetruegallery.resources/nivoslider/css/default/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+a.nivo-prevNav {
+	left:15px;
+}
+
+.nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.nivo-caption a:hover {
+    color:#fff;
+}
