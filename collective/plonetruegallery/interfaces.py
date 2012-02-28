@@ -282,7 +282,6 @@ class IBaseSettings(Interface):
 class IFancyBoxDisplaySettings(IBaseSettings):
     pass
 
-
 class IHighSlideDisplaySettings(IBaseSettings):
 
     highslide_outlineType = schema.Choice(
@@ -652,3 +651,10 @@ class IImageInformationRetriever(Interface):
         description
             The image description
         """
+
+class IContactsheetDisplaySettings(IBaseSettings):
+    contactsheet_columns = schema.Int(
+        title=_(u"label_contactsheet_columns",
+            default=u"Number of columns for the thumbnails"),
+        default=3
+    )

@@ -68,6 +68,12 @@
 		provides="collective.plonetruegallery.interfaces.INivogalleryDisplaySettings"
 		factory=".display.NivogallerySettings"
 	/>
+
+	<adapter 
+		for="collective.plonetruegallery.interfaces.IGallery"
+		provides="collective.plonetruegallery.interfaces.IContactsheetDisplaySettings"
+		factory=".display.ContactsheetSettings"
+	/>
  
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -142,6 +148,15 @@
 		permission="zope2.View"
          />
 
+	<browser:page 
+		for="collective.plonetruegallery.interfaces.IGallery"
+		name="galleryview-contactsheet"
+		class=".display.ContactsheetDisplayType"
+		template="contactsheet.pt"
+		permission="zope2.View"
+         />
+
+
 	<utility zcml:condition="installed collective.js.highslide"
 		component=".display.HighSlideDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
@@ -181,6 +196,11 @@
 		component=".display.GalleriaDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-galleria" />
+
+	<utility 
+		component=".display.ContactsheetDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-contactsheet" />
 
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"

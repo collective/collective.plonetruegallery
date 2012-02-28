@@ -8,6 +8,7 @@ from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
 from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
+from collective.plonetruegallery.interfaces import IContactsheetDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -771,3 +772,42 @@ $(document).ready(function() {
        }
 
 NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
+
+class ContactsheetDisplayType(BaseDisplayType):
+
+    name = u"contactsheet"
+    schema = IContactsheetDisplaySettings
+    description = _(u"label_contactsheet_display_type",
+        default=u"Contactsheet")
+
+    def javascript(self):
+        return u"""
+     <script type="text/javascript">
+$(document).ready(function() {
+    $('.contactsheet').mouseenter(function(e) {
+        $(this).children('a').children('img').animate({ height: '100', left: '0', top: '0', width: '450'}, 100);
+        $(this).children('a').children('span').fadeIn(200);
+    }).mouseleave(function(e) {
+        $(this).children('a').children('img').animate({ height: '332', left: '-20', top: '-20', width: '500'}, 100);
+        $(this).children('a').children('span').fadeOut(200);
+    });
+});
+</script>
+
+""" % {
+         'portal_url': self.portal_url,
+    }
+
+    def css(self):
+        return u"""
+        <style>
+
+        </style>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/contactsheet/css/style.css"/>
+""" % {
+        'columns': self.settings.contactsheet_columns,
+ 
+       }
+
+ContactsheetSettings = createSettingsFactory(ContactsheetDisplayType.schema)
+
