@@ -784,29 +784,44 @@ class ContactsheetDisplayType(BaseDisplayType):
         return u"""
      <script type="text/javascript">
 $(document).ready(function() {
-    $('.contactsheet').mouseenter(function(e) {
-        $(this).children('a').children('img').animate({ height: '100', left: '0', top: '0', width: '450'}, 100);
-        $(this).children('a').children('span').fadeIn(200);
+    $('.contactsheet a').mouseenter(function(e) {
+        $(this).children('img').animate({ height: '%(boxheight)i', left: '0', top: '0', width: '%(boxwidth)i'}, 100);
+        $(this).children('div').fadeIn(200);
     }).mouseleave(function(e) {
-        $(this).children('a').children('img').animate({ height: '332', left: '-20', top: '-20', width: '500'}, 100);
-        $(this).children('a').children('span').fadeOut(200);
+        $(this).children('img').animate({ height: '%(imageheight)i', left: '-10', top: '-10', width: '%(imagewidth)i'}, 100);
+        $(this).children('div').fadeOut(200);
     });
 });
 </script>
 
 """ % {
          'portal_url': self.portal_url,
+         'boxheight': self.settings.contactsheet_imageheight,
+         'boxwidth': self.settings.contactsheet_imagewidth,
+         'imageheight': self.settings.contactsheet_imageheight + 20,
+         'imagewidth': self.settings.contactsheet_imagewidth + 20,
     }
 
     def css(self):
         return u"""
         <style>
-
+.contactsheet a img {
+    height: %(imageheight)ipx;
+    width: %(imagewidth)ipx;
+}
+.contactsheet a div,
+.contactsheet a {
+    height: %(boxheight)ipx;
+    width: %(boxwidth)ipx;
+}
         </style>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/contactsheet/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/contactsheet/style.css"/>
 """ % {
         'columns': self.settings.contactsheet_columns,
- 
+        'boxheight': self.settings.contactsheet_imageheight,
+        'boxwidth': self.settings.contactsheet_imagewidth,
+        'imageheight': self.settings.contactsheet_imageheight + 20,
+        'imagewidth': self.settings.contactsheet_imagewidth + 20,
        }
 
 ContactsheetSettings = createSettingsFactory(ContactsheetDisplayType.schema)

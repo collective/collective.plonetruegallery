@@ -1,18 +1,19 @@
-<table class="contactsheet">
+<div class="contactsheet">
      <tal:images tal:repeat="img view/adapter/cooked_images">
-		    <li>
+ 
 		        <a href="" tal:attributes="href img/link">
+         	    <div>
+                   <span class="image-title" tal:content="img/title">Title</span> 
+                   <p class="image-desc" tal:content="structure img/description">Description</p> 
+                </div>
                 <img title="Locomotives Roundhouse"
                     alt=""
                     src=""
                     tal:attributes="title img/title;
                                     alt img/description;
                                     src img/image_url" />
-         	    <span>
-                   <div class="image-title" tal:content="img/title">Title</div> 
-                   <div class="image-desc" tal:content="structure img/description">Description</div> 
-                </span>
+
            	    </a>
-            </li>
-           </tal:images>    
+ <p tal:content="img/count"/>
+    </tal:images>    
 </div>

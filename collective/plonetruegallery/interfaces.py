@@ -658,3 +658,13 @@ class IContactsheetDisplaySettings(IBaseSettings):
             default=u"Number of columns for the thumbnails"),
         default=3
     )
+    contactsheet_imagewidth = schema.Int(
+        title=_(u"label_contactsheet_imagewidth",
+            default=u"Width of (each) image box"),
+        default=400
+    )
+    contactsheet_imageheight = schema.Int(
+        title=_(u"label_contactsheet_imageheight",
+            default=u"Height of (each) image box"),
+        default=260
+    )

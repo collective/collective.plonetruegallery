@@ -2,14 +2,9 @@ from zope.interface import implements
 from persistent.dict import PersistentDict
 from zope.annotation.interfaces import IAnnotations
 from interfaces import IGallerySettings
-from collective.plonetruegallery.utils import convertMeasurementToInt
+#from collective.plonetruegallery.utils import convertMeasurementToInt
 
-_inline_conversions = {
-    'nivoslider_width': convertMeasurementToInt,
-    'nivoslider_height': convertMeasurementToInt
-}
-
-
+ 
 class GallerySettings(object):
     """
     Just uses Annotation storage to save and retrieve the data...
@@ -67,6 +62,5 @@ class GallerySettings(object):
                 default = iface[name].default
 
         value = self._metadata.get(name, default)
-        if name in _inline_conversions:
-            value = _inline_conversions[name](value)
+ 
         return value
