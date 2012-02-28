@@ -655,16 +655,19 @@ class IImageInformationRetriever(Interface):
 class IContactsheetDisplaySettings(IBaseSettings):
     contactsheet_columns = schema.Int(
         title=_(u"label_contactsheet_columns",
-            default=u"Number of columns for the thumbnails"),
-        default=3
+            default=u"Number of images before a forced new row (use a high number if you dont want this)"),
+        default=3,
+        min=1,
     )
     contactsheet_imagewidth = schema.Int(
         title=_(u"label_contactsheet_imagewidth",
             default=u"Width of (each) image box"),
-        default=400
+        default=400,
+        min=50,
     )
     contactsheet_imageheight = schema.Int(
         title=_(u"label_contactsheet_imageheight",
             default=u"Height of (each) image box"),
-        default=260
+        default=260,
+        min=50,
     )
