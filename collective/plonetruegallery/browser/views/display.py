@@ -814,7 +814,7 @@ $(document).ready(function() {
     height: %(boxheight)ipx;
     width: %(boxwidth)ipx;
 }
-        </style>
+</style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/contactsheet/style.css"/>
 """ % {
         'columns': self.settings.contactsheet_columns,

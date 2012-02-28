@@ -1,7 +1,7 @@
 <div class="contactsheet">
      <tal:images tal:repeat="img view/adapter/cooked_images">
  
-		        <a href="" tal:attributes="href img/link">
+		        <a href=""  tal:attributes="href img/link;">
          	    <div>
                    <span class="image-title" tal:content="img/title">Title</span> 
                    <p class="image-desc" tal:content="structure img/description">Description</p> 
@@ -14,6 +14,5 @@
                                     src img/image_url" />
 
            	    </a>
- <p tal:content="img/count"/>
     </tal:images>    
 </div>
