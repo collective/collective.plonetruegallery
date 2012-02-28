@@ -1,18 +1,10 @@
-<div class="contactsheet">
+<div class="contactsheet" tal:define="steps view/settings/contactsheet_columns" >
      <tal:images tal:repeat="img view/adapter/cooked_images">
- 
-		        <a href=""  tal:attributes="href img/link;">
-         	    <div>
-                   <span class="image-title" tal:content="img/title">Title</span> 
-                   <p class="image-desc" tal:content="structure img/description">Description</p> 
-                </div>
-                <img title="Locomotives Roundhouse"
-                    alt=""
-                    src=""
-                    tal:attributes="title img/title;
-                                    alt img/description;
-                                    src img/image_url" />
-
-           	    </a>
+		<a href="" tal:define="number repeat/img/index; theclass python:'row_' + str(number%steps)"  tal:attributes="href img/link;">
+        	<div>
+           		<span class="image-title" tal:content="img/title">Title</span> 
+                <p class="image-desc" tal:content="structure img/description">Description</p> 
+            </div>
+        </a>   	   
     </tal:images>    
 </div>
