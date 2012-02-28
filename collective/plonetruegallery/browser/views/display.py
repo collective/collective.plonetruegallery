@@ -17,7 +17,6 @@ from zope.component import getMultiAdapter
 from Products.Five import BrowserView
 from collective.plonetruegallery.utils import getGalleryAdapter
 from collective.plonetruegallery.utils import createSettingsFactory
-from collective.plonetruegallery.utils import convertMeasurementToInt
 
 
 def jsbool(val):
@@ -697,8 +696,6 @@ $(window).load(function() {
 
     def css(self):
         # for backwards compatibility.
-        height = convertMeasurementToInt(self.settings.nivoslider_height)
-        width = convertMeasurementToInt(self.settings.nivoslider_width)
         return u"""
         <style>
         .nivoSlider {
@@ -716,10 +713,10 @@ $(window).load(function() {
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/nivoslider.css"/>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/%(nivoslider_theme)s/style.css"/>
 """ % {
-        'height': height,
-        'width': width,
-        'imageheight': height + 50,
-        'imagewidth': width + 40,
+        'height': self.settings.nivoslider_height,
+        'width': self.settings.nivoslider_width,
+        'imageheight': self.settings.nivoslider_height + 50,
+        'imagewidth': self.settings.nivoslider_width + 40,
         'nivoslider_theme': self.settings.nivoslider_theme,
        }
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
