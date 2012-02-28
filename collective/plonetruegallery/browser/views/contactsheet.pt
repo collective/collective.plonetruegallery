@@ -1,6 +1,6 @@
 <div class="contactsheet" tal:define="steps view/settings/contactsheet_columns" >
      <tal:images tal:repeat="img view/adapter/cooked_images">
-		<a href="" tal:define="number repeat/img/index; theclass python:'row_' + str(number%steps)"  tal:attributes="href img/link;">
+		<a href="" tal:define="number repeat/img/index; theclass python:'row_' + str(number%steps)"  tal:attributes="href img/link; class theclass" >
         	<div>
            		<span class="image-title" tal:content="img/title">Title</span> 
                 <p class="image-desc" tal:content="structure img/description">Description</p> 
