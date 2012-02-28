@@ -14,7 +14,7 @@
     float:  left;
     border: 3px solid #eee;
     overflow: hidden;
-    margin-right:  10px;
+    margin-left:  10px;
     margin-bottom: 10px;
 }
 
@@ -50,6 +50,7 @@
 	font-weight: normal;
 	margin-top: 16px
 }
-.row_0 {
+a.row_0 {
 	clear: left;
+	margin-left:  0;
 }
