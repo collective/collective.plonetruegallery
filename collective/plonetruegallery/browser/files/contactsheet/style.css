@@ -1,4 +1,57 @@
+
 .contactsheet {
-	background: #000;
-	
+    border: 3px solid #eee;
+    float: left;
+    height: 299px;
+    margin: 0 9px 9px 0;
+    overflow: hidden;
+    position: relative;
+    width: 450px;
 }
+
+/*  */
+.no-margin {
+    margin-right: 0;
+}
+
+.contactsheet a {
+    display: block;
+    position: relative;
+}
+
+.contactsheet a img {
+    height: 332px;
+    left: -20px;
+    position: relative;
+    top: -20px;
+    width: 500px;
+}
+
+.contactsheet a span {
+    display: none;
+    font-size: 3.0em;
+    font-weight: bold;
+    height: 100%;
+    padding-top: 120px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    z-index: 100;
+}
+    .contactsheet a span em {
+        display: block;
+        font-size: 0.45em;
+        font-weight: normal;
+    }
+
+/* --- Dark hover background  */
+.dark-background {
+    background-color: rgba(15, 15, 15, 0.6);
+    color: #fff;
+    text-shadow: #000 0px 0px 20px;
+}
+.dark-background em {
+        color: #ccc;
+}
+
