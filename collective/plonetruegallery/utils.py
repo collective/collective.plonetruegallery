@@ -63,3 +63,4 @@ def convertMeasurementToInt(val):
     if isinstance(val, basestring):
         return int(''.join([l for l in val if l not in string.letters]))
     return val
+    
