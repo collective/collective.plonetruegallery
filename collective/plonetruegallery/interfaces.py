@@ -336,7 +336,8 @@ class IS3sliderDisplaySettings(IBaseSettings):
 class INivosliderDisplaySettings(IBaseSettings):
 
     nivoslider_width = schema.Int(
-        title=_(u"label_nivoslider_width", default=u"Width of the gallery in pixels"),
+        title=_(u"label_nivoslider_width",
+            default=u"Width of the gallery in pixels"),
         default=600
     )
 
@@ -361,8 +362,7 @@ class INivosliderDisplaySettings(IBaseSettings):
             SimpleTerm("overlay", "overlay",
                 _(u"label_nivoslider_theme5", default=u"Overlay Theme")),
             SimpleTerm("thumbnail", "thumbnail",
-                _(u"label_nivoslider_theme6", default=u"Thumbnail Theme")   
-            
+                _(u"label_nivoslider_theme6", default=u"Thumbnail Theme")
             )
         ])
     )
@@ -407,7 +407,6 @@ class INivosliderDisplaySettings(IBaseSettings):
             )
         ])
     )
-
 
     nivoslider_randomstart = schema.Bool(
         title=_(u"label_nivoslider_randomstart",

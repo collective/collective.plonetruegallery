@@ -13,17 +13,17 @@ def replace_gallery_objects(portal):
     """
 
     catalog = portal.portal_catalog
-    
+
     galleries = catalog.searchResults(portal_type="Gallery")
-    
+
     while len(galleries) > 0:
         old_gallery = galleries[0].getObject()
-        
+
         parent = old_gallery.getParentNode()
         while parent.portal_type == "Gallery":
             old_gallery = parent
             parent = old_gallery.getParentNode()
-        
+
         old_id = old_gallery.getId()
         new_gallery = parent[parent.invokeFactory("Folder",
             parent.generateUniqueId())]

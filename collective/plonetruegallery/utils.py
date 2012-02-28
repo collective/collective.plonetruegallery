@@ -8,6 +8,7 @@ from interfaces import IGallerySettings
 from collective.plonetruegallery.config import named_adapter_prefix
 from collective.plonetruegallery.config import DISPLAY_NAME_VIEW_PREFIX
 from vocabularies import GalleryTypeVocabulary, DisplayTypeVocabulary
+import string
 
 
 def getGalleryAdapter(gallery, request, gallery_type=None):
@@ -56,3 +57,9 @@ def createSettingsFactory(schema):
             super(Settings, self).__init__(context, interfaces)
 
     return Settings
+
+
+def convertMeasurementToInt(val):
+    if isinstance(val, basestring):
+        return int(''.join([l for l in val if l not in string.letters]))
+    return val
