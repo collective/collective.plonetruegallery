@@ -1,3 +1,4 @@
+
 /*
 Skin Name: Nivo Slider Overlay Theme
 Description: Alternative skin for the Nivo Slider.
@@ -48,7 +49,11 @@ Author URI: http://medialog.no
 	display: block;
 	width: 80px;
 	height: 60px;;
-	margin:  1px;
+	margin:  1px;	
+}
+
+.nivo-controlNav :hover {
+	background: #f2d928;
 }
 
 .nivo-directionNav a {
