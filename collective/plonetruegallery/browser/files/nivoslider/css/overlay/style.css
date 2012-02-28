@@ -1,20 +1,15 @@
 /*
-Skin Name: Nivo Slider Default Theme
-Skin URI: http://nivo.dev7studios.com
-Skin Type: flexible
-Description: The default skin for the Nivo Slider.
+Skin Name: Nivo Slider Overlay Theme
+Description: Alternative skin for the Nivo Slider.
 Version: 1.0
-Author: Gilbert Pellegrom
-Author URI: http://dev7studios.com
+Author: Espen Moe-Nilssen
+Author URI: http://medialog.no
 */
 
 .nivoSlider {
 	position:relative;
 	background:#fff url(++resource++plonetruegallery.resources/nivoslider/css/default/loading.gif) no-repeat 50% 50%;
-    margin-bottom:50px;
-    -webkit-box-shadow: 0px 1px 5px 0px #4a4a4a;
-    -moz-box-shadow: 0px 1px 5px 0px #4a4a4a;
-    box-shadow: 0px 1px 5px 0px #4a4a4a;
+    margin-top:20px;
 }
 .nivoSlider img {
 	position:absolute;
@@ -29,21 +24,31 @@ Author URI: http://dev7studios.com
 
 .nivo-controlNav {
 	position:absolute;
-	bottom:-42px;
-    width:  100%;
-    text-align: center;
+	top: 7px;
+	right: 7px;
+    width:  50%;
+    text-align: right;
+    height:  30px;
+    display: inline-table;
 }
 .nivo-controlNav a {
-	display:inline-block;
-	width:22px;
-	height:22px;
-	background:url(++resource++plonetruegallery.resources/nivoslider/css/default/bullets.png) no-repeat;
-	text-indent:-9999px;
-	border:0;
-	margin-right:3px;
+	display: inline-table;
+	width:84px;
+	height:64px;
+	margin: 2px;
+	overflow: hidden;
+	border:  1px solid #666;
+	background: #EEE;
+	z-index: 9;
 }
 .nivo-controlNav a.active {
 	background-position:0 -22px;
+}
+.nivo-control img {
+	display: block;
+	width: 80px;
+	height: 60px;;
+	margin:  1px;
 }
 
 .nivo-directionNav a {
@@ -54,6 +59,11 @@ Author URI: http://dev7studios.com
 	text-indent:-9999px;
 	border:0;
 }
+
+.nivo-directionNav a {
+	top:77%;
+}
+
 a.nivo-nextNav {
 	background-position:-30px 0;
 	right:15px;

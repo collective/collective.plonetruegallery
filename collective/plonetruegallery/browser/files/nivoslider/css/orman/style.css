@@ -1,3 +1,5 @@
+/* @override http://localhost:8080/nivo/dfasdfasdfasdf/++resource++plonetruegallery.resources/nivoslider/css/orman/style.css */
+
 /*
 Skin Name: Orman Theme
 Skin URI: http://nivo.dev7studios.com
@@ -11,15 +13,16 @@ Author URI: http://dev7studios.com
 */
 
 .slider-wrapper {
-    background:url(++resource++plonetruegallery.resources/nivoslider/css/orman/slider.png) no-repeat;
+    background:url(++resource++plonetruegallery.resources/nivoslider/css/orman/slider.png) no-repeat center top;
     margin:0 auto;
-    padding-top:18px;
+    padding: 28px 5px 0 5px;
     position:relative;
+    background-size: 100% 100%;
 }
 
  .nivoSlider {
     position:relative;
-    margin-left:77px;
+    margin: auto;
     background:url(++resource++plonetruegallery.resources/nivoslider/css/orman/loading.gif) no-repeat 50% 50%;
 }
  .nivoSlider img {
@@ -88,6 +91,6 @@ Author URI: http://dev7studios.com
     height:111px;
     position:absolute;
     top:-3px;
-    left:56px;
-    z-index:300;
+    left:0px;
+    z-index:98;
 }
