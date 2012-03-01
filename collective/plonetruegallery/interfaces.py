@@ -478,11 +478,20 @@ class INivogalleryDisplaySettings(IBaseSettings):
 
 
 class IPikachooseDisplaySettings(IBaseSettings):
-    pikachoose_showtooltips = schema.Bool(
-        title=_(u"label_pikachoose_tooltip", default=u"Show tooltip"),
-        default=False
+    pikachoose_width = schema.Int(
+        title=_(u"label_pikachoose_width",
+            default=u"Width of the gallery in pixels"),
+        default=600,
+        min=10
     )
 
+    pikachoose_height = schema.Int(
+        title=_(u"label_pikachoose_height",
+            default=u"Height of the gallery in pixels"),
+        default=350,
+        min=10,
+    )
+    
     pikachoose_backgroundcolor = schema.Choice(
         title=_(u"label_pikachoose_backgroundcolor",
                 default=u"backgroundcolor"),
@@ -498,6 +507,10 @@ class IPikachooseDisplaySettings(IBaseSettings):
                 _(u"label_backgroundcolors4", default=u"White")
             )
         ])
+    )
+    pikachoose_showtooltips = schema.Bool(
+        title=_(u"label_pikachoose_tooltip", default=u"Show tooltip"),
+        default=False
     )
 
     pikachoose_showcaption = schema.Bool(
@@ -682,12 +695,12 @@ class   IThumbnailzoomDisplaySettings(IBaseSettings):
     thumbnailzoom_increase = schema.Int(
         title=_(u"label_thumbnailzoom_increase",
             default=u"Pixels to zoom when mouse over"),
-        default=100,
-        min=2,
+        default=150,
+        min=16,
     )
     thumbnailzoom_effectduration = schema.Int(
         title=_(u"label_thumbnaizoom_effectduration",
             default=u"How long time the effect takes"),
-        default=400,
+        default=100,
         min=16,
     )
