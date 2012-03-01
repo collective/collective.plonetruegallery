@@ -570,9 +570,9 @@ class PikachooseDisplayType(BaseDisplayType):
     def javascript(self):
         return u"""
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++jquery.pikachoose.js"></script>
+    src="%(portal_url)s/++resource++jquery.pikachoose.modified.js"></script>
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++jquery.jcarousel.js"></script>
+    src="%(portal_url)s/jquery.jcarousel.js"></script>
 <script language="javascript">
 $(document).ready(function(){
     var preventStageHoverEffect = function(self){
@@ -617,7 +617,7 @@ $(document).ready(function(){
         'vertical': jsbool(self.settings.pikachoose_vertical),
         'thumbopacity': 0.4,
         'fadethumbsin': 'false',
-        'verticalheight': self.height - 18,
+        'verticalheight': self.settings.pikachoose_height - 18,
     }
 
     def css(self):
@@ -644,9 +644,9 @@ $(document).ready(function(){
 </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/style.css"/>
 """ % {
-        'height': self.height,
-        'width': self.width,
-        'lowerheight': self.height - 18,
+        'height': self.settings.pikachoose_height,
+        'width': self.settings.pikachoose_width,
+        'lowerheight': self.settings.pikachoose_height - 18,
         'backgroundcolor': self.settings.pikachoose_backgroundcolor,
     }
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
@@ -916,3 +916,4 @@ class ThumbnailzoomDisplayType(BaseDisplayType):
 """
 
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
+
