@@ -912,9 +912,9 @@ class ThumbnailzoomDisplayType(BaseDisplayType):
 
     def css(self):
         return u"""
-<style>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/thumbnailzoom/style.css"/>
-</style>
+        <style>
+        <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/thumbnailzoom/style.css"/>
+        </style>
 """
 
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
