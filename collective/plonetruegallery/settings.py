@@ -2,7 +2,12 @@ from zope.interface import implements
 from persistent.dict import PersistentDict
 from zope.annotation.interfaces import IAnnotations
 from interfaces import IGallerySettings
-from collective.plonetruegallery.utils import convertMeasurementToInt
+#from collective.plonetruegallery.utils import convertMeasurementToInt
+
+def convertMeasurementToInt(val):
+    if isinstance(val, basestring):
+        return int(''.join([l for l in val if l not in string.letters]))
+    return val
 
 _inline_conversions = {
     'nivoslider_width': convertMeasurementToInt,

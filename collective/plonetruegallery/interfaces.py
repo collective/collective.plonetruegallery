@@ -671,3 +671,23 @@ class IContactsheetDisplaySettings(IBaseSettings):
         default=260,
         min=50,
     )
+    
+class   IThumbnailzoomDisplaySettings(IBaseSettings): 
+    thumbnailzoom_columns = schema.Int(
+        title=_(u"label_thumbnailzoom_columns",
+            default=u"Number of thumbs before a forced new row (use a high number if you dont want this)"),
+        default=3,
+        min=1,
+    )
+    thumbnailzoom_increase = schema.Int(
+        title=_(u"label_thumbnailzoom_increase",
+            default=u"Pixels to zoom when mouse over"),
+        default=150,
+        min=16,
+    )
+    thumbnailzoom_effectduration = schema.Int(
+        title=_(u"label_thumbnaizoom_effectduration",
+            default=u"How long time the effect takes"),
+        default=100,
+        min=16,
+    )

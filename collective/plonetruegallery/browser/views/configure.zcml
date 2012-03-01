@@ -74,6 +74,12 @@
 		provides="collective.plonetruegallery.interfaces.IContactsheetDisplaySettings"
 		factory=".display.ContactsheetSettings"
 	/>
+
+	<adapter 
+		for="collective.plonetruegallery.interfaces.IGallery"
+		provides="collective.plonetruegallery.interfaces.IThumbnailzoomDisplaySettings"
+		factory=".display.ThumbnailzoomSettings"
+	/>
  
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -156,6 +162,13 @@
 		permission="zope2.View"
          />
 
+	<browser:page 
+		for="collective.plonetruegallery.interfaces.IGallery"
+		name="galleryview-thumbnailzoom"
+		class=".display.ThumbnailzoomDisplayType"
+		template="thumbnailzoom.pt"
+		permission="zope2.View"
+         />
 
 	<utility zcml:condition="installed collective.js.highslide"
 		component=".display.HighSlideDisplayType"
@@ -201,6 +214,11 @@
 		component=".display.ContactsheetDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-contactsheet" />
+
+	<utility 
+		component=".display.ThumbnailzoomDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-thumbnailzoom" />
 
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"

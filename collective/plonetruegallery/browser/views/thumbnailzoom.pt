@@ -1,0 +1,20 @@
+<div class="thumbnailWrapper"  tal:define="steps view/settings/thumbnailzoom_columns" > 
+    <ul>
+    <tal:images tal:repeat="img view/adapter/cooked_images">
+	    <li tal:define="number repeat/img/index; theclass python:'row_' + str(number%steps)" tal:attributes="class theclass">
+            <a href=""  tal:attributes="href img/link" >
+                <img title="Nighttrain nach Bujumbura"
+                     alt=""
+                     src=""
+                     tal:attributes="title img/title;
+                                     alt img/description;
+                                     src img/thumb_url" />
+            	<div class="caption">
+			        <p class="captionInside" tal:content="img/title" />
+			    </div>
+			</a>
+		</li>
+	</tal:images>
+    </ul>
+</div>
+ 

@@ -11,7 +11,6 @@
                     tal:attributes="title img/title;
                                     alt img/description;
                                     src img/image_url" />
-                                    <p tal:content="theclass" />
         </a>   	   
     </tal:images>    
 </div>
