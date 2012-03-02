@@ -9,13 +9,13 @@
 	padding: 0px;
 }
 
-#content div.thumbnailWrappe ul li {
+#content div.thumbnailWrapper ul li {
 	float: left;
 	position: relative;
 	overflow: hidden;
 }
 
-#content div.thumbnailWrappe ul li a img {
+#content div.thumbnailWrapper ul li a img {
 	position: relative;
 	border: none;
 }
