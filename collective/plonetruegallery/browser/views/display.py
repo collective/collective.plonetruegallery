@@ -572,7 +572,7 @@ class PikachooseDisplayType(BaseDisplayType):
 <script type="text/javascript"
     src="%(portal_url)s/++resource++jquery.pikachoose.modified.js"></script>
 <script type="text/javascript"
-    src="%(portal_url)s/jquery.jcarousel.js"></script>
+    src="%(portal_url)s/++resource++jquery.jcarousel.js"></script>
 <script language="javascript">
 $(document).ready(function(){
     var preventStageHoverEffect = function(self){
