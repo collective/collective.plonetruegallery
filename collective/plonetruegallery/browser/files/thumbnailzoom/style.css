@@ -3,19 +3,19 @@
 	margin: 0px auto;
 }
 
-.thumbnailWrapper ul {
+#content div.thumbnailWrapper ul {
 	list-style-type: none;
 	margin: 0px;
 	padding: 0px;
 }
 
-.thumbnailWrapper ul li {
+#content div.thumbnailWrappe ul li {
 	float: left;
 	position: relative;
 	overflow: hidden;
 }
 
-.thumbnailWrapper ul li a img {
+#content div.thumbnailWrappe ul li a img {
 	position: relative;
 	border: none;
 }
