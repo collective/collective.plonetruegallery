@@ -639,7 +639,7 @@ $(document).ready(function(){
 }
 
 .jcarousel-skin-pika .jcarousel-container-vertical,
-.jcarousel-skin-pika .jcarousel-clip-vertical {
+.jcarousel-skin-pika .jcarousel-clip-vertical{
    height: %(lowerheight)ipx;
 </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/style.css"/>
@@ -710,6 +710,9 @@ $(window).load(function() {
         }
         a.nivo-imageLink {
         height: 200px;
+        }
+        .ribbon {
+        height: %(height)ipx;
         }
         </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/nivoslider.css"/>
