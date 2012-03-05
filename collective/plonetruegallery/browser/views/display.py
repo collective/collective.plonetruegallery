@@ -570,7 +570,7 @@ class PikachooseDisplayType(BaseDisplayType):
     def javascript(self):
         return u"""
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++jquery.pikachoose.modified.js"></script>
+    src="%(portal_url)s/++resource++jquery.pikachoose.js"></script>
 <script type="text/javascript"
     src="%(portal_url)s/++resource++jquery.jcarousel.js"></script>
 <script language="javascript">
