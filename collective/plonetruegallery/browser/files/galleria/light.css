@@ -1,7 +1,9 @@
+
 /*
  * Galleria Classic Theme 2011-06-07
  * Copyright (c) 2010, Aino
  * Licensed under the MIT license.
+ * Modified by emn 2012.03.05
  */
  
 .galleria-container {
@@ -16,7 +18,7 @@
 .galleria-stage {
     position: absolute;
     top: 10px;
-    bottom: 60px;
+    bottom: 55px;
     left: 10px;
     right: 10px;
     overflow:hidden;
@@ -29,7 +31,6 @@
     right: 10px;
     z-index: 2;
     padding-top: 6px;
-    background: #636363;
 }
 .galleria-carousel .galleria-thumbnails-list {
     margin-left: 30px;
@@ -73,13 +74,12 @@
 .galleria-info-text {
     background-color: #DDD;
     display: none;
-    opacity: 0.75;
     padding: 12px;
     color: black;
     /* IE7 */ zoom:1;
 }
 .galleria-info-title {
-    font: bold 12px/1.1 arial,sans-serif;
+    font: bold 14px/1.1 arial,sans-serif;
     margin: 0;
     color: #111;
     margin-bottom: 7px;
@@ -93,8 +93,8 @@
     width: 9px;
     height: 9px;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     background-position: -753px -11px;
     opacity: .5;
     filter: alpha(opacity=50);
@@ -223,18 +223,12 @@
     background-repeat: no-repeat;
 }
 
-#content{
-}
-
-#content h1{
-    padding: 0 10px;
-}
 
 #galleria{
-    margin: auto;
-    box-shadow:0 0 14px 7px #888888;
-    -moz-box-shadow:0 0 14px 7px #888888;
-    -webkit-box-shadow:0 0 14px 7px #888888;
+    margin: 15px auto;
+    box-shadow:0 0 14px 7px #AAA;
+    -moz-box-shadow:0 0 14px 7px #AAA;
+    -webkit-box-shadow:0 0 14px 7px #AAA;
 }
 #content a#galleria-player{
     position: absolute;
@@ -251,22 +245,28 @@
 
 #galleria-player.play{
     background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat 0px -38px;
+    z-index: 9;
 }
 
 #galleria-player.play:hover{
     background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat -38px -38px;
 }
 
-#galleria-player.pause{
+#content #galleria-player.pause{
     background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat 0px 0px;
+    position: relative;
+    display: block;
+    bottom: 132px;
+    right: 10px;
+    margin:  0;
 }
+
 #galleria-player.pause:hover{
     background: url(++resource++plonetruegallery.resources/galleria/btn-mc-controls1.png) no-repeat -38px 0px;
 }
 
 div.galleria-image-nav-left, div.galleria-image-nav-right{
     width: 60px;
-    background-color: #DDD;
 }
 div.galleria-image-nav-left{
     background-position: 19px 46px;

@@ -2,6 +2,7 @@
  * Galleria Classic Theme 2011-06-07
  * Copyright (c) 2010, Aino
  * Licensed under the MIT license.
+ * Modified by emn 2012
  */
  
 .galleria-container {
@@ -221,12 +222,12 @@
     background-repeat: no-repeat;
 }
 
-#content h1{
+h1.gallery-title{
     color: white;
     padding: 0 10px;
 }
 
-.gallery-desc, #content h1, #galleria{
+.gallery-desc, h1.gallery-title, #galleria{
     background: #282828 url(++resource++plonetruegallery.resources/galleria/bg-mc.gif) top repeat-x;
 }
 
