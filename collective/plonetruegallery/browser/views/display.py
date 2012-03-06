@@ -154,7 +154,8 @@ class FancyBoxDisplayType(BatchingDisplayType):
     })(jQuery);
     </script>
         """ % {
-            'start_automatically': str(self.settings.start_automatically).lower(),
+            'start_automatically': jsbool(
+                self.settings.start_automatically or self.settings.timed),
             'start_index_index': self.start_image_index,
             'portal_url': self.portal_url
         }
