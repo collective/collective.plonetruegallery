@@ -164,6 +164,11 @@ class FancyBoxDisplayType(BatchingDisplayType):
         return u"""
 <link rel="stylesheet" type="text/css"
     href="%(staticFiles)s/jquery.fancybox.css" media="screen" />
+    <style>
+    #content  a.fancyzoom-gallery {
+	border-bottom: 0 none ;
+	</style>
+}
 """ % {'staticFiles': self.staticFiles}
 FancyBoxSettings = createSettingsFactory(FancyBoxDisplayType.schema)
 
