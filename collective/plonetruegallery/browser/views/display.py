@@ -129,11 +129,11 @@ class FancyBoxDisplayType(BatchingDisplayType):
     def javascript(self):
         return u"""
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.fancybox/jquery.easing-1.3.pack.js"></script>
+    src="%(portal_url)s/++resource++collective.js.fancybox/jquery.easing-1.3.pack.js"></script>
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    src="%(portal_url)s/++resource++collective.js.fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.fancybox/jquery.fancybox.js"></script>
+    src="%(portal_url)s/++resource++collective.js.fancybox/jquery.fancybox.js"></script>
   <script type="text/javascript">
     var auto_start = %(start_automatically)s;
     var start_image_index = %(start_index_index)i;
