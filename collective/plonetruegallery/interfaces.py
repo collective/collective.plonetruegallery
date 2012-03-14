@@ -360,8 +360,10 @@ class INivosliderDisplaySettings(IBaseSettings):
                 _(u"label_nivoslider_theme4", default=u"Old Frame Theme")),
             SimpleTerm("overlay", "overlay",
                 _(u"label_nivoslider_theme5", default=u"Overlay Theme")),
+            SimpleTerm("bendit", "bendit",
+                _(u"label_nivoslider_theme6", default=u"Bendit Theme")),
             SimpleTerm("thumbnail", "thumbnail",
-                _(u"label_nivoslider_theme6", default=u"Thumbnail Theme")
+                _(u"label_nivoslider_theme7", default=u"Thumbnail Theme")
             )
         ])
     )
