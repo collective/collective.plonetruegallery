@@ -362,8 +362,10 @@ class INivosliderDisplaySettings(IBaseSettings):
                 _(u"label_nivoslider_theme5", default=u"Overlay Theme")),
             SimpleTerm("bendit", "bendit",
                 _(u"label_nivoslider_theme6", default=u"Bendit Theme")),
+            SimpleTerm("tv", "tv",
+                _(u"label_nivoslider_theme7", default=u"TV Theme")),
             SimpleTerm("thumbnail", "thumbnail",
-                _(u"label_nivoslider_theme7", default=u"Thumbnail Theme")
+                _(u"label_nivoslider_theme8", default=u"Thumbnail Theme")
             )
         ])
     )

@@ -72,3 +72,7 @@ a.nivo-prevNav {
 .nivo-caption a:hover {
     color:#fff;
 }
+
+.ribbon {
+	display: none;
+}
