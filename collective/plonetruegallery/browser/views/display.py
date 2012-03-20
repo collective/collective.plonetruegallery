@@ -824,6 +824,11 @@ $(document).ready(function() {
     height: %(boxheight)ipx;
     width: %(boxwidth)ipx;
 }
+
+.contactsheet a div {
+	background-color: rgba(15, 15, 15, %(overlay_opacity)f);
+}
+
 </style>
 <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/contactsheet/style.css"/>
 """ % {
@@ -832,6 +837,7 @@ $(document).ready(function() {
         'boxwidth': self.settings.contactsheet_imagewidth,
         'imageheight': self.settings.contactsheet_imageheight + 20,
         'imagewidth': self.settings.contactsheet_imagewidth + 20,
+        'overlay_opacity': self.settings.contactsheet_overlay_opacity,
        }
 
 ContactsheetSettings = createSettingsFactory(ContactsheetDisplayType.schema)

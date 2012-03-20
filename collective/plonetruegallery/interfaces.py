@@ -689,6 +689,33 @@ class IContactsheetDisplaySettings(IBaseSettings):
         min=50,
     )
     
+    contactsheet_overlay_opacity = schema.Choice(
+        title=_(u"label_contactsheet_overlay_opacity",
+                default=u"Opacity on mouse over"),
+        default=0.3,
+        vocabulary=SimpleVocabulary([
+            SimpleTerm(0.1, 0.1,
+                _(u"label_contactsheet_overlay_opacity1", default=u"0.1 Light")),
+            SimpleTerm(0.2, 0.2,
+                _(u"label_contactsheet_overlay_opacity2", default=u"0.2")),
+            SimpleTerm(0.3, 0.3,
+                _(u"label_contactsheet_overlay_opacity3", default=u"0.3")),
+            SimpleTerm(0.4, 0.4,
+                _(u"label_contactsheet_overlay_opacity4", default=u"0.4 Medium")),
+            SimpleTerm(0.5, 0.5,
+                _(u"label_contactsheet_overlay_opacity5", default=u"0.5")),
+            SimpleTerm(0.6, 0.6,
+                _(u"label_contactsheet_overlay_opacity6", default=u"0.6")),    
+            SimpleTerm(0.7, 0.7,
+                _(u"label_contactsheet_overlay_opacity7", default=u"0.7 Dark")),    
+            SimpleTerm(0.8, 0.8,
+                _(u"label_contactsheet_overlay_opacity8", default=u"0.8")),    
+            SimpleTerm(0.9, 0.9,
+                _(u"label_contactsheet_overlay_opacity9", default=u"0.9 Very Dark")
+            )
+        ])
+    )
+    
 class   IThumbnailzoomDisplaySettings(IBaseSettings): 
     thumbnailzoom_columns = schema.Int(
         title=_(u"label_thumbnailzoom_columns",
