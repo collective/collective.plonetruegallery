@@ -796,10 +796,10 @@ class ContactsheetDisplayType(BaseDisplayType):
 $(document).ready(function() {
     $('.contactsheet a').mouseenter(function(e) {
         $(this).children('img').animate({ height: '%(boxheight)i', left: '0', top: '0', width: '%(boxwidth)i'}, 100);
-        $(this).children('div').fadeIn(200);
+        $(this).children('div').fadeIn(%(speed)i);
     }).mouseleave(function(e) {
         $(this).children('img').animate({ height: '%(imageheight)i', left: '-10', top: '-10', width: '%(imagewidth)i'}, 100);
-        $(this).children('div').fadeOut(200);
+        $(this).children('div').fadeOut(%(speed)i);
     });
 });
 </script>
@@ -810,6 +810,8 @@ $(document).ready(function() {
          'boxwidth': self.settings.contactsheet_imagewidth,
          'imageheight': self.settings.contactsheet_imageheight + 20,
          'imagewidth': self.settings.contactsheet_imagewidth + 20,
+         'speed': self.settings.duration,
+        
     }
 
     def css(self):

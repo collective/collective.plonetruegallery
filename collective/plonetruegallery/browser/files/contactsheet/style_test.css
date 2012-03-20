@@ -1,0 +1,86 @@
+.contactsheet {
+ 
+    position: absolute;
+    z-index: 100;
+    width: 800px;
+    height: 600px;
+    left: 0px;
+    top: 0px;
+    animation: sizeDownMove 0.9s ease-in-out 6s backwards;
+    transform: scale(0.6);
+    transform-origin: 0% 50%;
+}
+
+.contactsheet h1:first-child {
+    font-size: 100px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    line-height: 80px;
+    padding: 30px 0px 20px 0px;
+    font-family: 'Unlock', Arial, sans-serif;
+    animation:
+        fromBack 1.2s ease-in-out 1.5s backwards,
+        fadeOut 0.5s linear 4.5s forwards;
+}
+
+
+.contactsheeet h1.sp-title {
+    font-size: 90px;
+    line-height: 80px;
+    position: absolute;
+    top: 50px;
+    left: 160px;
+    width: 470px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding-top: 155px;
+    height: 305px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #518f7e;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.9);
+    font-family: 'Unlock', Arial, sans-serif;
+    animation: fadeInColor 1.2s linear 5.2s backwards;
+}
+
+.contactsheet img {
+    position: relative;
+    float: left;
+    margin: 2px;
+    z-index: 100;
+    transform: scale(1);
+    opacity: 0;
+    animation:
+        fromBack 0.4s linear backwards,
+        fadeOut 0.3s linear backwards;
+}
+
+.contactsheet:nth-child(1) span:nth-child(1) {
+    animation-delay: 0s, 5s;
+}
+.contactsheet:nth-child(1) span:nth-child(2) {
+    animation-delay: 0.1s, 5.1s;
+}
+.contactsheet:nth-child(1) span:nth-child(3) {
+    animation-delay: 0.2s, 5.2s;
+}
+.contactsheet:nth-child(1) span:nth-child(4) {
+    animation-delay: 0.3s, 5.3s;
+}
+.contactsheet:nth-child(1) span:nth-child(5) {
+    animation-delay: 0.4s, 5.4s;
+}
+ 
+
+
+/* not used yet */
+.no-margin {
+    margin-right: 0;
+}
+
+ a.row_0 {
+	clear: left;
+	margin-left:  0;
+}
