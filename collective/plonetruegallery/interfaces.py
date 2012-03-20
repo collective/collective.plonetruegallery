@@ -709,9 +709,9 @@ class IContactsheetDisplaySettings(IBaseSettings):
             SimpleTerm(0.7, 0.7,
                 _(u"label_contactsheet_overlay_opacity7", default=u"0.7 Dark")),    
             SimpleTerm(0.8, 0.8,
-                _(u"label_contactsheet_overlay_opacity8", default=u"0.8")),    
+                _(u"label_contactsheet_overlay_opacity8", default=u"0.8 Very Dark" )),    
             SimpleTerm(0.9, 0.9,
-                _(u"label_contactsheet_overlay_opacity9", default=u"0.9 Very Dark")
+                _(u"label_contactsheet_overlay_opacity9", default=u"0.9 Almost Black")
             )
         ])
     )
