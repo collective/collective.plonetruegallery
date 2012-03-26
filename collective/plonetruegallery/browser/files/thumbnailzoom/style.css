@@ -14,6 +14,8 @@
 	margin: 0;
 	position: relative;
 	overflow: hidden;
+	border: 1px solid #CCC;
+	margin: 2px;
 }
 
 #content div.thumbnailWrapper ul li a img {
@@ -48,3 +50,4 @@ li.row_0 {
 .thumbnailWrapper li img {
 	height: 100%;
 }
+
