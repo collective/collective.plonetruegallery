@@ -735,3 +735,4 @@ class   IThumbnailzoomDisplaySettings(IBaseSettings):
         default=100,
         min=16,
     )
+    

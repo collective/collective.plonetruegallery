@@ -44,3 +44,7 @@ li.row_0 {
 	clear: left; /* this is for making columns */
 	margin-left: 0;
 }
+
+.thumbnailWrapper li img {
+	height: 100%;
+}
