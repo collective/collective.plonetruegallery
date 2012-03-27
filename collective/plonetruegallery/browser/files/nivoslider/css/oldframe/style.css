@@ -69,7 +69,6 @@ Author URI: http:medialog.no
 }
  .nivo-caption p {
     padding:5px 15px;
-    color:#333;
     font-weight:bold;
     font-size:27px;
     text-transform:uppercase;
@@ -77,7 +76,6 @@ Author URI: http:medialog.no
  .nivo-caption a { 
     color:#333;
     font-weight:bold;
-    font-size:27px;
     text-transform:uppercase;
 }
 
