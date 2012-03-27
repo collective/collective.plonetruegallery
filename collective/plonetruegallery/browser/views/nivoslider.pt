@@ -1,4 +1,4 @@
-<div class="slider-wrapper" tal:define="theclass python:'nivoslidertheme_' + view.settings.nivoslider_theme"  tal:attributes="class theclass" >
+<div class="slider-wrapper" tal:define="theclass python:'slider-wrapper nivoslidertheme_' + view.settings.nivoslider_theme"  tal:attributes="class theclass" >
     <div class="ribbon"></div>
     <div id="slider" class="nivoSlider">	
 	<tal:images tal:repeat="img view/batch">
