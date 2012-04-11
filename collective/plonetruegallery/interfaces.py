@@ -726,8 +726,7 @@ class   IThumbnailzoomDisplaySettings(IBaseSettings):
     thumbnailzoom_increase = schema.Int(
         title=_(u"label_thumbnailzoom_increase",
             default=u"Pixels to zoom when mouse over"),
-        default=150,
-        min=16,
+        default=50,
     )
     thumbnailzoom_effectduration = schema.Int(
         title=_(u"label_thumbnaizoom_effectduration",
