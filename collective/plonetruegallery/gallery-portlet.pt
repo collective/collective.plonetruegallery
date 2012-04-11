@@ -44,12 +44,10 @@
     </dd>
 
 </dl>
-     
-                  
-<div class="gallery_portlet_test" tal:condition="not: view/data/mini" 
-     tal:content="structure  view/gallery/@@placegalleryview" 
-     tal:attributes="width view/data/width;
-     height python: height and str(height) + 'px' or '';" />
-    
-                  
+<iframe class="full-gallery-portlet"
+  tal:condition="not: view/data/mini"
+  frameborder="0"
+  tal:attributes="src string:${view/gallery/absolute_url}/@@placegalleryview;
+                  width view/data/width;
+                  height python: height and str(height) + 'px' or '';" />
 </tal:defs>
