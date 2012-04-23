@@ -341,6 +341,11 @@ class IS3sliderDisplaySettings(IBaseSettings):
         default=u"350px"
     )
 
+    s3_textwidth = schema.TextLine(
+        title=_(u"label_s3_textwidth",
+            default=u"Width of the (black) text box"),
+        default=u"150px"
+    )
 
 
 class INivosliderDisplaySettings(IBaseSettings):

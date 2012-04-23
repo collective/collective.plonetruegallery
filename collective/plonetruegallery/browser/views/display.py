@@ -536,8 +536,8 @@ ul#s3sliderContent {
    color: #fff;
    display: none;
    top: 0;
-   height: %(height)ipx;
-   width: %(textwidth)ipx;
+   height: %(height)s;
+   width: %(textwidth)s;
 }
 
 ul#s3sliderContent li {
@@ -560,7 +560,7 @@ div.image-title {
         'staticFiles': self.staticFiles,
         'height': self.settings.s3_height,
         'width': self.settings.s3_width,
-        'textwidth': self.settings.s3_width / 5
+        'textwidth': self.settings.s3_textwidth
        }
 
 S3sliderSettings = createSettingsFactory(S3sliderDisplayType.schema)
