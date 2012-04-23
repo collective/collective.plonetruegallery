@@ -332,7 +332,7 @@ class IS3sliderDisplaySettings(IBaseSettings):
     s3_width = schema.TextLine(
         title=_(u"label_s3_width",
             default=u"Width of the gallery"),
-        default="100%"
+        default="600px"
     )
 
     s3_height = schema.TextLine(
