@@ -546,6 +546,10 @@ ul#s3sliderContent li {
     list-style-type: none;
 }
 
+ul#s3sliderContent a {
+    text-decoration: none;
+}
+
 div.image-title {
     font-size: 16px;
     margin-bottom: 4px;
