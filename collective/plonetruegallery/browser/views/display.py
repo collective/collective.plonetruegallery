@@ -503,14 +503,14 @@ $(document).ready(function() {
         return u"""
         <style>
 #s3slider {
-   height: %(height)ipx;
-   width: %(width)ipx;
+   height: %(height)s;
+   width: %(width)s;
    position: relative;
    overflow: hidden;
 }
 
 ul#s3sliderContent {
-   width: %(width)ipx;
+   width: %(width)s;
    position: absolute;
    top: 0;
    margin-left: 0;
@@ -558,9 +558,9 @@ div.image-title {
 
 """ % {
         'staticFiles': self.staticFiles,
-        'height': self.height,
-        'width': self.width,
-        'textwidth': self.width / 5
+        'height': self.settings.s3_height,
+        'width': self.settings.s3_width,
+        'textwidth': self.settings.s3_width / 5
        }
 
 S3sliderSettings = createSettingsFactory(S3sliderDisplayType.schema)

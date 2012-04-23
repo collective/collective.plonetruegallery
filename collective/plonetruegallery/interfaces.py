@@ -329,7 +329,18 @@ class IGallerifficDisplaySettings(IBaseSettings):
 
 
 class IS3sliderDisplaySettings(IBaseSettings):
-    pass
+    s3_width = schema.TextLine(
+        title=_(u"label_s3_width",
+            default=u"Width of the gallery"),
+        default="100%"
+    )
+
+    s3_height = schema.TextLine(
+        title=_(u"label_s3_height",
+            default=u"Height of the gallery"),
+        default="350px"
+    )
+
 
 
 class INivosliderDisplaySettings(IBaseSettings):
