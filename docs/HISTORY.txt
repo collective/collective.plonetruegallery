@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1b1 (unreleased)
+2.1b1 (2012-04-24)
 ------------------
 
 - add contact sheet and thumbnail zoom gallery
