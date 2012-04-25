@@ -6,20 +6,12 @@ a consistent behavior through code changes. It will go through creating
 galleries, selecting settings, adding sub-galleries, validation, and
 using different gallery types.
 
-    >>> from Products.Five.testbrowser import Browser
-    >>> from zope.testbrowser import interfaces
-    >>> from zope.interface.verify import verifyObject
-    >>> self.setRoles(("Manager",))
-
-    >>> browser = Browser()
+    >>> from plone.testing.z2 import Browser
+    
+    >>> browser = Browser(self.app)
     >>> browser.handleErrors = False
-    >>> portal_url = self.portal.absolute_url()
-    >>> from Products.PloneTestCase.setup import portal_owner, default_password
-
-    >>> browser.open(portal_url + '/login_form?came_from=' + portal_url)
-    >>> browser.getControl(name='__ac_name').value = portal_owner
-    >>> browser.getControl(name='__ac_password').value = default_password
-    >>> browser.getControl(name='submit').click()
+    >>> from collective.plonetruegallery.testing import browserLogin
+    >>> browserLogin(self.portal, browser)
 
 You *must* remove portlets to ensure you're testing some of these things
 properly
@@ -50,7 +42,7 @@ Creating Galleries
 
 First, create a folder to house the gallery.
 
-    >>> browser.getLink(text="Folder").click()
+    >>> browser.getLink(id="folder").click()
     >>> browser.getControl("Title").value = "My Gallery"
     >>> browser.getControl("Save").click()
 
@@ -84,6 +76,8 @@ way put images on these tests so we'll just do it manually
     >>> my_gallery['3'].setDescription("My Description 3")
     >>> my_gallery['3'].setTitle("My Title 3")
     >>> my_gallery['3'].indexObject()
+    >>> import transaction
+    >>> transaction.commit()
 
 It should display images now...
 
@@ -108,6 +102,7 @@ Adding Sub-Galleries
     'subgallery-2'
     >>> my_gallery['subgallery-2'].setTitle('Sub-Gallery 2')
     >>> my_gallery['subgallery-2'].indexObject()
+    >>> transaction.commit()
 
 Select the gallery view for each of these folders
 
@@ -168,6 +163,7 @@ in the correct places.
     >>> sub1['subgallery-3'].invokeFactory(id='subgallery-5', type_name="Folder")
     'subgallery-5'
     >>> sub1['subgallery-3']['subgallery-5'].indexObject()
+    >>> transaction.commit()
 
 Select Gallery View for each of them too.
 

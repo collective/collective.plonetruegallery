@@ -14,6 +14,28 @@ START_DATE = datetime(2012, 1, 1)
 MAX_GALLERY_SIZE = 100
 
 
+from Testing.makerequest import makerequest
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManager import setSecurityPolicy
+from Products.CMFCore.tests.base.security import PermissiveSecurityPolicy, \
+    OmnipotentUser
+
+
+def spoofRequest(app):
+    """
+    Make REQUEST variable to be available on the Zope application server.
+
+    This allows acquisition to work properly
+    """
+    _policy = PermissiveSecurityPolicy()
+    setSecurityPolicy(_policy)
+    newSecurityManager(None, OmnipotentUser().__of__(app.acl_users))
+    return makerequest(app)
+
+# Enable Faux HTTP request object
+app = spoofRequest(app)
+
+
 def importit(app):
 
     site = app[SITE_ID]
@@ -64,3 +86,5 @@ def importit(app):
         date = date + timedelta(days=1)
         populate(folder, date)
         transaction.commit()
+
+importit(app)

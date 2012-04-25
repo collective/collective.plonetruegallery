@@ -282,6 +282,7 @@ class IBaseSettings(Interface):
 class IFancyBoxDisplaySettings(IBaseSettings):
     pass
 
+
 class IHighSlideDisplaySettings(IBaseSettings):
 
     highslide_outlineType = schema.Choice(
@@ -511,7 +512,7 @@ class IPikachooseDisplaySettings(IBaseSettings):
         default=350,
         min=10,
     )
-    
+
     pikachoose_backgroundcolor = schema.Choice(
         title=_(u"label_pikachoose_backgroundcolor",
                 default=u"backgroundcolor"),

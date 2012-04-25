@@ -31,6 +31,8 @@ class GallerySettings(object):
         self._interfaces = list(self._interfaces)
         if IGallerySettings not in self._interfaces:
             self._interfaces.append(IGallerySettings)
+        if None in self._interfaces:
+            self._interfaces.remove(None)
 
         annotations = IAnnotations(context)
 

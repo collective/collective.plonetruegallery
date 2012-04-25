@@ -1,3 +1,2 @@
-* add http://nivo.dev7studios.com/ -- very nice
-* add jquery tools slideshow?
-* take image scales for thumbnails from plone.app.imaging?
+* move testing to plone.app.testing
+* make uninstall automatic

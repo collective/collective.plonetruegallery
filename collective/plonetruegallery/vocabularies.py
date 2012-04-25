@@ -18,7 +18,11 @@ class PTGVocabulary(SimpleVocabulary):
     """
 
     def __init__(self, terms, *interfaces, **config):
-        super(PTGVocabulary, self).__init__(terms, *interfaces)
+        try:
+            super(PTGVocabulary, self).__init__(terms, *interfaces)
+        except:
+            import pdb; pdb.set_trace()
+            raise
         if 'default' in config:
             self.default = config['default']
         else:

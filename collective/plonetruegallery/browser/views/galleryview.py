@@ -26,7 +26,6 @@ class GalleryView(BrowserView):
             self.context,
             interfaces=[self.adapter.schema, self.displayer.schema]
         )
-
         return self.index()
 
     def is_batch(self):
