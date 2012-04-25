@@ -9,7 +9,8 @@ from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
 from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
 from collective.plonetruegallery.interfaces import IContactsheetDisplaySettings
-from collective.plonetruegallery.interfaces import IThumbnailzoomDisplaySettings
+from collective.plonetruegallery.interfaces import \
+    IThumbnailzoomDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -127,13 +128,14 @@ class FancyBoxDisplayType(BatchingDisplayType):
         default=u"Fancy Box")
 
     def javascript(self):
+        base_url = '%s/++resource++collective.js.fancybox' % self.portal_url
         return u"""
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.js.fancybox/jquery.easing-1.3.pack.js"></script>
+    src="%(base_url)s/jquery.easing-1.3.pack.js"></script>
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.js.fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    src="%(base_url)s/jquery.mousewheel-3.0.4.pack.js"></script>
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.js.fancybox/jquery.fancybox.js"></script>
+    src="%(base_url)s/jquery.fancybox.js"></script>
   <script type="text/javascript">
     var auto_start = %(start_automatically)s;
     var start_image_index = %(start_index_index)i;
@@ -157,7 +159,7 @@ class FancyBoxDisplayType(BatchingDisplayType):
             'start_automatically': jsbool(
                 self.settings.start_automatically or self.settings.timed),
             'start_index_index': self.start_image_index,
-            'portal_url': self.portal_url
+            'base_url': base_url
         }
 
     def css(self):
@@ -166,8 +168,8 @@ class FancyBoxDisplayType(BatchingDisplayType):
     href="%(staticFiles)s/jquery.fancybox.css" media="screen" />
     <style>
     #content  a.fancyzoom-gallery {
-	border-bottom: 0 none ;
-	</style>
+        border-bottom: 0 none;
+    </style>
 }
 """ % {'staticFiles': self.staticFiles}
 FancyBoxSettings = createSettingsFactory(FancyBoxDisplayType.schema)
@@ -205,18 +207,18 @@ class HighSlideDisplayType(BatchingDisplayType):
             wrapperClassName = 'null'
         else:
             wrapperClassName = "'%s'" % wrapperClassName
-
+        base_url = '%s/++resource++collective.js.highslide' % self.portal_url
         return u"""
 <script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.js.highslide/highslide-with-gallery.js"></script>
+    src="%(base_url)s/highslide-with-gallery.js"></script>
 
 <!--[if lt IE 7]>
 <link rel="stylesheet" type="text/css"
-  href="%(portal_url)s/++resource++collective.js.highslide/highslide-ie6.css" />
+  href="%(base_url)s/highslide-ie6.css" />
 <![endif]-->
 
 <script type="text/javascript">
-hs.graphicsDir = '%(portal_url)s/++resource++collective.js.highslide/graphics/';
+hs.graphicsDir = '%(base_url)s/graphics/';
 hs.align = 'center';
 hs.transitions = ['expand', 'crossfade'];
 hs.fadeInOut = true;
@@ -269,7 +271,7 @@ $(document).ready(function() {
             'start_automatically': jsbool(
                 self.settings.start_automatically or self.settings.timed),
             'start_index_index': self.start_image_index,
-            'portal_url': self.portal_url
+            'base_url': base_url
         }
 HighSlideSettings = createSettingsFactory(HighSlideDisplayType.schema)
 
@@ -366,7 +368,8 @@ $(document).ready(function() {
                 .eq(nextIndex).fadeTo('fast', 1.0);
         },
         onTransitionOut:           function(slide, caption, isSync, callback) {
-            slide.fadeTo(this.getDefaultTransitionDuration(isSync), 0.0, callback);
+            slide.fadeTo(this.getDefaultTransitionDuration(isSync), 0.0,
+                         callback);
             caption.fadeTo(this.getDefaultTransitionDuration(isSync), 0.0);
         },
         onTransitionIn:            function(slide, caption, isSync) {
@@ -375,8 +378,11 @@ $(document).ready(function() {
             var slideImage = slide.find('img');
             caption.width(slideImage.width())
                 .css({
-                    'bottom' : Math.floor((slide.height() - slideImage.outerHeight()) / 2),
-                    'left' : Math.floor((slide.width() - slideImage.width()) / 2) + slideImage.outerWidth() - slideImage.width()
+                    'bottom' : Math.floor((slide.height() -
+                                           slideImage.outerHeight()) / 2),
+                    'left' : Math.floor((slide.width() -
+                                         slideImage.width()) / 2) +
+                                slideImage.outerWidth() - slideImage.width()
                 })
                 .fadeTo(duration, captionOpacity);
         },
@@ -592,10 +598,14 @@ $(document).ready(function(){
         self.hiddenTray = true;
         self.imgNav.find('.tray').bind('click',function(){
             if(self.hiddenTray){
-                self.list.parents('.jcarousel-container.jcarousel-container-vertical').animate({height:"%(verticalheight)ipx"});
-                self.list.parents('.jcarousel-container.jcarousel-container-horizontal').animate({height:"80px"});
+                var selector = '.jcarousel-container.jcarousel-container-';
+                self.list.parents(selector + 'vertical').animate(
+                    {height:"%(verticalheight)ipx"});
+                self.list.parents(selector + 'horizontal').animate(
+                    {height:"80px"});
             }else{
-                self.list.parents('.jcarousel-container').animate({height:"1px"});
+                self.list.parents('.jcarousel-container').animate(
+                    {height:"1px"});
             }
             self.hiddenTray = !self.hiddenTray;
         });
@@ -620,7 +630,6 @@ $(document).ready(function(){
         'speed': self.settings.delay,
         'transition': self.settings.pikachoose_transition,
         'autoplay': jsbool(self.settings.timed),
-        'text': '{ play: "", stop: "", previous: "Previous", next: "Next", loading: "Loading" }',
         'showcaption': jsbool(self.settings.pikachoose_showcaption),
         'showtooltips': jsbool(self.settings.pikachoose_showtooltips),
         'carousel': jsbool(self.settings.pikachoose_showcarousel),
@@ -631,6 +640,7 @@ $(document).ready(function(){
     }
 
     def css(self):
+        base_url = '%s/++resource++plonetruegallery.resources/pikachoose'
         return u"""
         <style>
 .pikachoose,
@@ -652,12 +662,13 @@ $(document).ready(function(){
 .jcarousel-skin-pika .jcarousel-clip-vertical{
    height: %(lowerheight)ipx;
 </style>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/pikachoose/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="%(base_url)s/css/style.css"/>
 """ % {
         'height': self.settings.pikachoose_height,
         'width': self.settings.pikachoose_width,
         'lowerheight': self.settings.pikachoose_height - 18,
         'backgroundcolor': self.settings.pikachoose_backgroundcolor,
+        'base_url': base_url
     }
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
 
@@ -671,7 +682,8 @@ class NivosliderDisplayType(BatchingDisplayType):
 
     def javascript(self):
         return u"""
-<script type="text/javascript" src="%(portal_url)s/++resource++jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript"
+    src="%(portal_url)s/++resource++jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript">
 $(window).load(function() {
     $('#slider').nivoSlider({
@@ -708,6 +720,8 @@ $(window).load(function() {
 
     def css(self):
         # for backwards compatibility.
+        base_url = '%s/++resource++plonetruegallery.resources/nivoslider' % (
+            self.portal_url)
         return u"""
         <style>
         .nivoSlider {
@@ -725,14 +739,16 @@ $(window).load(function() {
         height: %(height)ipx;
         }
         </style>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/nivoslider.css"/>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivoslider/css/%(nivoslider_theme)s/style.css"/>
+<link rel="stylesheet" type="text/css" href="%(base_url)s/css/nivoslider.css"/>
+<link rel="stylesheet" type="text/css"
+    href="%(base_url)s/css/%(nivoslider_theme)s/style.css"/>
 """ % {
         'height': self.settings.nivoslider_height,
         'width': self.settings.nivoslider_width,
         'imageheight': self.settings.nivoslider_height + 50,
         'imagewidth': self.settings.nivoslider_width + 40,
         'nivoslider_theme': self.settings.nivoslider_theme,
+        'base_url': base_url
        }
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
 
@@ -772,6 +788,8 @@ $(document).ready(function() {
     }
 
     def css(self):
+        base_url = '%s/++resource++plonetruegallery.resources/nivogallery' % (
+            self.portal_url)
         return u"""
         <style>
        .nivoGallery {
@@ -779,13 +797,14 @@ $(document).ready(function() {
         width: %(width)s;
         }
         </style>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/nivogallery/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="%(base_url)s/css/style.css"/>
 """ % {
         'height': self.settings.nivogallery_height,
         'width': self.settings.nivogallery_width,
+        'base_url': base_url
        }
-
 NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
+
 
 class ContactsheetDisplayType(BaseDisplayType):
 
@@ -799,10 +818,18 @@ class ContactsheetDisplayType(BaseDisplayType):
      <script type="text/javascript">
 $(document).ready(function() {
     $('.contactsheet a').mouseenter(function(e) {
-        $(this).children('img').animate({ height: '%(boxheight)i', left: '0', top: '0', width: '%(boxwidth)i'}, 100);
+        $(this).children('img').animate({
+            height: '%(boxheight)i',
+            left: '0',
+            top: '0',
+            width: '%(boxwidth)i'}, 100);
         $(this).children('div').fadeIn(%(speed)i);
     }).mouseleave(function(e) {
-        $(this).children('img').animate({ height: '%(imageheight)i', left: '-10', top: '-10', width: '%(imagewidth)i'}, 100);
+        $(this).children('img').animate({
+            height: '%(imageheight)i',
+            left: '-10',
+            top: '-10',
+            width: '%(imagewidth)i'}, 100);
         $(this).children('div').fadeOut(%(speed)i);
     });
 });
@@ -815,10 +842,11 @@ $(document).ready(function() {
          'imageheight': self.settings.contactsheet_imageheight + 20,
          'imagewidth': self.settings.contactsheet_imagewidth + 20,
          'speed': self.settings.duration,
-        
     }
 
     def css(self):
+        base_url = '%s/++resource++plonetruegallery.resources/contactsheet' % (
+            self.portal_url)
         return u"""
         <style>
 .contactsheet a img {
@@ -832,11 +860,11 @@ $(document).ready(function() {
 }
 
 .contactsheet a div {
-	background-color: rgba(15, 15, 15, %(overlay_opacity)f);
+    background-color: rgba(15, 15, 15, %(overlay_opacity)f);
 }
 
 </style>
-<link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/contactsheet/style.css"/>
+<link rel="stylesheet" type="text/css" href="%(base_url)s/style.css"/>
 """ % {
         'columns': self.settings.contactsheet_columns,
         'boxheight': self.settings.contactsheet_imageheight,
@@ -844,9 +872,10 @@ $(document).ready(function() {
         'imageheight': self.settings.contactsheet_imageheight + 20,
         'imagewidth': self.settings.contactsheet_imagewidth + 20,
         'overlay_opacity': self.settings.contactsheet_overlay_opacity,
+        'base_url': base_url
        }
-
 ContactsheetSettings = createSettingsFactory(ContactsheetDisplayType.schema)
+
 
 class ThumbnailzoomDisplayType(BaseDisplayType):
     name = u"thumbnailzoom"
@@ -856,84 +885,62 @@ class ThumbnailzoomDisplayType(BaseDisplayType):
 
     def javascript(self):
         return u"""
-        	<script type="text/javascript" charset="utf-8">
-		$(window).load(function(){
-			
-			//set and get some variables
-			var thumbnail = {
-				imgIncrease : %(increase)i, /* the image increase in pixels (for zoom) */
-				effectDuration : %(effectduration)i, /* the duration of the effect (zoom and caption) */
-				/* 
-				get the width and height of the images. Going to use those
-				for 2 things:
-					make the list items same size
-					get the images back to normal after the zoom 
-				*/
-				imgWidth : $('.thumbnailWrapper ul li').find('img').width(), 
-				imgHeight : $('.thumbnailWrapper ul li').find('img').height() 
-				
-			};
-			
-			//make the list items same size as the images
-			$('.thumbnailWrapper ul li').css({ 
-				
-				'width' : thumbnail.imgWidth, 
-				'height' : thumbnail.imgHeight 
-				
-			});
-			
-			//when mouse over the list item...
-			$('.thumbnailWrapper ul li').hover(function(){
-				
-				$(this).find('img').stop().animate({
-					
-					/* increase the image width for the zoom effect*/
-					width: parseInt(thumbnail.imgWidth) + thumbnail.imgIncrease,
-					/* we need to change the left and top position in order to 
-					have the zoom effect, so we are moving them to a negative
-					position of the half of the imgIncrease */
-					left: thumbnail.imgIncrease/2*(-1),
-					top: thumbnail.imgIncrease/2*(-1)
-					
-				},{ 
-					
-					"duration": thumbnail.effectDuration,
-					"queue": false
-					
-				});
-				
-				//show the caption using slideDown event
-				$(this).find('.caption:not(:animated)').slideDown(thumbnail.effectDuration);
-				
-			//when mouse leave...
-			}, function(){
-				
-				//find the image and animate it...
-				$(this).find('img').animate({
-					
-					/* get it back to original size (zoom out) */
-					width: thumbnail.imgWidth,
-					/* get left and top positions back to normal */
-					left: 0,
-					top: 0
-					
-				}, thumbnail.effectDuration);
-				
-				//hide the caption using slideUp event
-				$(this).find('.caption').slideUp(thumbnail.effectDuration);
-				
-			});
-			
-		});
-	</script>
+<script type="text/javascript" charset="utf-8">
+$(window).load(function(){
+    //set and get some variables
+    var thumbnail = {
+        imgIncrease : %(increase)i,
+        effectDuration : %(effectduration)i,
+        imgWidth : $('.thumbnailWrapper ul li').find('img').width(),
+        imgHeight : $('.thumbnailWrapper ul li').find('img').height()
+    };
+
+    //make the list items same size as the images
+    $('.thumbnailWrapper ul li').css({
+        'width' : thumbnail.imgWidth,
+        'height' : thumbnail.imgHeight
+    });
+
+    //when mouse over the list item...
+    $('.thumbnailWrapper ul li').hover(function(){
+        $(this).find('img').stop().animate({
+            /* increase the image width for the zoom effect*/
+            width: parseInt(thumbnail.imgWidth) + thumbnail.imgIncrease,
+            /* we need to change the left and top position in order to
+            have the zoom effect, so we are moving them to a negative
+            position of the half of the imgIncrease */
+            left: thumbnail.imgIncrease/2*(-1),
+            top: thumbnail.imgIncrease/2*(-1)
+        },{
+            "duration": thumbnail.effectDuration,
+            "queue": false
+        });
+        //show the caption using slideDown event
+        $(this).find('.caption:not(:animated)').slideDown(
+            thumbnail.effectDuration);
+    //when mouse leave...
+    }, function(){
+        //find the image and animate it...
+        $(this).find('img').animate({
+            /* get it back to original size (zoom out) */
+            width: thumbnail.imgWidth,
+            /* get left and top positions back to normal */
+            left: 0,
+            top: 0
+        }, thumbnail.effectDuration);
+        //hide the caption using slideUp event
+        $(this).find('.caption').slideUp(thumbnail.effectDuration);
+    });
+});
+</script>
 """ % {
-    'increase' : self.settings.thumbnailzoom_increase,
-    'effectduration' : self.settings.thumbnailzoom_effectduration,
+    'increase': self.settings.thumbnailzoom_increase,
+    'effectduration': self.settings.thumbnailzoom_effectduration,
 }
 
     def css(self):
         return u"""
-        <link rel="stylesheet" type="text/css" href="++resource++plonetruegallery.resources/thumbnailzoom/style.css"/>
-"""  
+<link rel="stylesheet" type="text/css"
+    href="%s/++resource++plonetruegallery.resources/thumbnailzoom/style.css"/>
+""" % self.portal_url
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
-

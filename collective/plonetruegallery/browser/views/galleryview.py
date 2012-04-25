@@ -17,7 +17,7 @@ def render_20mincache(method, self):
 
 class GalleryView(BrowserView):
 
-    subgallery_template = ViewPageTemplateFile('subgallery.pt')
+    subgallery_template = ViewPageTemplateFile('templates/subgallery.pt')
 
     def __call__(self):
         self.adapter = getGalleryAdapter(self.context, self.request)

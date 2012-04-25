@@ -10,7 +10,7 @@
      permission="zope.Public"
      class=".galleryview.GalleryView"
      layer="Products.Collage.interfaces.ICollageBrowserLayer"
-     template="collage.pt"
+     template="templates/collage.pt"
      />
 
 </configure>

@@ -85,7 +85,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview"
 		class=".galleryview.GalleryView"
-		template="layout.pt"
+		template="templates/layout.pt"
 		permission="zope2.View"
 	/>
 
@@ -93,7 +93,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-highslide"
 		class=".display.HighSlideDisplayType"
-		template="highslide.pt"
+		template="templates/highslide.pt"
 		permission="zope2.View"
 	/>
 
@@ -101,7 +101,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-fancybox"
 		class=".display.FancyBoxDisplayType"
-		template="fancybox.pt"
+		template="templates/fancybox.pt"
 		permission="zope2.View"
 	/>
 
@@ -109,7 +109,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-galleriffic"
 		class=".display.GallerifficDisplayType"
-		template="galleriffic.pt"
+		template="templates/galleriffic.pt"
 		permission="zope2.View"
 	/>
 
@@ -117,7 +117,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-pikachoose"
 		class=".display.PikachooseDisplayType"
-		template="pikachoose.pt"
+		template="templates/pikachoose.pt"
 		permission="zope2.View"
 	/>
 
@@ -126,7 +126,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-s3slider"
 		class=".display.S3sliderDisplayType"
-		template="s3slider.pt"
+		template="templates/s3slider.pt"
 		permission="zope2.View"
 	/>
 
@@ -134,7 +134,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-nivoslider"
 		class=".display.NivosliderDisplayType"
-		template="nivoslider.pt"
+		template="templates/nivoslider.pt"
 		permission="zope2.View"
 	/>
 
@@ -142,7 +142,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-nivogallery"
 		class=".display.NivogalleryDisplayType"
-		template="nivogallery.pt"
+		template="templates/nivogallery.pt"
 		permission="zope2.View"
 	/>
 
@@ -150,7 +150,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-galleria"
 		class=".display.GalleriaDisplayType"
-		template="galleria.pt"
+		template="templates/galleria.pt"
 		permission="zope2.View"
          />
 
@@ -158,7 +158,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-contactsheet"
 		class=".display.ContactsheetDisplayType"
-		template="contactsheet.pt"
+		template="templates/contactsheet.pt"
 		permission="zope2.View"
          />
 
@@ -166,7 +166,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-thumbnailzoom"
 		class=".display.ThumbnailzoomDisplayType"
-		template="thumbnailzoom.pt"
+		template="templates/thumbnailzoom.pt"
 		permission="zope2.View"
          />
 
@@ -224,7 +224,7 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="placegalleryview"
 		class=".galleryview.GalleryView"
-		template="placelayout.pt"
+		template="templates/placelayout.pt"
 		permission="zope2.View"
 	/>
 
@@ -272,7 +272,7 @@
 	<browser:page
 		for="*"
 		name="collective.plonetruegallery.macros"
-		template="layout.pt"
+		template="templates/layout.pt"
 		permission="zope2.View"
 	/>
 

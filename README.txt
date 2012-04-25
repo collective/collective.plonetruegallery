@@ -33,6 +33,8 @@ the dependant js package in buildout
  - s3slider(collective.js.pikachoose)
  - nivo slider(collective.js.nivoslider)
  - nivo gallery(collective.js.nivogallery)
+ - thumbnail zoom gallery
+ - contact sheet
 
 
 Buildout configuration
