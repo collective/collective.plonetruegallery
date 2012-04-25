@@ -89,9 +89,9 @@ Pop-up effect
 
 you could do this::
 
-1) Install http://plone.org/products/collective.prettyphoto
-2) Mark the link to the gallery with "prettyPhoto" style (which 
-   has now been added) from Kupu or TinyMCE
+  1) Install http://plone.org/products/collective.prettyphoto
+  2) Mark the link to the gallery with "prettyPhoto" style (which 
+     has now been added) from Kupu or TinyMCE
 
 Inline Gallery
 --------------

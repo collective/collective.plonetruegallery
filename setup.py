@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = "2.1a1"
+version = "2.1b1"
 
 setup(name='collective.plonetruegallery',
       version=version,
@@ -15,7 +15,8 @@ setup(name='collective.plonetruegallery',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='gallery plone slideshow photo photos image images picasa '
-               'flickr highslide nivoslider nivogallery pikachoose fancybox galleriffic galleria',
+               'flickr highslide nivoslider nivogallery pikachoose fancybox '
+               'galleriffic galleria',
       author='Nathan Van Gheem',
       author_email='vangheem@gmail.com',
       url='http://www.plone.org/products/plone-true-gallery',
