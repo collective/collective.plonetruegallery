@@ -236,7 +236,7 @@ hs.addSlideshow({
     useControls: true,
     fixedControls: 'fit',
     overlayOptions: {
-        position: 'middle center',
+        position: '%(overlay_position)s center',
         opacity: .7,
         hideOnMouseOut: true
     },
@@ -271,7 +271,10 @@ $(document).ready(function() {
             'start_automatically': jsbool(
                 self.settings.start_automatically or self.settings.timed),
             'start_index_index': self.start_image_index,
+            'overlay_position': \
+                self.settings.highslide_slideshowcontrols_position,
             'base_url': base_url
+
         }
 HighSlideSettings = createSettingsFactory(HighSlideDisplayType.schema)
 

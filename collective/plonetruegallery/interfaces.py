@@ -285,6 +285,26 @@ class IFancyBoxDisplaySettings(IBaseSettings):
 
 class IHighSlideDisplaySettings(IBaseSettings):
 
+    highslide_slideshowcontrols_position = schema.Choice(
+        title=_(u"lable_highslide_slideshowcontrols_position",
+            default=u"Highslide controls position"),
+        description=_(u"description_highslide_slideshowcontrols_position",
+            default=u"Choose the position of the slideshow controls. "
+        ),
+        default='bottom',
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('top', 'top',
+                _(u"label_highslide_slideshowcontrols_position_top",
+                                    default=u"top")),
+            SimpleTerm('middle', 'middle',
+                _(u"label_highslide_slideshowcontrols_position_middle",
+                                    default=u"middle")),
+            SimpleTerm('bottom', 'bottom',
+                _(u"label_highslide_slideshowcontrols_position_bottom",
+                                    default=u"bottom")),
+        ])
+    )
+
     highslide_outlineType = schema.Choice(
         title=_(u"label_highslide_outlineType", default=u"Image outline type"),
         description=_(u"description_highslide_outlineType",
