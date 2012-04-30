@@ -55,3 +55,8 @@ div.presentationtext p,
 div.presentationtext h3 {
 	color:  white;
 }
+
+.unpresented p,
+.unpresente h3 {
+	display: none;
+}
