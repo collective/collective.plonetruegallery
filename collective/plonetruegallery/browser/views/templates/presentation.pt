@@ -8,14 +8,14 @@
 	            tal:attributes="class theclass;
 	                            style style">
     
- 			<div class="presentationshadow">           
+ 			<div class="presentationshadow"></div>           
               <a href=""  tal:attributes="href img/link" >
                 <div class="presentationtext">
 			        <h3 tal:content="img/title" />
 			       	<p class="captiondescription" tal:content="img/description" />
 		        </div>
 			  </a>
-            </div>
+            
 		</li>
 	</tal:images>
     </ul>

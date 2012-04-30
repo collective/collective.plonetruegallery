@@ -1,3 +1,5 @@
+/* @override http://localhost:8080/asdfasdfs/++resource++plonetruegallery.resources/presentation/style.css */
+
 .presentationWrapper {
 	overflow: hidden;
 }
@@ -7,6 +9,7 @@
 	list-style-type: none;
 	list-style-image: none;
 	list-style-position: outside;
+
 }
 
 .presentationWrapper li {
@@ -15,12 +18,14 @@
   float: left;
   background-repeat: no-repeat;
   background-position: center center;
+  	position: relative;
 }
 
 li.row_0 {
 	clear: left; /* this is for making columns */
 	margin-left: 0;
 	border-left: 0 none;
+	margin: 0;
 }
 
 div.presentationshadow {
@@ -28,6 +33,7 @@ div.presentationshadow {
 	height: 100%;
 	opacity: 0.6;
 	position: relative;
+	top: 0;
 	right: 0;
 	background: url(++resource++plonetruegallery.resources/presentation/presentation-shadow.png) repeat-y right;
 }
@@ -35,13 +41,14 @@ div.presentationshadow {
 
 div.presentationtext {
 	background: #000;
-	opacity: 0.8;
+	opacity: 0.7;
 	width: 100%;
 	text-indent: 20px;
-	height:  40px !important;
-	position:relative;
-	bottom:  40px;
+	height:  57px;
+	position:absolute;
+	bottom: 0;
 	z-index: 2;
+	padding-top: 7px;
 }
 
 div.presentationtext p,

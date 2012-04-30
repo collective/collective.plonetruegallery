@@ -1002,6 +1002,10 @@ $(document).ready(function() {
     height: %(height)ipx;
 }
 
+div.presentationtext {
+
+}
+
 li.row_%(lastimagenr)s div.presentationshadow {
     background-image: none;
 }
