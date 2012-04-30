@@ -772,3 +772,30 @@ class   IThumbnailzoomDisplaySettings(IBaseSettings):
         min=16,
     )
     
+class   IPresentationDisplaySettings(IBaseSettings): 
+    presentation_effect = schema.Choice (
+        title=_(u"label_presentation_effect",
+            default=u"Mouseover or click"),
+        default="click",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("click", "click",
+                _(u"label_presentation_click", default=u"Click on image")),
+            SimpleTerm("mouseover", "mouseover",
+                _(u"label_presentation_mouseover", default=u"Mouse over)")
+            )
+        ])
+    )
+    
+    presentation_width = schema.Int(
+        title=_(u"label_presentation_width",
+            default=u"Width of the gallery in pixels"),
+        default=600,
+        min=200
+    )
+
+    presentation_height = schema.Int(
+        title=_(u"label_presentation_height",
+            default=u"Height of the gallery in pixels"),
+        default=350,
+        min=60,
+    )

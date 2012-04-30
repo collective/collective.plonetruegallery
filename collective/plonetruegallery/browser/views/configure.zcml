@@ -80,6 +80,12 @@
 		provides="collective.plonetruegallery.interfaces.IThumbnailzoomDisplaySettings"
 		factory=".display.ThumbnailzoomSettings"
 	/>
+	
+	<adapter 
+		for="collective.plonetruegallery.interfaces.IGallery"
+		provides="collective.plonetruegallery.interfaces.IPresentationDisplaySettings"
+		factory=".display.PresentationSettings"
+	/>
  
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -170,6 +176,14 @@
 		permission="zope2.View"
          />
 
+	<browser:page 
+		for="collective.plonetruegallery.interfaces.IGallery"
+		name="galleryview-presentation"
+		class=".display.PresentationDisplayType"
+		template="templates/presentation.pt"
+		permission="zope2.View"
+         />
+         
 	<utility zcml:condition="installed collective.js.highslide"
 		component=".display.HighSlideDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
@@ -219,6 +233,11 @@
 		component=".display.ThumbnailzoomDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-thumbnailzoom" />
+
+	<utility 
+		component=".display.PresentationDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-presentation" />
 
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"

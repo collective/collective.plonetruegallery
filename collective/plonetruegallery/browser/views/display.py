@@ -11,6 +11,8 @@ from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
 from collective.plonetruegallery.interfaces import IContactsheetDisplaySettings
 from collective.plonetruegallery.interfaces import \
     IThumbnailzoomDisplaySettings
+from collective.plonetruegallery.interfaces import \
+    IPresentationDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -947,3 +949,68 @@ $(window).load(function(){
     href="%s/++resource++plonetruegallery.resources/thumbnailzoom/style.css"/>
 """ % self.portal_url
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
+
+class PresentationDisplayType(BaseDisplayType):
+    name = u"presentation"
+    schema = IPresentationDisplaySettings
+    description = _(u"label_presentation_display_type",
+        default=u"Presentation")
+
+    def javascript(self):
+        return u"""
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+    $(".presentationWrapper li").%(effect)s(function(){
+        $(".presentationWrapper li").addClass("unpresented");
+        $(this).addClass("presented").removeClass("unpresented");
+        $(".unpresented").animate({
+            width: '15px',
+        }, 1000);
+        $(".presented").animate({
+            width: '%(imagelargewidth)ipx',
+        }, 1000);  
+    }); 
+    $(".presentationWrapper ul").mouseleave(function(){
+        $(".presentationWrapper li").animate({
+            width: '%(imagewidth)ipx',
+        }, 1005);
+        $(".presentationWrapper li").removeClass("presented");
+        $(".presentationWrapper li").removeClass("unpresented");
+        
+    });
+}); 
+</script> 
+""" % { 
+		'width' : self.settings.presentation_width,
+		'images' : len(self.adapter.cooked_images),
+		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images) -1,
+		'imagelargewidth' : self.settings.presentation_width - (len(self.adapter.cooked_images) * 15 ),
+		'effect' : self.settings.presentation_effect
+	}
+
+    def css(self):
+        return u"""
+<link rel="stylesheet" type="text/css" href="%(portal)s/++resource++plonetruegallery.resources/presentation/style.css"/>
+    <style>
+.presentationWrapper {
+    width: %(width)ipx;
+    height: %(height)ipx;
+}
+
+.presentationWrapper li  {
+    width: %(imagewidth)ipx;
+    height: %(height)ipx;
+}
+
+li.row_%(lastimagenr)s div.presentationshadow {
+    background-image: none;
+}
+</style>
+"""   % { 
+		'portal': self.portal_url,
+		'height': self.settings.presentation_height,
+		'width' : self.settings.presentation_width,
+		'lastimagenr' : len(self.adapter.cooked_images) -1,
+		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images)
+}
+PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)
