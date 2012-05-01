@@ -959,25 +959,27 @@ class PresentationDisplayType(BaseDisplayType):
     def javascript(self):
         return u"""
 <script type="text/javascript" charset="utf-8">
-$(".presentationWrapper li").bind ({
-	%(effect)s: function(){
-		$(".presentationWrapper li").addClass("unpresented");
-       	$(this).addClass("presented").removeClass("unpresented");
-       	$(".unpresented").stop().animate({
-           	width: '15px',
-       	}, 600);
-       	$(this).stop().animate({
-           	width: '%(imagelargewidth)ipx',
-       	}, 600); 
-    }
-}); 
-$(".presentationWrapper ul").bind ({
-	mouseleave: function(){
-		$(".presentationWrapper li").removeClass("unpresented presented");
-       	$(".presentationWrapper li").stop().animate({
-           	width: '%(imagewidth)ipx',
-       	}, 600); 
-    }
+$(document).ready(function() {
+	$(".presentationWrapper li").bind ({
+		%(effect)s: function(){
+			$(".presentationWrapper li").addClass("unpresented");
+			$(this).addClass("presented").removeClass("unpresented");
+			$(".unpresented").stop().animate({
+				width: '15px',
+			}, 600);
+			$(this).stop().animate({
+				width: '%(imagelargewidth)ipx',
+			}, 600); 
+		}
+	}); 
+	$(".presentationWrapper ul").bind ({
+		mouseleave: function(){
+			$(".presentationWrapper li").removeClass("unpresented presented");
+			$(".presentationWrapper li").stop().animate({
+				width: '%(imagewidth)ipx',
+			}, 600); 
+		}
+	}); 
 }); 
 </script> 
 """ % { 
