@@ -781,7 +781,7 @@ class   IPresentationDisplaySettings(IBaseSettings):
             SimpleTerm("click", "click",
                 _(u"label_presentation_click", default=u"Click on image")),
             SimpleTerm("mouseenter", "mouseenter",
-                _(u"label_presentation_mouseover", default=u"Mouse enter)")
+                _(u"label_presentation_mouseover", default=u"Mouse enter")
             )
         ])
     )
