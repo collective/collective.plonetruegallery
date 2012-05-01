@@ -780,8 +780,8 @@ class   IPresentationDisplaySettings(IBaseSettings):
         vocabulary=SimpleVocabulary([
             SimpleTerm("click", "click",
                 _(u"label_presentation_click", default=u"Click on image")),
-            SimpleTerm("mouseover", "mouseover",
-                _(u"label_presentation_mouseover", default=u"Mouse over)")
+            SimpleTerm("mouseenter", "mouseenter",
+                _(u"label_presentation_mouseover", default=u"Mouse enter)")
             )
         ])
     )

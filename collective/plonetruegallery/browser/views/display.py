@@ -959,30 +959,28 @@ class PresentationDisplayType(BaseDisplayType):
     def javascript(self):
         return u"""
 <script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    $(".presentationWrapper li").%(effect)s(function(){
-        $(".presentationWrapper li").addClass("unpresented");
-        $(this).addClass("presented").removeClass("unpresented");
-        $(".unpresented").animate({
-            width: '15px',
-        }, 1000);
-        $(".presented").animate({
-            width: '%(imagelargewidth)ipx',
-        }, 1000);  
-    }); 
-    $(".presentationWrapper ul").mouseleave(function(){
-        $(".presentationWrapper li").animate({
-            width: '%(imagewidth)ipx',
-        }, 1005);
-        $(".presentationWrapper li").removeClass("presented");
-        $(".presentationWrapper li").removeClass("unpresented");
-        
-    });
+$(".presentationWrapper li").bind ({
+	%(effect)s: function(){
+		$(".presentationWrapper li").addClass("unpresented");
+       	$(this).addClass("presented").removeClass("unpresented");
+       	$(".unpresented").stop().animate({
+           	width: '15px',
+       	}, 600);
+       	$(this).stop().animate({
+           	width: '%(imagelargewidth)ipx',
+       	}, 600); 
+    }
+}); 
+$(".presentationWrapper ul").bind ({
+	mouseleave: function(){
+		$(".presentationWrapper li").removeClass("unpresented presented");
+       	$(".presentationWrapper li").stop().animate({
+           	width: '%(imagewidth)ipx',
+       	}, 600); 
+    }
 }); 
 </script> 
 """ % { 
-		'width' : self.settings.presentation_width,
-		'images' : len(self.adapter.cooked_images),
 		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images) -1,
 		'imagelargewidth' : self.settings.presentation_width - (len(self.adapter.cooked_images) * 15 ),
 		'effect' : self.settings.presentation_effect
