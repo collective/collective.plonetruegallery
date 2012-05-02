@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = "2.1b2"
+version = "2.2.0"
 
 setup(name='collective.plonetruegallery',
       version=version,
