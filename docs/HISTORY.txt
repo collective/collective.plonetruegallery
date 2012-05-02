@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.2.0 (unreleased)
+------------------
+
+- Add presentation display type.
+  [vangheem]
+
 2.1b2 (2012-04-27)
 ------------------
 

@@ -26,6 +26,9 @@ To install any of the various extra display types, you need to install
 the dependant js package in buildout
 
  - galleria(ships with)
+ - contact sheet(ships with)
+ - thumbnail zoom gallery(ships with)
+ - presentation(ships with)
  - galleriffic(collective.js.galleriffic)
  - highslide(collective.js.highslide)
  - fancybox(collective.js.fancybox)
@@ -33,8 +36,6 @@ the dependant js package in buildout
  - s3slider(collective.js.pikachoose)
  - nivo slider(collective.js.nivoslider)
  - nivo gallery(collective.js.nivogallery)
- - contact sheet
- - thumbnail zoom gallery
 
 Buildout configuration
 ~~~~~~~~~~~~~~~~~~~~~~
