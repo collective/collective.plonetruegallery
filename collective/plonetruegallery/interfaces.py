@@ -799,3 +799,9 @@ class   IPresentationDisplaySettings(IBaseSettings):
         default=350,
         min=60,
     )
+    
+    minimum_width = schema.Int(
+        title=_(u"label_presentation_minimum_width",
+            default=u"Minimum width of images"),
+        default=15,
+    )

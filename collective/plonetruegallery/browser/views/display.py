@@ -965,7 +965,7 @@ $(document).ready(function() {
 			$(".presentationWrapper li").addClass("unpresented");
 			$(this).addClass("presented").removeClass("unpresented");
 			$(".unpresented").stop().animate({
-				width: '15px',
+				width: '%(minimum_width)ipx',
 			}, 600);
 			$(this).stop().animate({
 				width: '%(imagelargewidth)ipx',
@@ -984,8 +984,9 @@ $(document).ready(function() {
 </script> 
 """ % { 
 		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images) -1,
-		'imagelargewidth' : self.settings.presentation_width - (len(self.adapter.cooked_images) * 15 ),
-		'effect' : self.settings.presentation_effect
+		'imagelargewidth' : self.settings.presentation_width - (len(self.adapter.cooked_images) * self.settings.minimum_width ),
+		'effect' : self.settings.presentation_effect,
+		'minimum_width' : self.settings.minimum_width
 	}
 
     def css(self):
