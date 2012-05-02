@@ -11,6 +11,8 @@ from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
 from collective.plonetruegallery.interfaces import IContactsheetDisplaySettings
 from collective.plonetruegallery.interfaces import \
     IThumbnailzoomDisplaySettings
+from collective.plonetruegallery.interfaces import \
+    IPresentationDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -947,3 +949,73 @@ $(window).load(function(){
     href="%s/++resource++plonetruegallery.resources/thumbnailzoom/style.css"/>
 """ % self.portal_url
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
+
+class PresentationDisplayType(BaseDisplayType):
+    name = u"presentation"
+    schema = IPresentationDisplaySettings
+    description = _(u"label_presentation_display_type",
+        default=u"Presentation")
+
+    def javascript(self):
+        return u"""
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+	$(".presentationWrapper li").bind ({
+		%(effect)s: function(){
+			$(".presentationWrapper li").addClass("unpresented");
+			$(this).addClass("presented").removeClass("unpresented");
+			$(".unpresented").stop().animate({
+				width: '%(minimum_width)ipx',
+			}, 600);
+			$(this).stop().animate({
+				width: '%(imagelargewidth)ipx',
+			}, 600); 
+		}
+	}); 
+	$(".presentationWrapper ul").bind ({
+		mouseleave: function(){
+			$(".presentationWrapper li").removeClass("unpresented presented");
+			$(".presentationWrapper li").stop().animate({
+				width: '%(imagewidth)ipx',
+			}, 600); 
+		}
+	}); 
+}); 
+</script> 
+""" % { 
+		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images) -1,
+		'imagelargewidth' : self.settings.presentation_width - (len(self.adapter.cooked_images) * self.settings.minimum_width ),
+		'effect' : self.settings.presentation_effect,
+		'minimum_width' : self.settings.minimum_width
+	}
+
+    def css(self):
+        return u"""
+<link rel="stylesheet" type="text/css" href="%(portal)s/++resource++plonetruegallery.resources/presentation/style.css"/>
+    <style>
+.presentationWrapper {
+    width: %(width)ipx;
+    height: %(height)ipx;
+}
+
+.presentationWrapper li  {
+    width: %(imagewidth)ipx;
+    height: %(height)ipx;
+}
+
+div.presentationtext {
+
+}
+
+li.row_%(lastimagenr)s div.presentationshadow {
+    background-image: none;
+}
+</style>
+"""   % { 
+		'portal': self.portal_url,
+		'height': self.settings.presentation_height,
+		'width' : self.settings.presentation_width,
+		'lastimagenr' : len(self.adapter.cooked_images) -1,
+		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images)
+}
+PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)

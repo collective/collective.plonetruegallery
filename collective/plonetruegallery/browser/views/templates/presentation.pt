@@ -1,0 +1,23 @@
+<div class="presentationWrapper"> 
+    <ul>
+    <tal:images tal:repeat="img view/adapter/cooked_images">
+	    <li tal:define="number repeat/img/index; 
+	            theimage img/image_url;
+	            style python:'background-image:url(' + theimage + ')';
+	            theclass python:'row_' + str(number)" 
+	            tal:attributes="class theclass;
+	                            style style">
+    
+ 			<div class="presentationshadow"></div>           
+              <a href=""  tal:attributes="href img/link" >
+                <div class="presentationtext">
+			        <h3 tal:content="img/title" />
+			       	<p class="captiondescription" tal:content="img/description" />
+		        </div>
+			  </a>
+            
+		</li>
+	</tal:images>
+    </ul>
+</div>
+ 
