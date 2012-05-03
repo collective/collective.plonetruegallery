@@ -1023,6 +1023,6 @@ li.row_%(lastimagenr)s div.presentationshadow {
         'height': self.settings.presentation_height,
         'width': self.settings.presentation_width,
         'lastimagenr': imagecount - 1,
-        'imagewidth': (self.settings.presentation_width / imagecount) - imagecount
+        'imagewidth': (self.settings.presentation_width - imagecount ) / imagecount
 }
 PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)
