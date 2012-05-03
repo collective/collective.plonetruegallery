@@ -950,6 +950,7 @@ $(window).load(function(){
 """ % self.portal_url
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
 
+
 class PresentationDisplayType(BaseDisplayType):
     name = u"presentation"
     schema = IPresentationDisplaySettings
@@ -957,41 +958,51 @@ class PresentationDisplayType(BaseDisplayType):
         default=u"Presentation")
 
     def javascript(self):
+        imagecount = len(self.adapter.cooked_images)
+        if imagecount == 0:
+            imagecount = 1
         return u"""
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-	$(".presentationWrapper li").bind ({
-		%(effect)s: function(){
-			$(".presentationWrapper li").addClass("unpresented");
-			$(this).addClass("presented").removeClass("unpresented");
-			$(".unpresented").stop().animate({
-				width: '%(minimum_width)ipx',
-			}, 600);
-			$(this).stop().animate({
-				width: '%(imagelargewidth)ipx',
-			}, 600); 
-		}
-	}); 
-	$(".presentationWrapper ul").bind ({
-		mouseleave: function(){
-			$(".presentationWrapper li").removeClass("unpresented presented");
-			$(".presentationWrapper li").stop().animate({
-				width: '%(imagewidth)ipx',
-			}, 600); 
-		}
-	}); 
-}); 
-</script> 
-""" % { 
-		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images) -1,
-		'imagelargewidth' : self.settings.presentation_width - (len(self.adapter.cooked_images) * self.settings.minimum_width ),
-		'effect' : self.settings.presentation_effect,
-		'minimum_width' : self.settings.minimum_width
-	}
+    $(".presentationWrapper li").bind ({
+        %(effect)s: function(){
+            $(".presentationWrapper li").addClass("unpresented");
+            $(this).addClass("presented").removeClass("unpresented");
+            $(".unpresented").stop().animate({
+                width: '%(minimum_width)ipx',
+            }, 600);
+            $(this).stop().animate({
+                width: '%(imagelargewidth)ipx',
+            }, 600);
+        }
+    });
+    $(".presentationWrapper ul").bind ({
+        mouseleave: function(){
+            $(".presentationWrapper li").removeClass("unpresented presented");
+            $(".presentationWrapper li").stop().animate({
+                width: '%(imagewidth)ipx',
+            }, 600);
+        }
+    });
+});
+</script>
+""" % {
+        'imagewidth': (self.settings.presentation_width /
+            imagecount) - imagecount - 1,
+        'imagelargewidth': self.settings.presentation_width -
+            (imagecount * self.settings.minimum_width),
+        'effect': self.settings.presentation_effect,
+        'minimum_width': self.settings.minimum_width
+    }
 
     def css(self):
+        imagecount = len(self.adapter.cooked_images)
+        if imagecount == 0:
+            imagecount = 1
+        base_url = '%s/++resource++plonetruegallery.resources/presentation' % (
+            self.portal_url)
         return u"""
-<link rel="stylesheet" type="text/css" href="%(portal)s/++resource++plonetruegallery.resources/presentation/style.css"/>
+<link rel="stylesheet" type="text/css" href="%(base_url)s/style.css"/>
     <style>
 .presentationWrapper {
     width: %(width)ipx;
@@ -1003,19 +1014,15 @@ $(document).ready(function() {
     height: %(height)ipx;
 }
 
-div.presentationtext {
-
-}
-
 li.row_%(lastimagenr)s div.presentationshadow {
     background-image: none;
 }
 </style>
-"""   % { 
-		'portal': self.portal_url,
-		'height': self.settings.presentation_height,
-		'width' : self.settings.presentation_width,
-		'lastimagenr' : len(self.adapter.cooked_images) -1,
-		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images)
+""" % {
+        'base_url': base_url,
+        'height': self.settings.presentation_height,
+        'width': self.settings.presentation_width,
+        'lastimagenr': imagecount - 1,
+        'imagewidth': (self.settings.presentation_width / imagecount) - imagecount
 }
 PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)
