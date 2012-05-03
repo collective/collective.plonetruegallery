@@ -950,7 +950,6 @@ $(window).load(function(){
 """ % self.portal_url
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
 
-
 class PresentationDisplayType(BaseDisplayType):
     name = u"presentation"
     schema = IPresentationDisplaySettings
@@ -961,43 +960,38 @@ class PresentationDisplayType(BaseDisplayType):
         return u"""
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-    $(".presentationWrapper li").bind ({
-        %(effect)s: function(){
-            $(".presentationWrapper li").addClass("unpresented");
-            $(this).addClass("presented").removeClass("unpresented");
-            $(".unpresented").stop().animate({
-                width: '%(minimum_width)ipx',
-            }, 600);
-            $(this).stop().animate({
-                width: '%(imagelargewidth)ipx',
-            }, 600);
-        }
-    });
-    $(".presentationWrapper ul").bind ({
-        mouseleave: function(){
-            $(".presentationWrapper li").removeClass("unpresented presented");
-            $(".presentationWrapper li").stop().animate({
-                width: '%(imagewidth)ipx',
-            }, 600);
-        }
-    });
-});
-</script>
-""" % {
-        'imagewidth': (self.settings.presentation_width /
-            len(self.adapter.cooked_images)) -
-                len(self.adapter.cooked_images) - 1,
-        'imagelargewidth': self.settings.presentation_width -
-            (len(self.adapter.cooked_images) * self.settings.minimum_width),
-        'effect': self.settings.presentation_effect,
-        'minimum_width': self.settings.minimum_width
-    }
+	$(".presentationWrapper li").bind ({
+		%(effect)s: function(){
+			$(".presentationWrapper li").addClass("unpresented");
+			$(this).addClass("presented").removeClass("unpresented");
+			$(".unpresented").stop().animate({
+				width: '%(minimum_width)ipx',
+			}, 600);
+			$(this).stop().animate({
+				width: '%(imagelargewidth)ipx',
+			}, 600); 
+		}
+	}); 
+	$(".presentationWrapper ul").bind ({
+		mouseleave: function(){
+			$(".presentationWrapper li").removeClass("unpresented presented");
+			$(".presentationWrapper li").stop().animate({
+				width: '%(imagewidth)ipx',
+			}, 600); 
+		}
+	}); 
+}); 
+</script> 
+""" % { 
+		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images) -1,
+		'imagelargewidth' : self.settings.presentation_width - (len(self.adapter.cooked_images) * self.settings.minimum_width ),
+		'effect' : self.settings.presentation_effect,
+		'minimum_width' : self.settings.minimum_width
+	}
 
     def css(self):
-        base_url = '%s/++resource++plonetruegallery.resources/presentation' % (
-            self.portal_url)
         return u"""
-<link rel="stylesheet" type="text/css" href="%(base_url)s/style.css"/>
+<link rel="stylesheet" type="text/css" href="%(portal)s/++resource++plonetruegallery.resources/presentation/style.css"/>
     <style>
 .presentationWrapper {
     width: %(width)ipx;
@@ -1017,12 +1011,11 @@ li.row_%(lastimagenr)s div.presentationshadow {
     background-image: none;
 }
 </style>
-""" % {
-        'base_url': base_url,
-        'height': self.settings.presentation_height,
-        'width': self.settings.presentation_width,
-        'lastimagenr': len(self.adapter.cooked_images) - 1,
-        'imagewidth': (self.settings.presentation_width /
-            len(self.adapter.cooked_images)) - len(self.adapter.cooked_images)
+"""   % { 
+		'portal': self.portal_url,
+		'height': self.settings.presentation_height,
+		'width' : self.settings.presentation_width,
+		'lastimagenr' : len(self.adapter.cooked_images) -1,
+		'imagewidth' : (self.settings.presentation_width / len(self.adapter.cooked_images)) - len(self.adapter.cooked_images)
 }
 PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)
