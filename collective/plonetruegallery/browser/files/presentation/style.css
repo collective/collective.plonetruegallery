@@ -1,7 +1,7 @@
 /* @override http://localhost:8080/asdfasdfs/++resource++plonetruegallery.resources/presentation/style.css */
 
 .presentationWrapper {
-	overflow: hidden;
+	overflow-y: hidden;
 }
 .presentationWrapper ul {
 	padding: 0;
@@ -53,7 +53,7 @@ div.presentationtext {
 div.presentationtext p,
 div.presentationtext h3 {
 	color:  white;
-	margin-left: 16px;
+	margin-left: 15px;
 }
 
 .unpresented p,
