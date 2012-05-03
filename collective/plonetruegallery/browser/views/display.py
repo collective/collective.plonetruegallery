@@ -990,7 +990,7 @@ $(document).ready(function() {
         'imagewidth': (self.settings.presentation_width /
             imagecount) - imagecount - 1,
         'imagelargewidth': self.settings.presentation_width -
-            (imagecount * self.settings.minimum_width),
+            ((imagecount-1) * self.settings.minimum_width),
         'effect': self.settings.presentation_effect,
         'minimum_width': self.settings.minimum_width
     }
