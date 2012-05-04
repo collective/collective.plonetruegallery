@@ -987,10 +987,9 @@ $(document).ready(function() {
 });
 </script>
 """ % {
-        'imagewidth': (self.settings.presentation_width /
-            imagecount) - imagecount - 1,
+        'imagewidth': (self.settings.presentation_width - imagecount + 1) / imagecount
         'imagelargewidth': self.settings.presentation_width -
-            ((imagecount) * self.settings.minimum_width) - imagecount,
+            ((imagecount) * self.settings.minimum_width) - imagecount +1 ,
         'effect': self.settings.presentation_effect,
         'minimum_width': self.settings.minimum_width
     }
@@ -1023,6 +1022,6 @@ li.row_%(lastimagenr)s div.presentationshadow {
         'height': self.settings.presentation_height,
         'width': self.settings.presentation_width,
         'lastimagenr': imagecount - 1,
-        'imagewidth': (self.settings.presentation_width - imagecount ) / imagecount
+        'imagewidth': (self.settings.presentation_width - imagecount + 1 ) / imagecount
 }
 PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)
