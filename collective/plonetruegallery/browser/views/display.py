@@ -987,9 +987,9 @@ $(document).ready(function() {
 });
 </script>
 """ % {
-        'imagewidth': (self.settings.presentation_width - imagecount + 1) / imagecount
+        'imagewidth': (self.settings.presentation_width - imagecount + 1) / imagecount,
         'imagelargewidth': self.settings.presentation_width -
-            ((imagecount) * self.settings.minimum_width) - imagecount +1 ,
+            (imagecount * self.settings.minimum_width) - imagecount + 1 ,
         'effect': self.settings.presentation_effect,
         'minimum_width': self.settings.minimum_width
     }
