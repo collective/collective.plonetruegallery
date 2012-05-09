@@ -37,6 +37,7 @@ class BaseDisplayType(BrowserView):
     schema = None
     userWarning = None
     staticFilesRelative = '++resource++plonetruegallery.resources'
+    typeStaticFilesRelative = ''
 
     def __init__(self, context, request):
         super(BaseDisplayType, self).__init__(context, request)
@@ -49,6 +50,8 @@ class BaseDisplayType(BrowserView):
         self.portal_url = portal_state.portal_url()
         self.staticFiles = "%s/%s" % (self.portal_url,
                                       self.staticFilesRelative)
+        self.typeStaticFiles = '%s/%s' % (self.portal_url,
+                                          self.typeStaticFilesRelative)
 
     def content(self):
         return self.index()
@@ -72,6 +75,12 @@ class BaseDisplayType(BrowserView):
         return 0
 
     start_image_index = property(get_start_image_index)
+
+    def css(self):
+        return ''
+
+    def javascript(self):
+        return ''
 
 
 class BatchingDisplayType(BaseDisplayType):
@@ -129,9 +138,9 @@ class FancyBoxDisplayType(BatchingDisplayType):
     schema = IFancyBoxDisplaySettings
     description = _(u"label_fancybox_display_type",
         default=u"Fancy Box")
+    typeStaticFilesRelative = '++resource++collective.js.fancybox'
 
     def javascript(self):
-        base_url = '%s/++resource++collective.js.fancybox' % self.portal_url
         return u"""
 <script type="text/javascript"
     src="%(base_url)s/jquery.easing-1.3.pack.js"></script>
@@ -162,7 +171,7 @@ class FancyBoxDisplayType(BatchingDisplayType):
             'start_automatically': jsbool(
                 self.settings.start_automatically or self.settings.timed),
             'start_index_index': self.start_image_index,
-            'base_url': base_url
+            'base_url': self.typeStaticFiles
         }
 
     def css(self):
@@ -189,12 +198,13 @@ class HighSlideDisplayType(BatchingDisplayType):
                 u"use unless you purchase a commercial license. "
                 u"Please visit http://highslide.com/ for details."
     )
+    typeStaticFilesRelative = '++resource++collective.js.highslide'
 
     def css(self):
         return u"""
 <link rel="stylesheet" type="text/css"
-    href="%(portal_url)s/++resource++collective.js.highslide/highslide.css" />
-""" % {'portal_url': self.portal_url}
+    href="%(base_url)s/highslide.css" />
+""" % {'base_url': self.typeStaticFiles}
 
     def javascript(self):
         outlineType = "hs.outlineType = '%s';" % \
@@ -210,7 +220,6 @@ class HighSlideDisplayType(BatchingDisplayType):
             wrapperClassName = 'null'
         else:
             wrapperClassName = "'%s'" % wrapperClassName
-        base_url = '%s/++resource++collective.js.highslide' % self.portal_url
         return u"""
 <script type="text/javascript"
     src="%(base_url)s/highslide-with-gallery.js"></script>
@@ -276,7 +285,7 @@ $(document).ready(function() {
             'start_index_index': self.start_image_index,
             'overlay_position': \
                 self.settings.highslide_slideshowcontrols_position,
-            'base_url': base_url
+            'base_url': self.typeStaticFiles
 
         }
 HighSlideSettings = createSettingsFactory(HighSlideDisplayType.schema)
@@ -588,6 +597,7 @@ class PikachooseDisplayType(BaseDisplayType):
     schema = IPikachooseDisplaySettings
     description = _(u"label_pikachoose_display_type",
         default=u"Pikachoose")
+    staticFilesRelative = '++resource++plonetruegallery.resources'
 
     def javascript(self):
         return u"""
@@ -646,7 +656,6 @@ $(document).ready(function(){
     }
 
     def css(self):
-        base_url = '%s/++resource++plonetruegallery.resources/pikachoose'
         return u"""
         <style>
 .pikachoose,
@@ -674,7 +683,7 @@ $(document).ready(function(){
         'width': self.settings.pikachoose_width,
         'lowerheight': self.settings.pikachoose_height - 18,
         'backgroundcolor': self.settings.pikachoose_backgroundcolor,
-        'base_url': base_url
+        'base_url': self.typeStaticFiles
     }
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
 
@@ -946,9 +955,8 @@ $(window).load(function(){
 
     def css(self):
         return u"""
-<link rel="stylesheet" type="text/css"
-    href="%s/++resource++plonetruegallery.resources/thumbnailzoom/style.css"/>
-""" % self.portal_url
+<link rel="stylesheet" type="text/css" href="%s/thumbnailzoom/style.css"/>
+""" % self.staticFiles
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
 
 
@@ -1000,10 +1008,9 @@ $(document).ready(function() {
         imagecount = len(self.adapter.cooked_images)
         if imagecount == 0:
             imagecount = 1
-        base_url = '%s/++resource++plonetruegallery.resources/presentation' % (
-            self.portal_url)
         return u"""
-<link rel="stylesheet" type="text/css" href="%(base_url)s/style.css"/>
+<link rel="stylesheet" type="text/css"
+    href="%(base_url)s/presentation/style.css"/>
     <style>
 .presentationWrapper {
     width: %(width)ipx;
@@ -1021,7 +1028,7 @@ li.row_%(lastimagenr)s div.presentationshadow {
 }
 </style>
 """ % {
-        'base_url': base_url,
+        'base_url': self.staticFiles,
         'height': self.settings.presentation_height,
         'width': self.settings.presentation_width,
         'xposition': self.settings.presentation_xposition,
@@ -1038,3 +1045,18 @@ class ContentFlowDisplayType(BaseDisplayType):
     schema = IContentFlowSettings
     description = _(u"label_contentflow_display_type",
         default=u"Content Flow")
+    typeStaticFilesRelative = '++resource++contentflow'
+
+    def javascript(self):
+        addons = self.settings.flow_addons
+        if addons:
+            addons = ' '.join(addons)
+        else:
+            addons = ''
+        return """
+<script type="text/javascript" charset="utf-8"
+    src="%(static)s/contentflow.js" load="%(addons)s"></script>
+""" % {
+        'static': self.typeStaticFiles,
+        'addons': addons
+    }

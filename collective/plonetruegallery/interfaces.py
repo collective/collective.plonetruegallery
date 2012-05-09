@@ -675,27 +675,31 @@ class IPresentationDisplaySettings(IBaseSettings):
 
 
 class IContentFlowSettings(IBaseSettings):
-    flow_addon = schema.Choice(
-        title=_(u"label_contentflow_addon", default="Addon"),
-        default=None,
+    flow_addons = schema.Tuple(
+        title=_(u"label_contentflow_addons", default="Addons"),
+        missing_value=None,
+        default=("white",),
         required=False,
-        vocabulary=SimpleVocabulary([
-            SimpleTerm("gallery", "gallery",
-                _(u"label_content_flow_addon_gallery", default=u"Gallery")),
-            SimpleTerm("lightbox", "lightbox",
-                _(u"label_content_flow_addon_lightbox", default=u"Light Box")),
-            SimpleTerm("roundabout", "roundabout",
-                _(u"label_content_flow_addon_roundabout",
-                    default=u"Roundabout")),
-            SimpleTerm("screwdriver", "screwdriver",
-                _(u"label_content_flow_addon_screwdriver",
-                    default=u"Screwdriver")),
-            SimpleTerm("slideshow", "slideshow",
-                _(u"label_content_flow_addon_slideshow",
-                    default=u"Slideshow")),
-            SimpleTerm("white", "white",
-                _(u"label_content_flow_addon_white", default=u"White")),
-        ]))
+        value_type=schema.Choice(
+            vocabulary=SimpleVocabulary([
+                SimpleTerm("white", "white",
+                    _(u"label_content_flow_addon_white", default=u"White")),
+                SimpleTerm("black", "black",
+                    _(u"label_content_flow_addon_black", default=u"Black")),
+                SimpleTerm("gallery", "gallery",
+                    _(u"label_content_flow_addon_gallery",
+                        default=u"Gallery")),
+                SimpleTerm("roundabout", "roundabout",
+                    _(u"label_content_flow_addon_roundabout",
+                        default=u"Roundabout")),
+                SimpleTerm("screwdriver", "screwdriver",
+                    _(u"label_content_flow_addon_screwdriver",
+                        default=u"Screwdriver")),
+                SimpleTerm("slideshow", "slideshow",
+                    _(u"label_content_flow_addon_slideshow",
+                        default=u"Slideshow"))
+            ])))
+
 
 class IBasicGallerySettings(IBaseSettings):
     pass
