@@ -14,7 +14,7 @@
                         <a tal:attributes="href img/link" target="_blank" tal:content="img/title" />
                     </span>
                     <br />
-                    <span class="desc" tal:content="img/description" />
+                    <span class="desc" tal:content="structure img/description" />
                 </div>
             </div>
         </tal:images>
