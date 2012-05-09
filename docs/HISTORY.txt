@@ -1,11 +1,17 @@
 Changelog
 =========
 
-2.2.1 (unreleased)
+2.3.0 (unreleased)
 __________________
 
 - Added settings for background position for presentation gallery type
   [espen]
+
+- move collection text field rendering to below gallery
+  [vangheem]
+
+- add content flow display type
+  [vangheem]
 
 
 2.2.0 (2012-05-02)

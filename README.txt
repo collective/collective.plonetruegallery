@@ -36,6 +36,7 @@ the dependant js package in buildout
  - s3slider(collective.js.pikachoose)
  - nivo slider(collective.js.nivoslider)
  - nivo gallery(collective.js.nivogallery)
+ - content flow(collective.js.contentflow)
 
 Buildout configuration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -50,6 +51,7 @@ Buildout configuration
     collective.js.pikachoose
     collective.js.nivoslider
     collective.js.nivogallery
+    collective.js.contentflow
     ...
 
 Features

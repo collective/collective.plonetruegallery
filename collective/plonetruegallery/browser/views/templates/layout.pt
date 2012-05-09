@@ -18,7 +18,6 @@
       <tal:main-macro metal:define-macro="main" tal:define="desc context/Description|nothing">
         <h1 class="gallery-title" tal:content="context/Title" />
         <p class="gallery-desc" tal:content="desc" tal:condition="desc" />
-        <p tal:replace="structure context/getText|nothing" />
 	
         <div class="noimages" tal:condition="python: view.adapter.number_of_images == 0">
           <p class="discreet" i18n:translate="label_no_images_in_gallery">
@@ -35,6 +34,8 @@
             </div>
           </tal:def>
         </tal:batch>
+
+        <p tal:replace="structure context/getText|nothing" />
 
         <tal:subgallery tal:replace="structure view/subgallery_template" />
 
