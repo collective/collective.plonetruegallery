@@ -2,13 +2,20 @@
     <div class="loadIndicator"><div class="indicator"></div></div>
     <div class="flow">
         <tal:images tal:repeat="img view/adapter/cooked_images">
-            <a class="item" target="_blank"
+            <div class="item" target="_blank"
                 tal:attributes="href img/link">
                 <img title="Locomotives Roundhouse" alt="" src="" class="content"
                      tal:attributes="title img/title;
                                      alt img/description;
                                      src img/image_url" />
-            </a>
+                <div class="caption">
+                    <span class="title">
+                        <a tal:attributes="href img/link" target="_blank" tal:content="img/title" />
+                    </span>
+                    <br />
+                    <span class="desc" tal:content="img/description" />
+                </div>
+            </div>
         </tal:images>
     </div>
     <div class="globalCaption"></div>

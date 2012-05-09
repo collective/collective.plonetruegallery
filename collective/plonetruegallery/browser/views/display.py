@@ -1047,6 +1047,11 @@ class ContentFlowDisplayType(BaseDisplayType):
         default=u"Content Flow")
     typeStaticFilesRelative = '++resource++contentflow'
 
+    def css(self):
+        return """
+<link rel="stylesheet" type="text/css" href="%(static)s/contentflow.css" />
+""" % {'static': self.staticFiles}
+
     def javascript(self):
         addons = self.settings.flow_addons
         if addons:
