@@ -54,6 +54,7 @@ div.presentationtext p,
 div.presentationtext h3 {
 	color:  white;
 	margin-left: 15px;
+	text-decoration: none;
 }
 
 .unpresented p,

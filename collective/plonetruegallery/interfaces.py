@@ -805,3 +805,33 @@ class   IPresentationDisplaySettings(IBaseSettings):
             default=u"Minimum width of images"),
         default=15,
     )
+    
+    presentation_xposition = schema.Choice(
+        title=_(u"label_presentation_xposition",
+            default=u"Horizontal image position"),
+        default="center",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("top", "top",
+                _(u"label_presentation_xpositiontop", default=u"Top")),
+            SimpleTerm("center", "center",
+                _(u"label_presentation_xpositioncenter", default=u"Center")),
+            SimpleTerm("bottom", "bottom",
+                _(u"label_presentation_xpositionbottom", default=u"Bottom")
+            )
+        ])
+    )
+    
+    presentation_yposition = schema.Choice(
+        title=_(u"label_presentation_yposition",
+            default=u"Vertical image position"),
+        default="center",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("left", "left",
+                _(u"label_presentation_ypositionleft", default=u"Left")),
+            SimpleTerm("center", "center",
+                _(u"label_presentation_ypositioncenter", default=u"Center")),
+            SimpleTerm("right", "right",
+                _(u"label_presentation_ypositionright", default=u"Right")
+            )
+        ])
+    )

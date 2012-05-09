@@ -1011,6 +1011,7 @@ $(document).ready(function() {
 .presentationWrapper li  {
     width: %(imagewidth)ipx;
     height: %(height)ipx;
+    background-position: %(xposition)s %(yposition)s;
 }
 
 li.row_%(lastimagenr)s div.presentationshadow {
@@ -1021,6 +1022,8 @@ li.row_%(lastimagenr)s div.presentationshadow {
         'base_url': base_url,
         'height': self.settings.presentation_height,
         'width': self.settings.presentation_width,
+        'xposition': self.settings.presentation_xposition,
+        'yposition': self.settings.presentation_yposition,
         'lastimagenr': imagecount - 1,
         'imagewidth': (self.settings.presentation_width - imagecount + 1 ) / imagecount
 }
