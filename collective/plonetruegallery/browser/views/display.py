@@ -1061,7 +1061,13 @@ class ContentFlowDisplayType(BaseDisplayType):
         return """
 <script type="text/javascript" charset="utf-8"
     src="%(static)s/contentflow.js" load="%(addons)s"></script>
+<script>
+    var flow = new ContentFlow('ContentFlow', {
+        maxItemHeight: %(max_height)i,
+        scaleFactorLandscape: 'max'});
+</script>
 """ % {
         'static': self.typeStaticFiles,
-        'addons': addons
+        'addons': addons,
+        'max_height': self.settings.flow_max_image_height
     }

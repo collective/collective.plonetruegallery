@@ -699,6 +699,15 @@ class IContentFlowSettings(IBaseSettings):
                     _(u"label_content_flow_addon_slideshow",
                         default=u"Slideshow"))
             ])))
+    flow_max_image_height = schema.Int(
+        title=_(u"label_contentflow_image_height",
+            default="Max Image Height"),
+        description=_(u"desc_contentflow_image_height",
+            default=u"Customize how large the image shows. If zero, "
+                    u"a best guess height will be selected based on the"
+                    u"width."),
+        default=0,
+        required=True)
 
 
 class IBasicGallerySettings(IBaseSettings):

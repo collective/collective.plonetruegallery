@@ -1,4 +1,4 @@
-<div class="ContentFlow">
+<div id="ContentFlow" class="ContentFlow">
     <div class="loadIndicator"><div class="indicator"></div></div>
     <div class="flow">
         <tal:images tal:repeat="img view/adapter/cooked_images">
