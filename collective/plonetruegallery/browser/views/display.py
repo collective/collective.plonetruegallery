@@ -9,6 +9,7 @@ from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
 from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
 from collective.plonetruegallery.interfaces import IContactsheetDisplaySettings
+from collective.plonetruegallery.interfaces import IContentFlowSettings
 from collective.plonetruegallery.interfaces import \
     IThumbnailzoomDisplaySettings
 from collective.plonetruegallery.interfaces import \
@@ -987,9 +988,10 @@ $(document).ready(function() {
 });
 </script>
 """ % {
-        'imagewidth': (self.settings.presentation_width - imagecount + 1 ) / imagecount,
+        'imagewidth': (self.settings.presentation_width - imagecount + 1) /
+                        imagecount,
         'imagelargewidth': self.settings.presentation_width -
-            ((imagecount -1) * self.settings.minimum_width) - imagecount + 1 ,
+            ((imagecount - 1) * self.settings.minimum_width) - imagecount + 1,
         'effect': self.settings.presentation_effect,
         'minimum_width': self.settings.minimum_width
     }
@@ -1025,6 +1027,14 @@ li.row_%(lastimagenr)s div.presentationshadow {
         'xposition': self.settings.presentation_xposition,
         'yposition': self.settings.presentation_yposition,
         'lastimagenr': imagecount - 1,
-        'imagewidth': (self.settings.presentation_width - imagecount + 1 ) / imagecount
-}
+        'imagewidth': (self.settings.presentation_width - imagecount + 1) /
+                        imagecount
+    }
 PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)
+
+
+class ContentFlowDisplayType(BaseDisplayType):
+    name = u"contentflow"
+    schema = IContentFlowSettings
+    description = _(u"label_contentflow_display_type",
+        default=u"Content Flow")

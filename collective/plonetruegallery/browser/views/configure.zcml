@@ -18,272 +18,230 @@
 		permission="collective.plonetruegallery.manage"
 	/>
 
+	<!-- Adapters -->
 	<adapter
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGallerySettings"
-		factory="collective.plonetruegallery.settings.GallerySettings"
-	/>
+		factory="collective.plonetruegallery.settings.GallerySettings" />
 	<adapter zcml:condition="installed collective.js.highslide"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IHighSlideDisplaySettings"
-		factory=".display.HighSlideSettings"
-	/>
+		factory=".display.HighSlideSettings" />
 	<adapter zcml:condition="installed collective.js.fancybox"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IFancyBoxDisplaySettings"
-		factory=".display.FancyBoxSettings"
-	/>
+		factory=".display.FancyBoxSettings" />
 	<adapter zcml:condition="installed collective.js.galleriffic"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGallerifficDisplaySettings"
-		factory=".display.GallerifficSettings"
-	/>
+		factory=".display.GallerifficSettings" />
 	<adapter zcml:condition="installed collective.js.galleria"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGalleriaDisplaySettings"
-		factory=".display.GalleriaSettings"
-	/>
-
+		factory=".display.GalleriaSettings" />
 	<adapter zcml:condition="installed collective.js.pikachoose"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IPikachooseDisplaySettings"
-		factory=".display.PikachooseSettings"
-	/>
-
+		factory=".display.PikachooseSettings" />
 	<adapter zcml:condition="installed collective.js.s3slider"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IS3sliderDisplaySettings"
-		factory=".display.S3sliderSettings"
-	/>
-
+		factory=".display.S3sliderSettings" />
 	<adapter zcml:condition="installed collective.js.nivoslider"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.INivosliderDisplaySettings"
-		factory=".display.NivosliderSettings"
-	/>
-	
-	
+		factory=".display.NivosliderSettings" />
 	<adapter zcml:condition="installed collective.js.nivogallery"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.INivogalleryDisplaySettings"
-		factory=".display.NivogallerySettings"
-	/>
-
-	<adapter 
+		factory=".display.NivogallerySettings" />
+	<adapter
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IContactsheetDisplaySettings"
-		factory=".display.ContactsheetSettings"
-	/>
-
+		factory=".display.ContactsheetSettings" />
 	<adapter 
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IThumbnailzoomDisplaySettings"
-		factory=".display.ThumbnailzoomSettings"
-	/>
-	
-	<adapter 
+		factory=".display.ThumbnailzoomSettings" />
+	<adapter
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IPresentationDisplaySettings"
-		factory=".display.PresentationSettings"
-	/>
- 
+		factory=".display.PresentationSettings" />
+	<adapter zcml:condition="installed collective.js.contentflow"
+		for="collective.plonetruegallery.interfaces.IGallery"
+		provides="collective.plonetruegallery.interfaces.IContentFlowSettings"
+		factory=".display.PresentationSettings" />
+	<!-- End Adapters -->
+
+
+	<!-- Views --> 
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview"
 		class=".galleryview.GalleryView"
 		template="templates/layout.pt"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.highslide"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-highslide"
 		class=".display.HighSlideDisplayType"
 		template="templates/highslide.pt"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.fancybox"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-fancybox"
 		class=".display.FancyBoxDisplayType"
 		template="templates/fancybox.pt"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.galleriffic"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-galleriffic"
 		class=".display.GallerifficDisplayType"
 		template="templates/galleriffic.pt"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.pikachoose"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-pikachoose"
 		class=".display.PikachooseDisplayType"
 		template="templates/pikachoose.pt"
-		permission="zope2.View"
-	/>
-
-
+		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.s3slider"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-s3slider"
 		class=".display.S3sliderDisplayType"
 		template="templates/s3slider.pt"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.nivoslider"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-nivoslider"
 		class=".display.NivosliderDisplayType"
 		template="templates/nivoslider.pt"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.nivogallery"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-nivogallery"
 		class=".display.NivogalleryDisplayType"
 		template="templates/nivogallery.pt"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.galleria"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-galleria"
 		class=".display.GalleriaDisplayType"
 		template="templates/galleria.pt"
-		permission="zope2.View"
-         />
-
+		permission="zope2.View" />
 	<browser:page 
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-contactsheet"
 		class=".display.ContactsheetDisplayType"
 		template="templates/contactsheet.pt"
-		permission="zope2.View"
-         />
-
+		permission="zope2.View" />
 	<browser:page 
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-thumbnailzoom"
 		class=".display.ThumbnailzoomDisplayType"
 		template="templates/thumbnailzoom.pt"
-		permission="zope2.View"
-         />
-
-	<browser:page 
+		permission="zope2.View" />
+	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-presentation"
 		class=".display.PresentationDisplayType"
 		template="templates/presentation.pt"
-		permission="zope2.View"
-         />
-         
-	<utility zcml:condition="installed collective.js.highslide"
-		component=".display.HighSlideDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-highslide" />
+		permission="zope2.View" />
+	<browser:page zcml:condition="installed collective.js.contentflow"
+		for="collective.plonetruegallery.interfaces.IGallery"
+		name="galleryview-contentflow"
+		class=".display.ContentFlowDisplayType"
+		template="templates/contentflow.pt"
+		permission="zope2.View" />
 
-	<utility zcml:condition="installed collective.js.fancybox"
-		component=".display.FancyBoxDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-fancybox" />
 
-	<utility zcml:condition="installed collective.js.pikachoose"
-		component=".display.PikachooseDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-pikachoose" />
-
-	<utility zcml:condition="installed collective.js.s3slider"
-		component=".display.S3sliderDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-s3slider" />
-
-	<utility zcml:condition="installed collective.js.nivoslider"
-		component=".display.NivosliderDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-nivoslider" />
-
-	<utility zcml:condition="installed collective.js.nivogallery"
-		component=".display.NivogalleryDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-nivogallery" />
-
-	<utility zcml:condition="installed collective.js.galleriffic"
-		component=".display.GallerifficDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-galleriffic" />
-
-	<utility zcml:condition="installed collective.js.galleria"
-		component=".display.GalleriaDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-galleria" />
-
-	<utility 
-		component=".display.ContactsheetDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-contactsheet" />
-
-	<utility 
-		component=".display.ThumbnailzoomDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-thumbnailzoom" />
-
-	<utility 
-		component=".display.PresentationDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-presentation" />
-
+	<!-- non-displaytype views -->
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="placegalleryview"
 		class=".galleryview.GalleryView"
 		template="templates/placelayout.pt"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="refresh"
 		class=".galleryview.ForceCookingOfImages"
-		permission="collective.plonetruegallery.manage"
-	/>
-
+		permission="collective.plonetruegallery.manage" />
 	<browser:page
 		for="*"
 		name="refresh_all_galleries"
 		class=".galleryview.ForceCookingOfAllGalleries"
-		permission="collective.plonetruegallery.manage"
-	/>
-
+		permission="collective.plonetruegallery.manage" />
   	<browser:menuItem
     	for="collective.plonetruegallery.interfaces.IGallery"
     	menu="plone_displayviews"
     	title="Gallery View"
     	action="galleryview"
     	description="Displays a gallery."
-    	i18n:attributes="title; description"
-  	/>
-
+    	i18n:attributes="title; description" />
 	<browser:page
 		for="*"
 		name="get-image-for-gallery-portlet"
 		class=".galleryview.AJAX"
 		attribute="get_image"
-		permission="zope2.View"
-	/>
-
+		permission="zope2.View" />
 	<!-- Enable re-use of view template macro -->
 	<browser:page
 		for="*"
 		name="collective.plonetruegallery.macros"
 		template="templates/layout.pt"
-		permission="zope2.View"
-	/>
+		permission="zope2.View" />
+	<!-- End Views -->
+
+
+	<!-- display utilities -->
+	<utility zcml:condition="installed collective.js.highslide"
+		component=".display.HighSlideDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-highslide" />
+	<utility zcml:condition="installed collective.js.fancybox"
+		component=".display.FancyBoxDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-fancybox" />
+	<utility zcml:condition="installed collective.js.pikachoose"
+		component=".display.PikachooseDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-pikachoose" />
+	<utility zcml:condition="installed collective.js.s3slider"
+		component=".display.S3sliderDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-s3slider" />
+	<utility zcml:condition="installed collective.js.nivoslider"
+		component=".display.NivosliderDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-nivoslider" />
+	<utility zcml:condition="installed collective.js.nivogallery"
+		component=".display.NivogalleryDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-nivogallery" />
+	<utility zcml:condition="installed collective.js.galleriffic"
+		component=".display.GallerifficDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-galleriffic" />
+	<utility zcml:condition="installed collective.js.galleria"
+		component=".display.GalleriaDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-galleria" />
+	<utility
+		component=".display.ContactsheetDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-contactsheet" />
+	<utility 
+		component=".display.ThumbnailzoomDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-thumbnailzoom" />
+	<utility
+		component=".display.PresentationDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-presentation" />
+	<utility zcml:condition="installed collective.js.contentflow"
+		component=".display.ContentFlowDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-contentflow" />
 
 </configure>

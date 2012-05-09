@@ -166,7 +166,6 @@ class IGallery(Interface):
 
 
 class IGallerySettings(Interface):
-
     gallery_type = schema.Choice(
         title=_(u"label_gallery_type", default=u"Type"),
         description=_(u"description_gallery_type",
@@ -175,9 +174,7 @@ class IGallerySettings(Interface):
                     u"must fill out the information in the corresponding "
                     u"tab for that gallery type."),
         vocabulary="collective.plonetruegallery.GalleryTypeVocabulary",
-        default="basic"
-    )
-
+        default="basic")
     display_type = schema.Choice(
         title=_(u"label_gallery_display_type",
                 default=u"Gallery Display Type"),
@@ -187,9 +184,7 @@ class IGallerySettings(Interface):
                     u"gallery should be displayed"
         ),
         default="galleria",
-        vocabulary="collective.plonetruegallery.DisplayTypes"
-    )
-
+        vocabulary="collective.plonetruegallery.DisplayTypes")
     # the specific options for the gallery types will be added
     # dynamcially in the form
     size = schema.Choice(
@@ -206,9 +201,7 @@ class IGallerySettings(Interface):
                                             default=u'Medium')),
             SimpleTerm('large', 'large', _(u"label_size_large",
                                             default=u'Large'))
-        ])
-    )
-
+        ]))
     thumb_size = schema.Choice(
         title=_(u"label_thumb_size", default=u"Thumbnail image size"),
         description=_(u"description_thumb_size",
@@ -222,9 +215,7 @@ class IGallerySettings(Interface):
             SimpleTerm('mini', 'mini', _(u"label_mini", default=u"mini")),
             SimpleTerm('preview', 'preview', _(u"label_preview",
                                                 default=u"preview")),
-        ])
-    )
-
+        ]))
     # the options for the display type will also be added dynamically
     timed = schema.Bool(
         title=_(u"label_timed", default=u"Timed?"),
@@ -232,9 +223,7 @@ class IGallerySettings(Interface):
             default=u"Should this gallery automatically "
                     u"change images for the user?"
         ),
-        default=True
-    )
-
+        default=True)
     delay = schema.Int(
         title=_(u"label_delay", default=u"Delay"),
         description=_(u"description_delay",
@@ -242,9 +231,7 @@ class IGallerySettings(Interface):
                     u"how long before the next image is shown in miliseconds."
         ),
         default=5000,
-        required=True
-    )
-
+        required=True)
     duration = schema.Int(
         title=_(u"label_image_change_duration", default=u"Change Duration"),
         description=_(u"description_fade_in_duration",
@@ -252,18 +239,14 @@ class IGallerySettings(Interface):
                     u"take in miliseconds."
         ),
         default=500,
-        required=True
-    )
-
+        required=True)
     show_subgalleries = schema.Bool(
         title=_(u"label_show_subgalleries", default=u"Show Sub-Galleries?"),
         description=_(u"description_show_subgalleries",
             default=u"If you select this option, previews for all "
                     u"nested galleries will show up below this gallery."
         ),
-        default=True
-    )
-
+        default=True)
     batch_size = schema.Int(
         title=_(u"label_batch_size", default=u"Batch Size"),
         description=_(u"description_batch_size",
@@ -271,8 +254,7 @@ class IGallerySettings(Interface):
                     u"This is not used for all display types."
         ),
         default=50,
-        required=True
-    )
+        required=True)
 
 
 class IBaseSettings(Interface):
@@ -284,7 +266,6 @@ class IFancyBoxDisplaySettings(IBaseSettings):
 
 
 class IHighSlideDisplaySettings(IBaseSettings):
-
     highslide_slideshowcontrols_position = schema.Choice(
         title=_(u"lable_highslide_slideshowcontrols_position",
             default=u"Highslide controls position"),
@@ -302,9 +283,7 @@ class IHighSlideDisplaySettings(IBaseSettings):
             SimpleTerm('bottom', 'bottom',
                 _(u"label_highslide_slideshowcontrols_position_bottom",
                                     default=u"bottom")),
-        ])
-    )
-
+        ]))
     highslide_outlineType = schema.Choice(
         title=_(u"label_highslide_outlineType", default=u"Image outline type"),
         description=_(u"description_highslide_outlineType",
@@ -325,12 +304,10 @@ class IHighSlideDisplaySettings(IBaseSettings):
                 _(u"label_highslide_outlineType_glossy_dark",
                                     default=u"Glossy Dark")
             )
-        ])
-    )
+        ]))
 
 
 class IGallerifficDisplaySettings(IBaseSettings):
-
     gallerific_style = schema.Choice(
         title=_(u"label_gallerific-style", default=u"Layout"),
         description=_(u"description_gallerific-style",
@@ -345,44 +322,33 @@ class IGallerifficDisplaySettings(IBaseSettings):
                 _(u"label_gallerific_style2",
                                     default=u"Linklayout")
             )
-        ])
-    )
+        ]))
 
 
 class IS3sliderDisplaySettings(IBaseSettings):
     s3_width = schema.TextLine(
         title=_(u"label_s3_width",
             default=u"Width of the gallery"),
-        default=u"600px"
-    )
-
+        default=u"600px")
     s3_height = schema.TextLine(
         title=_(u"label_s3_height",
             default=u"Height of the gallery"),
-        default=u"350px"
-    )
-
+        default=u"350px")
     s3_textwidth = schema.TextLine(
         title=_(u"label_s3_textwidth",
             default=u"Width of the (black) text box"),
-        default=u"150px"
-    )
+        default=u"150px")
 
 
 class INivosliderDisplaySettings(IBaseSettings):
-
     nivoslider_width = schema.Int(
         title=_(u"label_nivoslider_width",
             default=u"Width of the gallery in pixels"),
-        default=600
-    )
-
+        default=600)
     nivoslider_height = schema.Int(
         title=_(u"label_nivoslider_height",
             default=u"Height of the gallery in pixels"),
-        default=350
-    )
-
+        default=350)
     nivoslider_theme = schema.Choice(
         title=_(u"nivoslider_theme", default=u"Nivoslider Theme"),
         default=u"default",
@@ -404,9 +370,7 @@ class INivosliderDisplaySettings(IBaseSettings):
             SimpleTerm("thumbnail", "thumbnail",
                 _(u"label_nivoslider_theme8", default=u"Thumbnail Theme")
             )
-        ])
-    )
-
+        ]))
     nivoslider_effect = schema.Choice(
         title=_(u"label_nivoslider_effect", default=u"Transition Effect"),
         default='random',
@@ -445,77 +409,54 @@ class INivosliderDisplaySettings(IBaseSettings):
             SimpleTerm('random', 'random',
                 _(u"label_nivoslider_effect15", default=u"Random")
             )
-        ])
-    )
-
+        ]))
     nivoslider_randomstart = schema.Bool(
         title=_(u"label_nivoslider_randomstart",
             default=u"Start on random image?"),
-        default=False
-    )
-
+        default=False)
     nivoslider_directionnav = schema.Bool(
         title=_(u"label_nivoslider_r_directionnar",
             default=u"Next & Prev navigation??"),
-        default=False
-    )
-
+        default=False)
     nivoslider_directionnavhide = schema.Bool(
         title=_(u"label_nivoslider_directionnavhide",
             default=u"Only show Next & Prev on hover"),
-        default=True
-    )
-
+        default=True)
     nivoslider_pauseonhover = schema.Bool(
         title=_(u"label_nivoslider_pauseonhover",
             default=u"Stop animation while hovering?"),
-        default=False
-    )
-
+        default=False)
     nivoslider_slices = schema.Int(
         title=_(u"label_nivoslider_slices",
             default=u"Nuber of slices, for slice animations"),
-        default=15
-    )
-
+        default=15)
     nivoslider_boxcols = schema.Int(
         title=_(u"label_nivoslider_boxcols",
             default=u"Number of columns for box animations"),
-        default=8
-    )
-
+        default=8)
     nivoslider_boxrows = schema.Int(
         title=_(u"label_nivoslider_boxrows",
             default=u"Number of rows for box animations"),
-        default=4
-    )
+        default=4)
 
 
 class INivogalleryDisplaySettings(IBaseSettings):
-
     nivogallery_directionnav = schema.Bool(
         title=_(u"label_nivogallery_directionnav",
             default=u"Show navigation arrows on the image"),
-        default=True
-    )
-
+        default=True)
     nivogallery_progressbar = schema.Bool(
         title=_(u"label_nivogallery_progressbar",
             default=u"Show progressbar at the top"),
-        default=True
-    )
-
+        default=True)
     nivogallery_width = schema.TextLine(
         title=_(u"label_nivogallery_width",
             default=u"Width of the gallery"),
-        default=u"600px"
-    )
-
+        default=u"600px")
     nivogallery_height = schema.TextLine(
         title=_(u"label_nivogallery_height",
             default=u"Height of the gallery. You can not set the height in %"),
-        default=u"350px"
-    )
+        default=u"350px")
 
 
 class IPikachooseDisplaySettings(IBaseSettings):
@@ -523,16 +464,12 @@ class IPikachooseDisplaySettings(IBaseSettings):
         title=_(u"label_pikachoose_width",
             default=u"Width of the gallery in pixels"),
         default=600,
-        min=10
-    )
-
+        min=10)
     pikachoose_height = schema.Int(
         title=_(u"label_pikachoose_height",
             default=u"Height of the gallery in pixels"),
         default=350,
-        min=10,
-    )
-
+        min=10)
     pikachoose_backgroundcolor = schema.Choice(
         title=_(u"label_pikachoose_backgroundcolor",
                 default=u"backgroundcolor"),
@@ -547,23 +484,16 @@ class IPikachooseDisplaySettings(IBaseSettings):
             SimpleTerm('FFF', 'FFF',
                 _(u"label_backgroundcolors4", default=u"White")
             )
-        ])
-    )
+        ]))
     pikachoose_showtooltips = schema.Bool(
         title=_(u"label_pikachoose_tooltip", default=u"Show tooltip"),
-        default=False
-    )
-
+        default=False)
     pikachoose_showcaption = schema.Bool(
         title=_(u"label_pikachoose_caption", default=u"Show caption"),
-        default=True
-    )
-
+        default=True)
     pikachoose_vertical = schema.Bool(
         title=_(u"label_pikachoose_vertical", default=u"Vertical"),
-        default=False
-    )
-
+        default=False)
     pikachoose_transition = schema.Choice(
         title=_(u"label_pikachoose_transition", default=u"Transition"),
         default=4,
@@ -583,8 +513,7 @@ class IPikachooseDisplaySettings(IBaseSettings):
             SimpleTerm(0, 0,
                 _(u"label_transitions7", default=u"Fade out then fade in")
             )
-        ])
-    )
+        ]))
 
 
 class IGalleriaDisplaySettings(IBaseSettings):
@@ -596,9 +525,7 @@ class IGalleriaDisplaySettings(IBaseSettings):
             SimpleTerm('light', 'light', _(u"label_light", default=u"Light")),
             SimpleTerm('classic', 'classic', _(u"label_classic",
                                                default=u"Classic"))
-        ])
-    )
-
+        ]))
     galleria_transition = schema.Choice(
         title=_(u"galleria_transition", default=u"Transition"),
         default='fadeslide',
@@ -617,53 +544,188 @@ class IGalleriaDisplaySettings(IBaseSettings):
             SimpleTerm('slide', 'slide', _(u"label_slide",
                 default=u"Slide - slides the images depending on image "
                         u"position"))
-        ])
-    )
-
+        ]))
     galleria_auto_show_info = schema.Bool(
         title=_(u'galleria_label_auto_show_info', default="Auto show info"),
         description=_(u'galleria_desc_auto_show_info',
             default="start gallery out with info showing"),
-        default=True
-    )
+        default=True)
 
+
+class IContactsheetDisplaySettings(IBaseSettings):
+    contactsheet_columns = schema.Int(
+        title=_(u"label_contactsheet_columns",
+            default=u"Number of images before a forced new row (use a high "
+                    u"number if you dont want this)"),
+        default=3,
+        min=1)
+    contactsheet_imagewidth = schema.Int(
+        title=_(u"label_contactsheet_imagewidth",
+            default=u"Width of (each) image box"),
+        default=400,
+        min=50)
+    contactsheet_imageheight = schema.Int(
+        title=_(u"label_contactsheet_imageheight",
+            default=u"Height of (each) image box"),
+        default=260,
+        min=50)
+    contactsheet_overlay_opacity = schema.Choice(
+        title=_(u"label_contactsheet_overlay_opacity",
+                default=u"Opacity on mouse over"),
+        default=0.3,
+        vocabulary=SimpleVocabulary([
+            SimpleTerm(0.1, 0.1,
+                _(u"label_contactsheet_overlay_opacity1",
+                    default=u"0.1 Light")),
+            SimpleTerm(0.2, 0.2,
+                _(u"label_contactsheet_overlay_opacity2", default=u"0.2")),
+            SimpleTerm(0.3, 0.3,
+                _(u"label_contactsheet_overlay_opacity3", default=u"0.3")),
+            SimpleTerm(0.4, 0.4,
+                _(u"label_contactsheet_overlay_opacity4",
+                    default=u"0.4 Medium")),
+            SimpleTerm(0.5, 0.5,
+                _(u"label_contactsheet_overlay_opacity5", default=u"0.5")),
+            SimpleTerm(0.6, 0.6,
+                _(u"label_contactsheet_overlay_opacity6",
+                    default=u"0.6")),
+            SimpleTerm(0.7, 0.7,
+                _(u"label_contactsheet_overlay_opacity7",
+                    default=u"0.7 Dark")),
+            SimpleTerm(0.8, 0.8,
+                _(u"label_contactsheet_overlay_opacity8",
+                    default=u"0.8 Very Dark")),
+            SimpleTerm(0.9, 0.9,
+                _(u"label_contactsheet_overlay_opacity9",
+                    default=u"0.9 Almost Black")
+            )
+        ]))
+
+
+class IThumbnailzoomDisplaySettings(IBaseSettings):
+    thumbnailzoom_columns = schema.Int(
+        title=_(u"label_thumbnailzoom_columns",
+            default=u"Number of thumbs before a forced new row (use a high "
+                    u"number if you dont want this)"),
+        default=3,
+        min=1)
+    thumbnailzoom_increase = schema.Int(
+        title=_(u"label_thumbnailzoom_increase",
+            default=u"Pixels to zoom when mouse over"),
+        default=50)
+    thumbnailzoom_effectduration = schema.Int(
+        title=_(u"label_thumbnaizoom_effectduration",
+            default=u"How long time the effect takes"),
+        default=100,
+        min=16)
+
+
+class IPresentationDisplaySettings(IBaseSettings):
+    presentation_effect = schema.Choice(
+        title=_(u"label_presentation_effect",
+            default=u"Mouseover or click"),
+        default="click",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("click", "click",
+                _(u"label_presentation_click", default=u"Click on image")),
+            SimpleTerm("mouseenter", "mouseenter",
+                _(u"label_presentation_mouseover", default=u"Mouse enter")
+            )
+        ]))
+    presentation_width = schema.Int(
+        title=_(u"label_presentation_width",
+            default=u"Width of the gallery in pixels"),
+        default=600,
+        min=200)
+    presentation_height = schema.Int(
+        title=_(u"label_presentation_height",
+            default=u"Height of the gallery in pixels"),
+        default=350,
+        min=60)
+    minimum_width = schema.Int(
+        title=_(u"label_presentation_minimum_width",
+            default=u"Minimum width of images"),
+        default=15)
+    presentation_xposition = schema.Choice(
+        title=_(u"label_presentation_xposition",
+            default=u"Horizontal image position"),
+        default="center",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("top", "top",
+                _(u"label_presentation_xpositiontop", default=u"Top")),
+            SimpleTerm("center", "center",
+                _(u"label_presentation_xpositioncenter", default=u"Center")),
+            SimpleTerm("bottom", "bottom",
+                _(u"label_presentation_xpositionbottom", default=u"Bottom")
+            )
+        ]))
+    presentation_yposition = schema.Choice(
+        title=_(u"label_presentation_yposition",
+            default=u"Vertical image position"),
+        default="center",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("left", "left",
+                _(u"label_presentation_ypositionleft", default=u"Left")),
+            SimpleTerm("center", "center",
+                _(u"label_presentation_ypositioncenter", default=u"Center")),
+            SimpleTerm("right", "right",
+                _(u"label_presentation_ypositionright", default=u"Right")
+            )
+        ]))
+
+
+class IContentFlowSettings(IBaseSettings):
+    flow_addon = schema.Choice(
+        title=_(u"label_contentflow_addon", default="Addon"),
+        default=None,
+        required=False,
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("gallery", "gallery",
+                _(u"label_content_flow_addon_gallery", default=u"Gallery")),
+            SimpleTerm("lightbox", "lightbox",
+                _(u"label_content_flow_addon_lightbox", default=u"Light Box")),
+            SimpleTerm("roundabout", "roundabout",
+                _(u"label_content_flow_addon_roundabout",
+                    default=u"Roundabout")),
+            SimpleTerm("screwdriver", "screwdriver",
+                _(u"label_content_flow_addon_screwdriver",
+                    default=u"Screwdriver")),
+            SimpleTerm("slideshow", "slideshow",
+                _(u"label_content_flow_addon_slideshow",
+                    default=u"Slideshow")),
+            SimpleTerm("white", "white",
+                _(u"label_content_flow_addon_white", default=u"White")),
+        ]))
 
 class IBasicGallerySettings(IBaseSettings):
     pass
 
 
 class IFlickrGallerySettings(IBaseSettings):
-
     flickr_username = schema.TextLine(
         title=_(u"label_flickr_username", default=u"flickr username"),
         description=_(u"description_flickr_username",
             default=u"The username/id of your flickr account. "
                     u"(*flickr* gallery type)"
         ),
-        required=False
-    )
-
+        required=False)
     flickr_set = schema.TextLine(
         title=_(u"label_flickr_set", default="Flickr Set"),
         description=_(u"description_flickr_set",
             default=u"Name/id of your flickr set."
                     u"(*flickr* gallery type)"
         ),
-        required=False
-    )
+        required=False)
 
 
 class IPicasaGallerySettings(IBaseSettings):
-
     picasa_username = schema.TextLine(
         title=_(u"label_picasa_username", default=u"GMail address"),
         description=_(u"description_picasa_username",
             default=u"GMail address of who this album belongs to. "
                     u"(*Picasa* gallery type)"
         ),
-        required=False
-    )
-
+        required=False)
     picasa_album = schema.TextLine(
         title=_(u"label_picasa_album", default=u"Picasa Album"),
         description=_(u"description_picasa_album",
@@ -672,8 +734,7 @@ class IPicasaGallerySettings(IBaseSettings):
                     u"the address bar or the full length name of the "
                     u"album. (*Picasa* gallery type)"
         ),
-        required=False
-    )
+        required=False)
 
 
 class IImageInformationRetriever(Interface):
@@ -705,133 +766,3 @@ class IImageInformationRetriever(Interface):
         description
             The image description
         """
-
-class IContactsheetDisplaySettings(IBaseSettings):
-    contactsheet_columns = schema.Int(
-        title=_(u"label_contactsheet_columns",
-            default=u"Number of images before a forced new row (use a high number if you dont want this)"),
-        default=3,
-        min=1,
-    )
-    contactsheet_imagewidth = schema.Int(
-        title=_(u"label_contactsheet_imagewidth",
-            default=u"Width of (each) image box"),
-        default=400,
-        min=50,
-    )
-    contactsheet_imageheight = schema.Int(
-        title=_(u"label_contactsheet_imageheight",
-            default=u"Height of (each) image box"),
-        default=260,
-        min=50,
-    )
-    
-    contactsheet_overlay_opacity = schema.Choice(
-        title=_(u"label_contactsheet_overlay_opacity",
-                default=u"Opacity on mouse over"),
-        default=0.3,
-        vocabulary=SimpleVocabulary([
-            SimpleTerm(0.1, 0.1,
-                _(u"label_contactsheet_overlay_opacity1", default=u"0.1 Light")),
-            SimpleTerm(0.2, 0.2,
-                _(u"label_contactsheet_overlay_opacity2", default=u"0.2")),
-            SimpleTerm(0.3, 0.3,
-                _(u"label_contactsheet_overlay_opacity3", default=u"0.3")),
-            SimpleTerm(0.4, 0.4,
-                _(u"label_contactsheet_overlay_opacity4", default=u"0.4 Medium")),
-            SimpleTerm(0.5, 0.5,
-                _(u"label_contactsheet_overlay_opacity5", default=u"0.5")),
-            SimpleTerm(0.6, 0.6,
-                _(u"label_contactsheet_overlay_opacity6", default=u"0.6")),    
-            SimpleTerm(0.7, 0.7,
-                _(u"label_contactsheet_overlay_opacity7", default=u"0.7 Dark")),    
-            SimpleTerm(0.8, 0.8,
-                _(u"label_contactsheet_overlay_opacity8", default=u"0.8 Very Dark" )),    
-            SimpleTerm(0.9, 0.9,
-                _(u"label_contactsheet_overlay_opacity9", default=u"0.9 Almost Black")
-            )
-        ])
-    )
-    
-class   IThumbnailzoomDisplaySettings(IBaseSettings): 
-    thumbnailzoom_columns = schema.Int(
-        title=_(u"label_thumbnailzoom_columns",
-            default=u"Number of thumbs before a forced new row (use a high number if you dont want this)"),
-        default=3,
-        min=1,
-    )
-    thumbnailzoom_increase = schema.Int(
-        title=_(u"label_thumbnailzoom_increase",
-            default=u"Pixels to zoom when mouse over"),
-        default=50,
-    )
-    thumbnailzoom_effectduration = schema.Int(
-        title=_(u"label_thumbnaizoom_effectduration",
-            default=u"How long time the effect takes"),
-        default=100,
-        min=16,
-    )
-    
-class   IPresentationDisplaySettings(IBaseSettings): 
-    presentation_effect = schema.Choice (
-        title=_(u"label_presentation_effect",
-            default=u"Mouseover or click"),
-        default="click",
-        vocabulary=SimpleVocabulary([
-            SimpleTerm("click", "click",
-                _(u"label_presentation_click", default=u"Click on image")),
-            SimpleTerm("mouseenter", "mouseenter",
-                _(u"label_presentation_mouseover", default=u"Mouse enter")
-            )
-        ])
-    )
-    
-    presentation_width = schema.Int(
-        title=_(u"label_presentation_width",
-            default=u"Width of the gallery in pixels"),
-        default=600,
-        min=200
-    )
-
-    presentation_height = schema.Int(
-        title=_(u"label_presentation_height",
-            default=u"Height of the gallery in pixels"),
-        default=350,
-        min=60,
-    )
-    
-    minimum_width = schema.Int(
-        title=_(u"label_presentation_minimum_width",
-            default=u"Minimum width of images"),
-        default=15,
-    )
-    
-    presentation_xposition = schema.Choice(
-        title=_(u"label_presentation_xposition",
-            default=u"Horizontal image position"),
-        default="center",
-        vocabulary=SimpleVocabulary([
-            SimpleTerm("top", "top",
-                _(u"label_presentation_xpositiontop", default=u"Top")),
-            SimpleTerm("center", "center",
-                _(u"label_presentation_xpositioncenter", default=u"Center")),
-            SimpleTerm("bottom", "bottom",
-                _(u"label_presentation_xpositionbottom", default=u"Bottom")
-            )
-        ])
-    )
-    
-    presentation_yposition = schema.Choice(
-        title=_(u"label_presentation_yposition",
-            default=u"Vertical image position"),
-        default="center",
-        vocabulary=SimpleVocabulary([
-            SimpleTerm("left", "left",
-                _(u"label_presentation_ypositionleft", default=u"Left")),
-            SimpleTerm("center", "center",
-                _(u"label_presentation_ypositioncenter", default=u"Center")),
-            SimpleTerm("right", "right",
-                _(u"label_presentation_ypositionright", default=u"Right")
-            )
-        ])
-    )
