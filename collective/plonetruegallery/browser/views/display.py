@@ -1064,7 +1064,30 @@ class ContentFlowDisplayType(BaseDisplayType):
 <script>
     var flow = new ContentFlow('ContentFlow', {
         maxItemHeight: %(max_height)i,
-        scaleFactorLandscape: 'max'});
+        scaleFactorLandscape: 'max',
+        /* make all events subscribable outside of here */
+        onclickInactiveItem: function(item){
+            jQuery(item.element).trigger('onclickInactiveItem', item);
+        },
+        onclickActiveItem: function(item){
+            jQuery(item.element).trigger('onclickActiveItem', item);
+        },
+        onMakeInactive: function(item){
+            jQuery(item.element).trigger('onMakeInactive', item);
+        },
+        onMakeActive: function(item){
+            jQuery(item.element).trigger('onMakeActive', item);
+        },
+        onMoveTo: function(item){
+            jQuery(item.element).trigger('onMoveTo', item);
+        },
+        onReachTarget: function(item){
+            jQuery(item.element).trigger('onReachTarget', item);
+        },
+        onDrawItem: function(item){
+            jQuery(item.element).trigger('onDrawItem', item);
+        }
+    });
 </script>
 """ % {
         'static': self.typeStaticFiles,

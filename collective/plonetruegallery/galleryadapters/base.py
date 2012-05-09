@@ -113,7 +113,8 @@ class BaseImageInformationRetriever(object):
             'thumb_url': self.get_thumb_url(image),
             'link': self.get_link_url(image),
             'title': image.Title,
-            'description': image.Description
+            'description': image.Description,
+            'portal_type': image.portal_type
         }
 
     def get_link_url(self, image):

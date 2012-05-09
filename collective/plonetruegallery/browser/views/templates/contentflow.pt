@@ -3,7 +3,8 @@
     <div class="flow">
         <tal:images tal:repeat="img view/adapter/cooked_images">
             <div class="item" target="_blank"
-                tal:attributes="href img/link">
+                tal:attributes="href img/link;
+                                class string:item ${img/portal_type|nothing};">
                 <img title="Locomotives Roundhouse" alt="" src="" class="content"
                      tal:attributes="title img/title;
                                      alt img/description;
