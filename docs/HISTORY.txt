@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.3.0 (unreleased)
-__________________
+2.3.0b1 (2012-05-09)
+--------------------
 
 - Added settings for background position for presentation gallery type
   [espen]
