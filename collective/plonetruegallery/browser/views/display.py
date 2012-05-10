@@ -1048,9 +1048,18 @@ class ContentFlowDisplayType(BaseDisplayType):
     typeStaticFilesRelative = '++resource++contentflow'
 
     def css(self):
+        extra = ''
+        if 'black' in self.settings.flow_addons:
+            extra = '#ContentFlow{ background-color: black }'
         return """
 <link rel="stylesheet" type="text/css" href="%(static)s/contentflow.css" />
-""" % {'static': self.staticFiles}
+<style>
+%(extra)s
+</style>
+""" % {
+        'static': self.staticFiles,
+        'extra': extra
+    }
 
     def javascript(self):
         addons = self.settings.flow_addons
