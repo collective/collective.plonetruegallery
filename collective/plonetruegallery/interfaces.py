@@ -705,7 +705,7 @@ class IContentFlowSettings(IBaseSettings):
         description=_(u"desc_contentflow_image_height",
             default=u"Customize how large the image shows. If zero, "
                     u"a best guess height will be selected based on the"
-                    u"width."),
+                    u"width. This is translated to pixels."),
         default=0,
         required=True)
 
