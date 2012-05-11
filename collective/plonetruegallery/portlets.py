@@ -39,14 +39,14 @@ class IGalleryPortlet(IPortletDataProvider):
         default=True)
 
     width = schema.Int(
-        title=_(u"gallery_portlet_width_title", default=u"Width"),
+        title=_(u"gallery_portlet_width_title", default=u"Width in pixels"),
         description=_(u"gallery_portlet_width_description",
             default=u"The width of the image in the portlet"),
         required=True,
         default=200)
 
     height = schema.Int(
-        title=_(u"gallery_portlet_height_title", default=u"Height"),
+        title=_(u"gallery_portlet_height_title", default=u"Height in pixels"),
         description=_(u"gallery_portlet_height_description",
             default=u"The height of the image in the portlet."
                     u"If 0, no height is set."),

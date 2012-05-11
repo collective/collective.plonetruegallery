@@ -4,6 +4,13 @@
     <div tal:replace="structure provider:plone.htmlhead" />
     <tal:replace tal:replace="structure view/displayer/css" />
     <tal:replace tal:replace="structure view/displayer/javascript" />
+    <script type="text/javascript">
+ 
+    $(document).ready(function() {
+         $(".placelayout a").attr("target", "_parent");    
+    });
+    </script>
+    
   </head>
 
   <body class="placelayout">

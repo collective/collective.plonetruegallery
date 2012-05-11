@@ -50,4 +50,5 @@
   tal:attributes="src string:${view/gallery/absolute_url}/@@placegalleryview;
                   width view/data/width;
                   height python: height and str(height) + 'px' or '';" />
+                  
 </tal:defs>
