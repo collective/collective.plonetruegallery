@@ -157,9 +157,17 @@ class BasicTopicImageInformationRetriever(BaseImageInformationRetriever):
     def getImageInformation(self):
         query = self.context.buildQuery()
         if query is not None:
+            should_limit = self.context.getLimitNumber()
+            limit = self.context.getItemCount()
+            if not limit:  # also make sure we have more than 0 items
+                should_limit = False
+            if should_limit:
+                query['sort_limit'] = limit
             query.update({'object_provides': IImageContent.__identifier__})
             catalog = getToolByName(self.context, 'portal_catalog')
             images = catalog(query)
+            if should_limit:
+                images = images[:limit]
             return map(self.assemble_image_information, images)
         else:
             return []

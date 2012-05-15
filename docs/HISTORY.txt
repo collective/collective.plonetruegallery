@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.3.2 (unreleased)
+------------------
+
+- respect limiting number of items for collections
+  [vangheem]
+
+
 2.3.1 (2012-05-11)
 ------------------
 
