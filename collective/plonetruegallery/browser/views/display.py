@@ -967,12 +967,14 @@ class SupersizedDisplayType(BaseDisplayType):
 
     def css(self):
 		return u"""
+		<style>%(supersized_css)s</style>
 <link rel="stylesheet" type="text/css" href="%(portal_url)s/++resource++supersized.css"/>
 <link rel="stylesheet" type="text/css" href="%(portal_url)s/++resource++supersized.shutter.css"/>
 <link rel="stylesheet" type="text/css" href="%(staticFiles)s/supersized/style.css"/>
 """ %{
     'portal_url' : self.portal_url,
-    'staticFiles' : self.staticFiles
+    'staticFiles' : self.staticFiles,
+    'supersized_css' : self.settings.supersized_css,
     }    
    
     def javascript(self):
