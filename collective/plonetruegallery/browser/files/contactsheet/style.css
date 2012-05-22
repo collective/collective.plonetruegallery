@@ -3,11 +3,6 @@
     position: relative;
 }
 
-/* not used yet */
-.no-margin {
-    margin-right: 0;
-}
-
 .contactsheet a {
     display: block;
     position: relative;
@@ -16,6 +11,7 @@
     overflow: hidden;
     margin-left:  10px;
     margin-bottom: 10px;
+    text-decoration: none;
 }
 
 .contactsheet a img {

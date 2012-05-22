@@ -23,6 +23,11 @@
   padding: 0;
 }
 
+div.presentationWrapper   a {
+	text-decoration: none; 
+}
+
+
 li.row_0 {
 	clear: left; /* this is for making columns */
 	border-left: 0 none;

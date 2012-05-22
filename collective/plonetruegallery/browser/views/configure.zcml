@@ -55,16 +55,17 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.INivogalleryDisplaySettings"
 		factory=".display.NivogallerySettings" />
-	<adapter
-		for="collective.plonetruegallery.interfaces.IGallery"
+	<adapter for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IContactsheetDisplaySettings"
 		factory=".display.ContactsheetSettings" />
-	<adapter 
+	<adapter zcml:condition="installed collective.js.supersized"
 		for="collective.plonetruegallery.interfaces.IGallery"
+		provides="collective.plonetruegallery.interfaces.ISupersizedDisplaySettings"
+		factory=".display.SupersizedSettings" />
+	<adapter for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IThumbnailzoomDisplaySettings"
 		factory=".display.ThumbnailzoomSettings" />
-	<adapter
-		for="collective.plonetruegallery.interfaces.IGallery"
+	<adapter for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IPresentationDisplaySettings"
 		factory=".display.PresentationSettings" />
 	<adapter zcml:condition="installed collective.js.contentflow"
@@ -135,6 +136,12 @@
 		class=".display.ContactsheetDisplayType"
 		template="templates/contactsheet.pt"
 		permission="zope2.View" />
+	<browser:page zcml:condition="installed collective.js.supersized"
+		for="collective.plonetruegallery.interfaces.IGallery"
+		name="galleryview-supersized"
+		class=".display.SupersizedDisplayType"
+		template="templates/supersized.pt"
+		permission="zope2.View" />
 	<browser:page 
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview-thumbnailzoom"
@@ -173,12 +180,12 @@
 		class=".galleryview.ForceCookingOfAllGalleries"
 		permission="collective.plonetruegallery.manage" />
   	<browser:menuItem
-    	for="collective.plonetruegallery.interfaces.IGallery"
-    	menu="plone_displayviews"
-    	title="Gallery View"
-    	action="galleryview"
-    	description="Displays a gallery."
-    	i18n:attributes="title; description" />
+    		for="collective.plonetruegallery.interfaces.IGallery"
+    		menu="plone_displayviews"
+    		title="Gallery View"
+    		action="galleryview"
+    		description="Displays a gallery."
+    		i18n:attributes="title; description" />
 	<browser:page
 		for="*"
 		name="get-image-for-gallery-portlet"
@@ -227,16 +234,17 @@
 		component=".display.GalleriaDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-galleria" />
-	<utility
-		component=".display.ContactsheetDisplayType"
+	<utility component=".display.ContactsheetDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-contactsheet" />
-	<utility 
-		component=".display.ThumbnailzoomDisplayType"
+	<utility zcml:condition="installed collective.js.supersized"
+		component=".display.SupersizedDisplayType"
+		provides="collective.plonetruegallery.interfaces.IDisplayType"
+		name="galleryview-supersized" />
+	<utility component=".display.ThumbnailzoomDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-thumbnailzoom" />
-	<utility
-		component=".display.PresentationDisplayType"
+	<utility component=".display.PresentationDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-presentation" />
 	<utility zcml:condition="installed collective.js.contentflow"
