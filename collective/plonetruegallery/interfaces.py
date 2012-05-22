@@ -696,11 +696,11 @@ class ISupersizedDisplaySettings(IBaseSettings):
 		default=False)
 	supersized_thumbnail_navigation = schema.Bool(
 		title=_(u"label_thumbnail_navigation",
-			default=u"Show thumbs to navigate"),
+			default=u"Show thumbs to navigate "),
 		default=False)
 	supersized_thumb_links = schema.Bool(
 		title=_(u"label_thumb_links",
-			default=u"Individual thumb links for each slide"),
+			default=u"Individual thumb links for each slide in the 'bottom tray'"),
 		default=True)
 	supersized_progress_bar = schema.Bool(
 		title=_(u"label_progress_bar",
@@ -708,7 +708,7 @@ class ISupersizedDisplaySettings(IBaseSettings):
 		default=False)
 	supersized_show_controls = schema.Bool(
 		title=_(u"label_show_controls",
-			default=u"Show Controls (buttons etc)"),
+			default=u"Hide ALL Controls"),
 		default=True)
 	supersized_css = schema.TextLine(
 		title=_(u"label_supersized_css",

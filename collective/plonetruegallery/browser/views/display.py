@@ -993,7 +993,7 @@ class SupersizedDisplayType(BaseDisplayType):
 <script type="text/javascript" src="%(portal_url)s/++resource++supersized.min.js"></script>
 <script type="text/javascript" src="%(portal_url)s/++resource++supersized.shutter.min.js"></script>
 <script type="text/javascript">			
-    $(document).ready(function() {				
+	jQuery(function($){		
         $.supersized({
         // Functionality
             slideshow               :   %(slideshow)i,			// Slideshow on/off
