@@ -631,7 +631,7 @@ class ISupersizedDisplaySettings(IBaseSettings):
 	supersized_transition = schema.Choice(
         title=_(u"label_supersized_transition",
             default=u"Transition"),
-        default=6,
+        default=1,
         vocabulary=SimpleVocabulary([
             SimpleTerm(0, 0,
                 _(u"label_supersized_transition0", default=u"None")),
