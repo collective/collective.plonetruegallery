@@ -709,7 +709,7 @@ class ISupersizedDisplaySettings(IBaseSettings):
 	supersized_show_controls = schema.Bool(
 		title=_(u"label_show_controls",
 			default=u"Hide ALL Controls"),
-		default=True)
+		default=False)
 	supersized_css = schema.TextLine(
 		title=_(u"label_supersized_css",
 			default=u"CSS to customize the layout"),
