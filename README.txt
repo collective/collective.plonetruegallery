@@ -37,6 +37,7 @@ the dependant js package in buildout
  - nivo slider(collective.js.nivoslider)
  - nivo gallery(collective.js.nivogallery)
  - content flow(collective.js.contentflow)
+ - supersized(collective.js.supersized)
 
 Buildout configuration
 ~~~~~~~~~~~~~~~~~~~~~~
