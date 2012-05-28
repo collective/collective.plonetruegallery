@@ -25,6 +25,10 @@ from zope.component import getMultiAdapter
 from Products.Five import BrowserView
 from collective.plonetruegallery.utils import getGalleryAdapter
 from collective.plonetruegallery.utils import createSettingsFactory
+try:
+    import json
+except ImportError:
+    import simplejson as json
 
 
 def jsbool(val):
@@ -805,7 +809,8 @@ $(document).ready(function() {
     }
 
     def css(self):
-        base_url = '%s/++resource++plonetruegallery.resources/nivogallery' % (self.portal_url)
+        base_url = '%s/++resource++plonetruegallery.resources/nivogallery' % (
+            self.portal_url)
         return u"""
         <style>
        .nivoGallery {
@@ -861,7 +866,8 @@ $(document).ready(function() {
     }
 
     def css(self):
-        base_url = '%s/++resource++plonetruegallery.resources/contactsheet' % (self.portal_url)
+        base_url = '%s/++resource++plonetruegallery.resources/contactsheet' % (
+            self.portal_url)
         return u"""
         <style>
 .contactsheet a img {
@@ -959,6 +965,7 @@ $(window).load(function(){
 """ % self.staticFiles
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
 
+
 class SupersizedDisplayType(BaseDisplayType):
     name = u"supersized"
     schema = ISupersizedDisplaySettings
@@ -966,88 +973,104 @@ class SupersizedDisplayType(BaseDisplayType):
         default=u"Supersized")
 
     def css(self):
-		return u"""
-		<style>%(supersized_css)s</style>
-<link rel="stylesheet" type="text/css" href="%(portal_url)s/++resource++supersized.css"/>
-<link rel="stylesheet" type="text/css" href="%(portal_url)s/++resource++supersized.shutter.css"/>
-<link rel="stylesheet" type="text/css" href="%(staticFiles)s/supersized/style.css"/>
-""" %{
-    'portal_url' : self.portal_url,
-    'staticFiles' : self.staticFiles,
-    'supersized_css' : self.settings.supersized_css,
-    }    
-   
+        return u"""
+        <style>%(supersized_css)s</style>
+<link rel="stylesheet" type="text/css"
+    href="%(portal_url)s/++resource++supersized.css"/>
+<link rel="stylesheet" type="text/css"
+    href="%(portal_url)s/++resource++supersized.shutter.css"/>
+<link rel="stylesheet" type="text/css"
+    href="%(staticFiles)s/supersized/style.css"/>
+""" % {
+    'portal_url': self.portal_url,
+    'staticFiles': self.staticFiles,
+    'supersized_css': self.settings.supersized_css
+    }
+
     def javascript(self):
-        """  this code looks quite ugly...  
+        """  this code looks quite ugly...
         The image part for the javascript is constructed below
         and used in the 'slides' : %(imagelist)s
         """
         images = self.adapter.cooked_images
-        imagelist = "["
-        for index in range(0, len(images)):
-        	thisimage = "{'image' : '" + str(images[index]['image_url']) + "', 'title' : '" + str(images[index]['title']) + "', 'thumb' : '" + str(images[index]['thumb_url']) + "', 'url' : '" + str(images[index]['link']) + "'}," 
-        	imagelist += thisimage
-        imagelist += "]"
-        
-        return u""" 
-<script type="text/javascript" src="%(portal_url)s/++resource++supersized.min.js"></script>
-<script type="text/javascript" src="%(portal_url)s/++resource++supersized.shutter.min.js"></script>
-<script type="text/javascript">			
-	jQuery(function($){		
-        $.supersized({
-        // Functionality
-            slideshow               :   %(slideshow)i,			// Slideshow on/off
-            autoplay				:	%(slideshow)i,			// Slideshow starts playing automatically
-            start_slide             :   1,						// Start slide (0 is random)
-            stop_loop				:	%(stop_loop)i,			// Pauses slideshow on last slide
-            random					: 	0,						// Randomize slide order (Ignores start slide)
-            slide_interval          :   %(duration)i,			// Length between transitions
-            transition              :   %(transition)i, 		// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
-            transition_speed		:	%(speed)i,				// Speed of transition
-            new_window				:	0,						// Image links open in new window/tab
-            pause_hover             :   0,						// Pause slideshow on hover
-            keyboard_nav            :   1,						// Keyboard navigation on/off
-            performance				:	%(performance)i,		// 0-Normal, 1-Hybrid speed/quality, 2-Optimizes image quality, 3-Optimizes transition speed // (Only works for Firefox/IE, not Webkit)
-            image_protect			:	1,						// Disables image dragging and right click with Javascript															   
-            // Size & Position						   
-            min_width		        :   %(min_width)i,			// Min width allowed (in pixels)
-            min_height		        :   %(min_height)i,			// Min height allowed (in pixels)
-            vertical_center         :   %(vertical_center)i,	// Vertically center background
-            horizontal_center       :   %(horizontal_center)i,	// Horizontally center background
-            fit_always				:	%(fit_always)i,			// Image will never exceed browser width or height (Ignores min. dimensions)
-            fit_portrait         	:   %(fit_portrait)i,		// Portrait images will not exceed browser height
-            fit_landscape			:   %(fit_landscape)i,		// Landscape images will not exceed browser width															   
-            // Components							
-            slide_links				:	'blank',				  // Individual links for each slide (Options: false, 'number', 'name', 'blank')
-            thumb_links				:	%(thumb_links)i,		  // Individual thumb links for each slide
-            thumbnail_navigation    :   %(thumbnail_navigation)i, // Thumbnail navigation
-            slides 					:  	%(imagelist)s,
-            // Theme Options			   
-            progress_bar			:	%(progress_bar)i,			// Timer for each slide							
-            mouse_scrub				:	0					
-        });
-        });		    
+        imagelist = []
+        for image in images:
+            imagelist.append({
+                'image': image['image_url'],
+                'title': image['title'],
+                'thumb': image['thumb_url'],
+                'url': image['link']
+                })
+
+        return u"""
+<script type="text/javascript"
+    src="%(portal_url)s/++resource++supersized.min.js"></script>
+<script type="text/javascript"
+    src="%(portal_url)s/++resource++supersized.shutter.min.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+$.supersized({
+    slideshow: %(slideshow)i, // Slideshow on/off
+    autoplay: %(slideshow)i,
+    start_slide: 1, // Start slide (0 is random)
+    stop_loop: %(stop_loop)i, // Pauses slideshow on last slide
+    random: 0, // Randomize slide order (Ignores start slide)
+    slide_interval: %(duration)i, // Length between transitions
+    // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom,
+    // 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+    transition: %(transition)i,
+    transition_speed: %(speed)i, // Speed of transition
+    new_window: 0, // Image links open in new window/tab
+    pause_hover: 0, // Pause slideshow on hover
+    keyboard_nav: 1, // Keyboard navigation on/off
+    // 0-Normal, 1-Hybrid speed/quality, 2-Optimizes image quality,
+    // 3-Optimizes transition speed // (Only works for Firefox/IE, not Webkit)
+    performance: %(performance)i,
+    image_protect: 1, // Disables image dragging and right click
+    // Size & Position
+    min_width: %(min_width)i, // Min width allowed (in pixels)
+    min_height: %(min_height)i, // Min height allowed (in pixels)
+    vertical_center: %(vertical_center)i, // Vertically center background
+    horizontal_center: %(horizontal_center)i, // Horizontally center background
+    // Image will never exceed browser width or height (Ignores min. dim)
+    fit_always: %(fit_always)i,
+    // Portrait images will not exceed browser height
+    fit_portrait: %(fit_portrait)i,
+    // Landscape images will not exceed browser width
+    fit_landscape: %(fit_landscape)i,
+    // Components
+    // Individual links for each slide (Options: false, 'number',
+    // 'name', 'blank')
+    slide_links: 'blank',
+    thumb_links: %(thumb_links)i, // Individual thumb links for each slide
+    thumbnail_navigation: %(thumbnail_navigation)i, // Thumbnail navigation
+    slides: %(imagelist)s,
+    // Theme Options
+    progress_bar: %(progress_bar)i, // Timer for each slide
+    mouse_scrub: 0
+});
+});
 </script>
 """ % {
-        'portal_url' : 		self.portal_url, 
-        'slideshow' :   	self.settings.supersized_slideshow,
-		'stop_loop'	:		self.settings.supersized_stop_loop,
-		'min_width'	:		self.settings.supersized_min_width,
-		'performance' : 	self.settings.supersized_performance,
-		'transition' :  	self.settings.supersized_transition,
-		'min_height':   	self.settings.supersized_min_height,
-		'vertical_center':  self.settings.supersized_vertical_center,
-		'horizontal_center': self.settings.supersized_horizontal_center,
-		'fit_always'	:	self.settings.supersized_fit_always,
-		'fit_portrait'  :   self.settings.supersized_fit_portrait,
-		'fit_landscape'	:   self.settings.supersized_fit_landscape,															   
-		'thumb_links'	:	self.settings.supersized_thumb_links,
-		'thumbnail_navigation': self.settings.supersized_thumbnail_navigation,
-		'progress_bar' : self.settings.supersized_progress_bar,
-		'imagelist'    : imagelist,
-		'duration': self.settings.duration,
+        'portal_url': self.portal_url,
+        'slideshow': self.settings.supersized_slideshow,
+        'stop_loop': self.settings.supersized_stop_loop,
+        'min_width': self.settings.supersized_min_width,
+        'performance': self.settings.supersized_performance,
+        'transition': self.settings.supersized_transition,
+        'min_height': self.settings.supersized_min_height,
+        'vertical_center': self.settings.supersized_vertical_center,
+        'horizontal_center': self.settings.supersized_horizontal_center,
+        'fit_always': self.settings.supersized_fit_always,
+        'fit_portrait': self.settings.supersized_fit_portrait,
+        'fit_landscape': self.settings.supersized_fit_landscape,
+        'thumb_links': self.settings.supersized_thumb_links,
+        'thumbnail_navigation': self.settings.supersized_thumbnail_navigation,
+        'progress_bar': self.settings.supersized_progress_bar,
+        'imagelist': json.dumps(imagelist),
+        'duration': self.settings.duration,
         'speed': self.settings.delay,
-		}	
+        }
 SupersizedSettings = createSettingsFactory(SupersizedDisplayType.schema)
 
 
@@ -1190,4 +1213,3 @@ class ContentFlowDisplayType(BaseDisplayType):
     }
 
 
-				

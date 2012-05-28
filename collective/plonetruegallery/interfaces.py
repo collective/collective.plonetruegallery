@@ -619,16 +619,17 @@ class IThumbnailzoomDisplaySettings(IBaseSettings):
         default=100,
         min=16)
 
+
 class ISupersizedDisplaySettings(IBaseSettings):
-	supersized_slideshow = schema.Bool(
+    supersized_slideshow = schema.Bool(
         title=_(u"label_slideshow",
             default=u"Slideshow on"),
         default=True)
-	supersized_stop_loop = schema.Bool(
+    supersized_stop_loop = schema.Bool(
         title=_(u"label_stop_loop",
             default=u"Pauses slideshow on last slide"),
         default=False)
-	supersized_transition = schema.Choice(
+    supersized_transition = schema.Choice(
         title=_(u"label_supersized_transition",
             default=u"Transition"),
         default=1,
@@ -648,10 +649,10 @@ class ISupersizedDisplaySettings(IBaseSettings):
             SimpleTerm(6, 6,
                 _(u"label_supersized_transition6", default=u"Carousel Right")),
             SimpleTerm(7, 7,
-                _(u"label_supersized_transition7", default=u"Carousel Left") 
+                _(u"label_supersized_transition7", default=u"Carousel Left")
             )
         ]))
-	supersized_performance = schema.Choice(
+    supersized_performance = schema.Choice(
         title=_(u"label_performance",
             default=u"Performance"),
         default=1,
@@ -659,61 +660,68 @@ class ISupersizedDisplaySettings(IBaseSettings):
             SimpleTerm(0, 0,
                 _(u"label_supersized_transition", default=u"Normal")),
             SimpleTerm(1, 1,
-                _(u"label_supersized_transition", default=u"Hybrid between speed and quality")),
+                _(u"label_supersized_transition",
+                    default=u"Hybrid between speed and quality")),
             SimpleTerm(2, 2,
-                _(u"label_supersized_transition", default=u"Optimizes image quality")),
+                _(u"label_supersized_transition",
+                    default=u"Optimizes image quality")),
             SimpleTerm(3, 3,
-                _(u"label_supersized_transition", default=u"Optimizes transition speed. Only works for Firefox, IE, not Webkit") 
+                _(u"label_supersized_transition",
+                    default=u"Optimizes transition speed. Only works for "
+                            u"Firefox, IE, not Webkit")
             )
         ]))
-	supersized_min_width = schema.Int(
+    supersized_min_width = schema.Int(
         title=_(u"label_min_width",
             default=u"Min width allowed, in pixels"),
         default=0)
-	supersized_min_height = schema.Int(
+    supersized_min_height = schema.Int(
         title=_(u"label_min_height",
             default=u"Min height allowed, in pixels"),
         default=0)
-	supersized_horizontal_center = schema.Bool(
+    supersized_horizontal_center = schema.Bool(
         title=_(u"label_horizontal_center",
             default=u"Horizontally center background"),
-        default=True)   
-	supersized_vertical_center = schema.Bool(
-		title=_(u"label_vertical_center",
-			default=u"Vertically center background"),
-		default=True)    
-	supersized_fit_always = schema.Bool(
-		title=_(u"label_fit_always",
-			default=u"Image will never exceed browser width or height. Ignores min. dimensions"),
-		default=False)
-	supersized_fit_portrait = schema.Bool(
-		title=_(u"label_fit_portrait",
-			default=u"Portrait images will not exceed browser height"),
-		default=True)
-	supersized_fit_landscape = schema.Bool(
-		title=_(u"label_fit_landscape",
-			default=u"Landscape images will not exceed browser width"),
-		default=False)
-	supersized_thumbnail_navigation = schema.Bool(
-		title=_(u"label_thumbnail_navigation",
-			default=u"Show thumbs to navigate "),
-		default=False)
-	supersized_thumb_links = schema.Bool(
-		title=_(u"label_thumb_links",
-			default=u"Individual thumb links for each slide in the 'bottom tray'"),
-		default=True)
-	supersized_progress_bar = schema.Bool(
-		title=_(u"label_progress_bar",
-			default=u"Show progress bar"),
-		default=False)
-	supersized_show_controls = schema.Bool(
-		title=_(u"label_show_controls",
-			default=u"Hide ALL Controls"),
-		default=False)
-	supersized_css = schema.TextLine(
-		title=_(u"label_supersized_css",
-			default=u"CSS to customize the layout"),
-		default=u'#portal-footer {display: none; }')
+        default=True)
+    supersized_vertical_center = schema.Bool(
+        title=_(u"label_vertical_center",
+            default=u"Vertically center background"),
+        default=True)
+    supersized_fit_always = schema.Bool(
+        title=_(u"label_fit_always",
+            default=u"Image will never exceed browser width or height. "
+                    u"Ignores min. dimensions"),
+        default=False)
+    supersized_fit_portrait = schema.Bool(
+        title=_(u"label_fit_portrait",
+            default=u"Portrait images will not exceed browser height"),
+        default=True)
+    supersized_fit_landscape = schema.Bool(
+        title=_(u"label_fit_landscape",
+            default=u"Landscape images will not exceed browser width"),
+        default=False)
+    supersized_thumbnail_navigation = schema.Bool(
+        title=_(u"label_thumbnail_navigation",
+            default=u"Show thumbs to navigate "),
+        default=False)
+    supersized_thumb_links = schema.Bool(
+        title=_(u"label_thumb_links",
+            default=u"Individual thumb links for each "
+                    u"slide in the 'bottom tray'"),
+        default=True)
+    supersized_progress_bar = schema.Bool(
+        title=_(u"label_progress_bar",
+            default=u"Show progress bar"),
+        default=False)
+    supersized_show_controls = schema.Bool(
+        title=_(u"label_show_controls",
+            default=u"Hide ALL Controls"),
+        default=False)
+    supersized_css = schema.TextLine(
+        title=_(u"label_supersized_css",
+            default=u"CSS to customize the layout"),
+        default=u'#portal-footer {display: none; }')
+
 
 class IPresentationDisplaySettings(IBaseSettings):
     presentation_effect = schema.Choice(
