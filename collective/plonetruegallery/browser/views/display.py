@@ -1013,6 +1013,7 @@ $.supersized({
     slideshow: %(slideshow)i, // Slideshow on/off
     autoplay: %(slideshow)i,
     start_slide: 1, // Start slide (0 is random)
+    slide_interval: %(speed)i, 
     stop_loop: %(stop_loop)i, // Pauses slideshow on last slide
     random: 0, // Randomize slide order (Ignores start slide)
     slide_interval: %(duration)i, // Length between transitions

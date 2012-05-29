@@ -2,9 +2,14 @@ body {
 	height: 100%;
 }
 
-#supersized img {
-	border: none;
-}
+#supersized img { 
+    width:auto; 
+    height:auto; 
+    position:relative; 
+    display:none; 
+    outline:none; 
+    border:none; }
+
 
 #supersized-loader {
 	position: absolute;
