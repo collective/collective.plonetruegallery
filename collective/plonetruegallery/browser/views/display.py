@@ -979,12 +979,8 @@ class SupersizedDisplayType(BaseDisplayType):
     href="%(portal_url)s/++resource++supersized.css"/>
 <link rel="stylesheet" type="text/css"
     href="%(portal_url)s/++resource++supersized.shutter.css"/>
-<link rel="stylesheet" type="text/css"
-    href="%(staticFiles)s/supersized/style.css"/>
 """ % {
-    'portal_url': self.portal_url,
-    'staticFiles': self.staticFiles,
-    'supersized_css': self.settings.supersized_css
+    'portal_url': self.portal_url
     }
 
     def javascript(self):
