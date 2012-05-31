@@ -980,7 +980,8 @@ class SupersizedDisplayType(BaseDisplayType):
 <link rel="stylesheet" type="text/css"
     href="%(portal_url)s/++resource++supersized.shutter.css"/>
 """ % {
-    'portal_url': self.portal_url
+    'portal_url': self.portal_url,
+    'supersized_css' : self.settings.supersized_css
     }
 
     def javascript(self):
