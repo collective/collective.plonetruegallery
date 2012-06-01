@@ -717,9 +717,10 @@ class ISupersizedDisplaySettings(IBaseSettings):
         title=_(u"label_show_controls",
             default=u"Hide ALL Controls"),
         default=False)
-    supersized_css = schema.TextLine(
+    supersized_css = schema.Text(
         title=_(u"label_supersized_css",
             default=u"CSS to customize the layout"),
+        required=False,
         default=u'#portal-footer {display: none; }')
 
 
