@@ -658,15 +658,15 @@ class ISupersizedDisplaySettings(IBaseSettings):
         default=1,
         vocabulary=SimpleVocabulary([
             SimpleTerm(0, 0,
-                _(u"label_supersized_transition", default=u"Normal")),
+                _(u"label_supersized_transition0", default=u"Normal")),
             SimpleTerm(1, 1,
-                _(u"label_supersized_transition",
+                _(u"label_supersized_transition1",
                     default=u"Hybrid between speed and quality")),
             SimpleTerm(2, 2,
-                _(u"label_supersized_transition",
+                _(u"label_supersized_transition2",
                     default=u"Optimizes image quality")),
             SimpleTerm(3, 3,
-                _(u"label_supersized_transition",
+                _(u"label_supersized_transition3",
                     default=u"Optimizes transition speed. Only works for "
                             u"Firefox, IE, not Webkit")
             )
@@ -702,13 +702,26 @@ class ISupersizedDisplaySettings(IBaseSettings):
         default=False)
     supersized_thumbnail_navigation = schema.Bool(
         title=_(u"label_thumbnail_navigation",
-            default=u"Show thumbs to navigate "),
+            default=u"Show next and previous thumb "),
         default=False)
     supersized_thumb_links = schema.Bool(
         title=_(u"label_thumb_links",
             default=u"Individual thumb links for each "
                     u"slide in the 'bottom tray'"),
         default=True)
+    supersized_slide_links = schema.Choice(
+        title=_(u"label_slide_link",
+            default=u"Show slide names in the center of bottom tray (you will need to style 'Name' with css)"),
+        default="blank",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm('name', 'name',
+                _(u"label_slide_links_name",
+                    default=u"Name")),
+            SimpleTerm('blank', 'blank',
+                _(u"label_slide_links_blank",
+                    default=u"Blank")
+            )
+        ]))
     supersized_progress_bar = schema.Bool(
         title=_(u"label_progress_bar",
             default=u"Show progress bar"),

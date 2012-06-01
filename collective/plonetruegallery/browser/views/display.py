@@ -1039,7 +1039,7 @@ $.supersized({
     // Components
     // Individual links for each slide (Options: false, 'number',
     // 'name', 'blank')
-    slide_links: 'blank',
+    slide_links: '%(slide_links)s',
     thumb_links: %(thumb_links)i, // Individual thumb links for each slide
     thumbnail_navigation: %(thumbnail_navigation)i, // Thumbnail navigation
     slides: %(imagelist)s,
@@ -1063,6 +1063,7 @@ $.supersized({
         'fit_portrait': self.settings.supersized_fit_portrait,
         'fit_landscape': self.settings.supersized_fit_landscape,
         'thumb_links': self.settings.supersized_thumb_links,
+        'slide_links': self.settings.supersized_slide_links,
         'thumbnail_navigation': self.settings.supersized_thumbnail_navigation,
         'progress_bar': self.settings.supersized_progress_bar,
         'imagelist': json.dumps(imagelist),
