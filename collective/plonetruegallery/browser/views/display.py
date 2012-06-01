@@ -1044,9 +1044,9 @@ $.supersized({
     thumbnail_navigation: %(thumbnail_navigation)i, // Thumbnail navigation
     slides: %(imagelist)s,
     // Theme Options
+    image_path: '++resource++supersized/',
     progress_bar: %(progress_bar)i, // Timer for each slide
-    mouse_scrub: 0
-});
+    mouse_scrub: 0});
 });
 </script>
 """ % {
@@ -1067,8 +1067,8 @@ $.supersized({
         'thumbnail_navigation': self.settings.supersized_thumbnail_navigation,
         'progress_bar': self.settings.supersized_progress_bar,
         'imagelist': json.dumps(imagelist),
-        'duration': self.settings.duration,
-        'speed': self.settings.delay,
+        'speed': self.settings.duration,
+        'duration': self.settings.delay,
         }
 SupersizedSettings = createSettingsFactory(SupersizedDisplayType.schema)
 
