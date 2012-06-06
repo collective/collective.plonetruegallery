@@ -734,7 +734,7 @@ class ISupersizedDisplaySettings(IBaseSettings):
         title=_(u"label_supersized_css",
             default=u"CSS to customize the layout"),
         required=False,
-        default=u'#portal-footer {display: none; }')
+        default=u'#portal-footer {display: none; } body {background: #111; }')
 
 
 class IPresentationDisplaySettings(IBaseSettings):
