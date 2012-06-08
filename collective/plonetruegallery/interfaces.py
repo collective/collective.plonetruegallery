@@ -622,6 +622,9 @@ class IContactsheetDisplaySettings(IBaseSettings):
             SimpleTerm("icon_style.css", "icon_style.css",
                 _(u"label_contactsheet_style_icon",
                     default=u"Icon style (for small images)")),
+            SimpleTerm("icon_style_ii.css", "icon_style_ii.css",
+                _(u"label_contactsheet_style_icon_ii",
+                    default=u"Icon style no 2")),
             SimpleTerm("no_style.css", "no_style.css",
                 _(u"label_contactsheet_style_no",
                     default=u"None")

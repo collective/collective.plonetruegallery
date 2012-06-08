@@ -1,0 +1,44 @@
+.contactsheet {
+ position: relative;
+}
+
+.contactsheet a {
+    display: block;
+    position: relative;
+    float:  left;
+    margin: 30px 20px;
+    text-decoration: none;
+}
+
+.contactsheet a img {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.contactsheet a div {
+	display: none;
+	height: auto;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    z-index: 100;
+    font-size: 14px;
+    color: white;
+    opacity: 0.5;
+	margin: 100%  10% 0 10%;
+	padding: 4%;
+	width: 74%;
+}
+
+.image-desc {
+	clear: both;
+	font-size: 40%;
+	font-style: italic;
+	font-weight: normal;
+	margin-top: 16px
+}
+a.row_0 {
+	clear: left;
+	margin-left:  0;
+}
