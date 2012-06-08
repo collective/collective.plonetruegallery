@@ -561,19 +561,26 @@ class IContactsheetDisplaySettings(IBaseSettings):
         min=1)
     contactsheet_imagewidth = schema.Int(
         title=_(u"label_contactsheet_imagewidth",
-            default=u"Width of (each) image box"),
+            default=u"Width of (each) image"),
         default=400,
         min=50)
     contactsheet_imageheight = schema.Int(
         title=_(u"label_contactsheet_imageheight",
-            default=u"Height of (each) image box"),
+            default=u"Height of (each) image"),
         default=260,
         min=50)
+    contactsheet_zoom = schema.Int(
+        title=_(u"label_contactsheet_zoom",
+            default=u"How many pixels to zoom when mouse over"),
+        default=-10)    
     contactsheet_overlay_opacity = schema.Choice(
         title=_(u"label_contactsheet_overlay_opacity",
                 default=u"Opacity on mouse over"),
         default=0.3,
         vocabulary=SimpleVocabulary([
+            SimpleTerm(0, 0,
+                _(u"label_contactsheet_overlay_opacity0",
+                    default=u"0 Off")),
             SimpleTerm(0.1, 0.1,
                 _(u"label_contactsheet_overlay_opacity1",
                     default=u"0.1 Light")),
@@ -597,7 +604,24 @@ class IContactsheetDisplaySettings(IBaseSettings):
                     default=u"0.8 Very Dark")),
             SimpleTerm(0.9, 0.9,
                 _(u"label_contactsheet_overlay_opacity9",
-                    default=u"0.9 Almost Black")
+                    default=u"0.9 Almost Black")),
+            SimpleTerm(1, 1,
+                _(u"label_contactsheet_overlay_opacity9",
+                    default=u"1 Pitch Dark")
+            )
+        ]))
+
+    contactsheet_style = schema.Choice(
+        title=_(u"label_contactsheet_style",
+                default=u"What stylesheet (css file) to use"),
+        default="style.css",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("style.css", "style.css",
+                _(u"label_contactsheet_style_default",
+                    default=u"Default")),
+            SimpleTerm("no_style.css", "no_style.css",
+                _(u"label_contactsheet_style_no",
+                    default=u"None")
             )
         ]))
 

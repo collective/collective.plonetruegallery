@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Next version
+------------------
+
+- added more settings for contactsheet and modified contactsheet to use "speed" setting for how long time the effect takes [espen] 
+
+
 2.3.2 (unreleased)
 ------------------
 
