@@ -10,7 +10,16 @@
                     src=""
                     tal:attributes="title img/title;
                                     alt img/description;
-                                    src img/image_url" />
+                                    src img/image_url" 
+                    tal:condition="not: view/settings/contactsheet_use_icons" />
+            <img title="Locomotives Roundhouse"
+                    alt=""
+                    src=""
+                    tal:attributes="title img/title;
+                                    alt img/description;
+                                    src img/thumb_url" 
+                    tal:condition="view/settings/contactsheet_use_icons" />
+
         </a>   	   
     </tal:images>    
 </div>

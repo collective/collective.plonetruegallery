@@ -569,6 +569,12 @@ class IContactsheetDisplaySettings(IBaseSettings):
             default=u"Height of (each) image"),
         default=260,
         min=50)
+            
+    contactsheet_use_icons = schema.Bool(
+        title=_(u"label_contactsheet_use_icons",
+            default=u"Use Thumbnail size instead of Size"),
+        default=False)    
+    
     contactsheet_zoom = schema.Int(
         title=_(u"label_contactsheet_zoom",
             default=u"How many pixels to zoom when mouse over"),
@@ -630,6 +636,7 @@ class IContactsheetDisplaySettings(IBaseSettings):
                     default=u"None")
             )
         ]))
+
 
 
 class IThumbnailzoomDisplaySettings(IBaseSettings):

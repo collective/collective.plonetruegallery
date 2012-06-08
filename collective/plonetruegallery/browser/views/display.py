@@ -828,7 +828,6 @@ NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
 
 
 class ContactsheetDisplayType(BaseDisplayType):
-
     name = u"contactsheet"
     schema = IContactsheetDisplaySettings
     description = _(u"label_contactsheet_display_type",
