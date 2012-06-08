@@ -561,7 +561,7 @@ class IContactsheetDisplaySettings(IBaseSettings):
         min=1)
     contactsheet_imagewidth = schema.Int(
         title=_(u"label_contactsheet_imagewidth",
-            default=u"Width of (each) image"),
+            default=u"Width of (each) image (when mouse hovers)"),
         default=400,
         min=50)
     contactsheet_imageheight = schema.Int(
