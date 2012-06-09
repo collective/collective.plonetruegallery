@@ -866,6 +866,12 @@ $(document).ready(function() {
     }
 
     def css(self):
+    	style = self.settings.contactsheet_style
+    	
+    	if style == 'custom_style':
+    		style = self.settings.contactsheet_custom_style
+		
+			
         base_url = '%s/++resource++plonetruegallery.resources/contactsheet' % (
             self.portal_url)
         return u"""
@@ -896,7 +902,7 @@ $(document).ready(function() {
         'overlay_opacity': self.settings.contactsheet_overlay_opacity,
         'base_url': base_url,
         'zoom' : self.settings.contactsheet_zoom,
-        'style' : self.settings.contactsheet_style,
+        'style' : style,
        }
 ContactsheetSettings = createSettingsFactory(ContactsheetDisplayType.schema)
 

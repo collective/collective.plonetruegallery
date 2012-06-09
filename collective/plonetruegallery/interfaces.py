@@ -633,10 +633,17 @@ class IContactsheetDisplaySettings(IBaseSettings):
                     default=u"Icon style no 2")),
             SimpleTerm("no_style.css", "no_style.css",
                 _(u"label_contactsheet_style_no",
-                    default=u"None")
+                	default=u"No style / css file")),
+            SimpleTerm("custom_style", "custom_style",
+                _(u"label_contactsheet_style_custom",
+                    default=u"Custom css file")
             )
         ]))
 
+    contactsheet_custom_style = schema.TextLine(
+        title=_(u"label_custom_style",
+            default=u"Name of Custom css file if you chose that above"),
+        default=u"mycustomstyle.css")
 
 
 class IThumbnailzoomDisplaySettings(IBaseSettings):
