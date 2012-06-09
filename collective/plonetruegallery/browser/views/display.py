@@ -872,7 +872,7 @@ $(document).ready(function() {
 
     	if self.settings.contactsheet_style == 'custom_style':
     		style = '%(url)s/%(style)s' % {
-		    	'url' : self.portal.url,
+		    	'url' : self.portal_url,
 		    	'style' : self.settings.contactsheet_custom_style }		
 		    
         return u"""
