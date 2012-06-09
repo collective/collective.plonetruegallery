@@ -866,13 +866,14 @@ $(document).ready(function() {
     }
 
     def css(self):		
-        base_url = '%s/++resource++plonetruegallery.resources/contactsheet' % (
-            self.portal_url)
+        style = '%s(url)/++resource++plonetruegallery.resources/contactsheet/%(style)s' % (
+            'url' : self.portal_url,
+            'style' : self.settings.contactsheet_style )
 
     	if self.settings.contactsheet_style == 'custom_style':
-    		style = self.settings.contactsheet_custom_style
-    	else:
-		    style = base_url + "/" + self.settings.contactsheet_style		
+    		style = '%(url)s/%(style)s' % (
+		    	'url' : self.portal.url,
+		    	'style' : self.settings.contactsheet_custom_style)		
 		    
         return u"""
         <style>
@@ -892,7 +893,7 @@ $(document).ready(function() {
 }
 
 </style>
-<link rel="stylesheet" type="text/css" href="%(base_url)s/%(style)s"/>
+<link rel="stylesheet" type="text/css" href="%(style)s"/>
 """ % {
         'columns': self.settings.contactsheet_columns,
         'boxheight': self.settings.contactsheet_imageheight,
