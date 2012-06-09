@@ -865,14 +865,15 @@ $(document).ready(function() {
          'zoom' : self.settings.contactsheet_zoom,
     }
 
-    def css(self):
+    def css(self):		
+        base_url = '%s/++resource++plonetruegallery.resources/contactsheet' % (
+            self.portal_url)
+
     	if self.settings.contactsheet_style == 'custom_style':
     		style = self.settings.contactsheet_custom_style
     	else:
-		    style = base_url + "/" + self.settings.contactsheet_style
-			
-        base_url = '%s/++resource++plonetruegallery.resources/contactsheet' % (
-            self.portal_url)
+		    style = base_url + "/" + self.settings.contactsheet_style		
+		    
         return u"""
         <style>
 .contactsheet a img {
@@ -891,7 +892,7 @@ $(document).ready(function() {
 }
 
 </style>
-<link rel="stylesheet" type="text/css" href="%(style)s"/>
+<link rel="stylesheet" type="text/css" href="%(base_url)s/%(style)s"/>
 """ % {
         'columns': self.settings.contactsheet_columns,
         'boxheight': self.settings.contactsheet_imageheight,
