@@ -866,7 +866,7 @@ $(document).ready(function() {
     }
 
     def css(self):		
-        style = '%s(url)/++resource++plonetruegallery.resources/contactsheet/%(style)s' % {
+        style = '%(url)s/++resource++plonetruegallery.resources/contactsheet/%(style)s' % {
             'url' : self.portal_url,
             'style' : self.settings.contactsheet_style }
 
