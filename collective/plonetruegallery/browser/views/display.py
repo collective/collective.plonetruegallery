@@ -866,14 +866,14 @@ $(document).ready(function() {
     }
 
     def css(self):		
-        style = '%s(url)/++resource++plonetruegallery.resources/contactsheet/%(style)s' % (
+        style = '%s(url)/++resource++plonetruegallery.resources/contactsheet/%(style)s' % {
             'url' : self.portal_url,
-            'style' : self.settings.contactsheet_style )
+            'style' : self.settings.contactsheet_style }
 
     	if self.settings.contactsheet_style == 'custom_style':
-    		style = '%(url)s/%(style)s' % (
+    		style = '%(url)s/%(style)s' % {
 		    	'url' : self.portal.url,
-		    	'style' : self.settings.contactsheet_custom_style)		
+		    	'style' : self.settings.contactsheet_custom_style }		
 		    
         return u"""
         <style>
