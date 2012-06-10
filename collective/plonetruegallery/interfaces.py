@@ -662,7 +662,27 @@ class IThumbnailzoomDisplaySettings(IBaseSettings):
             default=u"How long time the effect takes"),
         default=100,
         min=16)
-
+    thumbnailzoom_use_icons = schema.Bool(
+        title=_(u"label_thumbnailzoom_use_images",
+            default=u"Use Image size instead of Thumbnail size"),
+        default=False)    
+    thumbnailzoom_style = schema.Choice(
+        title=_(u"label_thumbnailzoom_style",
+                default=u"What stylesheet (css file) to use"),
+        default="style.css",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("style.css", "style.css",
+                _(u"label_thumbnailzoom_style_default",
+                    default=u"Default")),
+            SimpleTerm("custom_style", "custom_style",
+                _(u"label_thumbnailzoom_style_custom",
+                    default=u"Custom css file")
+            )
+        ]))
+    thumbnailzoom_custom_style = schema.TextLine(
+        title=_(u"label_custom_style",
+            default=u"Name of Custom css file if you chose that above"),
+        default=u"mycustomstyle.css")
 
 class ISupersizedDisplaySettings(IBaseSettings):
     supersized_slideshow = schema.Bool(

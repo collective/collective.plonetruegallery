@@ -969,9 +969,18 @@ $(window).load(function(){
 }
 
     def css(self):
+        style = '%(url)s/thumbnailzoom/%(style)s' % {
+            'url' : self.staticFiles,
+            'style' : self.settings.thumbnailzoom_style }
+
+    	if self.settings.thumbnailzoom_style == 'custom_style':
+    		style = '%(url)s/%(style)s' % {
+		    	'url' : self.portal_url,
+		    	'style' : self.settings.thumbnailzoom_custom_style }		
+    
         return u"""
-<link rel="stylesheet" type="text/css" href="%s/thumbnailzoom/style.css"/>
-""" % self.staticFiles
+<link rel="stylesheet" type="text/css" href="%s"/>
+""" % style
 ThumbnailzoomSettings = createSettingsFactory(ThumbnailzoomDisplayType.schema)
 
 
