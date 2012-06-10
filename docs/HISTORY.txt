@@ -6,6 +6,7 @@ Next version
 
 - added more settings for contactsheet and modified contactsheet to use "speed" setting for how long time the effect takes [espen] 
 - added more settings for thumbnailzoom [espen]
+- added custom css settings for s3slider [espen]
 
 
 2.3.2 (unreleased)
