@@ -338,7 +338,23 @@ class IS3sliderDisplaySettings(IBaseSettings):
         title=_(u"label_s3_textwidth",
             default=u"Width of the (black) text box"),
         default=u"150px")
-
+    s3slider_style = schema.Choice(
+        title=_(u"label_s3slider_style",
+                default=u"What stylesheet (css file) to use"),
+        default="style.css",
+        vocabulary=SimpleVocabulary([
+            SimpleTerm("style.css", "style.css",
+                _(u"label_s3slider_style_default",
+                    default=u"Default")),
+            SimpleTerm("custom_style", "custom_style",
+                _(u"label_s3slider_style_custom",
+                    default=u"Custom css file")
+            )
+        ]))
+    s3slider_custom_style = schema.TextLine(
+        title=_(u"label_custom_style",
+            default=u"Name of Custom css file if you chose that above"),
+        default=u"mycustomstyle.css")    
 
 class INivosliderDisplaySettings(IBaseSettings):
     nivoslider_width = schema.Int(

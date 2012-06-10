@@ -527,6 +527,15 @@ $(document).ready(function() {
         }
 
     def css(self):
+    	style = '%(url)s/++resource++plonetruegallery.resources/s3slider/%(style)s' % {
+    		'url' : self.portal_url,
+    		'style' : self.settings.s3slider_style }
+    	
+    	if self.settings.s3slider_style == 'custom_style':
+    		style = '%(url)s/%(style)s' % {
+    			'url' : self.portal_url,
+    			'style' : self.settings.s3slider_custom_style }		
+    			
         return u"""
         <style>
 #s3slider {
@@ -538,60 +547,15 @@ $(document).ready(function() {
 
 ul#s3sliderContent {
    width: %(width)s;
-   position: absolute;
-   top: 0;
-   margin-left: 0;
-   overflow: hidden !important;
 }
-
-.s3sliderImage {
-   float: left;
-   position: relative;
-   display: none;
-}
-
-.s3sliderImage span {
-   position: absolute;
-   left: 0;
-   font: 10px/15px Arial, Helvetica, sans-serif;
-   padding: 20px 13px;
-   background-color: #000;
-   filter: alpha(opacity=70);
-   -moz-opacity: 0.7;
-   -khtml-opacity: 0.7;
-   opacity: 0.7;
-   color: #fff;
-   display: none;
-   top: 0;
-   height: %(height)s;
-   width: %(textwidth)s;
-}
-
-ul#s3sliderContent li {
-    text-decoration: none;
-    list-style-image: none;
-    list-style-type: none;
-}
-
-ul#s3sliderContent a {
-    text-decoration: none;
-}
-
-div.image-title {
-    font-size: 16px;
-    margin-bottom: 4px;
-}
-
-.clear {
-   clear: both;
-}
- </style>
-
+</style>
+<link rel="stylesheet" type="text/css" href="%(style)s"/>
 """ % {
         'staticFiles': self.staticFiles,
         'height': self.settings.s3_height,
         'width': self.settings.s3_width,
-        'textwidth': self.settings.s3_textwidth
+        'textwidth': self.settings.s3_textwidth,
+        'style' : style,
        }
 
 S3sliderSettings = createSettingsFactory(S3sliderDisplayType.schema)
