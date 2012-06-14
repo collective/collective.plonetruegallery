@@ -3,7 +3,6 @@ from zope import schema
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from collective.plonetruegallery import PTGMessageFactory as _
 
-
 class IGalleryAdapter(Interface):
     sizes = Attribute("image size mappings for the gallery type")
     schema = Attribute("Schema of gallery specific")
@@ -647,6 +646,9 @@ class IContactsheetDisplaySettings(IBaseSettings):
             SimpleTerm("icon_style_ii.css", "icon_style_ii.css",
                 _(u"label_contactsheet_style_icon_ii",
                     default=u"Icon style no 2")),
+            SimpleTerm("icon_style_iii.css", "icon_style_iii.css",
+                _(u"label_contactsheet_style_icon_iii",
+                	default=u"Icon style no 3")),
             SimpleTerm("no_style.css", "no_style.css",
                 _(u"label_contactsheet_style_no",
                 	default=u"No style / css file")),
