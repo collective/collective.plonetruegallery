@@ -45,4 +45,14 @@
         component=".vocabularies.DisplayTypeVocabulary"
         name="collective.plonetruegallery.DisplayTypes"
         />
+        
+    <!-- the control panel -->        
+	<adapter factory=".configlet.PloneTruegalleryControlPanelAdapter" />
+  
+	<browser:page
+       name="plonetruegallery_controlpanel"
+       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+       class=".configlet.PloneTruegalleryControlPanel"
+       permission="cmf.ManagePortal"
+       />
 </configure>

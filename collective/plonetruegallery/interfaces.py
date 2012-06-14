@@ -978,3 +978,16 @@ class IImageInformationRetriever(Interface):
         description
             The image description
         """
+
+
+
+
+
+class IPloneTruegalleryConfiguration(Interface):
+	"""This interface defines the configlet for PloneTruegallery (the control panel)."""
+	default_gallery = schema.ASCIILine(title=_(u"default_gallery", default=u'Default Gallery'),
+							description=_(u"default_gallery",
+							default=u'Which gallery type should be the default.'),
+							required=True,
+							default="")
+                              
