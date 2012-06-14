@@ -48,7 +48,7 @@
   <property name="contactsheet_imageheight" type="int">260</property>
   <property name="contactsheet_use_icons" type="boolean">0</property>
   <property name="contactsheet_zoom" type="int">-10</property>
-  <property name="contactsheet_overlay_opacity" type="int">0.3</property>
+  <property name="contactsheet_overlay_opacity" type="float">0.3</property>
   <property name="contactsheet_style" type="string">style.css</property>
   <property name="contactsheet_custom_style" type="string">mycustomstyle.css</property>
   <property name="thumbnailzoom_columns" type="int">3</property>
