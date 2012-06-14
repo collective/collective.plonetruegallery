@@ -1,6 +1,96 @@
 Changelog
 =========
 
+Fields to copy to everywhere
+
+gallery_type = schema.Choice(
+display_type = schema.Choice(
+size = schema.Choice(
+thumb_size = schema.Choice(
+delay = schema.Int(
+duration = schema.Int(
+show_subgalleries = schema.Bool(
+batch_size = schema.Int(
+highslide_slideshowcontrols_position = schema.Choice(
+vocabulary=SimpleVocabulary([
+highslide_outlineType = schema.Choice(
+gallerific_style = schema.Choice(
+s3_width = schema.TextLine(
+s3_height = schema.TextLine(
+s3_textwidth = schema.TextLine(
+s3slider_style = schema.Choice(
+s3slider_custom_style = schema.TextLine(
+nivoslider_width = schema.Int(
+nivoslider_height = schema.Int(
+nivoslider_theme = schema.Choice(
+nivoslider_effect = schema.Choice(
+nivoslider_randomstart = schema.Bool(
+nivoslider_directionnav = schema.Bool(
+nivoslider_directionnavhide = schema.Bool(
+nivoslider_pauseonhover = schema.Bool(
+nivoslider_slices = schema.Int(
+nivoslider_boxcols = schema.Int(
+nivoslider_boxrows = schema.Int(
+nivogallery_directionnav = schema.Bool(
+nivogallery_progressbar = schema.Bool(
+nivogallery_width = schema.TextLine(
+nivogallery_height = schema.TextLine(
+pikachoose_width = schema.Int(
+pikachoose_height = schema.Int(
+pikachoose_backgroundcolor = schema.Choice(
+pikachoose_showtooltips = schema.Bool(
+pikachoose_showcaption = schema.Bool(
+pikachoose_vertical = schema.Bool(
+pikachoose_transition = schema.Choice(
+galleria_theme = schema.Choice(
+galleria_transition = schema.Choice(
+galleria_auto_show_info = schema.Bool(
+contactsheet_columns = schema.Int(
+contactsheet_imagewidth = schema.Int(
+contactsheet_imageheight = schema.Int(
+contactsheet_use_icons = schema.Bool(
+contactsheet_zoom = schema.Int(
+contactsheet_overlay_opacity = schema.Choice(
+contactsheet_style = schema.Choice(
+contactsheet_custom_style = schema.TextLine(
+thumbnailzoom_columns = schema.Int(
+thumbnailzoom_increase = schema.Int(
+thumbnailzoom_effectduration = schema.Int(
+thumbnailzoom_use_icons = schema.Bool(
+thumbnailzoom_style = schema.Choice(
+thumbnailzoom_custom_style = schema.TextLine(
+supersized_slideshow = schema.Bool(
+supersized_stop_loop = schema.Bool(
+supersized_transition = schema.Choice(
+supersized_performance = schema.Choice(
+supersized_min_width = schema.Int(
+supersized_min_height = schema.Int(
+supersized_horizontal_center = schema.Bool(
+supersized_vertical_center = schema.Bool(
+supersized_fit_always = schema.Bool(
+supersized_fit_portrait = schema.Bool(
+supersized_fit_landscape = schema.Bool(
+supersized_thumbnail_navigation = schema.Bool(
+supersized_thumb_links = schema.Bool(
+supersized_slide_links = schema.Choice(
+supersized_progress_bar = schema.Bool(
+supersized_show_controls = schema.Bool(
+supersized_css = schema.Text(
+presentation_effect = schema.Choice(
+presentation_width = schema.Int(
+presentation_height = schema.Int(
+minimum_width = schema.Int(
+presentation_xposition = schema.Choice(
+presentation_yposition = schema.Choice(
+flow_addons = schema.Tuple(
+flow_max_image_height = schema.Int(
+flickr_username = schema.TextLine(
+flickr_set = schema.TextLine(
+picasa_username = schema.TextLine(
+picasa_album = schema.TextLine(
+
+
+
 Next version
 ------------------
 

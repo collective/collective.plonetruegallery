@@ -2,5 +2,90 @@
 <object name="portal_properties" meta_type="Plone Properties Tool">
  <object name="plonetruegallery_properties" meta_type="Plone Property Sheet" purge="False">
   <property name="default_gallery" type="string">galleria</property>
-    </object>
+  
+  <property name="gallery_type" type="string"></property>
+  <property name="display_type" type="string"></property>
+  <property name="size" type="string"></property>
+  <property name="thumb_size" type="string"></property>
+  <property name="delay" type="int"></property>
+  <property name="duration" type="int"></property>
+  <property name="show_subgalleries" type="bool"></property>
+  <property name="batch_size" type="int"></property>
+  <property name="highslide_slideshowcontrols_positio" type="string"></property>
+  <property name="highslide_outlineType" type="string"></property>
+  <property name="gallerific_style" type="string"></property>
+  <property name="s3_width" type="string"></property>
+  <property name="s3_height" type="string"></property>
+  <property name="s3_textwidth" type="string"></property>
+  <property name="s3slider_style" type="string"></property>
+  <property name="s3slider_custom_style" type="string"></property>
+  <property name="nivoslider_width" type="int"></property>
+  <property name="nivoslider_height" type="int"></property>
+  <property name="nivoslider_theme" type="string"></property>
+  <property name="nivoslider_effect" type="int"></property>
+  <property name="nivoslider_randomstart" type="bool"></property>
+  <property name="nivoslider_directionnav" type="bool"></property>
+  <property name="nivoslider_directionnavhide" type="bool"></property>
+  <property name="nivoslider_pauseonhover" type="bool"></property>
+  <property name="nivoslider_slices" type="int"></property>
+  <property name="nivoslider_boxcols" type="int"></property>
+  <property name="nivoslider_boxrows" type="int"></property>
+  <property name="nivogallery_directionnav" type="bool"></property>
+  <property name="nivogallery_progressbar" type="bool"></property>
+  <property name="nivogallery_width" type="string"></property>
+  <property name="nivogallery_height" type="string"></property>
+  <property name="pikachoose_width" type="int"></property>
+  <property name="pikachoose_height" type="int"></property>
+  <property name="pikachoose_backgroundcolor" type="string"></property>
+  <property name="pikachoose_showtooltips" type="bool"></property>
+  <property name="pikachoose_showcaption"  type="bool"></property>
+  <property name="pikachoose_vertical" type="bool"></property>
+  <property name="pikachoose_transition" type="int"></property>
+  <property name="_theme" type="string"></property>
+  <property name="_transition" type="int"></property>
+  <property name="_auto_show_info" type="bool"></property>
+  <property name="contactsheet_columns" type="int"></property>
+  <property name="contactsheet_imagewidth" type="int"></property>
+  <property name="contactsheet_imageheight" type="int"></property>
+  <property name="contactsheet_use_icons" type="bool"></property>
+  <property name="contactsheet_zoom" type="int"></property>
+  <property name="contactsheet_overlay_opacity" type="int"></property>
+  <property name="contactsheet_style" type="string"></property>
+  <property name="contactsheet_custom_style" type="string"></property>
+  <property name="thumbnailzoom_columns" type="int"></property>
+  <property name="thumbnailzoom_increase" type="int"></property>
+  <property name="thumbnailzoom_effectduration" type="int"></property>
+  <property name="thumbnailzoom_use_icons" type="bool"></property>
+  <property name="thumbnailzoom_style" type="string"></property>
+  <property name="thumbnailzoom_custom_style" type="string"></property>
+  <property name="supersized_slideshow" type="bool"></property>
+  <property name="supersized_stop_loop" type="bool"></property>
+  <property name="supersized_transition = schema.Choice(
+  <property name="supersized_performance" type="int"></property>
+  <property name="supersized_min_width" type="int"></property>
+  <property name="supersized_min_height" type="int"></property>
+  <property name="supersized_horizontal_center" type="bool"></property>
+  <property name="supersized_vertical_center" type="bool"></property>
+  <property name="supersized_fit_always" type="bool"></property>
+  <property name="supersized_fit_portrait" type="bool"></property>
+  <property name="supersized_fit_landscape" type="bool"></property>
+  <property name="supersized_thumbnail_navigation" type="bool"></property>
+  <property name="supersized_thumb_links" type="bool"></property>
+  <property name="supersized_slide_links" type="bool"></property>
+  <property name="supersized_progress_bar" type="bool"></property>
+  <property name="supersized_show_controls" type="bool"></property>
+  <property name="supersized_css = schema.Text(
+  <property name="presentation_effect" type="string"></property>
+  <property name="presentation_width" type="int"></property>
+  <property name="presentation_height" type="int"></property>
+  <property name="minimum_width" type="int"></property>
+  <property name="presentation_xposition" type="string"></property>
+  <property name="presentation_yposition" type="string"></property>
+  <property name="flow_addons" type="lines"></property>
+  <property name="flow_max_image_height" type="int"></property>
+  <property name="flickr_username" type="string"></property>
+  <property name="flickr_set" type="string"></property>
+  <property name="picasa_username" type="string"></property>
+  <property name="picasa_album" type="string"></property>
+ </object>
 </object> 
