@@ -984,7 +984,7 @@ class IImageInformationRetriever(Interface):
 
 
 class IPloneTruegalleryConfiguration(Interface):
-	"""This interface defines the configlet for PloneTruegallery (the control panel)."""
+	"""This interface defines the configlet for PloneTruegallery (the control panel). Will try to drag them in 'automatically'"""
 	default_gallery = schema.ASCIILine(title=_(u"default_gallery", default=u'Default Gallery'),
 							description=_(u"default_gallery",
 							default=u'Which gallery type should be the default.'),
