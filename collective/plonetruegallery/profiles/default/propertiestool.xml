@@ -9,7 +9,7 @@
   <property name="thumb_size" type="string">1</property>
   <property name="delay" type="int">1</property>
   <property name="duration" type="int">1</property>
-  <property name="show_subgalleries" type="bool">1</property>
+  <property name="show_subgalleries" type="boolean">1</property>
   <property name="batch_size" type="int">1</property>
   <property name="highslide_slideshowcontrols_position" type="string">1</property>
   <property name="highslide_outlineType" type="string">1</property>
@@ -23,31 +23,31 @@
   <property name="nivoslider_height" type="int">1</property>
   <property name="nivoslider_theme" type="string">1</property>
   <property name="nivoslider_effect" type="int">1</property>
-  <property name="nivoslider_randomstart" type="bool">1</property>
-  <property name="nivoslider_directionnav" type="bool">1</property>
-  <property name="nivoslider_directionnavhide" type="bool">1</property>
-  <property name="nivoslider_pauseonhover" type="bool">1</property>
+  <property name="nivoslider_randomstart" type="boolean">1</property>
+  <property name="nivoslider_directionnav" type="boolean">1</property>
+  <property name="nivoslider_directionnavhide" type="boolean">1</property>
+  <property name="nivoslider_pauseonhover" type="boolean">1</property>
   <property name="nivoslider_slices" type="int">1</property>
   <property name="nivoslider_boxcols" type="int">1</property>
   <property name="nivoslider_boxrows" type="int">1</property>
-  <property name="nivogallery_directionnav" type="bool">1</property>
-  <property name="nivogallery_progressbar" type="bool">1</property>
+  <property name="nivogallery_directionnav" type="boolean">1</property>
+  <property name="nivogallery_progressbar" type="boolean">1</property>
   <property name="nivogallery_width" type="string">1</property>
   <property name="nivogallery_height" type="string">1</property>
   <property name="pikachoose_width" type="int">1</property>
   <property name="pikachoose_height" type="int">1</property>
   <property name="pikachoose_backgroundcolor" type="string">1</property>
-  <property name="pikachoose_showtooltips" type="bool">1</property>
-  <property name="pikachoose_showcaption"  type="bool">1</property>
-  <property name="pikachoose_vertical" type="bool">1</property>
+  <property name="pikachoose_showtooltips" type="boolean">1</property>
+  <property name="pikachoose_showcaption"  type="boolean">1</property>
+  <property name="pikachoose_vertical" type="boolean">1</property>
   <property name="pikachoose_transition" type="int">1</property>
   <property name="galleria_theme" type="string">1</property>
   <property name="galleria_transition" type="int">1</property>
-  <property name="galleria_auto_show_info" type="bool">1</property>
+  <property name="galleria_auto_show_info" type="boolean">1</property>
   <property name="contactsheet_columns" type="int">1</property>
   <property name="contactsheet_imagewidth" type="int">1</property>
   <property name="contactsheet_imageheight" type="int">1</property>
-  <property name="contactsheet_use_icons" type="bool">1</property>
+  <property name="contactsheet_use_icons" type="boolean">1</property>
   <property name="contactsheet_zoom" type="int">1</property>
   <property name="contactsheet_overlay_opacity" type="int">1</property>
   <property name="contactsheet_style" type="string">1</property>
@@ -55,25 +55,25 @@
   <property name="thumbnailzoom_columns" type="int">1</property>
   <property name="thumbnailzoom_increase" type="int">1</property>
   <property name="thumbnailzoom_effectduration" type="int">1</property>
-  <property name="thumbnailzoom_use_icons" type="bool">1</property>
+  <property name="thumbnailzoom_use_icons" type="boolean">1</property>
   <property name="thumbnailzoom_style" type="string">1</property>
   <property name="thumbnailzoom_custom_style" type="string">1</property>
-  <property name="supersized_slideshow" type="bool">1</property>
-  <property name="supersized_stop_loop" type="bool">1</property>
+  <property name="supersized_slideshow" type="boolean">1</property>
+  <property name="supersized_stop_loop" type="boolean">1</property>
   <property name="supersized_transition" type="int">1</property>
   <property name="supersized_performance" type="int">1</property>
   <property name="supersized_min_width" type="int">1</property>
   <property name="supersized_min_height" type="int">1</property>
-  <property name="supersized_horizontal_center" type="bool">1</property>
-  <property name="supersized_vertical_center" type="bool">1</property>
-  <property name="supersized_fit_always" type="bool">1</property>
-  <property name="supersized_fit_portrait" type="bool">1</property>
-  <property name="supersized_fit_landscape" type="bool">1</property>
-  <property name="supersized_thumbnail_navigation" type="bool">1</property>
-  <property name="supersized_thumb_links" type="bool">1</property>
-  <property name="supersized_slide_links" type="bool">1</property>
-  <property name="supersized_progress_bar" type="bool">1</property>
-  <property name="supersized_show_controls" type="bool">1</property>
+  <property name="supersized_horizontal_center" type="boolean">1</property>
+  <property name="supersized_vertical_center" type="boolean">1</property>
+  <property name="supersized_fit_always" type="boolean">1</property>
+  <property name="supersized_fit_portrait" type="boolean">1</property>
+  <property name="supersized_fit_landscape" type="boolean">1</property>
+  <property name="supersized_thumbnail_navigation" type="boolean">1</property>
+  <property name="supersized_thumb_links" type="boolean">1</property>
+  <property name="supersized_slide_links" type="boolean">1</property>
+  <property name="supersized_progress_bar" type="boolean">1</property>
+  <property name="supersized_show_controls" type="boolean">1</property>
   <property name="supersized_css" type="string">1</property>
   <property name="presentation_effect" type="string">1</property>
   <property name="presentation_width" type="int">1</property>
