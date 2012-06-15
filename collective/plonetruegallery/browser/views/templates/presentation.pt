@@ -1,6 +1,6 @@
 <div class="presentationWrapper"> 
     <ul>
-    <tal:images tal:repeat="img view/batch">
+    <tal:images tal:repeat="img view/adapter/cooked_images">
 	    <li tal:define="number repeat/img/index; 
 	            theimage img/image_url;
 	            thelink img/link;
