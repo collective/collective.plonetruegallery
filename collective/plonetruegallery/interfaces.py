@@ -353,7 +353,8 @@ class IS3sliderDisplaySettings(IBaseSettings):
     s3slider_custom_style = schema.TextLine(
         title=_(u"label_custom_style",
             default=u"Name of Custom css file if you chose that above"),
-        default=u"mycustomstyle.css")    
+        default=u"mycustomstyle.css")
+
 
 class INivosliderDisplaySettings(IBaseSettings):
     nivoslider_width = schema.Int(
@@ -584,16 +585,14 @@ class IContactsheetDisplaySettings(IBaseSettings):
             default=u"Height of (each) image"),
         default=260,
         min=50)
-            
     contactsheet_use_icons = schema.Bool(
         title=_(u"label_contactsheet_use_icons",
             default=u"Use Thumbnail size instead of Size"),
-        default=False)    
-    
+        default=False)
     contactsheet_zoom = schema.Int(
         title=_(u"label_contactsheet_zoom",
             default=u"How many pixels to zoom when mouse over"),
-        default=-10)    
+        default=-10)
     contactsheet_overlay_opacity = schema.Choice(
         title=_(u"label_contactsheet_overlay_opacity",
                 default=u"Opacity on mouse over"),
@@ -648,10 +647,10 @@ class IContactsheetDisplaySettings(IBaseSettings):
                     default=u"Icon style no 2")),
             SimpleTerm("icon_style_iii.css", "icon_style_iii.css",
                 _(u"label_contactsheet_style_icon_iii",
-                	default=u"Icon style no 3")),
+                    default=u"Icon style no 3")),
             SimpleTerm("no_style.css", "no_style.css",
                 _(u"label_contactsheet_style_no",
-                	default=u"No style / css file")),
+                    default=u"No style / css file")),
             SimpleTerm("custom_style", "custom_style",
                 _(u"label_contactsheet_style_custom",
                     default=u"Custom css file")
@@ -683,7 +682,7 @@ class IThumbnailzoomDisplaySettings(IBaseSettings):
     thumbnailzoom_use_icons = schema.Bool(
         title=_(u"label_thumbnailzoom_use_images",
             default=u"Use Image size instead of Thumbnail size"),
-        default=False)    
+        default=False)
     thumbnailzoom_style = schema.Choice(
         title=_(u"label_thumbnailzoom_style",
                 default=u"What stylesheet (css file) to use"),
@@ -701,6 +700,7 @@ class IThumbnailzoomDisplaySettings(IBaseSettings):
         title=_(u"label_custom_style",
             default=u"Name of Custom css file if you chose that above"),
         default=u"mycustomstyle.css")
+
 
 class ISupersizedDisplaySettings(IBaseSettings):
     supersized_slideshow = schema.Bool(
@@ -793,7 +793,8 @@ class ISupersizedDisplaySettings(IBaseSettings):
         default=True)
     supersized_slide_links = schema.Choice(
         title=_(u"label_slide_link",
-            default=u"Show slide names in the center of bottom tray (you will need to style 'Name' with css)"),
+            default=u"Show slide names in the center of bottom tray (you will "
+                    u"need to style 'Name' with css)"),
         default="blank",
         vocabulary=SimpleVocabulary([
             SimpleTerm('name', 'name',
@@ -978,16 +979,3 @@ class IImageInformationRetriever(Interface):
         description
             The image description
         """
-
-
-
-
-
-class IPloneTruegalleryConfiguration(Interface):
-	"""This interface defines the configlet for PloneTruegallery (the control panel). Will try to drag them in 'automatically'"""
-	default_gallery = schema.ASCIILine(title=_(u"default_gallery", default=u'Default Gallery'),
-							description=_(u"default_gallery",
-							default=u'Which gallery type should be the default.'),
-							required=True,
-							default="")
-                              

@@ -1,7 +1,27 @@
+from zope.app.component.hooks import getSite
 from zope.interface import implements
 from persistent.dict import PersistentDict
 from zope.annotation.interfaces import IAnnotations
 from interfaces import IGallerySettings
+from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
+
+
+class AnnotationStorage(object):
+    def __init__(self, context):
+        self.context = context
+
+        annotations = IAnnotations(context)
+
+        self._metadata = annotations.get('collective.plonetruegallery', None)
+        if self._metadata is None:
+            self._metadata = PersistentDict()
+            annotations['collective.plonetruegallery'] = self._metadata
+
+    def put(self, name, value):
+        self._metadata[name] = value
+
+    def get(self, name, default=None):
+        return self._metadata.get(name, default)
 
 
 class GallerySettings(object):
@@ -34,25 +54,25 @@ class GallerySettings(object):
         if None in self._interfaces:
             self._interfaces.remove(None)
 
-        annotations = IAnnotations(context)
-
-        self._metadata = annotations.get('collective.plonetruegallery', None)
-        if self._metadata is None:
-            self._metadata = PersistentDict()
-            annotations['collective.plonetruegallery'] = self._metadata
-
         from collective.plonetruegallery.utils import convertMeasurementToInt
         self._inline_conversions = {
             'nivoslider_width': convertMeasurementToInt,
             'nivoslider_height': convertMeasurementToInt
         }
 
+        self.storage = AnnotationStorage(context)
+        if not IPloneSiteRoot.providedBy(context):
+            self.default_settings = GallerySettings(getSite(),
+                interfaces=interfaces)
+        else:
+            self.default_settings = None
+
     def __setattr__(self, name, value):
         if name in ('context', '_metadata', '_interfaces', 'defaults',
-                    '_inline_conversions'):
+                    'storage', '_inline_conversions', 'default_settings'):
             self.__dict__[name] = value
         else:
-            self._metadata[name] = value
+            self.storage.put(name, value)
 
     def __getattr__(self, name):
         """
@@ -65,11 +85,14 @@ class GallerySettings(object):
         if name in self.defaults:
             default = self.defaults[name]
 
-        for iface in self._interfaces:
-            if name in iface.names():
-                default = iface[name].default
+        if self.default_settings is None:
+            for iface in self._interfaces:
+                if name in iface.names():
+                    default = iface[name].default
+        else:
+            default = getattr(self.default_settings, name)
 
-        value = self._metadata.get(name, default)
+        value = self.storage.get(name, default)
         if name in self._inline_conversions:
             value = self._inline_conversions[name](value)
         return value

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_controlpanel"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone">
- <configlet title="Plonetruegallery settings" action_id="plonetruegallery" appId="plonetruegallery"
+ <configlet title="Plone True Gallery settings" action_id="plonetruegallery" appId="plonetruegallery"
     category="Products" condition_expr=""
     url_expr="string:${portal_url}/@@plonetruegallery_controlpanel" visible="True"
     i18n:attributes="title">

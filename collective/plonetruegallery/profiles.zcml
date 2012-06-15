@@ -5,7 +5,7 @@
 
     <genericsetup:registerProfile
         name="default"
-        title="collective.plonetruegallery"
+        title="Plone True Gallery"
         directory="profiles/default"
         description='Extension profile for the "collective.plonetruegallery" Plone product.'
         provides="Products.GenericSetup.interfaces.EXTENSION"

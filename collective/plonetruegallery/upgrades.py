@@ -113,3 +113,7 @@ def upgrade_to_1_0_5(context):
     jsregistry = getToolByName(context, 'portal_javascripts')
     jsregistry.unregisterResource('++resource++mootools.js')
     jsregistry.unregisterResource('++resource++slideshow.js')
+
+
+def upgrade_to_2_4(context):
+    context.runImportStepFromProfile(default_profile, 'controlpanel')

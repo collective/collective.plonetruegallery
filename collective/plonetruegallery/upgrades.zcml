@@ -35,5 +35,14 @@
         handler=".upgrades.upgrade_to_1_0_5"
         profile="collective.plonetruegallery:default" 
         />
+
+    <gs:upgradeStep
+        title="Upgrade collective.plonetruegallery to 2.4"
+        description="collective.plonetruegallery upgrade step"
+        source="*"
+        destination="2.4"
+        handler=".upgrades.upgrade_to_2_4"
+        profile="collective.plonetruegallery:default" 
+        />
                
 </configure>
