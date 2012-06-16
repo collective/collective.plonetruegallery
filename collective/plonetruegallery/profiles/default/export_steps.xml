@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<export-steps>
+    <export-step id="collective.plonetruegallery.export" version="3"
+        handler="collective.plonetruegallery.exportimport.export"
+        title="Export Plone True Gallery default settings">
+    </export-step>
+</export-steps>

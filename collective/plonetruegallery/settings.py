@@ -5,6 +5,8 @@ from zope.annotation.interfaces import IAnnotations
 from interfaces import IGallerySettings
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 
+ANNOTATION_KEY = 'collective.plonetruegallery'
+
 
 class AnnotationStorage(object):
     def __init__(self, context):
@@ -12,10 +14,10 @@ class AnnotationStorage(object):
 
         annotations = IAnnotations(context)
 
-        self._metadata = annotations.get('collective.plonetruegallery', None)
+        self._metadata = annotations.get(ANNOTATION_KEY, None)
         if self._metadata is None:
             self._metadata = PersistentDict()
-            annotations['collective.plonetruegallery'] = self._metadata
+            annotations[ANNOTATION_KEY] = self._metadata
 
     def put(self, name, value):
         self._metadata[name] = value
