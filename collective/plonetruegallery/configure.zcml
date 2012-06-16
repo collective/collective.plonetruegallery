@@ -9,7 +9,7 @@
     <permission
         id="collective.plonetruegallery.manage"
         title="collective.plonetruegallery: manage galleries"
-    />
+        />
 
     <include package="plone.app.z3cform" />
 
@@ -42,14 +42,13 @@
         component=".vocabularies.GalleryTypeVocabulary"
         name="collective.plonetruegallery.GalleryTypeVocabulary"
         />
-
     <utility
         provides="zope.schema.interfaces.IVocabularyFactory"
         component=".vocabularies.DisplayTypeVocabulary"
         name="collective.plonetruegallery.DisplayTypes"
         />
   
-	<browser:page
+   <browser:page
        name="plonetruegallery_controlpanel"
        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
        class=".configlet.PloneTruegalleryControlPanelView"

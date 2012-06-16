@@ -791,7 +791,7 @@ $(document).ready(function() {
 NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
 
 
-class ContactsheetDisplayType(BaseDisplayType):
+class ContactsheetDisplayType(BatchingDisplayType):
     name = u"contactsheet"
     schema = IContactsheetDisplaySettings
     description = _(u"label_contactsheet_display_type",
@@ -871,7 +871,7 @@ $(document).ready(function() {
 ContactsheetSettings = createSettingsFactory(ContactsheetDisplayType.schema)
 
 
-class ThumbnailzoomDisplayType(BaseDisplayType):
+class ThumbnailzoomDisplayType(BatchingDisplayType):
     name = u"thumbnailzoom"
     schema = IThumbnailzoomDisplaySettings
     description = _(u"label_thumbnailzoom_display_type",
@@ -1055,7 +1055,7 @@ $.supersized({
 SupersizedSettings = createSettingsFactory(SupersizedDisplayType.schema)
 
 
-class PresentationDisplayType(BaseDisplayType):
+class PresentationDisplayType(BatchingDisplayType):
     name = u"presentation"
     schema = IPresentationDisplaySettings
     description = _(u"label_presentation_display_type",

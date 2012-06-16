@@ -1,6 +1,6 @@
 <div class="thumbnailWrapper"  tal:define="steps view/settings/thumbnailzoom_columns" > 
     <ul>
-    <tal:images tal:repeat="img view/adapter/cooked_images">
+    <tal:images tal:repeat="img view/batch">
 	    <li tal:define="number repeat/img/index; theclass python:'row_' + str(number%steps)" tal:attributes="class theclass">
             <a href=""  tal:attributes="href img/link" >
                 <img title="Nighttrain nach Bujumbura"

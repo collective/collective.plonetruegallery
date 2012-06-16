@@ -14,6 +14,9 @@ Next version
 
 - Add ability to have default settings control panel[espen]
 
+- Add ability to have default settings control panel[espen]
+- fixed Thumbnailzoom, Contactsheet and Presentation to use Batch Size setting. 
+
 
 2.3.2 (unreleased)
 ------------------
