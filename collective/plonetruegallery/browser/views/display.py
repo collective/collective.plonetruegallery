@@ -527,15 +527,15 @@ $(document).ready(function() {
         }
 
     def css(self):
-    	style = '%(url)s/++resource++plonetruegallery.resources/s3slider/%(style)s' % {
-    		'url' : self.portal_url,
-    		'style' : self.settings.s3slider_style }
-    	
-    	if self.settings.s3slider_style == 'custom_style':
-    		style = '%(url)s/%(style)s' % {
-    			'url' : self.portal_url,
-    			'style' : self.settings.s3slider_custom_style }		
-    			
+        base = '%s/++resource++plonetruegallery.resources/s3slider' % (
+            self.portal_url)
+        style = '%s/%(style)s' % (base, self.settings.s3slider_style)
+
+        if self.settings.s3slider_style == 'custom_style':
+            style = '%(url)s/%(style)s' % {
+                'url': self.portal_url,
+                'style': self.settings.s3slider_custom_style}
+
         return u"""
         <style>
 #s3slider {
@@ -555,7 +555,7 @@ ul#s3sliderContent {
         'height': self.settings.s3_height,
         'width': self.settings.s3_width,
         'textwidth': self.settings.s3_textwidth,
-        'style' : style,
+        'style': style,
        }
 
 S3sliderSettings = createSettingsFactory(S3sliderDisplayType.schema)
@@ -823,22 +823,23 @@ $(document).ready(function() {
          'portal_url': self.portal_url,
          'boxheight': self.settings.contactsheet_imageheight,
          'boxwidth': self.settings.contactsheet_imagewidth,
-         'imageheight': self.settings.contactsheet_imageheight - (self.settings.contactsheet_zoom) * 2,
-         'imagewidth': self.settings.contactsheet_imagewidth - (self.settings.contactsheet_zoom) * 2,
+         'imageheight': self.settings.contactsheet_imageheight - (
+            self.settings.contactsheet_zoom) * 2,
+         'imagewidth': self.settings.contactsheet_imagewidth - (
+            self.settings.contactsheet_zoom) * 2,
          'speed': self.settings.duration,
-         'zoom' : self.settings.contactsheet_zoom,
+         'zoom': self.settings.contactsheet_zoom
     }
 
-    def css(self):		
-        style = '%(url)s/++resource++plonetruegallery.resources/contactsheet/%(style)s' % {
-            'url' : self.portal_url,
-            'style' : self.settings.contactsheet_style }
+    def css(self):
+        relpath = '++resource++plonetruegallery.resources/contactsheet'
+        style = '%s/%s/%s' % (self.portal_url, relpath,
+            self.settings.contactsheet_style)
 
-    	if self.settings.contactsheet_style == 'custom_style':
-    		style = '%(url)s/%(style)s' % {
-		    	'url' : self.portal_url,
-		    	'style' : self.settings.contactsheet_custom_style }		
-		    
+        if self.settings.contactsheet_style == 'custom_style':
+            style = '%s/%s' % (self.portal_url,
+                self.settings.contactsheet_custom_style)
+
         return u"""
         <style>
 .contactsheet a img {
@@ -862,11 +863,13 @@ $(document).ready(function() {
         'columns': self.settings.contactsheet_columns,
         'boxheight': self.settings.contactsheet_imageheight,
         'boxwidth': self.settings.contactsheet_imagewidth,
-        'imageheight': self.settings.contactsheet_imageheight - (self.settings.contactsheet_zoom) * 2,
-        'imagewidth': self.settings.contactsheet_imagewidth - (self.settings.contactsheet_zoom) * 2,
+        'imageheight': self.settings.contactsheet_imageheight - (
+            self.settings.contactsheet_zoom) * 2,
+        'imagewidth': self.settings.contactsheet_imagewidth - (
+            self.settings.contactsheet_zoom) * 2,
         'overlay_opacity': self.settings.contactsheet_overlay_opacity,
-        'zoom' : self.settings.contactsheet_zoom,
-        'style' : style,
+        'zoom': self.settings.contactsheet_zoom,
+        'style': style
        }
 ContactsheetSettings = createSettingsFactory(ContactsheetDisplayType.schema)
 
@@ -876,7 +879,7 @@ class ThumbnailzoomDisplayType(BatchingDisplayType):
     schema = IThumbnailzoomDisplaySettings
     description = _(u"label_thumbnailzoom_display_type",
         default=u"Thumbnailzoom")
- 
+
     def javascript(self):
         return u"""
 <script type="text/javascript" charset="utf-8">
@@ -933,15 +936,13 @@ $(window).load(function(){
 }
 
     def css(self):
-        style = '%(url)s/thumbnailzoom/%(style)s' % {
-            'url' : self.staticFiles,
-            'style' : self.settings.thumbnailzoom_style }
+        style = '%s/thumbnailzoom/%s' % (
+            self.staticFiles, self.settings.thumbnailzoom_style)
 
-    	if self.settings.thumbnailzoom_style == 'custom_style':
-    		style = '%(url)s/%(style)s' % {
-		    	'url' : self.portal_url,
-		    	'style' : self.settings.thumbnailzoom_custom_style }		
-    
+        if self.settings.thumbnailzoom_style == 'custom_style':
+            style = '%s/%s' % (
+                self.portal_url, self.settings.thumbnailzoom_custom_style)
+
         return u"""
 <link rel="stylesheet" type="text/css" href="%s"/>
 """ % style
@@ -963,7 +964,7 @@ class SupersizedDisplayType(BaseDisplayType):
     href="%(portal_url)s/++resource++supersized.shutter.css"/>
 """ % {
     'portal_url': self.portal_url,
-    'supersized_css' : self.settings.supersized_css
+    'supersized_css': self.settings.supersized_css
     }
 
     def javascript(self):
@@ -992,7 +993,7 @@ $.supersized({
     slideshow: %(slideshow)i, // Slideshow on/off
     autoplay: %(slideshow)i,
     start_slide: 1, // Start slide (0 is random)
-    slide_interval: %(speed)i, 
+    slide_interval: %(speed)i,
     stop_loop: %(stop_loop)i, // Pauses slideshow on last slide
     random: 0, // Randomize slide order (Ignores start slide)
     slide_interval: %(duration)i, // Length between transitions
@@ -1192,5 +1193,3 @@ class ContentFlowDisplayType(BaseDisplayType):
         'addons': addons,
         'max_height': self.settings.flow_max_image_height
     }
-
-
