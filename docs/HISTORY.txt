@@ -4,6 +4,12 @@ Changelog
 Next version
 ------------------
 
+- Added Basque (eu) translation [erral]
+
+- Regenerated i18n files [erral]
+
+- Fixed some i18n issues removing duplicated msgids [erral]
+
 - added more settings for contactsheet and modified contactsheet to
   use "speed" setting for how long time the effect takes. Is is now
   possible to use thumbnail sizes [espen]
