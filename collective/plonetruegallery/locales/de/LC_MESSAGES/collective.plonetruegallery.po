@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-08-20 10:06+0000\n"
+"POT-Creation-Date: 2012-06-19 06:21+0000\n"
 "PO-Revision-Date: 2010-08-20 12:05+0200\n"
 "Last-Translator: Harald Friessnegger <harald@webmeisterei.com>\n"
 "Language-Team: Deutsch <kde-i18n-de@kde.org>\n"
@@ -17,13 +17,14 @@ msgstr ""
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 "X-Generator: Lokalize 1.0\n"
 
-#: ./browser/views/settings.py:78
+#: ./browser/views/settings.py:82
+#: ./configlet.py:15
 msgid "Apply"
 msgstr "Anwenden"
 
-#: ./browser/views/settings.py:63
-msgid "Display Type Settings"
-msgstr "Anzeigespezifische Einstellungen"
+#: ./configlet.py:13
+msgid "Default settings to use for all galleries on site."
+msgstr ""
 
 #: ./profiles/default/actions.xml
 msgid "Gallery Settings"
@@ -34,185 +35,429 @@ msgstr "Galerie Einstellungen"
 msgid "Gallery View"
 msgstr "Galerieansicht"
 
-#: ./browser/views/settings.py:17
+#: ./browser/views/settings.py:20
 msgid "Main"
 msgstr "Basiseinstellungen"
 
+#: ./configlet.py:12
+msgid "PloneTruegallery Default Settings"
+msgstr ""
+
+#. Default: "Customize how large the image shows. If zero, a best guess height will be selected based on thewidth. This is translated to pixels."
+#: ./interfaces.py:905
+msgid "desc_contentflow_image_height"
+msgstr ""
+
 #. Default: "The amount of images shown in one page. This is not used for all display types."
-#: ./interfaces.py:278
+#: ./interfaces.py:251
 msgid "description_batch_size"
 msgstr ""
 
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
-#: ./content/gallery.py:90
-#: ./interfaces.py:250
+#: ./interfaces.py:228
 msgid "description_delay"
 msgstr "Bei zeitgesteuerten Diashows legt die Verzögerung fest, wie lange das Bild vor dem Wechsel angezeigt wird."
 
 #. Default: "The amount of time the change effect should take in miliseconds."
-#: ./content/gallery.py:101
-#: ./interfaces.py:260
+#: ./interfaces.py:236
 msgid "description_fade_in_duration"
 msgstr "Die Dauer des des Übergangeffektes in Millisekunden."
 
 #. Default: "Name/id of your flickr set.(*flickr* gallery type)"
-#: ./interfaces.py:369
+#: ./interfaces.py:927
 #, fuzzy
 msgid "description_flickr_set"
 msgstr "Name oder ID ihres Flickr-Sets"
 
 #. Default: "The username/id of your flickr account. (*flickr* gallery type)"
-#: ./interfaces.py:360
+#: ./interfaces.py:920
 msgid "description_flickr_username"
 msgstr ""
 
+#. Default: "The style of the Galleriffic layout. "
+#: ./interfaces.py:312
+msgid "description_gallerific-style"
+msgstr ""
+
 #. Default: "Configure the parameters for this gallery."
-#: ./browser/views/settings.py:28
+#: ./browser/views/settings.py:32
 msgid "description_gallery_settings_form"
 msgstr ""
 
 #. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints."
-#: ./interfaces.py:216
+#: ./interfaces.py:191
 msgid "description_gallery_size"
 msgstr ""
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
-#: ./content/gallery.py:24
-#: ./interfaces.py:202
+#: ./interfaces.py:170
 msgid "description_gallery_type"
 msgstr "Wählen Sie, welche Art von Galerie sie haben möchten. Bei etwas anderem als 'Standard' müssen sie Informationen unter dem für den Galerie-Typen passenden Reiter eingeben."
 
-#. Default: "The style of the border around the image. (*Highslide* display type)"
-#: ./interfaces.py:334
+#. Default: "The style of the border around the image. "
+#: ./interfaces.py:288
 msgid "description_highslide_outlineType"
 msgstr ""
 
+#. Default: "Choose the position of the slideshow controls. "
+#: ./interfaces.py:271
+msgid "description_highslide_slideshowcontrols_position"
+msgstr ""
+
 #. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
-#: ./interfaces.py:389
+#: ./interfaces.py:944
 #, fuzzy
 msgid "description_picasa_album"
 msgstr "Der Name ihres PICASA Web-Albums. Dies ist der vollständige Name, wie sie ihn in der Adress-Zeile sehen. Wenn sie z.B. ein Album 'Meine Favoriten' haben, so steht in der Adress Zeile etwas wie 'MeineFavoriten'. Nehmen die diesen Namen!"
 
-#. Default: "GMail address of who this album belongs to(including @gmail.com). (*Picasa* gallery type)"
-#: ./interfaces.py:380
+#. Default: "GMail address of who this album belongs to. (*Picasa* gallery type)"
+#: ./interfaces.py:937
 msgid "description_picasa_username"
 msgstr ""
 
-#. Default: "Show Carousel for Slideshow type? (*Slideshow 2* display type)"
-#: ./interfaces.py:296
-msgid "description_show_carousel"
-msgstr ""
-
-#. Default: "Show Info pane for Slideshow type? (*Slideshow 2* display type)"
-#: ./interfaces.py:306
-msgid "description_show_info_pane"
-msgstr ""
-
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
-#: ./interfaces.py:269
+#: ./interfaces.py:244
 msgid "description_show_subgalleries"
 msgstr ""
 
-#. Default: "Select the effect you want to use. (*Slideshow 2* display type)"
-#: ./content/gallery.py:126
-#: ./interfaces.py:316
-msgid "description_slideshowEffect"
-msgstr "Wählen sie einen Übergangseffekt (nur bei 'Slideshow 2' Galerien)"
+#. Default: "The size of thumbnail images. Will only work with plone image gallery type."
+#: ./interfaces.py:206
+msgid "description_thumb_size"
+msgstr ""
 
 #. Default: "Should this gallery automatically change images for the user?"
-#: ./content/gallery.py:80
-#: ./interfaces.py:242
+#: ./interfaces.py:221
 msgid "description_timed"
 msgstr "Soll in dieser Galerie ein automatischer Bildwechsel aktiviert werden?"
 
-#. Default: "Select the transition you want to use when an image is being added(only for classic gallery)."
-#: ./content/gallery.py:113
-msgid "description_transition"
+#. Default: "start gallery out with info showing"
+#: ./interfaces.py:566
+msgid "galleria_desc_auto_show_info"
 msgstr ""
 
-#. Default: "This portlet allows you to show gallery images in a portlet."
-#: ./portlets.py:191
+#. Default: "Auto show info"
+#: ./interfaces.py:565
+msgid "galleria_label_auto_show_info"
+msgstr ""
+
+#. Default: "Theme"
+#: ./interfaces.py:537
+msgid "galleria_theme_title"
+msgstr ""
+
+#. Default: "Transition"
+#: ./interfaces.py:546
+msgid "galleria_transition"
+msgstr ""
+
+#. Default: "This portlet allows you to show galleryimages in a portlet."
+#: ./portlets.py:217
 msgid "gallery_portlet_add_form_description"
 msgstr ""
 
 #. Default: "Add Gallery"
-#: ./portlets.py:190
+#: ./portlets.py:216
 msgid "gallery_portlet_add_form_title"
 msgstr ""
 
-#. Default: "Edit Gallery Portlet"
-#: ./portlets.py:201
+#. Default: "This portlet allows you to show gallery images in a portlet."
+#: ./portlets.py:231
 msgid "gallery_portlet_edit_form_description"
 msgstr ""
 
+#. Default: "Edit Gallery Portlet"
+#: ./portlets.py:229
+msgid "gallery_portlet_edit_form_title"
+msgstr ""
+
 #. Default: "The gallery to show in this portlet."
-#: ./portlets.py:33
+#: ./portlets.py:28
 msgid "gallery_portlet_gallery_description"
 msgstr ""
 
 #. Default: "Gallery"
-#: ./portlets.py:32
+#: ./portlets.py:27
 msgid "gallery_portlet_gallery_title"
 msgstr ""
 
+#. Default: "The height of the image in the portlet.If 0, no height is set."
+#: ./portlets.py:50
+msgid "gallery_portlet_height_description"
+msgstr ""
+
+#. Default: "Height in pixels"
+#: ./portlets.py:49
+msgid "gallery_portlet_height_title"
+msgstr ""
+
 #. Default: "Hide Controls"
-#: ./portlets.py:56
+#: ./portlets.py:64
 msgid "gallery_portlet_hide_controls"
 msgstr ""
 
 #. Default: "Hide portlet gallery controls"
-#: ./portlets.py:57
+#: ./portlets.py:65
 msgid "gallery_portlet_hide_controls_description"
 msgstr ""
 
+#. Default: "Mini gallery"
+#: ./portlets.py:34
+msgid "gallery_portlet_mini"
+msgstr ""
+
+#. Default: "If false, the actual full gallery will render in an iframe and will follow the width and height settings"
+#: ./portlets.py:35
+msgid "gallery_portlet_mini_desc"
+msgstr ""
+
 #. Default: "Check to show the title of the gallery in the portlet"
-#: ./portlets.py:26
+#: ./portlets.py:22
 msgid "gallery_portlet_show_title_description"
 msgstr ""
 
 #. Default: "Show Title?"
-#: ./portlets.py:25
+#: ./portlets.py:21
 msgid "gallery_portlet_show_title_title"
 msgstr ""
 
 #. Default: "Do you want the gallery to be timed?"
-#: ./portlets.py:49
+#: ./portlets.py:58
 msgid "gallery_portlet_timed_description"
 msgstr ""
 
 #. Default: "Timed"
-#: ./portlets.py:48
+#: ./portlets.py:57
 msgid "gallery_portlet_timed_title"
 msgstr ""
 
 #. Default: "The width of the image in the portlet"
-#: ./portlets.py:41
+#: ./portlets.py:43
 msgid "gallery_portlet_width_description"
 msgstr ""
 
-#. Default: "Width"
-#: ./portlets.py:40
+#. Default: "Width in pixels"
+#: ./portlets.py:42
 msgid "gallery_portlet_width_title"
 msgstr ""
 
 #. Default: "Gallery"
-#: ./browser/views/settings.py:27
+#: ./browser/views/settings.py:31
 msgid "heading_gallery_settings_form"
 msgstr ""
 
-#. Default: "sub galleries"
-#: ./browser/views/subgallery.pt:3
-msgid "heading_sub_galleries"
-msgstr "Weitere Galerien"
+#. Default: "Dark"
+#: ./interfaces.py:495
+msgid "label_backgroundcolors"
+msgstr ""
+
+#. Default: "Grey"
+#: ./interfaces.py:497
+msgid "label_backgroundcolors2"
+msgstr ""
+
+#. Default: "Offwhite"
+#: ./interfaces.py:499
+msgid "label_backgroundcolors3"
+msgstr ""
+
+#. Default: "White"
+#: ./interfaces.py:501
+msgid "label_backgroundcolors4"
+msgstr ""
 
 #. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
-#: ./galleryadapters/base.py:22
+#: ./galleryadapters/base.py:27
 msgid "label_base_gallery_type"
 msgstr ""
 
 #. Default: "Batch Size"
-#: ./interfaces.py:277
+#: ./interfaces.py:250
 msgid "label_batch_size"
+msgstr ""
+
+#. Default: "Classic"
+#: ./interfaces.py:542
+msgid "label_classic"
+msgstr ""
+
+#. Default: "Number of images before a forced new row (use a high number if you dont want this)"
+#: ./interfaces.py:573
+msgid "label_contactsheet_columns"
+msgstr ""
+
+#. Default: "Contactsheet"
+#: ./browser/views/display.py:797
+msgid "label_contactsheet_display_type"
+msgstr ""
+
+#. Default: "Height of (each) image"
+#: ./interfaces.py:584
+msgid "label_contactsheet_imageheight"
+msgstr ""
+
+#. Default: "Width of (each) image (when mouse hovers)"
+#: ./interfaces.py:579
+msgid "label_contactsheet_imagewidth"
+msgstr ""
+
+#. Default: "Opacity on mouse over"
+#: ./interfaces.py:597
+msgid "label_contactsheet_overlay_opacity"
+msgstr ""
+
+#. Default: "0 Off"
+#: ./interfaces.py:602
+msgid "label_contactsheet_overlay_opacity0"
+msgstr ""
+
+#. Default: "0.1 Light"
+#: ./interfaces.py:605
+msgid "label_contactsheet_overlay_opacity1"
+msgstr ""
+
+#. Default: "1 Pitch Dark"
+#: ./interfaces.py:629
+msgid "label_contactsheet_overlay_opacity10"
+msgstr ""
+
+#. Default: "0.2"
+#: ./interfaces.py:608
+msgid "label_contactsheet_overlay_opacity2"
+msgstr ""
+
+#. Default: "0.3"
+#: ./interfaces.py:610
+msgid "label_contactsheet_overlay_opacity3"
+msgstr ""
+
+#. Default: "0.4 Medium"
+#: ./interfaces.py:612
+msgid "label_contactsheet_overlay_opacity4"
+msgstr ""
+
+#. Default: "0.5"
+#: ./interfaces.py:615
+msgid "label_contactsheet_overlay_opacity5"
+msgstr ""
+
+#. Default: "0.6"
+#: ./interfaces.py:617
+msgid "label_contactsheet_overlay_opacity6"
+msgstr ""
+
+#. Default: "0.7 Dark"
+#: ./interfaces.py:620
+msgid "label_contactsheet_overlay_opacity7"
+msgstr ""
+
+#. Default: "0.8 Very Dark"
+#: ./interfaces.py:623
+msgid "label_contactsheet_overlay_opacity8"
+msgstr ""
+
+#. Default: "0.9 Almost Black"
+#: ./interfaces.py:626
+msgid "label_contactsheet_overlay_opacity9"
+msgstr ""
+
+#. Default: "What stylesheet (css file) to use"
+#: ./interfaces.py:635
+msgid "label_contactsheet_style"
+msgstr ""
+
+#. Default: "Custom css file"
+#: ./interfaces.py:655
+msgid "label_contactsheet_style_custom"
+msgstr ""
+
+#. Default: "Default"
+#: ./interfaces.py:640
+msgid "label_contactsheet_style_default"
+msgstr ""
+
+#. Default: "Icon style (for small images)"
+#: ./interfaces.py:643
+msgid "label_contactsheet_style_icon"
+msgstr ""
+
+#. Default: "Icon style no 2"
+#: ./interfaces.py:646
+msgid "label_contactsheet_style_icon_ii"
+msgstr ""
+
+#. Default: "Icon style no 3"
+#: ./interfaces.py:649
+msgid "label_contactsheet_style_icon_iii"
+msgstr ""
+
+#. Default: "No style / css file"
+#: ./interfaces.py:652
+msgid "label_contactsheet_style_no"
+msgstr ""
+
+#. Default: "Use Thumbnail size instead of Size"
+#: ./interfaces.py:589
+msgid "label_contactsheet_use_icons"
+msgstr ""
+
+#. Default: "How many pixels to zoom when mouse over"
+#: ./interfaces.py:593
+msgid "label_contactsheet_zoom"
+msgstr ""
+
+#. Default: "Black"
+#: ./interfaces.py:888
+msgid "label_content_flow_addon_black"
+msgstr ""
+
+#. Default: "Gallery"
+#: ./interfaces.py:890
+msgid "label_content_flow_addon_gallery"
+msgstr ""
+
+#. Default: "Roundabout"
+#: ./interfaces.py:893
+msgid "label_content_flow_addon_roundabout"
+msgstr ""
+
+#. Default: "Screwdriver"
+#: ./interfaces.py:896
+msgid "label_content_flow_addon_screwdriver"
+msgstr ""
+
+#. Default: "Slideshow"
+#: ./interfaces.py:899
+msgid "label_content_flow_addon_slideshow"
+msgstr ""
+
+#. Default: "White"
+#: ./interfaces.py:886
+msgid "label_content_flow_addon_white"
+msgstr ""
+
+#. Default: "Addons"
+#: ./interfaces.py:879
+msgid "label_contentflow_addons"
+msgstr ""
+
+#. Default: "Content Flow"
+#: ./browser/views/display.py:1142
+msgid "label_contentflow_display_type"
+msgstr ""
+
+#. Default: "Max Image Height"
+#: ./interfaces.py:903
+msgid "label_contentflow_image_height"
+msgstr ""
+
+#. Default: "Name of Custom css file if you chose that above"
+#: ./interfaces.py:354
+msgid "label_custom_style"
+msgstr ""
+
+#. Default: "Dark"
+#: ./interfaces.py:540
+msgid "label_dark"
 msgstr ""
 
 #. Default: "Use Plone To Manage Images"
@@ -222,19 +467,44 @@ msgid "label_default_gallery_type"
 msgstr "Standard: Verwende Plone zur Bildverwaltung"
 
 #. Default: "Delay"
-#: ./content/gallery.py:89
-#: ./interfaces.py:249
+#: ./interfaces.py:227
 msgid "label_delay"
 msgstr "Verzögerung"
 
-#. Default: "Fade"
-#: ./content/config.py:8
+#. Default: "Fade - crossfade betweens images"
+#: ./interfaces.py:552
+#, fuzzy
 msgid "label_fade"
 msgstr "Überblendung"
 
+#. Default: "Fade Slide - fade between images and slide slightly at the same time"
+#: ./interfaces.py:549
+msgid "label_fadeslide"
+msgstr ""
+
 #. Default: "Fancy Box"
-#: ./browser/views/display.py:244
+#: ./browser/views/display.py:145
 msgid "label_fancybox_display_type"
+msgstr ""
+
+#. Default: "Image will never exceed browser width or height. Ignores min. dimensions"
+#: ./interfaces.py:773
+msgid "label_fit_always"
+msgstr ""
+
+#. Default: "Landscape images will not exceed browser width"
+#: ./interfaces.py:782
+msgid "label_fit_landscape"
+msgstr ""
+
+#. Default: "Portrait images will not exceed browser height"
+#: ./interfaces.py:778
+msgid "label_fit_portrait"
+msgstr ""
+
+#. Default: "Flash - fades into background color between images"
+#: ./interfaces.py:554
+msgid "label_flash"
 msgstr ""
 
 #. Default: "Flickr"
@@ -243,252 +513,832 @@ msgid "label_flickr_gallery_type"
 msgstr "Flickr: Eine Galerie, die sich die Bilder aus einem Flickr-Set holt."
 
 #. Default: "Flickr Set"
-#: ./interfaces.py:368
+#: ./interfaces.py:926
 #, fuzzy
 msgid "label_flickr_set"
 msgstr "Set"
 
 #. Default: "flickr username"
-#: ./interfaces.py:359
+#: ./interfaces.py:919
 #, fuzzy
 msgid "label_flickr_username"
 msgstr "Benutzername/ ID ihres Flickr Kontos"
 
+#. Default: "Galleria"
+#: ./browser/views/display.py:443
+msgid "label_galleria_display_type"
+msgstr ""
+
+#. Default: "Galleriffic"
+#: ./browser/views/display.py:304
+msgid "label_galleriffic_display_type"
+msgstr ""
+
+#. Default: "Layout"
+#: ./interfaces.py:311
+msgid "label_gallerific-style"
+msgstr ""
+
+#. Default: "Default Layout"
+#: ./interfaces.py:318
+msgid "label_gallerific_style"
+msgstr ""
+
+#. Default: "Linklayout"
+#: ./interfaces.py:321
+msgid "label_gallerific_style2"
+msgstr ""
+
 #. Default: "Gallery Display Type"
-#: ./content/gallery.py:50
-#: ./interfaces.py:229
+#: ./interfaces.py:178
 msgid "label_gallery_display_type"
 msgstr "Anzeigeart der Galerie"
 
 #. Default: "Choose the method in which the gallery should be displayed"
-#: ./content/gallery.py:51
-#: ./interfaces.py:230
+#: ./interfaces.py:180
 msgid "label_gallery_display_type_description"
 msgstr "Wählen sie die Methode mit der ihre Galerie angezeigt werden soll."
 
-#. Default: "Gallery Name"
-#: ./content/gallery.py:14
-msgid "label_gallery_name"
-msgstr "Name der Galerie"
-
 #. Default: "Size"
-#: ./content/gallery.py:37
-#: ./interfaces.py:215
+#: ./interfaces.py:190
 msgid "label_gallery_size"
 msgstr "Größe"
 
 #. Default: "Type"
-#: ./content/gallery.py:23
-#: ./interfaces.py:201
+#: ./interfaces.py:169
 msgid "label_gallery_type"
 msgstr "Art"
 
 #. Default: "Highslide - verify terms of use"
-#: ./browser/views/display.py:286
+#: ./browser/views/display.py:200
 msgid "label_highslide_display_type"
 msgstr ""
 
 #. Default: "Image outline type"
-#: ./interfaces.py:333
+#: ./interfaces.py:287
 msgid "label_highslide_outlineType"
 msgstr ""
 
 #. Default: "Drop Shadow"
-#: ./interfaces.py:345
+#: ./interfaces.py:300
 msgid "label_highslide_outlineType_drop_shadow"
 msgstr ""
 
 #. Default: "Glossy Dark"
-#: ./interfaces.py:347
+#: ./interfaces.py:303
 msgid "label_highslide_outlineType_glossy_dark"
 msgstr ""
 
 #. Default: "Outer Glow"
-#: ./interfaces.py:343
+#: ./interfaces.py:297
 msgid "label_highslide_outlineType_outer_glow"
 msgstr ""
 
 #. Default: "Rounded White"
-#: ./interfaces.py:341
+#: ./interfaces.py:294
 msgid "label_highslide_outlineType_rounded_white"
 msgstr ""
 
+#. Default: "bottom"
+#: ./interfaces.py:283
+msgid "label_highslide_slideshowcontrols_position_bottom"
+msgstr ""
+
+#. Default: "middle"
+#: ./interfaces.py:280
+msgid "label_highslide_slideshowcontrols_position_middle"
+msgstr ""
+
+#. Default: "top"
+#: ./interfaces.py:277
+msgid "label_highslide_slideshowcontrols_position_top"
+msgstr ""
+
 #. Default: "You can only use the Highslide gallery for non-commercial use unless you purchase a commercial license. Please visit http://highslide.com/ for details."
-#: ./browser/views/display.py:288
+#: ./browser/views/display.py:202
 msgid "label_highslide_user_warning"
 msgstr ""
 
+#. Default: "Horizontally center background"
+#: ./interfaces.py:765
+msgid "label_horizontal_center"
+msgstr ""
+
 #. Default: "Change Duration"
-#: ./content/gallery.py:100
-#: ./interfaces.py:259
+#: ./interfaces.py:235
 msgid "label_image_change_duration"
 msgstr "Übergansgdauer"
 
+#. Default: "Light"
+#: ./interfaces.py:541
+msgid "label_light"
+msgstr ""
+
+#. Default: "Min height allowed, in pixels"
+#: ./interfaces.py:761
+msgid "label_min_height"
+msgstr ""
+
+#. Default: "Min width allowed, in pixels"
+#: ./interfaces.py:757
+msgid "label_min_width"
+msgstr ""
+
+#. Default: "mini"
+#: ./interfaces.py:214
+msgid "label_mini"
+msgstr ""
+
+#. Default: "Show navigation arrows on the image"
+#: ./interfaces.py:461
+msgid "label_nivogallery_directionnav"
+msgstr ""
+
+#. Default: "Nivogallery"
+#: ./browser/views/display.py:745
+msgid "label_nivogallery_display_type"
+msgstr ""
+
+#. Default: "Height of the gallery. You can not set the height in %"
+#: ./interfaces.py:473
+msgid "label_nivogallery_height"
+msgstr ""
+
+#. Default: "Show progressbar at the top"
+#: ./interfaces.py:465
+msgid "label_nivogallery_progressbar"
+msgstr ""
+
+#. Default: "Width of the gallery"
+#: ./interfaces.py:469
+msgid "label_nivogallery_width"
+msgstr ""
+
+#. Default: "Number of columns for box animations"
+#: ./interfaces.py:450
+msgid "label_nivoslider_boxcols"
+msgstr ""
+
+#. Default: "Number of rows for box animations"
+#: ./interfaces.py:454
+msgid "label_nivoslider_boxrows"
+msgstr ""
+
+#. Default: "Only show Next & Prev on hover"
+#: ./interfaces.py:438
+msgid "label_nivoslider_directionnavhide"
+msgstr ""
+
+#. Default: "Nivoslider"
+#: ./browser/views/display.py:665
+msgid "label_nivoslider_display_type"
+msgstr ""
+
+#. Default: "Transition Effect"
+#: ./interfaces.py:391
+msgid "label_nivoslider_effect"
+msgstr ""
+
+#. Default: "Fold"
+#: ./interfaces.py:395
+msgid "label_nivoslider_effect1"
+msgstr ""
+
+#. Default: "Box Rain"
+#: ./interfaces.py:415
+msgid "label_nivoslider_effect10"
+msgstr ""
+
+#. Default: "Box Rain Reverse"
+#: ./interfaces.py:417
+msgid "label_nivoslider_effect11"
+msgstr ""
+
+#. Default: "Box Random"
+#: ./interfaces.py:419
+msgid "label_nivoslider_effect12"
+msgstr ""
+
+#. Default: "Box Rain Grow"
+#: ./interfaces.py:421
+msgid "label_nivoslider_effect13"
+msgstr ""
+
+#. Default: "box Rain Grow Reverse"
+#: ./interfaces.py:423
+msgid "label_nivoslider_effect14"
+msgstr ""
+
+#. Default: "Random"
+#: ./interfaces.py:426
+msgid "label_nivoslider_effect15"
+msgstr ""
+
+#. Default: "Slice Down Left"
+#: ./interfaces.py:401
+msgid "label_nivoslider_effect16"
+msgstr ""
+
+#. Default: "Fade"
+#: ./interfaces.py:397
+msgid "label_nivoslider_effect2"
+msgstr ""
+
+#. Default: "Slice Down"
+#: ./interfaces.py:399
+msgid "label_nivoslider_effect3"
+msgstr ""
+
+#. Default: "Slice Up"
+#: ./interfaces.py:403
+msgid "label_nivoslider_effect4"
+msgstr ""
+
+#. Default: "Slice Up Left"
+#: ./interfaces.py:405
+msgid "label_nivoslider_effect5"
+msgstr ""
+
+#. Default: "Slice Up Down"
+#: ./interfaces.py:407
+msgid "label_nivoslider_effect6"
+msgstr ""
+
+#. Default: "Slice Up Down Left"
+#: ./interfaces.py:409
+msgid "label_nivoslider_effect7"
+msgstr ""
+
+#. Default: "Slide In Right"
+#: ./interfaces.py:411
+msgid "label_nivoslider_effect8"
+msgstr ""
+
+#. Default: "Slide In Left"
+#: ./interfaces.py:413
+msgid "label_nivoslider_effect9"
+msgstr ""
+
+#. Default: "Height of the gallery in pixels"
+#: ./interfaces.py:365
+msgid "label_nivoslider_height"
+msgstr ""
+
+#. Default: "Stop animation while hovering?"
+#: ./interfaces.py:442
+msgid "label_nivoslider_pauseonhover"
+msgstr ""
+
+#. Default: "Next & Prev navigation??"
+#: ./interfaces.py:434
+msgid "label_nivoslider_r_directionnar"
+msgstr ""
+
+#. Default: "Start on random image?"
+#: ./interfaces.py:430
+msgid "label_nivoslider_randomstart"
+msgstr ""
+
+#. Default: "Nuber of slices, for slice animations"
+#: ./interfaces.py:446
+msgid "label_nivoslider_slices"
+msgstr ""
+
+#. Default: "Default Theme"
+#: ./interfaces.py:373
+msgid "label_nivoslider_theme1"
+msgstr ""
+
+#. Default: "Orman Theme"
+#: ./interfaces.py:375
+msgid "label_nivoslider_theme2"
+msgstr ""
+
+#. Default: "Pascal Theme"
+#: ./interfaces.py:377
+msgid "label_nivoslider_theme3"
+msgstr ""
+
+#. Default: "Old Frame Theme"
+#: ./interfaces.py:379
+msgid "label_nivoslider_theme4"
+msgstr ""
+
+#. Default: "Overlay Theme"
+#: ./interfaces.py:381
+msgid "label_nivoslider_theme5"
+msgstr ""
+
+#. Default: "Bendit Theme"
+#: ./interfaces.py:383
+msgid "label_nivoslider_theme6"
+msgstr ""
+
+#. Default: "TV Theme"
+#: ./interfaces.py:385
+msgid "label_nivoslider_theme7"
+msgstr ""
+
+#. Default: "Thumbnail Theme"
+#: ./interfaces.py:387
+msgid "label_nivoslider_theme8"
+msgstr ""
+
+#. Default: "Width of the gallery in pixels"
+#: ./interfaces.py:361
+msgid "label_nivoslider_width"
+msgstr ""
+
 #. Default: "There are no images in this gallery."
-#: ./browser/views/layout.pt:25
+#: ./browser/views/templates/layout.pt:23
 msgid "label_no_images_in_gallery"
 msgstr "In dieser Galerie sind keine Bilder."
 
+#. Default: "Performance"
+#: ./interfaces.py:738
+msgid "label_performance"
+msgstr ""
+
 #. Default: "Picasa Album"
-#: ./interfaces.py:388
+#: ./interfaces.py:943
 #, fuzzy
 msgid "label_picasa_album"
 msgstr "Album"
 
 #. Default: "Picasa Web Albums"
-#: ./galleryadapters/picasa.py:31
+#: ./galleryadapters/picasa.py:32
 msgid "label_picasa_gallery_type"
 msgstr "Picasa: Eine Galerie, die sich die Bilder aus einem Picasa-Web-Album holt."
 
 #. Default: "GMail address"
-#: ./interfaces.py:379
+#: ./interfaces.py:936
 #, fuzzy
 msgid "label_picasa_username"
 msgstr "E-Mail-Adresse des Album-Besitzers (mit '@gmail.com')"
 
-#. Default: "Show"
-#: ./content/config.py:9
-msgid "label_show"
-msgstr "Anzeige"
+#. Default: "backgroundcolor"
+#: ./interfaces.py:490
+msgid "label_pikachoose_backgroundcolor"
+msgstr ""
 
-#. Default: "Carousel"
-#: ./content/gallery.py:63
-#: ./interfaces.py:295
-#, fuzzy
-msgid "label_show_carousel"
-msgstr "Zeige Karussel?"
+#. Default: "Show caption"
+#: ./interfaces.py:508
+msgid "label_pikachoose_caption"
+msgstr ""
 
-#. Default: "Info Pane"
-#: ./content/gallery.py:71
-#: ./interfaces.py:305
-#, fuzzy
-msgid "label_show_info_pane"
-msgstr "Zeige Info-Panel"
+#. Default: "Pikachoose"
+#: ./browser/views/display.py:568
+msgid "label_pikachoose_display_type"
+msgstr ""
+
+#. Default: "Height of the gallery in pixels"
+#: ./interfaces.py:485
+msgid "label_pikachoose_height"
+msgstr ""
+
+#. Default: "Show tooltip"
+#: ./interfaces.py:505
+msgid "label_pikachoose_tooltip"
+msgstr ""
+
+#. Default: "Transition"
+#: ./interfaces.py:514
+msgid "label_pikachoose_transition"
+msgstr ""
+
+#. Default: "Vertical"
+#: ./interfaces.py:511
+msgid "label_pikachoose_vertical"
+msgstr ""
+
+#. Default: "Width of the gallery in pixels"
+#: ./interfaces.py:480
+msgid "label_pikachoose_width"
+msgstr ""
+
+#. Default: "Click on image"
+#: ./interfaces.py:830
+msgid "label_presentation_click"
+msgstr ""
+
+#. Default: "Presentation"
+#: ./browser/views/display.py:1062
+msgid "label_presentation_display_type"
+msgstr ""
+
+#. Default: "Mouseover or click"
+#: ./interfaces.py:825
+msgid "label_presentation_effect"
+msgstr ""
+
+#. Default: "Height of the gallery in pixels"
+#: ./interfaces.py:841
+msgid "label_presentation_height"
+msgstr ""
+
+#. Default: "Minimum width of images"
+#: ./interfaces.py:846
+msgid "label_presentation_minimum_width"
+msgstr ""
+
+#. Default: "Mouse enter"
+#: ./interfaces.py:832
+msgid "label_presentation_mouseover"
+msgstr ""
+
+#. Default: "Width of the gallery in pixels"
+#: ./interfaces.py:836
+msgid "label_presentation_width"
+msgstr ""
+
+#. Default: "Horizontal image position"
+#: ./interfaces.py:850
+msgid "label_presentation_xposition"
+msgstr ""
+
+#. Default: "Bottom"
+#: ./interfaces.py:859
+msgid "label_presentation_xpositionbottom"
+msgstr ""
+
+#. Default: "Center"
+#: ./interfaces.py:857
+msgid "label_presentation_xpositioncenter"
+msgstr ""
+
+#. Default: "Top"
+#: ./interfaces.py:855
+msgid "label_presentation_xpositiontop"
+msgstr ""
+
+#. Default: "Vertical image position"
+#: ./interfaces.py:863
+msgid "label_presentation_yposition"
+msgstr ""
+
+#. Default: "Center"
+#: ./interfaces.py:870
+msgid "label_presentation_ypositioncenter"
+msgstr ""
+
+#. Default: "Left"
+#: ./interfaces.py:868
+msgid "label_presentation_ypositionleft"
+msgstr ""
+
+#. Default: "Right"
+#: ./interfaces.py:872
+msgid "label_presentation_ypositionright"
+msgstr ""
+
+#. Default: "preview"
+#: ./interfaces.py:215
+msgid "label_preview"
+msgstr ""
+
+#. Default: "Show progress bar"
+#: ./interfaces.py:809
+msgid "label_progress_bar"
+msgstr ""
+
+#. Default: "Pulse - quickly removes the image into background color, then fades the next image"
+#: ./interfaces.py:557
+msgid "label_pulse"
+msgstr ""
+
+#. Default: "Height of the gallery"
+#: ./interfaces.py:333
+msgid "label_s3_height"
+msgstr ""
+
+#. Default: "Width of the (black) text box"
+#: ./interfaces.py:337
+msgid "label_s3_textwidth"
+msgstr ""
+
+#. Default: "Width of the gallery"
+#: ./interfaces.py:329
+msgid "label_s3_width"
+msgstr ""
+
+#. Default: "s3slider"
+#: ./browser/views/display.py:509
+msgid "label_s3slider_display_type"
+msgstr ""
+
+#. Default: "What stylesheet (css file) to use"
+#: ./interfaces.py:341
+msgid "label_s3slider_style"
+msgstr ""
+
+#. Default: "Custom css file"
+#: ./interfaces.py:349
+msgid "label_s3slider_style_custom"
+msgstr ""
+
+#. Default: "Default"
+#: ./interfaces.py:346
+msgid "label_s3slider_style_default"
+msgstr ""
+
+#. Default: "Hide ALL Controls"
+#: ./interfaces.py:813
+msgid "label_show_controls"
+msgstr ""
 
 #. Default: "Show Sub-Galleries?"
-#: ./interfaces.py:268
+#: ./interfaces.py:243
 msgid "label_show_subgalleries"
 msgstr ""
 
 #. Default: "Large"
-#: ./content/gallery.py:42
-#: ./interfaces.py:224
+#: ./interfaces.py:201
 msgid "label_size_large"
 msgstr "Groß"
 
 #. Default: "Medium"
-#: ./content/gallery.py:41
-#: ./interfaces.py:223
+#: ./interfaces.py:199
 msgid "label_size_medium"
 msgstr "Mittel"
 
 #. Default: "Small"
-#: ./content/gallery.py:40
-#: ./interfaces.py:222
+#: ./interfaces.py:197
 msgid "label_size_small"
 msgstr "Klein"
 
-#. Default: "Slideshow type effect"
-#: ./content/gallery.py:125
-#: ./interfaces.py:315
-#, fuzzy
-msgid "label_slideshowEffect"
-msgstr "Effekt der Diashow"
+#. Default: "Slide - slides the images depending on image position"
+#: ./interfaces.py:560
+msgid "label_slide"
+msgstr ""
 
-#. Default: "Flash"
-#: ./content/gallery.py:131
-#: ./interfaces.py:322
-msgid "label_slideshowEffect_flash"
-msgstr "Flash"
+#. Default: "Show slide names in the center of bottom tray (you will need to style 'Name' with css)"
+#: ./interfaces.py:795
+msgid "label_slide_link"
+msgstr ""
 
-#. Default: "Fold"
-#: ./content/gallery.py:132
-#: ./interfaces.py:323
-msgid "label_slideshowEffect_fold"
-msgstr "Umklappen"
+#. Default: "Blank"
+#: ./interfaces.py:804
+msgid "label_slide_links_blank"
+msgstr ""
 
-#. Default: "Ken Burns"
-#: ./content/gallery.py:133
-#: ./interfaces.py:324
-msgid "label_slideshowEffect_kenburns"
-msgstr "Ken Burns"
+#. Default: "Name"
+#: ./interfaces.py:801
+msgid "label_slide_links_name"
+msgstr ""
 
-#. Default: "none"
-#: ./content/gallery.py:135
-#: ./interfaces.py:326
-msgid "label_slideshowEffect_none"
-msgstr "keiner"
+#. Default: "Slideshow on"
+#: ./interfaces.py:707
+msgid "label_slideshow"
+msgstr ""
 
-#. Default: "Push"
-#: ./content/gallery.py:134
-#: ./interfaces.py:325
-msgid "label_slideshowEffect_push"
-msgstr "Drücken"
+#. Default: "Pauses slideshow on last slide"
+#: ./interfaces.py:711
+msgid "label_stop_loop"
+msgstr ""
 
-#. Default: "Slideshow 2"
-#: ./browser/views/display.py:111
-msgid "label_slideshow_display_type"
-msgstr "Slideshow 2 Javascript Galerie"
+#. Default: "CSS to customize the layout"
+#: ./interfaces.py:817
+msgid "label_supersized_css"
+msgstr ""
+
+#. Default: "Supersized"
+#: ./browser/views/display.py:955
+msgid "label_supersized_display_type"
+msgstr ""
+
+#. Default: "Normal"
+#: ./interfaces.py:743
+msgid "label_supersized_performance0"
+msgstr ""
+
+#. Default: "Hybrid between speed and quality"
+#: ./interfaces.py:745
+msgid "label_supersized_performance1"
+msgstr ""
+
+#. Default: "Optimizes image quality"
+#: ./interfaces.py:748
+msgid "label_supersized_performance2"
+msgstr ""
+
+#. Default: "Optimizes transition speed. Only works for Firefox, IE, not Webkit"
+#: ./interfaces.py:751
+msgid "label_supersized_performance3"
+msgstr ""
+
+#. Default: "Transition"
+#: ./interfaces.py:715
+msgid "label_supersized_transition"
+msgstr ""
+
+#. Default: "None"
+#: ./interfaces.py:720
+msgid "label_supersized_transition0"
+msgstr ""
+
+#. Default: "Fade"
+#: ./interfaces.py:722
+msgid "label_supersized_transition1"
+msgstr ""
+
+#. Default: "Slide Top"
+#: ./interfaces.py:724
+msgid "label_supersized_transition2"
+msgstr ""
+
+#. Default: "Slide Right"
+#: ./interfaces.py:726
+msgid "label_supersized_transition3"
+msgstr ""
+
+#. Default: "Slide Bottom"
+#: ./interfaces.py:728
+msgid "label_supersized_transition4"
+msgstr ""
+
+#. Default: "Slide Left"
+#: ./interfaces.py:730
+msgid "label_supersized_transition5"
+msgstr ""
+
+#. Default: "Carousel Right"
+#: ./interfaces.py:732
+msgid "label_supersized_transition6"
+msgstr ""
+
+#. Default: "Carousel Left"
+#: ./interfaces.py:734
+msgid "label_supersized_transition7"
+msgstr ""
+
+#. Default: "thumb"
+#: ./interfaces.py:213
+msgid "label_thumb"
+msgstr ""
+
+#. Default: "Individual thumb links for each slide in the 'bottom tray'"
+#: ./interfaces.py:790
+msgid "label_thumb_links"
+msgstr ""
+
+#. Default: "Thumbnail image size"
+#: ./interfaces.py:205
+msgid "label_thumb_size"
+msgstr ""
+
+#. Default: "Show next and previous thumb "
+#: ./interfaces.py:786
+msgid "label_thumbnail_navigation"
+msgstr ""
+
+#. Default: "Number of thumbs before a forced new row (use a high number if you dont want this)"
+#: ./interfaces.py:668
+msgid "label_thumbnailzoom_columns"
+msgstr ""
+
+#. Default: "Thumbnailzoom"
+#: ./browser/views/display.py:880
+msgid "label_thumbnailzoom_display_type"
+msgstr ""
+
+#. Default: "Pixels to zoom when mouse over"
+#: ./interfaces.py:674
+msgid "label_thumbnailzoom_increase"
+msgstr ""
+
+#. Default: "What stylesheet (css file) to use"
+#: ./interfaces.py:687
+msgid "label_thumbnailzoom_style"
+msgstr ""
+
+#. Default: "Custom css file"
+#: ./interfaces.py:695
+msgid "label_thumbnailzoom_style_custom"
+msgstr ""
+
+#. Default: "Default"
+#: ./interfaces.py:692
+msgid "label_thumbnailzoom_style_default"
+msgstr ""
+
+#. Default: "Use Image size instead of Thumbnail size"
+#: ./interfaces.py:683
+msgid "label_thumbnailzoom_use_images"
+msgstr ""
+
+#. Default: "How long time the effect takes"
+#: ./interfaces.py:678
+msgid "label_thumbnaizoom_effectduration"
+msgstr ""
+
+#. Default: "tile"
+#: ./interfaces.py:212
+msgid "label_tile"
+msgstr ""
 
 #. Default: "Timed?"
-#: ./content/gallery.py:79
-#: ./interfaces.py:241
+#: ./interfaces.py:220
 msgid "label_timed"
 msgstr "Zeitgesteuert?"
 
-#. Default: "Transition"
-#: ./content/gallery.py:112
-msgid "label_transition"
-msgstr "Übergang"
+#. Default: "Full frame cross fade"
+#: ./interfaces.py:518
+msgid "label_transitions"
+msgstr ""
+
+#. Default: "Paneled fold out"
+#: ./interfaces.py:520
+msgid "label_transitions2"
+msgstr ""
+
+#. Default: "Horizontal blinds"
+#: ./interfaces.py:522
+msgid "label_transitions3"
+msgstr ""
+
+#. Default: "Vertical blinds"
+#: ./interfaces.py:524
+msgid "label_transitions4"
+msgstr ""
+
+#. Default: "Small box random fades"
+#: ./interfaces.py:526
+msgid "label_transitions5"
+msgstr ""
+
+#. Default: "Full image blind slide"
+#: ./interfaces.py:528
+msgid "label_transitions6"
+msgstr ""
+
+#. Default: "Fade out then fade in"
+#: ./interfaces.py:530
+msgid "label_transitions7"
+msgstr ""
 
 #. Default: "Could not find flickr set."
-#: ./validators.py:72
+#: ./validators.py:79
 #, fuzzy
 msgid "label_validate_flickr_find_set"
 msgstr "Flickr Fehler: Das Flickr Set konnte nicht gefunden werden."
 
 #. Default: "You must specify a flickr set to use."
-#: ./validators.py:61
+#: ./validators.py:65
 #, fuzzy
 msgid "label_validate_flickr_specify_user"
 msgstr "Flickr Fehler: Das Flickr Set muss angegeben werden."
 
 #. Default: "You must specify a username."
-#: ./validators.py:96
+#: ./validators.py:105
 #, fuzzy
 msgid "label_validate_flickr_specify_username"
 msgstr "Flickr Fehler: Der Benutzername muss angegeben werden."
 
 #. Default: "Could not find flickr user."
-#: ./validators.py:105
+#: ./validators.py:116
 #, fuzzy
 msgid "label_validate_flickr_user"
 msgstr "Flickr Fehler: Überprüfung des Flickr Benutzers fehlgeschlagen."
 
 #. Default: "You must specify a picasa album."
-#: ./validators.py:148
+#: ./validators.py:160
 msgid "label_validate_picasa_ablum_empty"
 msgstr ""
 
 #. Default: "Could not find album."
-#: ./validators.py:157
+#: ./validators.py:173
 #, fuzzy
 msgid "label_validate_picasa_find_album"
 msgstr "Picasa Fehler: Album nicht gefunden."
 
-#. Default: "You must specify a picasa username with the '@gmail.com'"
-#: ./validators.py:127
+#. Default: "You must specify a picasa username."
+#: ./validators.py:139
 #, fuzzy
 msgid "label_validate_picasa_specify_username"
 msgstr "Picasa Fehler: Der Benutzername muss '@gmail.com' beinhalten."
 
+#. Default: "Vertically center background"
+#: ./interfaces.py:769
+msgid "label_vertical_center"
+msgstr ""
+
+#. Default: "Highslide controls position"
+#: ./interfaces.py:269
+msgid "lable_highslide_slideshowcontrols_position"
+msgstr ""
+
+#. Default: "Nivoslider Theme"
+#: ./interfaces.py:369
+msgid "nivoslider_theme"
+msgstr ""
+
 #. Default: "There are no changes in the Gallery settings."
-#: ./browser/views/settings.py:31
+#: ./browser/views/settings.py:37
 msgid "noChangesMessage_gallery_settings_form"
 msgstr ""
 
 #. Default: "Gallery Settings Saved."
-#: ./browser/views/settings.py:30
+#: ./browser/views/settings.py:35
 msgid "successMessage_gallery_settings_form"
 msgstr ""
 
