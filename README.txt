@@ -50,7 +50,7 @@ Buildout configuration
     collective.js.galleriffic
     collective.js.s3slider
     collective.js.pikachoose
-    collective.js.nivoslider
+    collective.js.nivoslider<3.0
     collective.js.nivogallery
     collective.js.contentflow
     ...

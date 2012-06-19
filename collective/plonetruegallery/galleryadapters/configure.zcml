@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
    	xmlns:zope="http://namespaces.zope.org/zope"
    	xmlns:gallery="http://namespaces.zope.org/gallery"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.plonetruegallery">
 
     <gallery:type
@@ -22,5 +23,7 @@
 
     <adapter factory=".basic.BasicImageInformationRetriever" />
     <adapter factory=".basic.BasicTopicImageInformationRetriever" />
+    <adapter factory=".collection.BasicCollectionImageInformationRetriever"
+        zcml:condition="installed plone.app.collection"/>
 
 </configure>

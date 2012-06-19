@@ -53,7 +53,7 @@ def uninstall(context):
             object_buttons.manage_delObjects([action])
 
     #remove view
-    types_to_remove = ('Large Plone Folder', 'Folder', 'Topic')
+    types_to_remove = ('Large Plone Folder', 'Folder', 'Topic', 'Collection')
     types = getToolByName(portal, 'portal_types')
 
     for _type in types_to_remove:

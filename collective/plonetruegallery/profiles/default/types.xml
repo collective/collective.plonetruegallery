@@ -4,5 +4,6 @@
 
     <object name="Folder"/>
     <object name="Topic"/>
+    <object name="Collection"/>
 
 </object>

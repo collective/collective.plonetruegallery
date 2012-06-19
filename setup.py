@@ -13,6 +13,10 @@ setup(name='collective.plonetruegallery',
         "Framework :: Plone",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
+        "Framework :: Plone :: 3.3",
+        "Framework :: Plone :: 4.0",
+        "Framework :: Plone :: 4.1",
+        "Framework :: Plone :: 4.2"
         ],
       keywords='gallery plone slideshow photo photos image images picasa '
                'flickr highslide nivoslider nivogallery pikachoose fancybox '

@@ -1,8 +1,12 @@
 Changelog
 =========
 
-Next version
+2.4b1 (unreleased)
 ------------------
+
+- respect limiting number of items for collections[vangheem]
+
+- add supersized gallery[espen]
 
 - Added Basque (eu) translation [erral]
 
@@ -21,17 +25,10 @@ Next version
 - Add ability to have default settings control panel[espen]
 
 - Add ability to have default settings control panel[espen]
+
 - fixed Thumbnailzoom, Contactsheet and Presentation to use Batch Size setting. 
 
-
-2.3.2 (unreleased)
-------------------
-
-- respect limiting number of items for collections
-  [vangheem]
-
-- add supersized gallery
-  [espen]
+- compatible with new-style collections[vangheem]
 
 
 2.3.1 (2012-05-11)

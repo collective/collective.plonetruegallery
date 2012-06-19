@@ -102,7 +102,8 @@ class BasicAdapter(BaseAdapter):
             }
 
     def retrieve_images(self):
-        adapter = getMultiAdapter((self.gallery, self), IImageInformationRetriever)
+        adapter = getMultiAdapter((self.gallery, self),
+            IImageInformationRetriever)
         return adapter.getImageInformation()
 
     def cook(self):
