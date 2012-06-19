@@ -65,6 +65,8 @@ Features
 * Galleria, Galleriffic, Highslide JS, s3slider, Pikachoose and Fancybox display types
 * display gallery inline
 * Products.Collage integration
+* Compatible with new-style plone collections
+* Provides base settings configlet
 
 
 Flickr and Picasa Web Album Support
