@@ -529,7 +529,9 @@ $(document).ready(function() {
     def css(self):
         base = '%s/++resource++plonetruegallery.resources/s3slider' % (
             self.portal_url)
-        style = '%s/%(style)s' % (base, self.settings.s3slider_style)
+        style = '%(base)s/%(style)s' % {
+                'base' : base, 
+                'style' : self.settings.s3slider_style}
 
         if self.settings.s3slider_style == 'custom_style':
             style = '%(url)s/%(style)s' % {
