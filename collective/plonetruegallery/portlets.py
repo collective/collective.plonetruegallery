@@ -226,8 +226,8 @@ class GalleryEditForm(base.EditForm):
     form_fields = form.Fields(IGalleryPortlet)
     form_fields['gallery'].custom_widget = UberSelectionWidget
 
-    label = _(u"gallery_portlet_edit_form_description",
+    label = _(u"gallery_portlet_edit_form_title",
         default=u"Edit Gallery Portlet")
-    description = _(u"gallery_portlet_add_form_description",
+    description = _(u"gallery_portlet_edit_form_description",
         default=u"This portlet allows you to show gallery images in a "
                 u"portlet.")

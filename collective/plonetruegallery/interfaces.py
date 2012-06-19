@@ -398,7 +398,7 @@ class INivosliderDisplaySettings(IBaseSettings):
             SimpleTerm('sliceDown', 'sliceDown',
                 _(u"label_nivoslider_effect3", default=u"Slice Down")),
             SimpleTerm('sliceDownLeft', 'sliceDownLeft',
-                _(u"label_nivoslider_effect3", default=u"Slice Down Left")),
+                _(u"label_nivoslider_effect16", default=u"Slice Down Left")),
             SimpleTerm('sliceUp', 'sliceUp',
                 _(u"label_nivoslider_effect4", default=u"Slice Up")),
             SimpleTerm('sliceUpLeft', 'sliceUpLeft',
@@ -626,7 +626,7 @@ class IContactsheetDisplaySettings(IBaseSettings):
                 _(u"label_contactsheet_overlay_opacity9",
                     default=u"0.9 Almost Black")),
             SimpleTerm(1, 1,
-                _(u"label_contactsheet_overlay_opacity9",
+                _(u"label_contactsheet_overlay_opacity10",
                     default=u"1 Pitch Dark")
             )
         ]))
@@ -740,15 +740,15 @@ class ISupersizedDisplaySettings(IBaseSettings):
         default=1,
         vocabulary=SimpleVocabulary([
             SimpleTerm(0, 0,
-                _(u"label_supersized_transition0", default=u"Normal")),
+                _(u"label_supersized_performance0", default=u"Normal")),
             SimpleTerm(1, 1,
-                _(u"label_supersized_transition1",
+                _(u"label_supersized_performance1",
                     default=u"Hybrid between speed and quality")),
             SimpleTerm(2, 2,
-                _(u"label_supersized_transition2",
+                _(u"label_supersized_performance2",
                     default=u"Optimizes image quality")),
             SimpleTerm(3, 3,
-                _(u"label_supersized_transition3",
+                _(u"label_supersized_performance3",
                     default=u"Optimizes transition speed. Only works for "
                             u"Firefox, IE, not Webkit")
             )
