@@ -6,6 +6,8 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.plonetruegallery">
 
+    <include package="Products.CMFCore" zcml:condition="have plone-41" file="permissions.zcml" />
+
      <!-- permission for managing galleries -->
     <permission
         id="collective.plonetruegallery.manage"
@@ -52,7 +54,7 @@
         component=".vocabularies.DisplayTypeVocabulary"
         name="collective.plonetruegallery.DisplayTypes"
         />
-  
+
    <browser:page
        name="plonetruegallery_controlpanel"
        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
