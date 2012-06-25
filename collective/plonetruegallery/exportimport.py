@@ -26,6 +26,11 @@ def install(context):
         view_methods = set(folder.view_methods)
         view_methods.add('galleryview')
         folder.view_methods = tuple(view_methods)
+    if 'Collection' in types.objectIds():
+        folder = types['Collection']
+        view_methods = set(folder.view_methods)
+        view_methods.add('galleryview')
+        folder.view_methods = tuple(view_methods)
 
 
 def export(context):

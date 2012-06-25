@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.4b3 (unreleased)
+------------------
+
+- backward compatible way to use Collection(4.2)
+  [vangheem]
+
 2.4b2 (2012-06-21)
 ------------------
 
