@@ -246,6 +246,7 @@ h1.gallery-title{
     float: right;
     margin: 74px 15px 0 0;
     border: none;
+    z-index: 11;
 }
 
 #galleria-player.play{
