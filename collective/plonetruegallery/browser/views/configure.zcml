@@ -51,9 +51,6 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.INivogalleryDisplaySettings"
 		factory=".display.NivogallerySettings" />
-	<adapter for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IContactsheetDisplaySettings"
-		factory=".display.ContactsheetSettings" />
 	<adapter zcml:condition="installed collective.js.supersized"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.ISupersizedDisplaySettings"
@@ -119,12 +116,6 @@
 		name="galleryview-nivogallery"
 		class=".display.NivogalleryDisplayType"
 		template="templates/nivogallery.pt"
-		permission="zope2.View" />
-	<browser:page 
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-contactsheet"
-		class=".display.ContactsheetDisplayType"
-		template="templates/contactsheet.pt"
 		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.supersized"
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -220,9 +211,6 @@
 		component=".display.GallerifficDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-galleriffic" />
-	<utility component=".display.ContactsheetDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-contactsheet" />
 	<utility zcml:condition="installed collective.js.supersized"
 		component=".display.SupersizedDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"

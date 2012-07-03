@@ -7,7 +7,6 @@ from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
 from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
-from collective.plonetruegallery.interfaces import IContactsheetDisplaySettings
 from collective.plonetruegallery.interfaces import IContentFlowSettings
 from collective.plonetruegallery.interfaces import \
     IThumbnailzoomDisplaySettings
@@ -725,89 +724,6 @@ $(document).ready(function() {
         'base_url': base_url
        }
 NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
-
-
-class ContactsheetDisplayType(BatchingDisplayType):
-    name = u"contactsheet"
-    schema = IContactsheetDisplaySettings
-    description = _(u"label_contactsheet_display_type",
-        default=u"Contactsheet")
-
-    def javascript(self):
-        return u"""
-     <script type="text/javascript">
-$(document).ready(function() {
-    $('.contactsheet a').mouseenter(function(e) {
-        $(this).children('img').animate({
-            height: '%(boxheight)i',
-            left: '0',
-            top: '0',
-            width: '%(boxwidth)i'}, %(speed)i);
-        $(this).children('div').fadeIn(%(speed)i);
-    }).mouseleave(function(e) {
-        $(this).children('img').animate({
-            left: '%(zoom)i',
-            top: '%(zoom)i',
-            height: '%(imageheight)i',
-            width: '%(imagewidth)i'}, %(speed)i);
-        $(this).children('div').fadeOut(%(speed)i);
-    });
-});
-</script>
-
-""" % {
-         'portal_url': self.portal_url,
-         'boxheight': self.settings.contactsheet_imageheight,
-         'boxwidth': self.settings.contactsheet_imagewidth,
-         'imageheight': self.settings.contactsheet_imageheight - (
-            self.settings.contactsheet_zoom) * 2,
-         'imagewidth': self.settings.contactsheet_imagewidth - (
-            self.settings.contactsheet_zoom) * 2,
-         'speed': self.settings.duration,
-         'zoom': self.settings.contactsheet_zoom
-    }
-
-    def css(self):
-        relpath = '++resource++plonetruegallery.resources/contactsheet'
-        style = '%s/%s/%s' % (self.portal_url, relpath,
-            self.settings.contactsheet_style)
-
-        if self.settings.contactsheet_style == 'custom_style':
-            style = '%s/%s' % (self.portal_url,
-                self.settings.contactsheet_custom_style)
-
-        return u"""
-        <style>
-.contactsheet a img {
-    height: %(imageheight)ipx;
-    width: %(imagewidth)ipx;
-    left: %(zoom)ipx;
-    top: %(zoom)ipx;
-}
-.contactsheet a div,
-.contactsheet a {
-    height: %(boxheight)ipx;
-    width: %(boxwidth)ipx;
-}
-.contactsheet a div {
-    background-color: rgba(15, 15, 15, %(overlay_opacity)f);
-}
-
-</style>
-<link rel="stylesheet" type="text/css" href="%(style)s"/>
-""" % {
-        'columns': self.settings.contactsheet_columns,
-        'boxheight': self.settings.contactsheet_imageheight,
-        'boxwidth': self.settings.contactsheet_imagewidth,
-        'imageheight': self.settings.contactsheet_imageheight - (
-            self.settings.contactsheet_zoom) * 2,
-        'imagewidth': self.settings.contactsheet_imagewidth - (
-            self.settings.contactsheet_zoom) * 2,
-        'overlay_opacity': self.settings.contactsheet_overlay_opacity,
-        'zoom': self.settings.contactsheet_zoom,
-        'style': style
-       }
-ContactsheetSettings = createSettingsFactory(ContactsheetDisplayType.schema)
 
 
 class ThumbnailzoomDisplayType(BatchingDisplayType):

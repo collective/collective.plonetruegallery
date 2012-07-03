@@ -9,6 +9,10 @@ Changelog
   will now be collective.ptg.* namespaced.
   [vangheem]
 
+- move to using collective.ptg.galleria
+
+- move to using collective.ptg.contactsheet
+
 
 2.4b3 (2012-06-25)
 ------------------
