@@ -4,12 +4,7 @@ collective.plonetruegallery Documentation
 Introduction
 ------------
 collective.plonetruegallery is a Plone product that implements a very
-customizable and sophisticated gallery. It allows you to add regular
-Plone Galleries, Picasa Web Albums or even Flickr sets.  It also allows
-the user to display the gallery in different sizes, choose between many
-different javascript gallery display types and customize transitions, effects,
-and timing.  This project aims to be everything you need for a Gallery in
-Plone.
+customizable and sophisticated gallery. 
 
 How It Works
 ------------
@@ -152,6 +147,12 @@ From 1.x to 2.x
 ~~~~~~~~~~~~~~~
 
 No longer support Slideshow 2 gallery which has been replaced with galleria.
+
+From * to 3.x
+~~~~~~~~~~~~~
+
+You'll be required to change your respective collective.js dependencies to
+collective.ptg dependencies in buildout, re-run buildout.
 
 
 Installation

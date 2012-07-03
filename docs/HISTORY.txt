@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0b1 (unreleased)
+3.0b1 (2012-07-04)
 ------------------
 
 - no longer use collective.js packages since they caused more
