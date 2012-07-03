@@ -35,10 +35,6 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGallerifficDisplaySettings"
 		factory=".display.GallerifficSettings" />
-	<adapter zcml:condition="installed collective.js.galleria"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IGalleriaDisplaySettings"
-		factory=".display.GalleriaSettings" />
 	<adapter zcml:condition="installed collective.js.pikachoose"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IPikachooseDisplaySettings"
@@ -123,12 +119,6 @@
 		name="galleryview-nivogallery"
 		class=".display.NivogalleryDisplayType"
 		template="templates/nivogallery.pt"
-		permission="zope2.View" />
-	<browser:page zcml:condition="installed collective.js.galleria"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-galleria"
-		class=".display.GalleriaDisplayType"
-		template="templates/galleria.pt"
 		permission="zope2.View" />
 	<browser:page 
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -230,10 +220,6 @@
 		component=".display.GallerifficDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-galleriffic" />
-	<utility zcml:condition="installed collective.js.galleria"
-		component=".display.GalleriaDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-galleria" />
 	<utility component=".display.ContactsheetDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-contactsheet" />

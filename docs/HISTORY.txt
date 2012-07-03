@@ -1,6 +1,15 @@
 Changelog
 =========
 
+3.0b1 (unreleased)
+------------------
+
+- no longer use collective.js packages since they caused more
+  problems and confusion than anything. All gallery dependencies
+  will now be collective.ptg.* namespaced.
+  [vangheem]
+
+
 2.4b3 (2012-06-25)
 ------------------
 

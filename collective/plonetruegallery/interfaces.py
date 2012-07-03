@@ -3,6 +3,7 @@ from zope import schema
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from collective.plonetruegallery import PTGMessageFactory as _
 
+
 class IGalleryAdapter(Interface):
     sizes = Attribute("image size mappings for the gallery type")
     schema = Attribute("Schema of gallery specific")
@@ -530,42 +531,6 @@ class IPikachooseDisplaySettings(IBaseSettings):
                 _(u"label_transitions7", default=u"Fade out then fade in")
             )
         ]))
-
-
-class IGalleriaDisplaySettings(IBaseSettings):
-    galleria_theme = schema.Choice(
-        title=_(u"galleria_theme_title", default=u"Theme"),
-        default='light',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('dark', 'dark', _(u"label_dark", default=u"Dark")),
-            SimpleTerm('light', 'light', _(u"label_light", default=u"Light")),
-            SimpleTerm('classic', 'classic', _(u"label_classic",
-                                               default=u"Classic"))
-        ]))
-    galleria_transition = schema.Choice(
-        title=_(u"galleria_transition", default=u"Transition"),
-        default='fadeslide',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('fadeslide', 'fadeslide', _(u"label_fadeslide",
-                default=u"Fade Slide - fade between images and "
-                        u"slide slightly at the same time")),
-            SimpleTerm('fade', 'fade', _(u"label_fade",
-                default=u"Fade - crossfade betweens images")),
-            SimpleTerm('flash', 'flash', _(u"label_flash",
-                default=u"Flash - fades into background color "
-                        u"between images")),
-            SimpleTerm('pulse', 'pulse', _(u"label_pulse",
-                default=u"Pulse - quickly removes the image into background "
-                        u"color, then fades the next image")),
-            SimpleTerm('slide', 'slide', _(u"label_slide",
-                default=u"Slide - slides the images depending on image "
-                        u"position"))
-        ]))
-    galleria_auto_show_info = schema.Bool(
-        title=_(u'galleria_label_auto_show_info', default="Auto show info"),
-        description=_(u'galleria_desc_auto_show_info',
-            default="start gallery out with info showing"),
-        default=True)
 
 
 class IContactsheetDisplaySettings(IBaseSettings):

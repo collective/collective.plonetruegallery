@@ -3,7 +3,6 @@ from collective.plonetruegallery.interfaces import IFancyBoxDisplaySettings
 from collective.plonetruegallery.interfaces import IHighSlideDisplaySettings
 from collective.plonetruegallery.interfaces import IBatchingDisplayType
 from collective.plonetruegallery.interfaces import IGallerifficDisplaySettings
-from collective.plonetruegallery.interfaces import IGalleriaDisplaySettings
 from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
@@ -434,72 +433,6 @@ $(document).ready(function() {
     'batch_size': self.settings.batch_size
 }
 GallerifficSettings = createSettingsFactory(GallerifficDisplayType.schema)
-
-
-class GalleriaDisplayType(BaseDisplayType):
-
-    name = u"galleria"
-    schema = IGalleriaDisplaySettings
-    description = _(u"label_galleria_display_type",
-        default=u"Galleria")
-
-    js_theme_files = {
-        'dark': '++resource++plonetruegallery.resources/galleria/dark.js',
-        'light': '++resource++plonetruegallery.resources/galleria/light.js',
-        'classic': '++resource++collective.galleria.classic.js'
-    }
-    css_theme_files = {
-        'dark': '++resource++plonetruegallery.resources/galleria/dark.css',
-        'light': '++resource++plonetruegallery.resources/galleria/light.css',
-        'classic': '++resource++collective.galleria.classic.css'
-    }
-
-    def css(self):
-        return u"""
-<link rel="stylesheet" type="text/css"
-    href="%(portal_url)s/%(css_file)s" />
-<style>
-#galleria{
-    height: %(height)ipx;
-}
-</style>
-""" % {
-            'portal_url': self.portal_url,
-            'height': self.height + 60,
-            'css_file': self.css_theme_files[self.settings.galleria_theme]
-        }
-
-    def javascript(self):
-        return u"""
-<script type="text/javascript"
-    src="%(portal_url)s/++resource++collective.galleria.js"></script>
-<script type="text/javascript"
-    src="%(portal_url)s/%(js_file)s"></script>
-<script type="text/javascript">
-(function($){
-$(document).ready(function() {
-    // Initialize Galleria
-    $('#galleria').galleria({
-        theme: 'classic',
-        transitionSpeed: %(duration)i,
-        transition: "%(transition)s",
-        autoplay: %(autoplay)s,
-        clicknext: true,
-        showInfo: %(showInfo)s
-    });
-});
-})(jQuery);
-
-</script>
-""" % {
-    'portal_url': self.portal_url,
-    'js_file': self.js_theme_files[self.settings.galleria_theme],
-    'duration': self.settings.duration,
-    'transition': self.settings.galleria_transition,
-    'autoplay': self.settings.timed and str(self.settings.delay) or 'false',
-    'showInfo': jsbool(self.settings.galleria_auto_show_info)
-}
-GalleriaSettings = createSettingsFactory(GalleriaDisplayType.schema)
 
 
 class S3sliderDisplayType(BaseDisplayType):
