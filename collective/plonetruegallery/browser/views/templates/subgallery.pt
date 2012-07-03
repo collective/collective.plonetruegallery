@@ -12,11 +12,11 @@
     <span i18n:translate="">or</span>
     <form>
       <input name="q" tal:attributes="value request/q|nothing" />
-      <input type="submit" name="submit" value="Search Galleries" />
+      <input type="submit" name="submit" i18n:attributes="value" value="Search Galleries" />
     </form>
     <form>
       <input name="q" type="hidden" />
-      <input type="submit" name="submit" value="Show All" />
+      <input type="submit" name="submit" i18n:attributes="value" value="Show All" />
     </form>
   </div>
   <div id="subgallery-info">
