@@ -27,17 +27,17 @@ the dependant js package in buildout
 
  - galleria(ships with)
  - contact sheet(collective.ptg.contactsheet)
- - thumbnail zoom gallery(ships with)
+ - thumbnail zoom gallery(collective.js.thumbnailzoom)
  - presentation(collective.ptg.presentation)
  - galleriffic(collective.ptg.galleriffic)
  - highslide(collective.ptg.highslide)
  - fancybox(collective.ptg.fancybox)
- - pikachoose(collective.js.s3slider)
- - s3slider(collective.ptg.pikachoose)
+ - pikachoose(collective.ptg.pikachoose)
+ - s3slider(collective.ptg.s3slider)
  - nivo slider(collective.ptg.nivoslider)
  - nivo gallery(collective.ptg.nivogallery)
  - content flow(collective.ptg.contentflow)
- - supersized(collective.js.supersized)
+ - supersized(collective.ptg.supersized)
 
 Buildout configuration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -48,11 +48,14 @@ Buildout configuration
     collective.ptg.highslide
     collective.ptg.fancybox
     collective.ptg.galleriffic
-    collective.js.s3slider
+    collective.ptg.s3slider
     collective.ptg.pikachoose
     collective.ptg.nivoslider
     collective.ptg.nivogallery
-    collective.js.contentflow
+    collective.ptg.contentflow
+    collective.ptg.supersized
+    collective.ptg.thumbnailzoom
+    collective.ptg.contactsheet
     ...
 
 Features

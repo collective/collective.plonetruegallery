@@ -23,14 +23,6 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGallerySettings"
 		factory="collective.plonetruegallery.settings.GallerySettings" />
-	<adapter zcml:condition="installed collective.js.s3slider"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IS3sliderDisplaySettings"
-		factory=".display.S3sliderSettings" />
-	<adapter zcml:condition="installed collective.js.supersized"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.ISupersizedDisplaySettings"
-		factory=".display.SupersizedSettings" />
 	<adapter for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IThumbnailzoomDisplaySettings"
 		factory=".display.ThumbnailzoomSettings" />
@@ -43,18 +35,6 @@
 		name="galleryview"
 		class=".galleryview.GalleryView"
 		template="templates/layout.pt"
-		permission="zope2.View" />
-	<browser:page zcml:condition="installed collective.js.s3slider"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-s3slider"
-		class=".display.S3sliderDisplayType"
-		template="templates/s3slider.pt"
-		permission="zope2.View" />
-	<browser:page zcml:condition="installed collective.js.supersized"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-supersized"
-		class=".display.SupersizedDisplayType"
-		template="templates/supersized.pt"
 		permission="zope2.View" />
 	<browser:page 
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -103,14 +83,6 @@
 
 
 	<!-- display utilities -->
-	<utility zcml:condition="installed collective.js.s3slider"
-		component=".display.S3sliderDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-s3slider" />
-	<utility zcml:condition="installed collective.js.supersized"
-		component=".display.SupersizedDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-supersized" />
 	<utility component=".display.ThumbnailzoomDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-thumbnailzoom" />

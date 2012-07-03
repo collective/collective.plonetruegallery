@@ -29,6 +29,8 @@ Changelog
 
 - move to using collective.ptg.presentation
 
+- move to using collective.ptg.supersized
+
 2.4b3 (2012-06-25)
 ------------------
 
