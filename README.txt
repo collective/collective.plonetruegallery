@@ -29,7 +29,7 @@ the dependant js package in buildout
  - contact sheet(collective.ptg.contactsheet)
  - thumbnail zoom gallery(ships with)
  - presentation(ships with)
- - galleriffic(collective.js.galleriffic)
+ - galleriffic(collective.ptg.galleriffic)
  - highslide(collective.js.highslide)
  - fancybox(collective.ptg.fancybox)
  - pikachoose(collective.js.s3slider)
@@ -47,7 +47,7 @@ Buildout configuration
     collective.plonetruegallery
     collective.js.highslide
     collective.ptg.fancybox
-    collective.js.galleriffic
+    collective.ptg.galleriffic
     collective.js.s3slider
     collective.js.pikachoose
     collective.js.nivoslider<3.0

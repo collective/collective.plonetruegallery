@@ -17,6 +17,7 @@ Changelog
 
 - move to using collective.ptg.fancybox
 
+- move to using collective.ptg.galleriffic
 
 2.4b3 (2012-06-25)
 ------------------

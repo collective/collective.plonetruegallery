@@ -303,24 +303,6 @@ class IHighSlideDisplaySettings(IBaseSettings):
         ]))
 
 
-class IGallerifficDisplaySettings(IBaseSettings):
-    gallerific_style = schema.Choice(
-        title=_(u"label_gallerific-style", default=u"Layout"),
-        description=_(u"description_gallerific-style",
-            default=u"The style of the Galleriffic layout. "
-        ),
-        default='style.css',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('style.css', 'style.css',
-                _(u"label_gallerific_style",
-                                    default=u"Default Layout")),
-            SimpleTerm('style2.css', 'style2.css',
-                _(u"label_gallerific_style2",
-                                    default=u"Linklayout")
-            )
-        ]))
-
-
 class IS3sliderDisplaySettings(IBaseSettings):
     s3_width = schema.TextLine(
         title=_(u"label_s3_width",

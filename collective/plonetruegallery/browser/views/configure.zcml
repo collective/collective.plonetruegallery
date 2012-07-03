@@ -27,10 +27,6 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IHighSlideDisplaySettings"
 		factory=".display.HighSlideSettings" />
-	<adapter zcml:condition="installed collective.js.galleriffic"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IGallerifficDisplaySettings"
-		factory=".display.GallerifficSettings" />
 	<adapter zcml:condition="installed collective.js.pikachoose"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IPikachooseDisplaySettings"
@@ -72,12 +68,6 @@
 		name="galleryview-highslide"
 		class=".display.HighSlideDisplayType"
 		template="templates/highslide.pt"
-		permission="zope2.View" />
-	<browser:page zcml:condition="installed collective.js.galleriffic"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-galleriffic"
-		class=".display.GallerifficDisplayType"
-		template="templates/galleriffic.pt"
 		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.pikachoose"
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -182,10 +172,6 @@
 		component=".display.NivogalleryDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-nivogallery" />
-	<utility zcml:condition="installed collective.js.galleriffic"
-		component=".display.GallerifficDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-galleriffic" />
 	<utility zcml:condition="installed collective.js.supersized"
 		component=".display.SupersizedDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
