@@ -35,7 +35,7 @@ the dependant js package in buildout
  - pikachoose(collective.js.s3slider)
  - s3slider(collective.js.pikachoose)
  - nivo slider(collective.js.nivoslider)
- - nivo gallery(collective.js.nivogallery)
+ - nivo gallery(collective.ptg.nivogallery)
  - content flow(collective.ptg.contentflow)
  - supersized(collective.js.supersized)
 
@@ -51,7 +51,7 @@ Buildout configuration
     collective.js.s3slider
     collective.js.pikachoose
     collective.js.nivoslider<3.0
-    collective.js.nivogallery
+    collective.ptg.nivogallery
     collective.js.contentflow
     ...
 

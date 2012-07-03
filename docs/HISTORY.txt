@@ -21,6 +21,7 @@ Changelog
 
 - move to using collective.ptg.highslide
 
+- move to using collective.ptg.nivogallery
 
 2.4b3 (2012-06-25)
 ------------------

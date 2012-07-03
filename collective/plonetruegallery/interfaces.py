@@ -393,25 +393,6 @@ class INivosliderDisplaySettings(IBaseSettings):
         default=4)
 
 
-class INivogalleryDisplaySettings(IBaseSettings):
-    nivogallery_directionnav = schema.Bool(
-        title=_(u"label_nivogallery_directionnav",
-            default=u"Show navigation arrows on the image"),
-        default=True)
-    nivogallery_progressbar = schema.Bool(
-        title=_(u"label_nivogallery_progressbar",
-            default=u"Show progressbar at the top"),
-        default=True)
-    nivogallery_width = schema.TextLine(
-        title=_(u"label_nivogallery_width",
-            default=u"Width of the gallery"),
-        default=u"600px")
-    nivogallery_height = schema.TextLine(
-        title=_(u"label_nivogallery_height",
-            default=u"Height of the gallery. You can not set the height in %"),
-        default=u"350px")
-
-
 class IPikachooseDisplaySettings(IBaseSettings):
     pikachoose_width = schema.Int(
         title=_(u"label_pikachoose_width",

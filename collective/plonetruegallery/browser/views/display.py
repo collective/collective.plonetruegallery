@@ -3,7 +3,6 @@ from collective.plonetruegallery.interfaces import IBatchingDisplayType
 from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
-from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
 from collective.plonetruegallery.interfaces import \
     IThumbnailzoomDisplaySettings
 from collective.plonetruegallery.interfaces import \
@@ -368,59 +367,6 @@ $(window).load(function() {
         'base_url': base_url
        }
 NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
-
-
-class NivogalleryDisplayType(BaseDisplayType):
-
-    name = u"nivogallery"
-    schema = INivogalleryDisplaySettings
-    description = _(u"label_nivogallery_display_type",
-        default=u"Nivogallery")
-
-    def javascript(self):
-        return u"""
-        <script type="text/javascript"
-    src="%(portal_url)s/++resource++jquery.nivo.gallery.min.js"></script>
-    <script type="text/javascript">
-$(document).ready(function() {
-    $('#gallery').nivoGallery({
-    pauseTime: %(delay)i,
-    animSpeed: %(duration)i,
-    effect: 'fade',
-    startPaused: false,
-    directionNav: %(directionnav)s,
-    progressBar: %(progressbar)s
-    });
-});
-</script>
-
-""" % {
-         'portal_url': self.portal_url,
-         'duration': self.settings.duration,
-         'timed': jsbool(self.settings.timed),
-         'delay': self.settings.delay,
-         'start_automatically': jsbool(self.settings.timed),
-         'directionnav': jsbool(self.settings.nivogallery_directionnav),
-         'progressbar': jsbool(self.settings.nivogallery_progressbar),
-    }
-
-    def css(self):
-        base_url = '%s/++resource++plonetruegallery.resources/nivogallery' % (
-            self.portal_url)
-        return u"""
-        <style>
-       .nivoGallery {
-        height: %(height)s;
-        width: %(width)s;
-        }
-        </style>
-<link rel="stylesheet" type="text/css" href="%(base_url)s/css/style.css"/>
-""" % {
-        'height': self.settings.nivogallery_height,
-        'width': self.settings.nivogallery_width,
-        'base_url': base_url
-       }
-NivogallerySettings = createSettingsFactory(NivogalleryDisplayType.schema)
 
 
 class ThumbnailzoomDisplayType(BatchingDisplayType):

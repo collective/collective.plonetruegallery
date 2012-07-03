@@ -35,10 +35,6 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.INivosliderDisplaySettings"
 		factory=".display.NivosliderSettings" />
-	<adapter zcml:condition="installed collective.js.nivogallery"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.INivogalleryDisplaySettings"
-		factory=".display.NivogallerySettings" />
 	<adapter zcml:condition="installed collective.js.supersized"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.ISupersizedDisplaySettings"
@@ -76,12 +72,6 @@
 		name="galleryview-nivoslider"
 		class=".display.NivosliderDisplayType"
 		template="templates/nivoslider.pt"
-		permission="zope2.View" />
-	<browser:page zcml:condition="installed collective.js.nivogallery"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-nivogallery"
-		class=".display.NivogalleryDisplayType"
-		template="templates/nivogallery.pt"
 		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.supersized"
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -154,10 +144,6 @@
 		component=".display.NivosliderDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-nivoslider" />
-	<utility zcml:condition="installed collective.js.nivogallery"
-		component=".display.NivogalleryDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-nivogallery" />
 	<utility zcml:condition="installed collective.js.supersized"
 		component=".display.SupersizedDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
