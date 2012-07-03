@@ -293,63 +293,6 @@ class IS3sliderDisplaySettings(IBaseSettings):
         default=u"mycustomstyle.css")
 
 
-class IPikachooseDisplaySettings(IBaseSettings):
-    pikachoose_width = schema.Int(
-        title=_(u"label_pikachoose_width",
-            default=u"Width of the gallery in pixels"),
-        default=600,
-        min=10)
-    pikachoose_height = schema.Int(
-        title=_(u"label_pikachoose_height",
-            default=u"Height of the gallery in pixels"),
-        default=350,
-        min=10)
-    pikachoose_backgroundcolor = schema.Choice(
-        title=_(u"label_pikachoose_backgroundcolor",
-                default=u"backgroundcolor"),
-        default='222',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('222', '222',
-                _(u"label_backgroundcolors", default=u"Dark")),
-            SimpleTerm('DDD', 'DDD',
-                _(u"label_backgroundcolors2", default=u"Grey")),
-            SimpleTerm('f6f6f6', 'f6f6f6',
-                _(u"label_backgroundcolors3", default=u"Offwhite")),
-            SimpleTerm('FFF', 'FFF',
-                _(u"label_backgroundcolors4", default=u"White")
-            )
-        ]))
-    pikachoose_showtooltips = schema.Bool(
-        title=_(u"label_pikachoose_tooltip", default=u"Show tooltip"),
-        default=False)
-    pikachoose_showcaption = schema.Bool(
-        title=_(u"label_pikachoose_caption", default=u"Show caption"),
-        default=True)
-    pikachoose_vertical = schema.Bool(
-        title=_(u"label_pikachoose_vertical", default=u"Vertical"),
-        default=False)
-    pikachoose_transition = schema.Choice(
-        title=_(u"label_pikachoose_transition", default=u"Transition"),
-        default=4,
-        vocabulary=SimpleVocabulary([
-            SimpleTerm(1, 1,
-                _(u"label_transitions", default=u"Full frame cross fade")),
-            SimpleTerm(2, 2,
-                _(u"label_transitions2", default=u"Paneled fold out")),
-            SimpleTerm(3, 3,
-                _(u"label_transitions3", default=u"Horizontal blinds")),
-            SimpleTerm(4, 4,
-                _(u"label_transitions4", default=u"Vertical blinds")),
-            SimpleTerm(5, 5,
-                _(u"label_transitions5", default=u"Small box random fades")),
-            SimpleTerm(6, 6,
-                _(u"label_transitions6", default=u"Full image blind slide")),
-            SimpleTerm(0, 0,
-                _(u"label_transitions7", default=u"Fade out then fade in")
-            )
-        ]))
-
-
 class IThumbnailzoomDisplaySettings(IBaseSettings):
     thumbnailzoom_columns = schema.Int(
         title=_(u"label_thumbnailzoom_columns",

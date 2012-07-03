@@ -33,7 +33,7 @@ the dependant js package in buildout
  - highslide(collective.ptg.highslide)
  - fancybox(collective.ptg.fancybox)
  - pikachoose(collective.js.s3slider)
- - s3slider(collective.js.pikachoose)
+ - s3slider(collective.ptg.pikachoose)
  - nivo slider(collective.ptg.nivoslider)
  - nivo gallery(collective.ptg.nivogallery)
  - content flow(collective.ptg.contentflow)
@@ -49,7 +49,7 @@ Buildout configuration
     collective.ptg.fancybox
     collective.ptg.galleriffic
     collective.js.s3slider
-    collective.js.pikachoose
+    collective.ptg.pikachoose
     collective.ptg.nivoslider
     collective.ptg.nivogallery
     collective.js.contentflow

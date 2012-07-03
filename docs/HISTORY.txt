@@ -25,6 +25,9 @@ Changelog
 
 - move to using collective.ptg.nivoslider
 
+- move to using collective.ptg.pikachoose
+
+
 2.4b3 (2012-06-25)
 ------------------
 
