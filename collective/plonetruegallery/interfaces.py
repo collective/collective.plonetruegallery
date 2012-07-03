@@ -744,42 +744,6 @@ class IPresentationDisplaySettings(IBaseSettings):
         ]))
 
 
-class IContentFlowSettings(IBaseSettings):
-    flow_addons = schema.Tuple(
-        title=_(u"label_contentflow_addons", default="Addons"),
-        missing_value=None,
-        default=("white",),
-        required=False,
-        value_type=schema.Choice(
-            vocabulary=SimpleVocabulary([
-                SimpleTerm("white", "white",
-                    _(u"label_content_flow_addon_white", default=u"White")),
-                SimpleTerm("black", "black",
-                    _(u"label_content_flow_addon_black", default=u"Black")),
-                SimpleTerm("gallery", "gallery",
-                    _(u"label_content_flow_addon_gallery",
-                        default=u"Gallery")),
-                SimpleTerm("roundabout", "roundabout",
-                    _(u"label_content_flow_addon_roundabout",
-                        default=u"Roundabout")),
-                SimpleTerm("screwdriver", "screwdriver",
-                    _(u"label_content_flow_addon_screwdriver",
-                        default=u"Screwdriver")),
-                SimpleTerm("slideshow", "slideshow",
-                    _(u"label_content_flow_addon_slideshow",
-                        default=u"Slideshow"))
-            ])))
-    flow_max_image_height = schema.Int(
-        title=_(u"label_contentflow_image_height",
-            default="Max Image Height"),
-        description=_(u"desc_contentflow_image_height",
-            default=u"Customize how large the image shows. If zero, "
-                    u"a best guess height will be selected based on the"
-                    u"width. This is translated to pixels."),
-        default=0,
-        required=True)
-
-
 class IBasicGallerySettings(IBaseSettings):
     pass
 

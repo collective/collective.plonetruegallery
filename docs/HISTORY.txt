@@ -13,6 +13,7 @@ Changelog
 
 - move to using collective.ptg.contactsheet
 
+- move to using collective.ptg.contentflow
 
 2.4b3 (2012-06-25)
 ------------------

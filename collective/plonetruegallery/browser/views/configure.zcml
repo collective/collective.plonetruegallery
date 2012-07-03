@@ -61,10 +61,6 @@
 	<adapter for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IPresentationDisplaySettings"
 		factory=".display.PresentationSettings" />
-	<adapter zcml:condition="installed collective.js.contentflow"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IContentFlowSettings"
-		factory=".display.PresentationSettings" />
 	<!-- End Adapters -->
 
 
@@ -135,13 +131,6 @@
 		class=".display.PresentationDisplayType"
 		template="templates/presentation.pt"
 		permission="zope2.View" />
-	<browser:page zcml:condition="installed collective.js.contentflow"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-contentflow"
-		class=".display.ContentFlowDisplayType"
-		template="templates/contentflow.pt"
-		permission="zope2.View" />
-
 
 	<!-- non-displaytype views -->
 	<browser:page
@@ -221,9 +210,5 @@
 	<utility component=".display.PresentationDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-presentation" />
-	<utility zcml:condition="installed collective.js.contentflow"
-		component=".display.ContentFlowDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-contentflow" />
 
 </configure>

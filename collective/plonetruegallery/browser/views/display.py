@@ -7,7 +7,6 @@ from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
 from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
 from collective.plonetruegallery.interfaces import INivogalleryDisplaySettings
-from collective.plonetruegallery.interfaces import IContentFlowSettings
 from collective.plonetruegallery.interfaces import \
     IThumbnailzoomDisplaySettings
 from collective.plonetruegallery.interfaces import \
@@ -987,61 +986,3 @@ li.row_%(lastimagenr)s div.presentationshadow {
     }
 PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)
 
-
-class ContentFlowDisplayType(BaseDisplayType):
-    name = u"contentflow"
-    schema = IContentFlowSettings
-    description = _(u"label_contentflow_display_type",
-        default=u"Content Flow")
-    typeStaticFilesRelative = '++resource++contentflow'
-
-    def css(self):
-        extra = ''
-        if 'black' in self.settings.flow_addons:
-            extra = '#ContentFlow{ background-color: black }'
-        return """
-<link rel="stylesheet" type="text/css" href="%(static)s/contentflow.css" />
-<style>
-%(extra)s
-</style>
-""" % {
-        'static': self.staticFiles,
-        'extra': extra
-    }
-
-    def javascript(self):
-        addons = self.settings.flow_addons
-        if addons:
-            addons = ' '.join(addons)
-        else:
-            addons = ''
-        return """
-<script type="text/javascript" charset="utf-8"
-    src="%(static)s/contentflow.js" load="%(addons)s"></script>
-<script>
-    var flow = new ContentFlow('ContentFlow', {
-        maxItemHeight: %(max_height)i,
-        scaleFactorLandscape: 'max',
-        /* make all events subscribable outside of here */
-        onMakeInactive: function(item){
-            jQuery(item.element).trigger('onMakeInactive', item);
-        },
-        onMakeActive: function(item){
-            jQuery(item.element).trigger('onMakeActive', item);
-        },
-        onMoveTo: function(item){
-            jQuery(item.element).trigger('onMoveTo', item);
-        },
-        onReachTarget: function(item){
-            jQuery(item.element).trigger('onReachTarget', item);
-        },
-        onDrawItem: function(item){
-            jQuery(item.element).trigger('onDrawItem', item);
-        }
-    });
-</script>
-""" % {
-        'static': self.typeStaticFiles,
-        'addons': addons,
-        'max_height': self.settings.flow_max_image_height
-    }
