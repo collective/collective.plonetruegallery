@@ -2,7 +2,6 @@ from collective.plonetruegallery.interfaces import IDisplayType
 from collective.plonetruegallery.interfaces import IBatchingDisplayType
 from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
-from collective.plonetruegallery.interfaces import INivosliderDisplaySettings
 from collective.plonetruegallery.interfaces import \
     IThumbnailzoomDisplaySettings
 from collective.plonetruegallery.interfaces import \
@@ -287,86 +286,6 @@ $(document).ready(function(){
         'base_url': self.typeStaticFiles
     }
 PikachooseSettings = createSettingsFactory(PikachooseDisplayType.schema)
-
-
-class NivosliderDisplayType(BatchingDisplayType):
-
-    name = u"nivoslider"
-    schema = INivosliderDisplaySettings
-    description = _(u"label_nivoslider_display_type",
-        default=u"Nivoslider")
-
-    def javascript(self):
-        return u"""
-<script type="text/javascript"
-    src="%(portal_url)s/++resource++jquery.nivo.slider.pack.js"></script>
-<script type="text/javascript">
-$(window).load(function() {
-    $('#slider').nivoSlider({
-        effect: '%(effect)s', // Specify sets like: 'fold,fade,sliceDown'
-        slices: %(slices)i, // For slice animations
-        boxCols: %(boxcols)i, // For box animations
-        boxRows: %(boxrows)i, // For box animations
-        animSpeed: %(animspeed)i, // Slide transition speed
-        pauseTime: %(delay)i, // How long each slide will show
-        directionNav: %(directionnav)s, // Next & Prev navigation
-        directionNavHide: %(directionnavhide)s, // Only show on hover
-        controlNav: true, // 1,2,3... navigation
-        controlNavThumbs: true, // Use thumbnails for Control Nav
-        controlNavThumbsFromRel: true, // Use image rel for thumbs
-        pauseOnHover: %(pauseonhover)s, // Stop animation while hovering
-        randomStart: %(randomstart)s // Start on a random slide
-    });
-});
-</script>
-""" % {
-         'portal_url': self.portal_url,
-         'height': self.height,
-         'effect': self.settings.nivoslider_effect,
-         'slices': self.settings.nivoslider_slices,
-         'boxcols': self.settings.nivoslider_boxcols,
-         'boxrows': self.settings.nivoslider_boxrows,
-         'animspeed': self.settings.duration,
-         'delay': self.settings.delay,
-         'directionnav': jsbool(self.settings.nivoslider_directionnav),
-         'directionnavhide': jsbool(self.settings.nivoslider_directionnavhide),
-         'pauseonhover': jsbool(self.settings.nivoslider_pauseonhover),
-         'randomstart': jsbool(self.settings.nivoslider_randomstart)
-    }
-
-    def css(self):
-        # for backwards compatibility.
-        base_url = '%s/++resource++plonetruegallery.resources/nivoslider' % (
-            self.portal_url)
-        return u"""
-        <style>
-        .nivoSlider {
-        height: %(height)ipx !important;
-        width: %(width)ipx !important;
-        }
-        div.slider-wrapper  {
-        height: %(imageheight)ipx;
-        width: %(imagewidth)ipx;
-        }
-        a.nivo-imageLink {
-        height: 200px;
-        }
-        .ribbon {
-        height: %(height)ipx;
-        }
-        </style>
-<link rel="stylesheet" type="text/css" href="%(base_url)s/css/nivoslider.css"/>
-<link rel="stylesheet" type="text/css"
-    href="%(base_url)s/css/%(nivoslider_theme)s/style.css"/>
-""" % {
-        'height': self.settings.nivoslider_height,
-        'width': self.settings.nivoslider_width,
-        'imageheight': self.settings.nivoslider_height + 50,
-        'imagewidth': self.settings.nivoslider_width + 40,
-        'nivoslider_theme': self.settings.nivoslider_theme,
-        'base_url': base_url
-       }
-NivosliderSettings = createSettingsFactory(NivosliderDisplayType.schema)
 
 
 class ThumbnailzoomDisplayType(BatchingDisplayType):

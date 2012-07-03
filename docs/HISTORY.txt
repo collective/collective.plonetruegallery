@@ -23,6 +23,8 @@ Changelog
 
 - move to using collective.ptg.nivogallery
 
+- move to using collective.ptg.nivoslider
+
 2.4b3 (2012-06-25)
 ------------------
 
