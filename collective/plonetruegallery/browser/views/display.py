@@ -187,8 +187,9 @@ class FancyBoxDisplayType(BatchingDisplayType):
     <style>
     #content  a.fancyzoom-gallery {
         border-bottom: 0 none;
+    }
     </style>
-}
+
 """ % {'staticFiles': self.staticFiles}
 FancyBoxSettings = createSettingsFactory(FancyBoxDisplayType.schema)
 
