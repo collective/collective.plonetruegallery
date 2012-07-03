@@ -3,7 +3,8 @@ from zope.component import getUtility
 
 from collective.plonetruegallery.settings import GallerySettings
 from collective.plonetruegallery.interfaces import IFlickrGallerySettings, \
-    IGallerySettings, IHighSlideDisplaySettings
+    IGallerySettings
+from collective.ptg.galleria import IGalleriaDisplaySettings
 from collective.plonetruegallery.tests import BaseTest
 from collective.plonetruegallery.utils import getGalleryAdapter, \
     getDisplayAdapter
@@ -20,8 +21,8 @@ class TestSettings(BaseTest):
 
     def test_added_interface_settings_should_return_default_value(self):
         settings = GallerySettings(self.get_gallery(),
-                                   interfaces=[IHighSlideDisplaySettings])
-        self.assertEquals(settings.highslide_outlineType, 'drop-shadow')
+                                   interfaces=[IGalleriaDisplaySettings])
+        self.assertEquals(settings.galleria_theme, 'light')
 
     def test_should_always_have_IGallerySettings_no_matter_what(self):
         settings = GallerySettings(self.get_gallery(), interfaces=[])
@@ -29,8 +30,8 @@ class TestSettings(BaseTest):
 
     def test_should_handle_passing_in_single_item(self):
         settings = GallerySettings(self.get_gallery(),
-                                   interfaces=IHighSlideDisplaySettings)
-        self.assertEquals(settings.highslide_outlineType, 'drop-shadow')
+                                   interfaces=IGalleriaDisplaySettings)
+        self.assertEquals(settings.galleria_theme, 'light')
 
     def test_should_return_default_to_None_if_it_is_not_in_an_interface(self):
         settings = GallerySettings(self.get_gallery())

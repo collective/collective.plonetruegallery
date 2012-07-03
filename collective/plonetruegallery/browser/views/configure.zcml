@@ -68,5 +68,4 @@
 		permission="zope2.View" />
 	<!-- End Views -->
 
-
 </configure>

@@ -21,6 +21,9 @@ class PloneTrueGallery(PloneSandboxLayer):
         xmlconfig.file('configure.zcml', collective.plonetruegallery,
             context=configurationContext)
         z2.installProduct(app, 'collective.plonetruegallery')
+        import collective.ptg.galleria
+        xmlconfig.file('configure.zcml', collective.ptg.galleria,
+            context=configurationContext)
 
     def setUpPloneSite(self, portal):
         # install into the Plone site
