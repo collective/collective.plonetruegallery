@@ -30,7 +30,7 @@ the dependant js package in buildout
  - thumbnail zoom gallery(ships with)
  - presentation(ships with)
  - galleriffic(collective.ptg.galleriffic)
- - highslide(collective.js.highslide)
+ - highslide(collective.ptg.highslide)
  - fancybox(collective.ptg.fancybox)
  - pikachoose(collective.js.s3slider)
  - s3slider(collective.js.pikachoose)
@@ -45,7 +45,7 @@ Buildout configuration
   eggs = 
     ...
     collective.plonetruegallery
-    collective.js.highslide
+    collective.ptg.highslide
     collective.ptg.fancybox
     collective.ptg.galleriffic
     collective.js.s3slider

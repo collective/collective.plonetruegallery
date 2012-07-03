@@ -261,48 +261,6 @@ class IBaseSettings(Interface):
     pass
 
 
-class IHighSlideDisplaySettings(IBaseSettings):
-    highslide_slideshowcontrols_position = schema.Choice(
-        title=_(u"lable_highslide_slideshowcontrols_position",
-            default=u"Highslide controls position"),
-        description=_(u"description_highslide_slideshowcontrols_position",
-            default=u"Choose the position of the slideshow controls. "
-        ),
-        default='bottom',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('top', 'top',
-                _(u"label_highslide_slideshowcontrols_position_top",
-                                    default=u"top")),
-            SimpleTerm('middle', 'middle',
-                _(u"label_highslide_slideshowcontrols_position_middle",
-                                    default=u"middle")),
-            SimpleTerm('bottom', 'bottom',
-                _(u"label_highslide_slideshowcontrols_position_bottom",
-                                    default=u"bottom")),
-        ]))
-    highslide_outlineType = schema.Choice(
-        title=_(u"label_highslide_outlineType", default=u"Image outline type"),
-        description=_(u"description_highslide_outlineType",
-            default=u"The style of the border around the image. "
-        ),
-        default='drop-shadow',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('rounded-white', 'rounded-white',
-                _(u"label_highslide_outlineType_rounded_white",
-                                    default=u"Rounded White")),
-            SimpleTerm('outer-glow', 'outer-glow',
-                _(u"label_highslide_outlineType_outer_glow",
-                                    default=u"Outer Glow")),
-            SimpleTerm('drop-shadow', 'drop-shadow',
-                _(u"label_highslide_outlineType_drop_shadow",
-                                    default=u"Drop Shadow")),
-            SimpleTerm('glossy-dark', 'glossy-dark',
-                _(u"label_highslide_outlineType_glossy_dark",
-                                    default=u"Glossy Dark")
-            )
-        ]))
-
-
 class IS3sliderDisplaySettings(IBaseSettings):
     s3_width = schema.TextLine(
         title=_(u"label_s3_width",

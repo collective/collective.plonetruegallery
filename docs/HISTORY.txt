@@ -19,6 +19,9 @@ Changelog
 
 - move to using collective.ptg.galleriffic
 
+- move to using collective.ptg.highslide
+
+
 2.4b3 (2012-06-25)
 ------------------
 

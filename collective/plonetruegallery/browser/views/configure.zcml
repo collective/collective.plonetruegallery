@@ -23,10 +23,6 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGallerySettings"
 		factory="collective.plonetruegallery.settings.GallerySettings" />
-	<adapter zcml:condition="installed collective.js.highslide"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IHighSlideDisplaySettings"
-		factory=".display.HighSlideSettings" />
 	<adapter zcml:condition="installed collective.js.pikachoose"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IPikachooseDisplaySettings"
@@ -62,12 +58,6 @@
 		name="galleryview"
 		class=".galleryview.GalleryView"
 		template="templates/layout.pt"
-		permission="zope2.View" />
-	<browser:page zcml:condition="installed collective.js.highslide"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-highslide"
-		class=".display.HighSlideDisplayType"
-		template="templates/highslide.pt"
 		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.pikachoose"
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -152,10 +142,6 @@
 
 
 	<!-- display utilities -->
-	<utility zcml:condition="installed collective.js.highslide"
-		component=".display.HighSlideDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-highslide" />
 	<utility zcml:condition="installed collective.js.pikachoose"
 		component=".display.PikachooseDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"

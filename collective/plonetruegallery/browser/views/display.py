@@ -1,5 +1,4 @@
 from collective.plonetruegallery.interfaces import IDisplayType
-from collective.plonetruegallery.interfaces import IHighSlideDisplaySettings
 from collective.plonetruegallery.interfaces import IBatchingDisplayType
 from collective.plonetruegallery.interfaces import IS3sliderDisplaySettings
 from collective.plonetruegallery.interfaces import IPikachooseDisplaySettings
@@ -131,110 +130,6 @@ class BatchingDisplayType(BaseDisplayType):
     def batch(self):
         return Batch(self.adapter.cooked_images, self.settings.batch_size,
                                               int(self.b_start), orphan=1)
-
-
-class HighSlideDisplayType(BatchingDisplayType):
-
-    name = u"highslide"
-    schema = IHighSlideDisplaySettings
-    description = _(u"label_highslide_display_type",
-        default=u"Highslide - verify terms of use")
-    userWarning = _(u"label_highslide_user_warning",
-        default=u"You can only use the Highslide gallery for non-commercial "
-                u"use unless you purchase a commercial license. "
-                u"Please visit http://highslide.com/ for details."
-    )
-    typeStaticFilesRelative = '++resource++collective.js.highslide'
-
-    def css(self):
-        return u"""
-<link rel="stylesheet" type="text/css"
-    href="%(base_url)s/highslide.css" />
-""" % {'base_url': self.typeStaticFiles}
-
-    def javascript(self):
-        outlineType = "hs.outlineType = '%s';" % \
-                            self.settings.highslide_outlineType
-        wrapperClassName = ''
-
-        if 'drop-shadow' in outlineType:
-            wrapperClassName = 'dark borderless floating-caption'
-            outlineType = ''
-        elif 'glossy-dark' in outlineType:
-            wrapperClassName = 'dark'
-        if len(wrapperClassName) == 0:
-            wrapperClassName = 'null'
-        else:
-            wrapperClassName = "'%s'" % wrapperClassName
-        return u"""
-<script type="text/javascript"
-    src="%(base_url)s/highslide-with-gallery.js"></script>
-
-<!--[if lt IE 7]>
-<link rel="stylesheet" type="text/css"
-  href="%(base_url)s/highslide-ie6.css" />
-<![endif]-->
-
-<script type="text/javascript">
-hs.graphicsDir = '%(base_url)s/graphics/';
-hs.align = 'center';
-hs.transitions = ['expand', 'crossfade'];
-hs.fadeInOut = true;
-hs.dimmingOpacity = 0.8;
-%(outlineType)s
-hs.wrapperClassName = %(wrapperClassName)s;
-hs.captionEval = 'this.thumb.alt';
-hs.marginBottom = 105; // make room for the thumbstrip and the controls
-hs.numberPosition = 'caption';
-hs.autoplay = %(timed)s;
-hs.transitionDuration = %(duration)i;
-hs.addSlideshow({
-    interval: %(delay)i,
-    repeat: true,
-    useControls: true,
-    fixedControls: 'fit',
-    overlayOptions: {
-        position: '%(overlay_position)s center',
-        opacity: .7,
-        hideOnMouseOut: true
-    },
-    thumbstrip: {
-        position: 'bottom center',
-        mode: 'horizontal',
-        relativeTo: 'viewport'
-    }
-});
-
-var auto_start = %(start_automatically)s;
-var start_image_index = %(start_index_index)i;
-
-(function($){
-$(document).ready(function() {
-    var images = $('a.highslide');
-    if(images.length <= start_image_index){
-        start_image_index = 0;
-    }
-    if(auto_start){
-        $(images[start_image_index]).trigger('click');
-    }
-});
-})(jQuery);
-</script>
-        """ % {
-            'outlineType': outlineType,
-            'wrapperClassName': wrapperClassName,
-            'delay': self.settings.delay,
-            'timed': jsbool(self.settings.timed),
-            'duration': self.settings.duration,
-            'start_automatically': jsbool(
-                self.settings.start_automatically or self.settings.timed),
-            'start_index_index': self.start_image_index,
-            'overlay_position': \
-                self.settings.highslide_slideshowcontrols_position,
-            'base_url': self.typeStaticFiles
-
-        }
-HighSlideSettings = createSettingsFactory(HighSlideDisplayType.schema)
 
 
 class S3sliderDisplayType(BaseDisplayType):
