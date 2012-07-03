@@ -15,6 +15,9 @@ Changelog
 
 - move to using collective.ptg.contentflow
 
+- move to using collective.ptg.fancybox
+
+
 2.4b3 (2012-06-25)
 ------------------
 

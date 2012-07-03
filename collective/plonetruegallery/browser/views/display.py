@@ -1,5 +1,4 @@
 from collective.plonetruegallery.interfaces import IDisplayType
-from collective.plonetruegallery.interfaces import IFancyBoxDisplaySettings
 from collective.plonetruegallery.interfaces import IHighSlideDisplaySettings
 from collective.plonetruegallery.interfaces import IBatchingDisplayType
 from collective.plonetruegallery.interfaces import IGallerifficDisplaySettings
@@ -133,62 +132,6 @@ class BatchingDisplayType(BaseDisplayType):
     def batch(self):
         return Batch(self.adapter.cooked_images, self.settings.batch_size,
                                               int(self.b_start), orphan=1)
-
-
-class FancyBoxDisplayType(BatchingDisplayType):
-
-    name = u"fancybox"
-    schema = IFancyBoxDisplaySettings
-    description = _(u"label_fancybox_display_type",
-        default=u"Fancy Box")
-    typeStaticFilesRelative = '++resource++collective.js.fancybox'
-
-    def javascript(self):
-        return u"""
-<script type="text/javascript"
-    src="%(base_url)s/jquery.easing-1.3.pack.js"></script>
-<script type="text/javascript"
-    src="%(base_url)s/jquery.mousewheel-3.0.4.pack.js"></script>
-<script type="text/javascript"
-    src="%(base_url)s/jquery.fancybox.js"></script>
-  <script type="text/javascript">
-    var auto_start = %(start_automatically)s;
-    var start_image_index = %(start_index_index)i;
-    (function($){
-        $(document).ready(function() {
-            $("a.fancyzoom-gallery").fancybox({
-                'type': 'image',
-                'transitionIn': 'elastic',
-                'transitionOut': 'elastic'});
-            var images = $('a.fancyzoom-gallery');
-            if(images.length <= start_image_index){
-                start_image_index = 0;
-            }
-            if(auto_start){
-                $(images[start_image_index]).trigger('click');
-            }
-        });
-    })(jQuery);
-    </script>
-        """ % {
-            'start_automatically': jsbool(
-                self.settings.start_automatically or self.settings.timed),
-            'start_index_index': self.start_image_index,
-            'base_url': self.typeStaticFiles
-        }
-
-    def css(self):
-        return u"""
-<link rel="stylesheet" type="text/css"
-    href="%(staticFiles)s/jquery.fancybox.css" media="screen" />
-    <style>
-    #content  a.fancyzoom-gallery {
-        border-bottom: 0 none;
-    }
-    </style>
-
-""" % {'staticFiles': self.staticFiles}
-FancyBoxSettings = createSettingsFactory(FancyBoxDisplayType.schema)
 
 
 class HighSlideDisplayType(BatchingDisplayType):

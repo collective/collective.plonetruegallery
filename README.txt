@@ -31,12 +31,12 @@ the dependant js package in buildout
  - presentation(ships with)
  - galleriffic(collective.js.galleriffic)
  - highslide(collective.js.highslide)
- - fancybox(collective.js.fancybox)
+ - fancybox(collective.ptg.fancybox)
  - pikachoose(collective.js.s3slider)
  - s3slider(collective.js.pikachoose)
  - nivo slider(collective.js.nivoslider)
  - nivo gallery(collective.js.nivogallery)
- - content flow(collective.js.contentflow)
+ - content flow(collective.ptg.contentflow)
  - supersized(collective.js.supersized)
 
 Buildout configuration
@@ -46,7 +46,7 @@ Buildout configuration
     ...
     collective.plonetruegallery
     collective.js.highslide
-    collective.js.fancybox
+    collective.ptg.fancybox
     collective.js.galleriffic
     collective.js.s3slider
     collective.js.pikachoose

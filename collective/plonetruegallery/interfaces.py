@@ -261,10 +261,6 @@ class IBaseSettings(Interface):
     pass
 
 
-class IFancyBoxDisplaySettings(IBaseSettings):
-    pass
-
-
 class IHighSlideDisplaySettings(IBaseSettings):
     highslide_slideshowcontrols_position = schema.Choice(
         title=_(u"lable_highslide_slideshowcontrols_position",

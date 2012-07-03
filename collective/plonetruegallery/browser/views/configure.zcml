@@ -27,10 +27,6 @@
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IHighSlideDisplaySettings"
 		factory=".display.HighSlideSettings" />
-	<adapter zcml:condition="installed collective.js.fancybox"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IFancyBoxDisplaySettings"
-		factory=".display.FancyBoxSettings" />
 	<adapter zcml:condition="installed collective.js.galleriffic"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGallerifficDisplaySettings"
@@ -76,12 +72,6 @@
 		name="galleryview-highslide"
 		class=".display.HighSlideDisplayType"
 		template="templates/highslide.pt"
-		permission="zope2.View" />
-	<browser:page zcml:condition="installed collective.js.fancybox"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-fancybox"
-		class=".display.FancyBoxDisplayType"
-		template="templates/fancybox.pt"
 		permission="zope2.View" />
 	<browser:page zcml:condition="installed collective.js.galleriffic"
 		for="collective.plonetruegallery.interfaces.IGallery"
@@ -176,10 +166,6 @@
 		component=".display.HighSlideDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-highslide" />
-	<utility zcml:condition="installed collective.js.fancybox"
-		component=".display.FancyBoxDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-fancybox" />
 	<utility zcml:condition="installed collective.js.pikachoose"
 		component=".display.PikachooseDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
