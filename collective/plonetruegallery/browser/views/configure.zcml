@@ -34,9 +34,6 @@
 	<adapter for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IThumbnailzoomDisplaySettings"
 		factory=".display.ThumbnailzoomSettings" />
-	<adapter for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IPresentationDisplaySettings"
-		factory=".display.PresentationSettings" />
 	<!-- End Adapters -->
 
 
@@ -64,12 +61,6 @@
 		name="galleryview-thumbnailzoom"
 		class=".display.ThumbnailzoomDisplayType"
 		template="templates/thumbnailzoom.pt"
-		permission="zope2.View" />
-	<browser:page
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-presentation"
-		class=".display.PresentationDisplayType"
-		template="templates/presentation.pt"
 		permission="zope2.View" />
 
 	<!-- non-displaytype views -->
@@ -123,8 +114,5 @@
 	<utility component=".display.ThumbnailzoomDisplayType"
 		provides="collective.plonetruegallery.interfaces.IDisplayType"
 		name="galleryview-thumbnailzoom" />
-	<utility component=".display.PresentationDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-presentation" />
 
 </configure>

@@ -5,8 +5,6 @@ from collective.plonetruegallery.interfaces import \
     IThumbnailzoomDisplaySettings
 from collective.plonetruegallery.interfaces import \
     ISupersizedDisplaySettings
-from collective.plonetruegallery.interfaces import \
-    IPresentationDisplaySettings
 from plone.memoize.view import memoize
 from zope.interface import implements
 from collective.plonetruegallery import PTGMessageFactory as _
@@ -370,84 +368,3 @@ $.supersized({
         'duration': self.settings.delay,
         }
 SupersizedSettings = createSettingsFactory(SupersizedDisplayType.schema)
-
-
-class PresentationDisplayType(BatchingDisplayType):
-    name = u"presentation"
-    schema = IPresentationDisplaySettings
-    description = _(u"label_presentation_display_type",
-        default=u"Presentation")
-
-    def javascript(self):
-        imagecount = len(self.adapter.cooked_images)
-        if imagecount == 0:
-            imagecount = 1
-        return u"""
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    $(".presentationWrapper li").bind ({
-        %(effect)s: function(){
-            $(".presentationWrapper li").addClass("unpresented");
-            $(this).addClass("presented").removeClass("unpresented");
-            $(".unpresented").stop().animate({
-                width: '%(minimum_width)ipx',
-            }, 600);
-            $(this).stop().animate({
-                width: '%(imagelargewidth)ipx',
-            }, 600);
-        }
-    });
-    $(".presentationWrapper ul").bind ({
-        mouseleave: function(){
-            $(".presentationWrapper li").removeClass("unpresented presented");
-            $(".presentationWrapper li").stop().animate({
-                width: '%(imagewidth)ipx',
-            }, 600);
-        }
-    });
-});
-</script>
-""" % {
-        'imagewidth': (self.settings.presentation_width - imagecount + 1) /
-                        imagecount,
-        'imagelargewidth': self.settings.presentation_width -
-            ((imagecount - 1) * self.settings.minimum_width) - imagecount + 1,
-        'effect': self.settings.presentation_effect,
-        'minimum_width': self.settings.minimum_width
-    }
-
-    def css(self):
-        imagecount = len(self.adapter.cooked_images)
-        if imagecount == 0:
-            imagecount = 1
-        return u"""
-<link rel="stylesheet" type="text/css"
-    href="%(base_url)s/presentation/style.css"/>
-    <style>
-.presentationWrapper {
-    width: %(width)ipx;
-    height: %(height)ipx;
-}
-
-.presentationWrapper li  {
-    width: %(imagewidth)ipx;
-    height: %(height)ipx;
-    background-position: %(xposition)s %(yposition)s;
-}
-
-li.row_%(lastimagenr)s div.presentationshadow {
-    background-image: none;
-}
-</style>
-""" % {
-        'base_url': self.staticFiles,
-        'height': self.settings.presentation_height,
-        'width': self.settings.presentation_width,
-        'xposition': self.settings.presentation_xposition,
-        'yposition': self.settings.presentation_yposition,
-        'lastimagenr': imagecount - 1,
-        'imagewidth': (self.settings.presentation_width - imagecount + 1) /
-                        imagecount
-    }
-PresentationSettings = createSettingsFactory(PresentationDisplayType.schema)
-

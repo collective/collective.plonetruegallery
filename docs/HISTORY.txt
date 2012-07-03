@@ -27,6 +27,7 @@ Changelog
 
 - move to using collective.ptg.pikachoose
 
+- move to using collective.ptg.presentation
 
 2.4b3 (2012-06-25)
 ------------------

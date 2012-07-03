@@ -450,60 +450,6 @@ class ISupersizedDisplaySettings(IBaseSettings):
         default=u'#portal-footer {display: none; } body {background: #111; }')
 
 
-class IPresentationDisplaySettings(IBaseSettings):
-    presentation_effect = schema.Choice(
-        title=_(u"label_presentation_effect",
-            default=u"Mouseover or click"),
-        default="click",
-        vocabulary=SimpleVocabulary([
-            SimpleTerm("click", "click",
-                _(u"label_presentation_click", default=u"Click on image")),
-            SimpleTerm("mouseenter", "mouseenter",
-                _(u"label_presentation_mouseover", default=u"Mouse enter")
-            )
-        ]))
-    presentation_width = schema.Int(
-        title=_(u"label_presentation_width",
-            default=u"Width of the gallery in pixels"),
-        default=600,
-        min=200)
-    presentation_height = schema.Int(
-        title=_(u"label_presentation_height",
-            default=u"Height of the gallery in pixels"),
-        default=350,
-        min=60)
-    minimum_width = schema.Int(
-        title=_(u"label_presentation_minimum_width",
-            default=u"Minimum width of images"),
-        default=15)
-    presentation_xposition = schema.Choice(
-        title=_(u"label_presentation_xposition",
-            default=u"Horizontal image position"),
-        default="center",
-        vocabulary=SimpleVocabulary([
-            SimpleTerm("top", "top",
-                _(u"label_presentation_xpositiontop", default=u"Top")),
-            SimpleTerm("center", "center",
-                _(u"label_presentation_xpositioncenter", default=u"Center")),
-            SimpleTerm("bottom", "bottom",
-                _(u"label_presentation_xpositionbottom", default=u"Bottom")
-            )
-        ]))
-    presentation_yposition = schema.Choice(
-        title=_(u"label_presentation_yposition",
-            default=u"Vertical image position"),
-        default="center",
-        vocabulary=SimpleVocabulary([
-            SimpleTerm("left", "left",
-                _(u"label_presentation_ypositionleft", default=u"Left")),
-            SimpleTerm("center", "center",
-                _(u"label_presentation_ypositioncenter", default=u"Center")),
-            SimpleTerm("right", "right",
-                _(u"label_presentation_ypositionright", default=u"Right")
-            )
-        ]))
-
-
 class IBasicGallerySettings(IBaseSettings):
     pass
 

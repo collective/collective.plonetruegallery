@@ -28,7 +28,7 @@ the dependant js package in buildout
  - galleria(ships with)
  - contact sheet(collective.ptg.contactsheet)
  - thumbnail zoom gallery(ships with)
- - presentation(ships with)
+ - presentation(collective.ptg.presentation)
  - galleriffic(collective.ptg.galleriffic)
  - highslide(collective.ptg.highslide)
  - fancybox(collective.ptg.fancybox)
