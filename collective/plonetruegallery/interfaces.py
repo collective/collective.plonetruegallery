@@ -261,45 +261,6 @@ class IBaseSettings(Interface):
     pass
 
 
-class IThumbnailzoomDisplaySettings(IBaseSettings):
-    thumbnailzoom_columns = schema.Int(
-        title=_(u"label_thumbnailzoom_columns",
-            default=u"Number of thumbs before a forced new row (use a high "
-                    u"number if you dont want this)"),
-        default=3,
-        min=1)
-    thumbnailzoom_increase = schema.Int(
-        title=_(u"label_thumbnailzoom_increase",
-            default=u"Pixels to zoom when mouse over"),
-        default=50)
-    thumbnailzoom_effectduration = schema.Int(
-        title=_(u"label_thumbnaizoom_effectduration",
-            default=u"How long time the effect takes"),
-        default=100,
-        min=16)
-    thumbnailzoom_use_icons = schema.Bool(
-        title=_(u"label_thumbnailzoom_use_images",
-            default=u"Use Image size instead of Thumbnail size"),
-        default=False)
-    thumbnailzoom_style = schema.Choice(
-        title=_(u"label_thumbnailzoom_style",
-                default=u"What stylesheet (css file) to use"),
-        default="style.css",
-        vocabulary=SimpleVocabulary([
-            SimpleTerm("style.css", "style.css",
-                _(u"label_thumbnailzoom_style_default",
-                    default=u"Default")),
-            SimpleTerm("custom_style", "custom_style",
-                _(u"label_thumbnailzoom_style_custom",
-                    default=u"Custom css file")
-            )
-        ]))
-    thumbnailzoom_custom_style = schema.TextLine(
-        title=_(u"label_custom_style",
-            default=u"Name of Custom css file if you chose that above"),
-        default=u"mycustomstyle.css")
-
-
 class IBasicGallerySettings(IBaseSettings):
     pass
 

@@ -18,29 +18,16 @@
 		permission="collective.plonetruegallery.manage"
 	/>
 
-	<!-- Adapters -->
 	<adapter
 		for="collective.plonetruegallery.interfaces.IGallery"
 		provides="collective.plonetruegallery.interfaces.IGallerySettings"
 		factory="collective.plonetruegallery.settings.GallerySettings" />
-	<adapter for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IThumbnailzoomDisplaySettings"
-		factory=".display.ThumbnailzoomSettings" />
-	<!-- End Adapters -->
 
-
-	<!-- Views --> 
 	<browser:page
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview"
 		class=".galleryview.GalleryView"
 		template="templates/layout.pt"
-		permission="zope2.View" />
-	<browser:page 
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview-thumbnailzoom"
-		class=".display.ThumbnailzoomDisplayType"
-		template="templates/thumbnailzoom.pt"
 		permission="zope2.View" />
 
 	<!-- non-displaytype views -->
@@ -81,10 +68,5 @@
 		permission="zope2.View" />
 	<!-- End Views -->
 
-
-	<!-- display utilities -->
-	<utility component=".display.ThumbnailzoomDisplayType"
-		provides="collective.plonetruegallery.interfaces.IDisplayType"
-		name="galleryview-thumbnailzoom" />
 
 </configure>

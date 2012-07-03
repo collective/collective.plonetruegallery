@@ -31,6 +31,8 @@ Changelog
 
 - move to using collective.ptg.supersized
 
+- move to using collective.ptg.thumbnailzoom
+
 2.4b3 (2012-06-25)
 ------------------
 
