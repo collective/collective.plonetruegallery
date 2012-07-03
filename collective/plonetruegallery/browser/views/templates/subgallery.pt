@@ -1,15 +1,15 @@
 <div class="spacer" tal:condition="view/show_subgalleries">&nbsp;</div>
 <div id="subgallery-browse-wrapper" tal:condition="view/show_subgalleries">
   <div id="subgallery-search">
-    <span>Browse By</span>
+    <span i18n:translate="">Browse By</span>
     <form>
       <select name="category" onchange="this.form.submit()">
-        <option value="">Select Category</option>
+        <option value="" i18n:translate="">Select Category</option>
         <option tal:repeat="category view/categories|nothing"
           tal:attributes="value category" tal:content="category" />
       </select>
     </form>
-    <span>or</span>
+    <span i18n:translate="">or</span>
     <form>
       <input name="q" tal:attributes="value request/q|nothing" />
       <input type="submit" name="submit" value="Search Galleries" />
