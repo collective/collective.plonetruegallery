@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: collective.plonetruegallery\n"
 "POT-Creation-Date: 2012-07-10 13:58+0000\n"
-"PO-Revision-Date: 2012-06-19 09:36+0100\n"
+"PO-Revision-Date: 2012-07-10 16:01+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: eu <eu@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr "Aplikatu"
 
 #: ./browser/views/templates/subgallery.pt:5
 msgid "Browse By"
-msgstr ""
+msgstr "Filtratu"
 
 #: ./configlet.py:13
 msgid "Default settings to use for all galleries on site."
@@ -47,15 +47,15 @@ msgstr "PloneTruegallery-ren defektuzko ezarpenak"
 
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
-msgstr ""
+msgstr "Galeriak bilatu"
 
 #: ./browser/views/templates/subgallery.pt:8
 msgid "Select Category"
-msgstr ""
+msgstr "Etiketa aukeratu"
 
 #: ./browser/views/templates/subgallery.pt:20
 msgid "Show All"
-msgstr ""
+msgstr "Guztiak ikusi"
 
 #. Default: "The amount of images shown in one page. This is not used for all display types."
 #: ./interfaces.py:252
@@ -310,7 +310,7 @@ msgstr "preview"
 #. Default: "Show Sub-Galleries?"
 #: ./interfaces.py:244
 msgid "label_show_subgalleries"
-msgstr ""
+msgstr "Azpigaleriak erakutsi?"
 
 #. Default: "Large"
 #: ./interfaces.py:202
@@ -330,12 +330,12 @@ msgstr "Txikia"
 #. Default: "thumb"
 #: ./interfaces.py:214
 msgid "label_thumb"
-msgstr ""
+msgstr "txikia"
 
 #. Default: "Thumbnail image size"
 #: ./interfaces.py:206
 msgid "label_thumb_size"
-msgstr ""
+msgstr "Irudi txikiaren tamaina"
 
 #. Default: "tile"
 #: ./interfaces.py:213
@@ -345,42 +345,42 @@ msgstr "tile"
 #. Default: "Timed?"
 #: ./interfaces.py:221
 msgid "label_timed"
-msgstr ""
+msgstr "Denboraren araberakoa"
 
 #. Default: "Could not find flickr set."
 #: ./validators.py:79
 msgid "label_validate_flickr_find_set"
-msgstr ""
+msgstr "Ezin izan da Flickr-eko bilduma aurkitu"
 
 #. Default: "You must specify a flickr set to use."
 #: ./validators.py:65
 msgid "label_validate_flickr_specify_user"
-msgstr ""
+msgstr "Flickr-eko erabiltzailea idatzi behar duzu"
 
 #. Default: "You must specify a username."
 #: ./validators.py:105
 msgid "label_validate_flickr_specify_username"
-msgstr ""
+msgstr "Erabiltzaile-izena idatzi behar duzu"
 
 #. Default: "Could not find flickr user."
 #: ./validators.py:116
 msgid "label_validate_flickr_user"
-msgstr ""
+msgstr "Ez da Flickr-eko erabiltzaile hori aurkitu"
 
 #. Default: "You must specify a picasa album."
 #: ./validators.py:160
 msgid "label_validate_picasa_ablum_empty"
-msgstr ""
+msgstr "Picasako bilduma bat adierazi behar duzu"
 
 #. Default: "Could not find album."
 #: ./validators.py:173
 msgid "label_validate_picasa_find_album"
-msgstr ""
+msgstr "Ezin izan da bilduma aurkitu"
 
 #. Default: "You must specify a picasa username."
 #: ./validators.py:139
 msgid "label_validate_picasa_specify_username"
-msgstr ""
+msgstr "Picasako erabiltzaile-izena idatzi behar duzu"
 
 #. Default: "There are no changes in the Gallery settings."
 #: ./browser/views/settings.py:37
@@ -389,7 +389,7 @@ msgstr "Ez duzu aldaketarik egin ezarpenetan."
 
 #: ./browser/views/templates/subgallery.pt:13
 msgid "or"
-msgstr ""
+msgstr "edo"
 
 #. Default: "Gallery Settings Saved."
 #: ./browser/views/settings.py:35
