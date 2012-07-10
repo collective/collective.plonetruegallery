@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: collective.plonetruegallery\n"
 "POT-Creation-Date: 2012-07-10 13:58+0000\n"
-"PO-Revision-Date: 2009-05-19 16:17-0400\n"
-"Last-Translator: Enrique Pérez <eperez@yaco.es>\n"
+"PO-Revision-Date: 2012-07-10 16:06+0100\n"
+"Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: Spanish <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -24,11 +24,11 @@ msgstr "Aplicar"
 
 #: ./browser/views/templates/subgallery.pt:5
 msgid "Browse By"
-msgstr ""
+msgstr "Filtrar por"
 
 #: ./configlet.py:13
 msgid "Default settings to use for all galleries on site."
-msgstr ""
+msgstr "Configuración por defecto de todas las nuevas galerías del sitio"
 
 #: ./profiles/default/actions.xml
 msgid "Gallery Settings"
@@ -45,19 +45,19 @@ msgstr "Principal"
 
 #: ./configlet.py:12
 msgid "PloneTruegallery Default Settings"
-msgstr ""
+msgstr "Configuración por defecto de PloneTruegallery"
 
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
-msgstr ""
+msgstr "Buscar galerías"
 
 #: ./browser/views/templates/subgallery.pt:8
 msgid "Select Category"
-msgstr ""
+msgstr "Seleccionar etiqueta"
 
 #: ./browser/views/templates/subgallery.pt:20
 msgid "Show All"
-msgstr ""
+msgstr "Mostrar todos"
 
 #. Default: "The amount of images shown in one page. This is not used for all display types."
 #: ./interfaces.py:252
@@ -71,13 +71,11 @@ msgstr "Si hay temporizador, el retraso especifica los milisegundos entre imagen
 
 #. Default: "The amount of time the change effect should take in miliseconds."
 #: ./interfaces.py:237
-#, fuzzy
 msgid "description_fade_in_duration"
 msgstr "Milisegundos que tarda en cambiar el efecto."
 
 #. Default: "Name/id of your flickr set.(*flickr* gallery type)"
 #: ./interfaces.py:278
-#, fuzzy
 msgid "description_flickr_set"
 msgstr "Nombre/id de flickr."
 
@@ -103,13 +101,11 @@ msgstr "Seleccionar el tipo de galería."
 
 #. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
 #: ./interfaces.py:295
-#, fuzzy
 msgid "description_picasa_album"
 msgstr "Nombre del album de picasa: Bien su dirección web, bien su nombre completo."
 
 #. Default: "GMail address of who this album belongs to. (*Picasa* gallery type)"
 #: ./interfaces.py:288
-#, fuzzy
 msgid "description_picasa_username"
 msgstr "Dirección de gmail del dueño del álbum"
 
@@ -121,7 +117,7 @@ msgstr "¿Mostrar previsualización de subgalerías?"
 #. Default: "The size of thumbnail images. Will only work with plone image gallery type."
 #: ./interfaces.py:207
 msgid "description_thumb_size"
-msgstr ""
+msgstr "Tamaño de las imágenes pequeñas. Solo funcionará con el tipo de galeria 'plone'"
 
 #. Default: "Should this gallery automatically change images for the user?"
 #: ./interfaces.py:222
@@ -130,7 +126,6 @@ msgstr "¿Cambiar imágenes automáticamente?"
 
 #. Default: "This portlet allows you to show galleryimages in a portlet."
 #: ./portlets.py:217
-#, fuzzy
 msgid "gallery_portlet_add_form_description"
 msgstr "Puede mostrar las imágenes de la galería en un portlet"
 
@@ -141,14 +136,13 @@ msgstr "Añadir galería"
 
 #. Default: "This portlet allows you to show gallery images in a portlet."
 #: ./portlets.py:231
-#, fuzzy
 msgid "gallery_portlet_edit_form_description"
 msgstr "Editar portlet de la galería"
 
 #. Default: "Edit Gallery Portlet"
 #: ./portlets.py:229
 msgid "gallery_portlet_edit_form_title"
-msgstr ""
+msgstr "Editar portlet Galería"
 
 #. Default: "The gallery to show in this portlet."
 #: ./portlets.py:28
@@ -163,12 +157,12 @@ msgstr "Galería"
 #. Default: "The height of the image in the portlet.If 0, no height is set."
 #: ./portlets.py:50
 msgid "gallery_portlet_height_description"
-msgstr ""
+msgstr "La altura de la imagen del portlet. Si es 0, no se le asignará tamaño."
 
 #. Default: "Height in pixels"
 #: ./portlets.py:49
 msgid "gallery_portlet_height_title"
-msgstr ""
+msgstr "Altura en píxels"
 
 #. Default: "Hide Controls"
 #: ./portlets.py:64
@@ -183,12 +177,12 @@ msgstr "Ocultar controles del portlet"
 #. Default: "Mini gallery"
 #: ./portlets.py:34
 msgid "gallery_portlet_mini"
-msgstr ""
+msgstr "Mini-galería"
 
 #. Default: "If false, the actual full gallery will render in an iframe and will follow the width and height settings"
 #: ./portlets.py:35
 msgid "gallery_portlet_mini_desc"
-msgstr ""
+msgstr "Si es falso, la actual galería se mostrará en un iframe y tendrá la altura y anchura de la configuración."
 
 #. Default: "Check to show the title of the gallery in the portlet"
 #: ./portlets.py:22
@@ -217,7 +211,6 @@ msgstr "Ancho de la imágen en el portlet"
 
 #. Default: "Width in pixels"
 #: ./portlets.py:42
-#, fuzzy
 msgid "gallery_portlet_width_title"
 msgstr "Ancho"
 
@@ -229,7 +222,7 @@ msgstr "Galería"
 #. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
 #: ./galleryadapters/base.py:27
 msgid "label_base_gallery_type"
-msgstr ""
+msgstr "base: no es un tipo de galería, es como una clase abstracta"
 
 #. Default: "Batch Size"
 #: ./interfaces.py:251
@@ -253,13 +246,11 @@ msgstr "Galería de Flickr"
 
 #. Default: "Flickr Set"
 #: ./interfaces.py:277
-#, fuzzy
 msgid "label_flickr_set"
 msgstr "Conjunto"
 
 #. Default: "flickr username"
 #: ./interfaces.py:270
-#, fuzzy
 msgid "label_flickr_username"
 msgstr "Nombre de usuario/id de flickr"
 
@@ -291,7 +282,7 @@ msgstr "Duración de los cambios"
 #. Default: "mini"
 #: ./interfaces.py:215
 msgid "label_mini"
-msgstr ""
+msgstr "mini"
 
 #. Default: "There are no images in this gallery."
 #: ./browser/views/templates/layout.pt:21
@@ -300,7 +291,6 @@ msgstr "No hay imágenes en esta galería."
 
 #. Default: "Picasa Album"
 #: ./interfaces.py:294
-#, fuzzy
 msgid "label_picasa_album"
 msgstr "Álbum de Picasa"
 
@@ -311,14 +301,13 @@ msgstr "Galerias de Picasa"
 
 #. Default: "GMail address"
 #: ./interfaces.py:287
-#, fuzzy
 msgid "label_picasa_username"
 msgstr "Dirección de gmail"
 
 #. Default: "preview"
 #: ./interfaces.py:216
 msgid "label_preview"
-msgstr ""
+msgstr "preview"
 
 #. Default: "Show Sub-Galleries?"
 #: ./interfaces.py:244
@@ -343,17 +332,17 @@ msgstr "Pequeño"
 #. Default: "thumb"
 #: ./interfaces.py:214
 msgid "label_thumb"
-msgstr ""
+msgstr "thumb"
 
 #. Default: "Thumbnail image size"
 #: ./interfaces.py:206
 msgid "label_thumb_size"
-msgstr ""
+msgstr "Tamaño de la imagen pequeña"
 
 #. Default: "tile"
 #: ./interfaces.py:213
 msgid "label_tile"
-msgstr ""
+msgstr "tile"
 
 #. Default: "Timed?"
 #: ./interfaces.py:221
@@ -362,25 +351,21 @@ msgstr "Temporizado?"
 
 #. Default: "Could not find flickr set."
 #: ./validators.py:79
-#, fuzzy
 msgid "label_validate_flickr_find_set"
 msgstr "No se ha encontrado colección de flickr"
 
 #. Default: "You must specify a flickr set to use."
 #: ./validators.py:65
-#, fuzzy
 msgid "label_validate_flickr_specify_user"
 msgstr "Hay que especificar una colección de flickr"
 
 #. Default: "You must specify a username."
 #: ./validators.py:105
-#, fuzzy
 msgid "label_validate_flickr_specify_username"
 msgstr "Hay que especificar un nombre de usuario"
 
 #. Default: "Could not find flickr user."
 #: ./validators.py:116
-#, fuzzy
 msgid "label_validate_flickr_user"
 msgstr "No se ha encontrado usuario de flickr"
 
@@ -391,15 +376,13 @@ msgstr "Hay que especificar un álbum de Picasa"
 
 #. Default: "Could not find album."
 #: ./validators.py:173
-#, fuzzy
 msgid "label_validate_picasa_find_album"
 msgstr "No se ha encontrado el álbun"
 
 #. Default: "You must specify a picasa username."
 #: ./validators.py:139
-#, fuzzy
 msgid "label_validate_picasa_specify_username"
-msgstr "El nombre de usuario de picasa ha de acabar en '@gmail.com'"
+msgstr "El nombre de usuario de picasa es obligatorio"
 
 #. Default: "There are no changes in the Gallery settings."
 #: ./browser/views/settings.py:37
@@ -408,7 +391,7 @@ msgstr "No hay cambios en la configuración de la galería"
 
 #: ./browser/views/templates/subgallery.pt:13
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #. Default: "Gallery Settings Saved."
 #: ./browser/views/settings.py:35
