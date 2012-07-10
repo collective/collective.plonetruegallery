@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.plonetruegallery\n"
-"POT-Creation-Date: 2012-06-19 06:21+0000\n"
+"POT-Creation-Date: 2012-07-10 13:58+0000\n"
 "PO-Revision-Date: 2012-06-19 09:36+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: eu <eu@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 #: ./configlet.py:15
 msgid "Apply"
 msgstr "Aplikatu"
+
+#: ./browser/views/templates/subgallery.pt:5
+msgid "Browse By"
+msgstr ""
 
 #: ./configlet.py:13
 msgid "Default settings to use for all galleries on site."
@@ -41,40 +45,42 @@ msgstr "Nagusia"
 msgid "PloneTruegallery Default Settings"
 msgstr "PloneTruegallery-ren defektuzko ezarpenak"
 
-#. Default: "Customize how large the image shows. If zero, a best guess height will be selected based on thewidth. This is translated to pixels."
-#: ./interfaces.py:905
-msgid "desc_contentflow_image_height"
-msgstr "Irudiaren gehienezko tamaina (pixeletan). 0 jarriz gero, zabaleraren araberako onena jartzen saiatuko da."
+#: ./browser/views/templates/subgallery.pt:16
+msgid "Search Galleries"
+msgstr ""
+
+#: ./browser/views/templates/subgallery.pt:8
+msgid "Select Category"
+msgstr ""
+
+#: ./browser/views/templates/subgallery.pt:20
+msgid "Show All"
+msgstr ""
 
 #. Default: "The amount of images shown in one page. This is not used for all display types."
-#: ./interfaces.py:251
+#: ./interfaces.py:252
 msgid "description_batch_size"
 msgstr "Orrialde bakoitzean agertuko den irudi kopurua. Datu hau ez da bista-mota guztietan erabiltzen."
 
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
-#: ./interfaces.py:228
+#: ./interfaces.py:229
 msgid "description_delay"
 msgstr "Hurrengo irudia kargatu aurreko atzerapena (milisegundutan). Datu honek denboraren araberako bistetan bakarrik du eragina."
 
 #. Default: "The amount of time the change effect should take in miliseconds."
-#: ./interfaces.py:236
+#: ./interfaces.py:237
 msgid "description_fade_in_duration"
 msgstr "Aldaketa efektuaren iraupena (milisegundutan)"
 
 #. Default: "Name/id of your flickr set.(*flickr* gallery type)"
-#: ./interfaces.py:927
+#: ./interfaces.py:278
 msgid "description_flickr_set"
 msgstr "Flickr-eko zure bildumaren identifikadorea"
 
 #. Default: "The username/id of your flickr account. (*flickr* gallery type)"
-#: ./interfaces.py:920
+#: ./interfaces.py:271
 msgid "description_flickr_username"
 msgstr "Zure flickr erabiltzailearen identifikadorea"
-
-#. Default: "The style of the Galleriffic layout. "
-#: ./interfaces.py:312
-msgid "description_gallerific-style"
-msgstr "Galleriffic-en itxura"
 
 #. Default: "Configure the parameters for this gallery."
 #: ./browser/views/settings.py:32
@@ -82,69 +88,39 @@ msgid "description_gallery_settings_form"
 msgstr "Galeria honen ezarpenak aldatu"
 
 #. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints."
-#: ./interfaces.py:191
+#: ./interfaces.py:192
 msgid "description_gallery_size"
 msgstr "Tamainak ezberdinak izan daitezke erabiltzen den galeria-motaren arabera"
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
-#: ./interfaces.py:170
+#: ./interfaces.py:171
 msgid "description_gallery_type"
 msgstr "Galeria-mota aukeratu. Defektuzkoa ez den bat aukeratzen baduzu, dagokion fitxan bere ezarpenak bete beharko dituzu."
 
-#. Default: "The style of the border around the image. "
-#: ./interfaces.py:288
-msgid "description_highslide_outlineType"
-msgstr "Irudiaren inguruko marraren itxura"
-
-#. Default: "Choose the position of the slideshow controls. "
-#: ./interfaces.py:271
-msgid "description_highslide_slideshowcontrols_position"
-msgstr "Galeriaren kontrolaren posizioa"
-
 #. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
-#: ./interfaces.py:944
+#: ./interfaces.py:295
 msgid "description_picasa_album"
 msgstr "Zure Picasa albumaren izena (Picasan zaudela albumaren tamaina osoko helbidea)"
 
 #. Default: "GMail address of who this album belongs to. (*Picasa* gallery type)"
-#: ./interfaces.py:937
+#: ./interfaces.py:288
 msgid "description_picasa_username"
 msgstr "Albumaren jabearen GMail helbidea"
 
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
-#: ./interfaces.py:244
+#: ./interfaces.py:245
 msgid "description_show_subgalleries"
 msgstr "Aukeratuz gero, azpiko galerien aurrebistak ere erakutsiko dira."
 
 #. Default: "The size of thumbnail images. Will only work with plone image gallery type."
-#: ./interfaces.py:206
+#: ./interfaces.py:207
 msgid "description_thumb_size"
 msgstr "Irudi txikien tamainak. Ploneko irudien galeriekin bakarrik funtzionatuko du."
 
 #. Default: "Should this gallery automatically change images for the user?"
-#: ./interfaces.py:221
+#: ./interfaces.py:222
 msgid "description_timed"
 msgstr "Automatikoki pasatu hurrengo irudira?"
-
-#. Default: "start gallery out with info showing"
-#: ./interfaces.py:566
-msgid "galleria_desc_auto_show_info"
-msgstr "Galeria automatikoki martxan hastea"
-
-#. Default: "Auto show info"
-#: ./interfaces.py:565
-msgid "galleria_label_auto_show_info"
-msgstr "Automatikoki erakustea"
-
-#. Default: "Theme"
-#: ./interfaces.py:537
-msgid "galleria_theme_title"
-msgstr "Itxura"
-
-#. Default: "Transition"
-#: ./interfaces.py:546
-msgid "galleria_transition"
-msgstr "Trantsizioa"
 
 #. Default: "This portlet allows you to show galleryimages in a portlet."
 #: ./portlets.py:217
@@ -241,220 +217,15 @@ msgstr "Zabalera (pixeletan)"
 msgid "heading_gallery_settings_form"
 msgstr "Galeria"
 
-#. Default: "Dark"
-#: ./interfaces.py:495
-msgid "label_backgroundcolors"
-msgstr "Iluna"
-
-#. Default: "Grey"
-#: ./interfaces.py:497
-msgid "label_backgroundcolors2"
-msgstr "Grisa"
-
-#. Default: "Offwhite"
-#: ./interfaces.py:499
-msgid "label_backgroundcolors3"
-msgstr "Beige"
-
-#. Default: "White"
-#: ./interfaces.py:501
-msgid "label_backgroundcolors4"
-msgstr "Zuria"
-
 #. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
 #: ./galleryadapters/base.py:27
 msgid "label_base_gallery_type"
 msgstr "oinarrizkoa: ez da berez galeria mota bat. "
 
 #. Default: "Batch Size"
-#: ./interfaces.py:250
+#: ./interfaces.py:251
 msgid "label_batch_size"
 msgstr "Tamaina"
-
-#. Default: "Classic"
-#: ./interfaces.py:542
-msgid "label_classic"
-msgstr "Klasikoa"
-
-#. Default: "Number of images before a forced new row (use a high number if you dont want this)"
-#: ./interfaces.py:573
-msgid "label_contactsheet_columns"
-msgstr "Zutabe bakoitzeko irudi kopurua"
-
-#. Default: "Contactsheet"
-#: ./browser/views/display.py:797
-msgid "label_contactsheet_display_type"
-msgstr "Kontaktu-orria"
-
-#. Default: "Height of (each) image"
-#: ./interfaces.py:584
-msgid "label_contactsheet_imageheight"
-msgstr "Irudi bakoitzaren altuera"
-
-#. Default: "Width of (each) image (when mouse hovers)"
-#: ./interfaces.py:579
-msgid "label_contactsheet_imagewidth"
-msgstr "Irudi bakoitzaren zabalera (sagua irudiaren gainean dagoenean)"
-
-#. Default: "Opacity on mouse over"
-#: ./interfaces.py:597
-msgid "label_contactsheet_overlay_opacity"
-msgstr "Sagua gainean dagoeneko iluntasuna"
-
-#. Default: "0 Off"
-#: ./interfaces.py:602
-msgid "label_contactsheet_overlay_opacity0"
-msgstr "0 (kenduta)"
-
-#. Default: "0.1 Light"
-#: ./interfaces.py:605
-msgid "label_contactsheet_overlay_opacity1"
-msgstr "0.1 argia"
-
-#. Default: "1 Pitch Dark"
-#: ./interfaces.py:629
-msgid "label_contactsheet_overlay_opacity10"
-msgstr "1 erabatekoa"
-
-#. Default: "0.2"
-#: ./interfaces.py:608
-msgid "label_contactsheet_overlay_opacity2"
-msgstr "0.2"
-
-#. Default: "0.3"
-#: ./interfaces.py:610
-msgid "label_contactsheet_overlay_opacity3"
-msgstr "0.3"
-
-#. Default: "0.4 Medium"
-#: ./interfaces.py:612
-msgid "label_contactsheet_overlay_opacity4"
-msgstr "0.4 erdibidekoa"
-
-#. Default: "0.5"
-#: ./interfaces.py:615
-msgid "label_contactsheet_overlay_opacity5"
-msgstr "0.5"
-
-#. Default: "0.6"
-#: ./interfaces.py:617
-msgid "label_contactsheet_overlay_opacity6"
-msgstr "0.6"
-
-#. Default: "0.7 Dark"
-#: ./interfaces.py:620
-msgid "label_contactsheet_overlay_opacity7"
-msgstr "0.7 Iluna"
-
-#. Default: "0.8 Very Dark"
-#: ./interfaces.py:623
-msgid "label_contactsheet_overlay_opacity8"
-msgstr "0.8 Oso iluna"
-
-#. Default: "0.9 Almost Black"
-#: ./interfaces.py:626
-msgid "label_contactsheet_overlay_opacity9"
-msgstr "0.9 Ia beltza"
-
-#. Default: "What stylesheet (css file) to use"
-#: ./interfaces.py:635
-msgid "label_contactsheet_style"
-msgstr "Erabiliko den estilo-orria (css fitxategia)"
-
-#. Default: "Custom css file"
-#: ./interfaces.py:655
-msgid "label_contactsheet_style_custom"
-msgstr "Pertsonalizatutako css orria"
-
-#. Default: "Default"
-#: ./interfaces.py:640
-msgid "label_contactsheet_style_default"
-msgstr "Defektuzkoa"
-
-#. Default: "Icon style (for small images)"
-#: ./interfaces.py:643
-msgid "label_contactsheet_style_icon"
-msgstr "Ikono-estiloa (irudi txikientzat)"
-
-#. Default: "Icon style no 2"
-#: ./interfaces.py:646
-msgid "label_contactsheet_style_icon_ii"
-msgstr "2. estiloa"
-
-#. Default: "Icon style no 3"
-#: ./interfaces.py:649
-msgid "label_contactsheet_style_icon_iii"
-msgstr "3. estiloa"
-
-#. Default: "No style / css file"
-#: ./interfaces.py:652
-msgid "label_contactsheet_style_no"
-msgstr "Estilorik ez"
-
-#. Default: "Use Thumbnail size instead of Size"
-#: ./interfaces.py:589
-msgid "label_contactsheet_use_icons"
-msgstr "Iruditxoak erabili"
-
-#. Default: "How many pixels to zoom when mouse over"
-#: ./interfaces.py:593
-msgid "label_contactsheet_zoom"
-msgstr "Sagua gainean jartzean egingo den zooma"
-
-#. Default: "Black"
-#: ./interfaces.py:888
-msgid "label_content_flow_addon_black"
-msgstr "Beltza"
-
-#. Default: "Gallery"
-#: ./interfaces.py:890
-msgid "label_content_flow_addon_gallery"
-msgstr "Galeria"
-
-#. Default: "Roundabout"
-#: ./interfaces.py:893
-msgid "label_content_flow_addon_roundabout"
-msgstr ""
-
-#. Default: "Screwdriver"
-#: ./interfaces.py:896
-msgid "label_content_flow_addon_screwdriver"
-msgstr ""
-
-#. Default: "Slideshow"
-#: ./interfaces.py:899
-msgid "label_content_flow_addon_slideshow"
-msgstr "Slideshow"
-
-#. Default: "White"
-#: ./interfaces.py:886
-msgid "label_content_flow_addon_white"
-msgstr "Zuria"
-
-#. Default: "Addons"
-#: ./interfaces.py:879
-msgid "label_contentflow_addons"
-msgstr "Gehigarriak"
-
-#. Default: "Content Flow"
-#: ./browser/views/display.py:1142
-msgid "label_contentflow_display_type"
-msgstr "Content Flow"
-
-#. Default: "Max Image Height"
-#: ./interfaces.py:903
-msgid "label_contentflow_image_height"
-msgstr "Gehienezko altuera"
-
-#. Default: "Name of Custom css file if you chose that above"
-#: ./interfaces.py:354
-msgid "label_custom_style"
-msgstr "CSS fitxategia (goian hori aukeratu baduzu)"
-
-#. Default: "Dark"
-#: ./interfaces.py:540
-msgid "label_dark"
-msgstr "Iluna"
 
 #. Default: "Use Plone To Manage Images"
 #: ./galleryadapters/basic.py:25
@@ -462,44 +233,9 @@ msgid "label_default_gallery_type"
 msgstr "Plone erabili irudiak kudeatzeko"
 
 #. Default: "Delay"
-#: ./interfaces.py:227
+#: ./interfaces.py:228
 msgid "label_delay"
 msgstr "Atzerapena"
-
-#. Default: "Fade - crossfade betweens images"
-#: ./interfaces.py:552
-msgid "label_fade"
-msgstr "Desagertu - Irudi bat desagertarazi eta bestea erakutsi"
-
-#. Default: "Fade Slide - fade between images and slide slightly at the same time"
-#: ./interfaces.py:549
-msgid "label_fadeslide"
-msgstr "Desagertu eta mugitu - Desagertarazten den heinean irudia mugitu"
-
-#. Default: "Fancy Box"
-#: ./browser/views/display.py:145
-msgid "label_fancybox_display_type"
-msgstr "Fancy Box"
-
-#. Default: "Image will never exceed browser width or height. Ignores min. dimensions"
-#: ./interfaces.py:773
-msgid "label_fit_always"
-msgstr "Irudiak ez du sekula nabigatzailearen tamaina baino handiagoa hartuko"
-
-#. Default: "Landscape images will not exceed browser width"
-#: ./interfaces.py:782
-msgid "label_fit_landscape"
-msgstr "Irudi etzanek ez dute nabigatzailearen zabalera baino gehiago hartuko"
-
-#. Default: "Portrait images will not exceed browser height"
-#: ./interfaces.py:778
-msgid "label_fit_portrait"
-msgstr "Irudi bertikalek ez dute nabigatzailearen altuera baino gehiago hartuko"
-
-#. Default: "Flash - fades into background color between images"
-#: ./interfaces.py:554
-msgid "label_flash"
-msgstr "Flash - atzeko kolorea erakusten du irudien artean"
 
 #. Default: "Flickr"
 #: ./galleryadapters/flickr.py:28
@@ -507,352 +243,52 @@ msgid "label_flickr_gallery_type"
 msgstr "Flickr"
 
 #. Default: "Flickr Set"
-#: ./interfaces.py:926
+#: ./interfaces.py:277
 msgid "label_flickr_set"
 msgstr "Flickr set edo bilduma"
 
 #. Default: "flickr username"
-#: ./interfaces.py:919
+#: ./interfaces.py:270
 msgid "label_flickr_username"
 msgstr "Flickr erabiltzailea"
 
-#. Default: "Galleria"
-#: ./browser/views/display.py:443
-msgid "label_galleria_display_type"
-msgstr "Galleria"
-
-#. Default: "Galleriffic"
-#: ./browser/views/display.py:304
-msgid "label_galleriffic_display_type"
-msgstr "Gelleriffic"
-
-#. Default: "Layout"
-#: ./interfaces.py:311
-msgid "label_gallerific-style"
-msgstr "Itxura"
-
-#. Default: "Default Layout"
-#: ./interfaces.py:318
-msgid "label_gallerific_style"
-msgstr "Defektuzkoa"
-
-#. Default: "Linklayout"
-#: ./interfaces.py:321
-msgid "label_gallerific_style2"
-msgstr "Loturak"
-
 #. Default: "Gallery Display Type"
-#: ./interfaces.py:178
+#: ./interfaces.py:179
 msgid "label_gallery_display_type"
 msgstr "Galeria"
 
 #. Default: "Choose the method in which the gallery should be displayed"
-#: ./interfaces.py:180
+#: ./interfaces.py:181
 msgid "label_gallery_display_type_description"
 msgstr "Galeria erakusteko modua aukeratu"
 
 #. Default: "Size"
-#: ./interfaces.py:190
+#: ./interfaces.py:191
 msgid "label_gallery_size"
 msgstr "Tamaina"
 
 #. Default: "Type"
-#: ./interfaces.py:169
+#: ./interfaces.py:170
 msgid "label_gallery_type"
 msgstr "Mota"
 
-#. Default: "Highslide - verify terms of use"
-#: ./browser/views/display.py:200
-msgid "label_highslide_display_type"
-msgstr "Highslide - ikusi erabilpen-baldintzak"
-
-#. Default: "Image outline type"
-#: ./interfaces.py:287
-msgid "label_highslide_outlineType"
-msgstr "Kanpoko marraren itxura"
-
-#. Default: "Drop Shadow"
-#: ./interfaces.py:300
-msgid "label_highslide_outlineType_drop_shadow"
-msgstr "Itzala kendu"
-
-#. Default: "Glossy Dark"
-#: ./interfaces.py:303
-msgid "label_highslide_outlineType_glossy_dark"
-msgstr "Iluna"
-
-#. Default: "Outer Glow"
-#: ./interfaces.py:297
-msgid "label_highslide_outlineType_outer_glow"
-msgstr "Kanpoko dirdinra"
-
-#. Default: "Rounded White"
-#: ./interfaces.py:294
-msgid "label_highslide_outlineType_rounded_white"
-msgstr "Biribildu-zuria"
-
-#. Default: "bottom"
-#: ./interfaces.py:283
-msgid "label_highslide_slideshowcontrols_position_bottom"
-msgstr "Behean"
-
-#. Default: "middle"
-#: ./interfaces.py:280
-msgid "label_highslide_slideshowcontrols_position_middle"
-msgstr "Erdian"
-
-#. Default: "top"
-#: ./interfaces.py:277
-msgid "label_highslide_slideshowcontrols_position_top"
-msgstr "Gainean"
-
-#. Default: "You can only use the Highslide gallery for non-commercial use unless you purchase a commercial license. Please visit http://highslide.com/ for details."
-#: ./browser/views/display.py:202
-msgid "label_highslide_user_warning"
-msgstr "Highslide erabilpen ez-komertzialerako bakarrik erabil dezakezu lizentzia bat erosten ez duzun artean. Ikusi http://highslide.com/ informazio gehiagorako."
-
-#. Default: "Horizontally center background"
-#: ./interfaces.py:765
-msgid "label_horizontal_center"
-msgstr "Atzealdea horizontalean zentratu"
-
 #. Default: "Change Duration"
-#: ./interfaces.py:235
+#: ./interfaces.py:236
 msgid "label_image_change_duration"
 msgstr "Iraupena aldatu"
 
-#. Default: "Light"
-#: ./interfaces.py:541
-msgid "label_light"
-msgstr "Argia"
-
-#. Default: "Min height allowed, in pixels"
-#: ./interfaces.py:761
-msgid "label_min_height"
-msgstr "Altuera minimoa (pixeletan)"
-
-#. Default: "Min width allowed, in pixels"
-#: ./interfaces.py:757
-msgid "label_min_width"
-msgstr "Zabalera minimoa (pixeletan)"
-
 #. Default: "mini"
-#: ./interfaces.py:214
+#: ./interfaces.py:215
 msgid "label_mini"
 msgstr "mini"
 
-#. Default: "Show navigation arrows on the image"
-#: ./interfaces.py:461
-msgid "label_nivogallery_directionnav"
-msgstr "Nabigazio geziak erakutsi irudiaren gainean"
-
-#. Default: "Nivogallery"
-#: ./browser/views/display.py:745
-msgid "label_nivogallery_display_type"
-msgstr "Nivogallery"
-
-#. Default: "Height of the gallery. You can not set the height in %"
-#: ./interfaces.py:473
-msgid "label_nivogallery_height"
-msgstr "Galeriaren altuera (ezin duzu %rik erabili)"
-
-#. Default: "Show progressbar at the top"
-#: ./interfaces.py:465
-msgid "label_nivogallery_progressbar"
-msgstr "Gainean iraupen barra erakutsi"
-
-#. Default: "Width of the gallery"
-#: ./interfaces.py:469
-msgid "label_nivogallery_width"
-msgstr "Galeriaren zabalera"
-
-#. Default: "Number of columns for box animations"
-#: ./interfaces.py:450
-msgid "label_nivoslider_boxcols"
-msgstr "Zutabe kopurua"
-
-#. Default: "Number of rows for box animations"
-#: ./interfaces.py:454
-msgid "label_nivoslider_boxrows"
-msgstr "Lerro kopurua"
-
-#. Default: "Only show Next & Prev on hover"
-#: ./interfaces.py:438
-msgid "label_nivoslider_directionnavhide"
-msgstr "Hurrengoa eta Aurrekoa sagua gainean jartzean bakarrik erakutsi"
-
-#. Default: "Nivoslider"
-#: ./browser/views/display.py:665
-msgid "label_nivoslider_display_type"
-msgstr "Nivoslider"
-
-#. Default: "Transition Effect"
-#: ./interfaces.py:391
-msgid "label_nivoslider_effect"
-msgstr "Trantsizio-efektua"
-
-#. Default: "Fold"
-#: ./interfaces.py:395
-msgid "label_nivoslider_effect1"
-msgstr ""
-
-#. Default: "Box Rain"
-#: ./interfaces.py:415
-msgid "label_nivoslider_effect10"
-msgstr ""
-
-#. Default: "Box Rain Reverse"
-#: ./interfaces.py:417
-msgid "label_nivoslider_effect11"
-msgstr ""
-
-#. Default: "Box Random"
-#: ./interfaces.py:419
-msgid "label_nivoslider_effect12"
-msgstr ""
-
-#. Default: "Box Rain Grow"
-#: ./interfaces.py:421
-msgid "label_nivoslider_effect13"
-msgstr ""
-
-#. Default: "box Rain Grow Reverse"
-#: ./interfaces.py:423
-msgid "label_nivoslider_effect14"
-msgstr ""
-
-#. Default: "Random"
-#: ./interfaces.py:426
-msgid "label_nivoslider_effect15"
-msgstr ""
-
-#. Default: "Slice Down Left"
-#: ./interfaces.py:401
-msgid "label_nivoslider_effect16"
-msgstr ""
-
-#. Default: "Fade"
-#: ./interfaces.py:397
-msgid "label_nivoslider_effect2"
-msgstr ""
-
-#. Default: "Slice Down"
-#: ./interfaces.py:399
-msgid "label_nivoslider_effect3"
-msgstr ""
-
-#. Default: "Slice Up"
-#: ./interfaces.py:403
-msgid "label_nivoslider_effect4"
-msgstr ""
-
-#. Default: "Slice Up Left"
-#: ./interfaces.py:405
-msgid "label_nivoslider_effect5"
-msgstr ""
-
-#. Default: "Slice Up Down"
-#: ./interfaces.py:407
-msgid "label_nivoslider_effect6"
-msgstr ""
-
-#. Default: "Slice Up Down Left"
-#: ./interfaces.py:409
-msgid "label_nivoslider_effect7"
-msgstr ""
-
-#. Default: "Slide In Right"
-#: ./interfaces.py:411
-msgid "label_nivoslider_effect8"
-msgstr ""
-
-#. Default: "Slide In Left"
-#: ./interfaces.py:413
-msgid "label_nivoslider_effect9"
-msgstr ""
-
-#. Default: "Height of the gallery in pixels"
-#: ./interfaces.py:365
-msgid "label_nivoslider_height"
-msgstr "Galeriaren altuera (pixeletan)"
-
-#. Default: "Stop animation while hovering?"
-#: ./interfaces.py:442
-msgid "label_nivoslider_pauseonhover"
-msgstr "Sagua gainean jartzean animazioa pausarazi"
-
-#. Default: "Next & Prev navigation??"
-#: ./interfaces.py:434
-msgid "label_nivoslider_r_directionnar"
-msgstr "Hurrengo eta Aurreko nabigazioa?"
-
-#. Default: "Start on random image?"
-#: ./interfaces.py:430
-msgid "label_nivoslider_randomstart"
-msgstr "Ausazko irudiarekin hasi"
-
-#. Default: "Nuber of slices, for slice animations"
-#: ./interfaces.py:446
-msgid "label_nivoslider_slices"
-msgstr ""
-
-#. Default: "Default Theme"
-#: ./interfaces.py:373
-msgid "label_nivoslider_theme1"
-msgstr "Defektuzkoa"
-
-#. Default: "Orman Theme"
-#: ./interfaces.py:375
-msgid "label_nivoslider_theme2"
-msgstr ""
-
-#. Default: "Pascal Theme"
-#: ./interfaces.py:377
-msgid "label_nivoslider_theme3"
-msgstr ""
-
-#. Default: "Old Frame Theme"
-#: ./interfaces.py:379
-msgid "label_nivoslider_theme4"
-msgstr ""
-
-#. Default: "Overlay Theme"
-#: ./interfaces.py:381
-msgid "label_nivoslider_theme5"
-msgstr ""
-
-#. Default: "Bendit Theme"
-#: ./interfaces.py:383
-msgid "label_nivoslider_theme6"
-msgstr ""
-
-#. Default: "TV Theme"
-#: ./interfaces.py:385
-msgid "label_nivoslider_theme7"
-msgstr ""
-
-#. Default: "Thumbnail Theme"
-#: ./interfaces.py:387
-msgid "label_nivoslider_theme8"
-msgstr ""
-
-#. Default: "Width of the gallery in pixels"
-#: ./interfaces.py:361
-msgid "label_nivoslider_width"
-msgstr "Galeriaren zabalera (pixeletan)"
-
 #. Default: "There are no images in this gallery."
-#: ./browser/views/templates/layout.pt:23
+#: ./browser/views/templates/layout.pt:21
 msgid "label_no_images_in_gallery"
 msgstr "Ez dago irudirik"
 
-#. Default: "Performance"
-#: ./interfaces.py:738
-msgid "label_performance"
-msgstr ""
-
 #. Default: "Picasa Album"
-#: ./interfaces.py:943
+#: ./interfaces.py:294
 msgid "label_picasa_album"
 msgstr "Picasa Albuma"
 
@@ -862,408 +298,53 @@ msgid "label_picasa_gallery_type"
 msgstr "Picasa Albuma"
 
 #. Default: "GMail address"
-#: ./interfaces.py:936
+#: ./interfaces.py:287
 msgid "label_picasa_username"
 msgstr "GMail helbidea"
 
-#. Default: "backgroundcolor"
-#: ./interfaces.py:490
-msgid "label_pikachoose_backgroundcolor"
-msgstr "Atzeko kolorea"
-
-#. Default: "Show caption"
-#: ./interfaces.py:508
-msgid "label_pikachoose_caption"
-msgstr "Irudi-oina erakutsi"
-
-#. Default: "Pikachoose"
-#: ./browser/views/display.py:568
-msgid "label_pikachoose_display_type"
-msgstr "Pikachoose"
-
-#. Default: "Height of the gallery in pixels"
-#: ./interfaces.py:485
-msgid "label_pikachoose_height"
-msgstr "Galeriaren altuera (pixeletan)"
-
-#. Default: "Show tooltip"
-#: ./interfaces.py:505
-msgid "label_pikachoose_tooltip"
-msgstr "Irudi-oina erakutsi"
-
-#. Default: "Transition"
-#: ./interfaces.py:514
-msgid "label_pikachoose_transition"
-msgstr "Trantsizioa"
-
-#. Default: "Vertical"
-#: ./interfaces.py:511
-msgid "label_pikachoose_vertical"
-msgstr "Bertikala"
-
-#. Default: "Width of the gallery in pixels"
-#: ./interfaces.py:480
-msgid "label_pikachoose_width"
-msgstr "Galeriaren zabalera (pixeletan)"
-
-#. Default: "Click on image"
-#: ./interfaces.py:830
-msgid "label_presentation_click"
-msgstr "Egin klik irudian"
-
-#. Default: "Presentation"
-#: ./browser/views/display.py:1062
-msgid "label_presentation_display_type"
-msgstr "Aurkezpena"
-
-#. Default: "Mouseover or click"
-#: ./interfaces.py:825
-msgid "label_presentation_effect"
-msgstr "Sagua gainean jarri edo klik egin"
-
-#. Default: "Height of the gallery in pixels"
-#: ./interfaces.py:841
-msgid "label_presentation_height"
-msgstr "Galeriaren altuera (pixeletan)"
-
-#. Default: "Minimum width of images"
-#: ./interfaces.py:846
-msgid "label_presentation_minimum_width"
-msgstr "Irudien zabalera minimoa"
-
-#. Default: "Mouse enter"
-#: ./interfaces.py:832
-msgid "label_presentation_mouseover"
-msgstr ""
-
-#. Default: "Width of the gallery in pixels"
-#: ./interfaces.py:836
-msgid "label_presentation_width"
-msgstr "Galeriaren zabalera (pixeletan)"
-
-#. Default: "Horizontal image position"
-#: ./interfaces.py:850
-msgid "label_presentation_xposition"
-msgstr ""
-
-#. Default: "Bottom"
-#: ./interfaces.py:859
-msgid "label_presentation_xpositionbottom"
-msgstr ""
-
-#. Default: "Center"
-#: ./interfaces.py:857
-msgid "label_presentation_xpositioncenter"
-msgstr ""
-
-#. Default: "Top"
-#: ./interfaces.py:855
-msgid "label_presentation_xpositiontop"
-msgstr ""
-
-#. Default: "Vertical image position"
-#: ./interfaces.py:863
-msgid "label_presentation_yposition"
-msgstr ""
-
-#. Default: "Center"
-#: ./interfaces.py:870
-msgid "label_presentation_ypositioncenter"
-msgstr ""
-
-#. Default: "Left"
-#: ./interfaces.py:868
-msgid "label_presentation_ypositionleft"
-msgstr ""
-
-#. Default: "Right"
-#: ./interfaces.py:872
-msgid "label_presentation_ypositionright"
-msgstr ""
-
 #. Default: "preview"
-#: ./interfaces.py:215
+#: ./interfaces.py:216
 msgid "label_preview"
 msgstr "preview"
 
-#. Default: "Show progress bar"
-#: ./interfaces.py:809
-msgid "label_progress_bar"
-msgstr ""
-
-#. Default: "Pulse - quickly removes the image into background color, then fades the next image"
-#: ./interfaces.py:557
-msgid "label_pulse"
-msgstr ""
-
-#. Default: "Height of the gallery"
-#: ./interfaces.py:333
-msgid "label_s3_height"
-msgstr "Galeriaren altuera"
-
-#. Default: "Width of the (black) text box"
-#: ./interfaces.py:337
-msgid "label_s3_textwidth"
-msgstr ""
-
-#. Default: "Width of the gallery"
-#: ./interfaces.py:329
-msgid "label_s3_width"
-msgstr "Galeriaren zabalera"
-
-#. Default: "s3slider"
-#: ./browser/views/display.py:509
-msgid "label_s3slider_display_type"
-msgstr ""
-
-#. Default: "What stylesheet (css file) to use"
-#: ./interfaces.py:341
-msgid "label_s3slider_style"
-msgstr ""
-
-#. Default: "Custom css file"
-#: ./interfaces.py:349
-msgid "label_s3slider_style_custom"
-msgstr ""
-
-#. Default: "Default"
-#: ./interfaces.py:346
-msgid "label_s3slider_style_default"
-msgstr ""
-
-#. Default: "Hide ALL Controls"
-#: ./interfaces.py:813
-msgid "label_show_controls"
-msgstr ""
-
 #. Default: "Show Sub-Galleries?"
-#: ./interfaces.py:243
+#: ./interfaces.py:244
 msgid "label_show_subgalleries"
 msgstr ""
 
 #. Default: "Large"
-#: ./interfaces.py:201
+#: ./interfaces.py:202
 msgid "label_size_large"
 msgstr "Handia"
 
 #. Default: "Medium"
-#: ./interfaces.py:199
+#: ./interfaces.py:200
 msgid "label_size_medium"
 msgstr "Ertaina"
 
 #. Default: "Small"
-#: ./interfaces.py:197
+#: ./interfaces.py:198
 msgid "label_size_small"
 msgstr "Txikia"
 
-#. Default: "Slide - slides the images depending on image position"
-#: ./interfaces.py:560
-msgid "label_slide"
-msgstr ""
-
-#. Default: "Show slide names in the center of bottom tray (you will need to style 'Name' with css)"
-#: ./interfaces.py:795
-msgid "label_slide_link"
-msgstr ""
-
-#. Default: "Blank"
-#: ./interfaces.py:804
-msgid "label_slide_links_blank"
-msgstr ""
-
-#. Default: "Name"
-#: ./interfaces.py:801
-msgid "label_slide_links_name"
-msgstr ""
-
-#. Default: "Slideshow on"
-#: ./interfaces.py:707
-msgid "label_slideshow"
-msgstr ""
-
-#. Default: "Pauses slideshow on last slide"
-#: ./interfaces.py:711
-msgid "label_stop_loop"
-msgstr ""
-
-#. Default: "CSS to customize the layout"
-#: ./interfaces.py:817
-msgid "label_supersized_css"
-msgstr ""
-
-#. Default: "Supersized"
-#: ./browser/views/display.py:955
-msgid "label_supersized_display_type"
-msgstr ""
-
-#. Default: "Normal"
-#: ./interfaces.py:743
-msgid "label_supersized_performance0"
-msgstr ""
-
-#. Default: "Hybrid between speed and quality"
-#: ./interfaces.py:745
-msgid "label_supersized_performance1"
-msgstr ""
-
-#. Default: "Optimizes image quality"
-#: ./interfaces.py:748
-msgid "label_supersized_performance2"
-msgstr ""
-
-#. Default: "Optimizes transition speed. Only works for Firefox, IE, not Webkit"
-#: ./interfaces.py:751
-msgid "label_supersized_performance3"
-msgstr ""
-
-#. Default: "Transition"
-#: ./interfaces.py:715
-msgid "label_supersized_transition"
-msgstr ""
-
-#. Default: "None"
-#: ./interfaces.py:720
-msgid "label_supersized_transition0"
-msgstr ""
-
-#. Default: "Fade"
-#: ./interfaces.py:722
-msgid "label_supersized_transition1"
-msgstr ""
-
-#. Default: "Slide Top"
-#: ./interfaces.py:724
-msgid "label_supersized_transition2"
-msgstr ""
-
-#. Default: "Slide Right"
-#: ./interfaces.py:726
-msgid "label_supersized_transition3"
-msgstr ""
-
-#. Default: "Slide Bottom"
-#: ./interfaces.py:728
-msgid "label_supersized_transition4"
-msgstr ""
-
-#. Default: "Slide Left"
-#: ./interfaces.py:730
-msgid "label_supersized_transition5"
-msgstr ""
-
-#. Default: "Carousel Right"
-#: ./interfaces.py:732
-msgid "label_supersized_transition6"
-msgstr ""
-
-#. Default: "Carousel Left"
-#: ./interfaces.py:734
-msgid "label_supersized_transition7"
-msgstr ""
-
 #. Default: "thumb"
-#: ./interfaces.py:213
+#: ./interfaces.py:214
 msgid "label_thumb"
 msgstr ""
 
-#. Default: "Individual thumb links for each slide in the 'bottom tray'"
-#: ./interfaces.py:790
-msgid "label_thumb_links"
-msgstr ""
-
 #. Default: "Thumbnail image size"
-#: ./interfaces.py:205
+#: ./interfaces.py:206
 msgid "label_thumb_size"
 msgstr ""
 
-#. Default: "Show next and previous thumb "
-#: ./interfaces.py:786
-msgid "label_thumbnail_navigation"
-msgstr ""
-
-#. Default: "Number of thumbs before a forced new row (use a high number if you dont want this)"
-#: ./interfaces.py:668
-msgid "label_thumbnailzoom_columns"
-msgstr ""
-
-#. Default: "Thumbnailzoom"
-#: ./browser/views/display.py:880
-msgid "label_thumbnailzoom_display_type"
-msgstr ""
-
-#. Default: "Pixels to zoom when mouse over"
-#: ./interfaces.py:674
-msgid "label_thumbnailzoom_increase"
-msgstr ""
-
-#. Default: "What stylesheet (css file) to use"
-#: ./interfaces.py:687
-msgid "label_thumbnailzoom_style"
-msgstr ""
-
-#. Default: "Custom css file"
-#: ./interfaces.py:695
-msgid "label_thumbnailzoom_style_custom"
-msgstr ""
-
-#. Default: "Default"
-#: ./interfaces.py:692
-msgid "label_thumbnailzoom_style_default"
-msgstr ""
-
-#. Default: "Use Image size instead of Thumbnail size"
-#: ./interfaces.py:683
-msgid "label_thumbnailzoom_use_images"
-msgstr ""
-
-#. Default: "How long time the effect takes"
-#: ./interfaces.py:678
-msgid "label_thumbnaizoom_effectduration"
-msgstr ""
-
 #. Default: "tile"
-#: ./interfaces.py:212
+#: ./interfaces.py:213
 msgid "label_tile"
 msgstr "tile"
 
 #. Default: "Timed?"
-#: ./interfaces.py:220
+#: ./interfaces.py:221
 msgid "label_timed"
-msgstr ""
-
-#. Default: "Full frame cross fade"
-#: ./interfaces.py:518
-msgid "label_transitions"
-msgstr ""
-
-#. Default: "Paneled fold out"
-#: ./interfaces.py:520
-msgid "label_transitions2"
-msgstr ""
-
-#. Default: "Horizontal blinds"
-#: ./interfaces.py:522
-msgid "label_transitions3"
-msgstr ""
-
-#. Default: "Vertical blinds"
-#: ./interfaces.py:524
-msgid "label_transitions4"
-msgstr ""
-
-#. Default: "Small box random fades"
-#: ./interfaces.py:526
-msgid "label_transitions5"
-msgstr ""
-
-#. Default: "Full image blind slide"
-#: ./interfaces.py:528
-msgid "label_transitions6"
-msgstr ""
-
-#. Default: "Fade out then fade in"
-#: ./interfaces.py:530
-msgid "label_transitions7"
 msgstr ""
 
 #. Default: "Could not find flickr set."
@@ -1301,25 +382,14 @@ msgstr ""
 msgid "label_validate_picasa_specify_username"
 msgstr ""
 
-#. Default: "Vertically center background"
-#: ./interfaces.py:769
-msgid "label_vertical_center"
-msgstr ""
-
-#. Default: "Highslide controls position"
-#: ./interfaces.py:269
-msgid "lable_highslide_slideshowcontrols_position"
-msgstr ""
-
-#. Default: "Nivoslider Theme"
-#: ./interfaces.py:369
-msgid "nivoslider_theme"
-msgstr ""
-
 #. Default: "There are no changes in the Gallery settings."
 #: ./browser/views/settings.py:37
 msgid "noChangesMessage_gallery_settings_form"
 msgstr "Ez duzu aldaketarik egin ezarpenetan."
+
+#: ./browser/views/templates/subgallery.pt:13
+msgid "or"
+msgstr ""
 
 #. Default: "Gallery Settings Saved."
 #: ./browser/views/settings.py:35
