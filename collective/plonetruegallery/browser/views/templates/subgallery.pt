@@ -1,3 +1,4 @@
+<tal:block i18n:domain="collective.plonetruegallery">
 <div class="spacer" tal:condition="view/show_subgalleries">&nbsp;</div>
 <div id="subgallery-browse-wrapper" tal:condition="view/show_subgalleries">
   <div id="subgallery-search">
@@ -35,3 +36,4 @@
   <div id="subgallery-paging">
   </div>
 </div>
+</tal:block>

@@ -14,14 +14,12 @@
   </metal:js>
 
   <body>
-    <metal:main fill-slot="main">
-      <tal:main-macro metal:define-macro="main" tal:define="desc context/Description|nothing">
-        <h1 class="gallery-title" tal:content="context/Title" />
-        <p class="gallery-desc" tal:content="desc" tal:condition="desc" />
-	
+    <metal:core fill-slot="content-core">
+      <tal:core-macro metal:define-macro="content-core">
+        
         <div class="noimages" tal:condition="python: view.adapter.number_of_images == 0">
           <p class="discreet" i18n:translate="label_no_images_in_gallery">
-	         There are no images in this gallery.
+            There are no images in this gallery.
           </p>
         </div>
 
@@ -39,7 +37,7 @@
 
         <tal:subgallery tal:replace="structure view/subgallery_template" />
 
-      </tal:main-macro>
-    </metal:main>
+      </tal:core-macro>
+    </metal:core>
   </body>
 </html>
