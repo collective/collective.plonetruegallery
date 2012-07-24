@@ -16,7 +16,7 @@ from plone.memoize.instance import memoize
 try:
     from plone.uuid.interfaces import IUUID
 except:
-    def IUUID(_, _=None):
+    def IUUID(_, _2=None):
         return None
 
 
