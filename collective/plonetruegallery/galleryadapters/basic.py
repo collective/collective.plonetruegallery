@@ -8,7 +8,10 @@ from base import BaseAdapter, BaseImageInformationRetriever
 from collective.plonetruegallery import PTGMessageFactory as _
 from Products.ATContentTypes.interface.image import IImageContent
 from Products.ATContentTypes.interface import IATTopic
-from Products.Archetypes.interfaces import IBaseFolder
+try:
+    from plone.folder.interfaces import IFolder as IBaseFolder
+except ImportError:
+    from Products.Archetypes.interfaces import IBaseFolder
 from plone.memoize.view import memoize_contextless
 from plone.memoize.instance import memoize
 has_pai = True

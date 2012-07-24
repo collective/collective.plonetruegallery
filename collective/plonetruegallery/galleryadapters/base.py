@@ -13,6 +13,11 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize
+try:
+    from plone.uuid.interfaces import IUUID
+except:
+    def IUUID(_, _=None):
+        return None
 
 
 class BaseAdapter(object):
@@ -51,7 +56,9 @@ class BaseAdapter(object):
             object_provides=IGallery.__identifier__,
             **kwargs
         )
-        uid = self.gallery.UID()
+        uid = IUUID(self.gallery, None)
+        if uid is None:
+            uid = self.gallery.UID()
 
         def afilter(i):
             """prevent same object and multiple nested galleries"""
