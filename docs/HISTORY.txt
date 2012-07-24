@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0b2 (unreleased)
+3.0b2 (2012-07-24)
 ------------------
 
 - get portal root without the getSite hook
