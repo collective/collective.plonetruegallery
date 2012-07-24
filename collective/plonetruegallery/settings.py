@@ -1,4 +1,4 @@
-from zope.app.component.hooks import getSite
+from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
 from persistent.dict import PersistentDict
 from zope.annotation.interfaces import IAnnotations
@@ -12,12 +12,14 @@ class AnnotationStorage(object):
     def __init__(self, context):
         self.context = context
 
-        annotations = IAnnotations(context)
-
-        self._metadata = annotations.get(ANNOTATION_KEY, None)
-        if self._metadata is None:
-            self._metadata = PersistentDict()
-            annotations[ANNOTATION_KEY] = self._metadata
+        try:
+            annotations = IAnnotations(context)
+            self._metadata = annotations.get(ANNOTATION_KEY, None)
+            if self._metadata is None:
+                self._metadata = PersistentDict()
+                annotations[ANNOTATION_KEY] = self._metadata
+        except TypeError:
+            self._metadata = {}
 
     def put(self, name, value):
         self._metadata[name] = value
@@ -64,7 +66,8 @@ class GallerySettings(object):
 
         self.storage = AnnotationStorage(context)
         if not IPloneSiteRoot.providedBy(context):
-            self.default_settings = GallerySettings(getSite(),
+            site = getToolByName(context, 'portal_url').getPortalObject()
+            self.default_settings = GallerySettings(site,
                 interfaces=interfaces)
         else:
             self.default_settings = None
