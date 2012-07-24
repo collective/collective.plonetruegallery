@@ -1,6 +1,16 @@
 Changelog
 =========
 
+3.0b2 (unreleased)
+------------------
+
+- get portal root without the getSite hook
+  [vangheem]
+
+- dexterity compatible changes
+  [vangheem]
+
+
 3.0b1 (2012-07-04)
 ------------------
 
