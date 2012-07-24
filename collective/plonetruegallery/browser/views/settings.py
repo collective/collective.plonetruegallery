@@ -95,5 +95,6 @@ class GallerySettingsForm(group.GroupForm, form.EditForm):
             has_changes = True
 
         self.set_status_message(settings, has_changes)
+        return self.request.response.redirect(self.context.absolute_url())
 
 GallerySettingsView = wrap_form(GallerySettingsForm)
