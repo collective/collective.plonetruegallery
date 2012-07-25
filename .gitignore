@@ -3,3 +3,13 @@ dist
 *.mo
 *egg-info*
 collective/plonetruegallery/browser/files/nivoslider/css/orman/slider.png
+
+collective/plonetruegallery/browser/files/.DS_Store
+
+collective/plonetruegallery/.DS_Store
+
+collective/plonetruegallery/browser/.DS_Store
+
+collective/.DS_Store
+
+.DS_Store
