@@ -1,400 +1,419 @@
 # --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# Diego Rubert, 2009.
+# Finnish translations for collective.plonetruegallery package.
+# Ilja Everilä <ilja.everila@twinapex.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: collective.plonetruegallery\n"
+"Project-Id-Version: collective.plonetruegallery 0.7rc1-py2.4.egg\n"
 "POT-Creation-Date: 2012-07-10 13:58+0000\n"
-"PO-Revision-Date: 2012-07-10 16:06+0100\n"
-"Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
-"Language-Team: Spanish <>\n"
+"PO-Revision-Date: 2009-08-28 16:49+0300\n"
+"Last-Translator: Ilja Everilä <ilja.everila@twinapex.com>\n"
+"Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: es\n"
-"Language-Name: Español\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Code: fi\n"
+"Language-Name: Finnish\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.plonetruegallery\n"
-"X-Generator: Lokalize 0.3\n"
 
 #: ./browser/views/settings.py:82
 #: ./configlet.py:15
 msgid "Apply"
-msgstr "Aplicar"
+msgstr ""
 
 #: ./browser/views/templates/subgallery.pt:5
 msgid "Browse By"
-msgstr "Filtrar por"
+msgstr ""
 
 #: ./configlet.py:13
 msgid "Default settings to use for all galleries on site."
-msgstr "Configuración por defecto de todas las nuevas galerías del sitio"
+msgstr ""
 
 #: ./profiles/default/actions.xml
 msgid "Gallery Settings"
-msgstr "Configuración de galería"
+msgstr ""
 
 #. Default: "Gallery View"
 #: ./browser/views/configure.zcml
 msgid "Gallery View"
-msgstr "Vista de galería"
+msgstr ""
 
 #: ./browser/views/settings.py:20
 msgid "Main"
-msgstr "Principal"
+msgstr ""
 
 #: ./configlet.py:12
 msgid "PloneTruegallery Default Settings"
-msgstr "Configuración por defecto de PloneTruegallery"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Refresh Gallery"
+msgstr ""
 
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
-msgstr "Buscar galerías"
+msgstr ""
 
 #: ./browser/views/templates/subgallery.pt:8
 msgid "Select Category"
-msgstr "Seleccionar etiqueta"
+msgstr ""
 
 #: ./browser/views/templates/subgallery.pt:20
 msgid "Show All"
-msgstr "Mostrar todos"
+msgstr ""
 
 #. Default: "The amount of images shown in one page. This is not used for all display types."
 #: ./interfaces.py:252
 msgid "description_batch_size"
-msgstr "Cantidad de imágenes mostradas en una página. No todos los tipos de visualización lo usan."
+msgstr ""
 
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
 #: ./interfaces.py:229
 msgid "description_delay"
-msgstr "Si hay temporizador, el retraso especifica los milisegundos entre imagen e imagen."
+msgstr "Viive ennen seuraavan kuvan näyttämistä millisekunteina, jos diaesitys on ajastettu."
 
 #. Default: "The amount of time the change effect should take in miliseconds."
 #: ./interfaces.py:237
 msgid "description_fade_in_duration"
-msgstr "Milisegundos que tarda en cambiar el efecto."
+msgstr "Muutosefektin kesto millisekunteina."
 
 #. Default: "Name/id of your flickr set.(*flickr* gallery type)"
 #: ./interfaces.py:278
+#, fuzzy
 msgid "description_flickr_set"
-msgstr "Nombre/id de flickr."
+msgstr "Flickr kuvasarjan nimi tai tunniste."
 
 #. Default: "The username/id of your flickr account. (*flickr* gallery type)"
 #: ./interfaces.py:271
 msgid "description_flickr_username"
-msgstr "Nombre de usuario para flickr"
+msgstr ""
 
 #. Default: "Configure the parameters for this gallery."
 #: ./browser/views/settings.py:32
 msgid "description_gallery_settings_form"
-msgstr "Configurar parámetros para esta galería."
+msgstr ""
 
 #. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints."
 #: ./interfaces.py:192
 msgid "description_gallery_size"
-msgstr "Los tamaños pueden variar dependiendo del tipo de galería."
+msgstr ""
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
 #: ./interfaces.py:171
 msgid "description_gallery_type"
-msgstr "Seleccionar el tipo de galería."
+msgstr "Valitse haluamasi galleriatyyppi. Jos valitset muun kuin vakiotyypin, niin sinun tulee täyttää valitun galleriatyypin välilehden tiedot."
 
 #. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
 #: ./interfaces.py:295
+#, fuzzy
 msgid "description_picasa_album"
-msgstr "Nombre del album de picasa: Bien su dirección web, bien su nombre completo."
+msgstr "Picasa verkkoalbumisi nimi. Tämä on osoitekentässä näkyvä hyväksytty nimi. Esimerkiksi albumin \"Omat Suosikit\" osoitekentässä lukee \"OmatSuosikit\". Käytä tätä nimeä."
 
 #. Default: "GMail address of who this album belongs to. (*Picasa* gallery type)"
 #: ./interfaces.py:288
 msgid "description_picasa_username"
-msgstr "Dirección de gmail del dueño del álbum"
+msgstr ""
 
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
 #: ./interfaces.py:245
 msgid "description_show_subgalleries"
-msgstr "¿Mostrar previsualización de subgalerías?"
+msgstr ""
 
 #. Default: "The size of thumbnail images. Will only work with plone image gallery type."
 #: ./interfaces.py:207
 msgid "description_thumb_size"
-msgstr "Tamaño de las imágenes pequeñas. Solo funcionará con el tipo de galeria 'plone'"
+msgstr ""
 
 #. Default: "Should this gallery automatically change images for the user?"
 #: ./interfaces.py:222
 msgid "description_timed"
-msgstr "¿Cambiar imágenes automáticamente?"
+msgstr "Tuleeko tämän gallerian vaihtaa kuvaa automaattisesti käyttäjän puolesta?"
 
 #. Default: "This portlet allows you to show galleryimages in a portlet."
 #: ./portlets.py:217
 msgid "gallery_portlet_add_form_description"
-msgstr "Puede mostrar las imágenes de la galería en un portlet"
+msgstr ""
 
 #. Default: "Add Gallery"
 #: ./portlets.py:216
 msgid "gallery_portlet_add_form_title"
-msgstr "Añadir galería"
+msgstr ""
 
 #. Default: "This portlet allows you to show gallery images in a portlet."
 #: ./portlets.py:231
 msgid "gallery_portlet_edit_form_description"
-msgstr "Editar portlet de la galería"
+msgstr ""
 
 #. Default: "Edit Gallery Portlet"
 #: ./portlets.py:229
 msgid "gallery_portlet_edit_form_title"
-msgstr "Editar portlet Galería"
+msgstr ""
 
 #. Default: "The gallery to show in this portlet."
 #: ./portlets.py:28
 msgid "gallery_portlet_gallery_description"
-msgstr "La galería que se mostrará en este portlet"
+msgstr ""
 
 #. Default: "Gallery"
 #: ./portlets.py:27
 msgid "gallery_portlet_gallery_title"
-msgstr "Galería"
+msgstr ""
 
 #. Default: "The height of the image in the portlet.If 0, no height is set."
 #: ./portlets.py:50
 msgid "gallery_portlet_height_description"
-msgstr "La altura de la imagen del portlet. Si es 0, no se le asignará tamaño."
+msgstr ""
 
 #. Default: "Height in pixels"
 #: ./portlets.py:49
 msgid "gallery_portlet_height_title"
-msgstr "Altura en píxels"
+msgstr ""
 
 #. Default: "Hide Controls"
 #: ./portlets.py:64
 msgid "gallery_portlet_hide_controls"
-msgstr "Ocultar controles"
+msgstr ""
 
 #. Default: "Hide portlet gallery controls"
 #: ./portlets.py:65
 msgid "gallery_portlet_hide_controls_description"
-msgstr "Ocultar controles del portlet"
+msgstr ""
 
 #. Default: "Mini gallery"
 #: ./portlets.py:34
 msgid "gallery_portlet_mini"
-msgstr "Mini-galería"
+msgstr ""
 
 #. Default: "If false, the actual full gallery will render in an iframe and will follow the width and height settings"
 #: ./portlets.py:35
 msgid "gallery_portlet_mini_desc"
-msgstr "Si es falso, la actual galería se mostrará en un iframe y tendrá la altura y anchura de la configuración."
+msgstr ""
 
 #. Default: "Check to show the title of the gallery in the portlet"
 #: ./portlets.py:22
 msgid "gallery_portlet_show_title_description"
-msgstr "Mostrar título de la galería en el portlet"
+msgstr ""
 
 #. Default: "Show Title?"
 #: ./portlets.py:21
 msgid "gallery_portlet_show_title_title"
-msgstr "Mostrar título"
+msgstr ""
 
 #. Default: "Do you want the gallery to be timed?"
 #: ./portlets.py:58
 msgid "gallery_portlet_timed_description"
-msgstr "¿Desea un temporalizador en la galería?"
+msgstr ""
 
 #. Default: "Timed"
 #: ./portlets.py:57
 msgid "gallery_portlet_timed_title"
-msgstr "Temporalizar"
+msgstr ""
 
 #. Default: "The width of the image in the portlet"
 #: ./portlets.py:43
 msgid "gallery_portlet_width_description"
-msgstr "Ancho de la imágen en el portlet"
+msgstr ""
 
 #. Default: "Width in pixels"
 #: ./portlets.py:42
 msgid "gallery_portlet_width_title"
-msgstr "Ancho"
+msgstr ""
 
 #. Default: "Gallery"
 #: ./browser/views/settings.py:31
 msgid "heading_gallery_settings_form"
-msgstr "Galería"
+msgstr ""
 
 #. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
 #: ./galleryadapters/base.py:27
 msgid "label_base_gallery_type"
-msgstr "base: no es un tipo de galería, es como una clase abstracta"
+msgstr "base: tämä ei ole oikea galleriatyyppi. Vertaa abstraktit luokat..."
 
 #. Default: "Batch Size"
 #: ./interfaces.py:251
 msgid "label_batch_size"
-msgstr "Número de imágenes por página"
+msgstr ""
 
 #. Default: "Use Plone To Manage Images"
 #: ./galleryadapters/basic.py:25
+#, fuzzy
 msgid "label_default_gallery_type"
-msgstr "Usar imágenes guardadas en plone"
+msgstr "vakio: Käytä Plonea kuvien hallintaan"
 
 #. Default: "Delay"
 #: ./interfaces.py:228
 msgid "label_delay"
-msgstr "Retraso"
+msgstr "Viive"
 
 #. Default: "Flickr"
 #: ./galleryadapters/flickr.py:28
+#, fuzzy
 msgid "label_flickr_gallery_type"
-msgstr "Galería de Flickr"
+msgstr "flickr: Galleria, joka käyttää Flickr sarjaa kuville"
 
 #. Default: "Flickr Set"
 #: ./interfaces.py:277
+#, fuzzy
 msgid "label_flickr_set"
-msgstr "Conjunto"
+msgstr "Sarja"
 
 #. Default: "flickr username"
 #: ./interfaces.py:270
+#, fuzzy
 msgid "label_flickr_username"
-msgstr "Nombre de usuario/id de flickr"
+msgstr "Flickr tunnuksesi nimi tai tunniste"
 
 #. Default: "Gallery Display Type"
 #: ./interfaces.py:179
 msgid "label_gallery_display_type"
-msgstr "Tipo de exibición de la Galeria"
+msgstr "Gallerian esitystapa"
 
 #. Default: "Choose the method in which the gallery should be displayed"
 #: ./interfaces.py:181
 msgid "label_gallery_display_type_description"
-msgstr "Escoger el modo de exhibición de la galería"
+msgstr "Valitse esitystapa, jolla galleria näytetään"
 
 #. Default: "Size"
 #: ./interfaces.py:191
 msgid "label_gallery_size"
-msgstr "Tamaño"
+msgstr "Koko"
 
 #. Default: "Type"
 #: ./interfaces.py:170
 msgid "label_gallery_type"
-msgstr "Tipo"
+msgstr "Tyyppi"
 
 #. Default: "Change Duration"
 #: ./interfaces.py:236
 msgid "label_image_change_duration"
-msgstr "Duración de los cambios"
+msgstr "Vaihdon kesto"
 
 #. Default: "mini"
 #: ./interfaces.py:215
 msgid "label_mini"
-msgstr "mini"
+msgstr ""
 
 #. Default: "There are no images in this gallery."
 #: ./browser/views/templates/layout.pt:21
 msgid "label_no_images_in_gallery"
-msgstr "No hay imágenes en esta galería."
+msgstr "Tässä galleriassa ei ole yhtään kuvaa."
 
 #. Default: "Picasa Album"
 #: ./interfaces.py:294
+#, fuzzy
 msgid "label_picasa_album"
-msgstr "Álbum de Picasa"
+msgstr "Albumi"
 
 #. Default: "Picasa Web Albums"
 #: ./galleryadapters/picasa.py:32
+#, fuzzy
 msgid "label_picasa_gallery_type"
-msgstr "Galerias de Picasa"
+msgstr "picasa: Galleria, joka käyttää Picasa verkkoalbumia kuville"
 
 #. Default: "GMail address"
 #: ./interfaces.py:287
+#, fuzzy
 msgid "label_picasa_username"
-msgstr "Dirección de gmail"
+msgstr "Albumin omistajan sähköpostiosoite (mukaanlukien @gmail.com)"
 
 #. Default: "preview"
 #: ./interfaces.py:216
 msgid "label_preview"
-msgstr "preview"
+msgstr ""
 
 #. Default: "Show Sub-Galleries?"
 #: ./interfaces.py:244
 msgid "label_show_subgalleries"
-msgstr "Mostrar sub-galerías"
+msgstr ""
 
 #. Default: "Large"
 #: ./interfaces.py:202
 msgid "label_size_large"
-msgstr "Grande"
+msgstr "Suuri"
 
 #. Default: "Medium"
 #: ./interfaces.py:200
 msgid "label_size_medium"
-msgstr "Medio"
+msgstr "Keskikokoinen"
 
 #. Default: "Small"
 #: ./interfaces.py:198
 msgid "label_size_small"
-msgstr "Pequeño"
+msgstr "Pieni"
 
 #. Default: "thumb"
 #: ./interfaces.py:214
 msgid "label_thumb"
-msgstr "thumb"
+msgstr ""
 
 #. Default: "Thumbnail image size"
 #: ./interfaces.py:206
 msgid "label_thumb_size"
-msgstr "Tamaño de la imagen pequeña"
+msgstr ""
 
 #. Default: "tile"
 #: ./interfaces.py:213
 msgid "label_tile"
-msgstr "tile"
+msgstr ""
 
 #. Default: "Timed?"
 #: ./interfaces.py:221
 msgid "label_timed"
-msgstr "Temporizado?"
+msgstr "Ajastettu?"
 
 #. Default: "Could not find flickr set."
 #: ./validators.py:79
+#, fuzzy
 msgid "label_validate_flickr_find_set"
-msgstr "No se ha encontrado colección de flickr"
+msgstr "Flickr virhe: Flickr sarjaa ei löytynyt."
 
 #. Default: "You must specify a flickr set to use."
 #: ./validators.py:65
+#, fuzzy
 msgid "label_validate_flickr_specify_user"
-msgstr "Hay que especificar una colección de flickr"
+msgstr "Flickr virhe: Käytettävä flickr sarja on määriteltävä."
 
 #. Default: "You must specify a username."
 #: ./validators.py:105
+#, fuzzy
 msgid "label_validate_flickr_specify_username"
-msgstr "Hay que especificar un nombre de usuario"
+msgstr "Flickr virhe: Flickr käyttäjä on määriteltävä."
 
 #. Default: "Could not find flickr user."
 #: ./validators.py:116
+#, fuzzy
 msgid "label_validate_flickr_user"
-msgstr "No se ha encontrado usuario de flickr"
+msgstr "Flickr virhe: Ei voitu validoida flickr käyttäjää."
 
 #. Default: "You must specify a picasa album."
 #: ./validators.py:160
 msgid "label_validate_picasa_ablum_empty"
-msgstr "Hay que especificar un álbum de Picasa"
+msgstr ""
 
 #. Default: "Could not find album."
 #: ./validators.py:173
+#, fuzzy
 msgid "label_validate_picasa_find_album"
-msgstr "No se ha encontrado el álbun"
+msgstr "Picasa virhe: Albumia ei löytynyt."
 
 #. Default: "You must specify a picasa username."
 #: ./validators.py:139
+#, fuzzy
 msgid "label_validate_picasa_specify_username"
-msgstr "El nombre de usuario de picasa es obligatorio"
+msgstr "Picasa virhe: Picasa tunnus on määriteltävä \"@gmail.com\" päätteen kanssa."
 
 #. Default: "There are no changes in the Gallery settings."
 #: ./browser/views/settings.py:37
 msgid "noChangesMessage_gallery_settings_form"
-msgstr "No hay cambios en la configuración de la galería"
+msgstr ""
 
 #: ./browser/views/templates/subgallery.pt:13
 msgid "or"
-msgstr "o"
+msgstr ""
 
 #. Default: "Gallery Settings Saved."
 #: ./browser/views/settings.py:35
 msgid "successMessage_gallery_settings_form"
-msgstr "Cambios guardados."
+msgstr ""
 

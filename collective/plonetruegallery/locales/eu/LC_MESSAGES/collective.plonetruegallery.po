@@ -45,6 +45,10 @@ msgstr "Nagusia"
 msgid "PloneTruegallery Default Settings"
 msgstr "PloneTruegallery-ren defektuzko ezarpenak"
 
+#: ./profiles/default/actions.xml
+msgid "Refresh Gallery"
+msgstr ""
+
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
 msgstr "Galeriak bilatu"

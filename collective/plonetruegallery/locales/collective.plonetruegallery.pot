@@ -32,6 +32,10 @@ msgstr ""
 msgid "Gallery Settings"
 msgstr ""
 
+#: ./profiles/default/actions.xml
+msgid "Refresh Gallery"
+msgstr ""
+
 #. Default: "Gallery View"
 #: ./browser/views/configure.zcml
 msgid "Gallery View"
