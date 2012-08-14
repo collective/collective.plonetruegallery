@@ -56,6 +56,8 @@ Buildout configuration
 Features
 --------
 * Flickr and Picasa Support!
+* Works with 'Image', 'News Item' and other content types that has a Image Field (provides IImageContent). 
+* Also works with redturtle.smartlink and collective.contentleadimage (install http://pypi.python.org/pypi/collective.ptg.contentleadimage )
 * Customize gallery size, transition(limited transitions right now), timed and
   other settings
 * Can use nested galleries
