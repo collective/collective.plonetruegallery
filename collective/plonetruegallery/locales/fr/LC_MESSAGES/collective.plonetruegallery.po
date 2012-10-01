@@ -2,409 +2,400 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2012-07-10 13:58+0000\n"
-"PO-Revision-Date: 2009-05-17 16:14+0100\n"
-"Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: no\n"
-"Language-Name: Norwegian\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.plonetruegallery\n"
 
 #: ./browser/views/settings.py:82
 #: ./configlet.py:15
 msgid "Apply"
-msgstr ""
+msgstr "Appliquer"
 
 #: ./browser/views/templates/subgallery.pt:5
 msgid "Browse By"
-msgstr ""
+msgstr "Parcourir par"
 
 #: ./configlet.py:13
 msgid "Default settings to use for all galleries on site."
-msgstr ""
+msgstr "Paramètres par défaut des galeries du site."
 
 #: ./profiles/default/actions.xml
 msgid "Gallery Settings"
-msgstr ""
+msgstr "Paramètres de la galerie"
 
 #. Default: "Gallery View"
 #: ./browser/views/configure.zcml
 msgid "Gallery View"
-msgstr ""
+msgstr "Vue galerie"
 
 #: ./browser/views/settings.py:20
 msgid "Main"
-msgstr ""
+msgstr "Paramètres principaux"
 
 #: ./configlet.py:12
 msgid "PloneTruegallery Default Settings"
-msgstr ""
+msgstr "Paramètre par défaut PloneTrueGallery"
+
+#: ./profiles/default/actions.xml
+msgid "Refresh Gallery"
+msgstr "Actualiser la galerie"
 
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
-msgstr ""
+msgstr "Chercher"
 
 #: ./browser/views/templates/subgallery.pt:8
 msgid "Select Category"
-msgstr ""
+msgstr "Sélectionner une catégorie"
 
 #: ./browser/views/templates/subgallery.pt:20
 msgid "Show All"
-msgstr ""
+msgstr "Tout montrer"
 
 #. Default: "The amount of images shown in one page. This is not used for all display types."
 #: ./interfaces.py:252
 msgid "description_batch_size"
-msgstr ""
+msgstr "Nombre d'images affichées par page.  Certains type de galeries n'utilisent pas ce paramètre."
 
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
 #: ./interfaces.py:229
 msgid "description_delay"
-msgstr "Hvis slideshowet er \"timed\", dette er hvor lenge før neste bilde vises (i millisekunder9"
+msgstr "Si le défilement automatique est activé, le temps d'affichage de chaque image en millisecondes."
 
 #. Default: "The amount of time the change effect should take in miliseconds."
 #: ./interfaces.py:237
-#, fuzzy
 msgid "description_fade_in_duration"
-msgstr "Tid på fading i millisekunder."
+msgstr "Durée de l'effet en millisecondes."
 
 #. Default: "Name/id of your flickr set.(*flickr* gallery type)"
 #: ./interfaces.py:278
-#, fuzzy
 msgid "description_flickr_set"
-msgstr "Navn/id på ditt flick set."
+msgstr "Nom ou identifiant de votre ensemble Flickr. (type de galerie *flickr*)"
 
 #. Default: "The username/id of your flickr account. (*flickr* gallery type)"
 #: ./interfaces.py:271
 msgid "description_flickr_username"
-msgstr ""
+msgstr "Le nom ou identifiant de votre compte Flickr. (type de galerie *flickr)"
 
 #. Default: "Configure the parameters for this gallery."
 #: ./browser/views/settings.py:32
 msgid "description_gallery_settings_form"
-msgstr ""
+msgstr "Configurer les paramètres de cette galerie."
 
 #. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints."
 #: ./interfaces.py:192
 msgid "description_gallery_size"
-msgstr ""
+msgstr "Les tailles utilisées peuvent varier d'un type de galerie à l'autre car le type de galerie à ses propres contraintes concernant les tailles utilisées."
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
 #: ./interfaces.py:171
 msgid "description_gallery_type"
-msgstr "Velg ønsket galleritype. Hvis du velger annet enn \"Default\" må du fylle ut informasjon i korresponderende tab."
+msgstr "Sélectionnez le type de galerie à utiliser. Si vous utilisez une galerie de type flickr ou picasa, vous devez renseigner les informations supplémentaires dans l'onglet correspondant au type de galerie."
 
 #. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
 #: ./interfaces.py:295
-#, fuzzy
 msgid "description_picasa_album"
-msgstr "Navnet på ditt piscasa web album. Dette er navnet du ser i adressfeltet. Hvis du har et album kalt \"Mine Favoritter\" bruker du dette navnet. "
+msgstr "Nom de votre album Picasa Web. Il s'agit du nom de l'adresse comme vous le voyez à la fin de son URL dans Picasa Web. Si vous avez un album nommé 'Mes favoris', vous devrier voir dans la barre d'adresse que le nom de l'album est 'MesFavoris', utilisez ce nom..."
 
 #. Default: "GMail address of who this album belongs to. (*Picasa* gallery type)"
 #: ./interfaces.py:288
 msgid "description_picasa_username"
-msgstr ""
+msgstr "Adresse GMail (@gmail.com) de la personne à laquelle appartient cette galerie. (type de galerie *picasa*)"
 
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
 #: ./interfaces.py:245
 msgid "description_show_subgalleries"
-msgstr ""
+msgstr "Si vous cocher cette option, une prévisualisation des galeries contenues sera affichée en dessous."
 
 #. Default: "The size of thumbnail images. Will only work with plone image gallery type."
 #: ./interfaces.py:207
 msgid "description_thumb_size"
-msgstr ""
+msgstr "La taille des images miniatures.  Ne fonctionne qu'avec certains types de galerie."
 
 #. Default: "Should this gallery automatically change images for the user?"
 #: ./interfaces.py:222
 msgid "description_timed"
-msgstr "Skal dette albumet automatisk bytte bilder for brukeren?"
+msgstr "La galerie doit-elle faire défiler les images automatiquement?"
 
 #. Default: "This portlet allows you to show galleryimages in a portlet."
 #: ./portlets.py:217
 msgid "gallery_portlet_add_form_description"
-msgstr ""
+msgstr "Ce portlet permet d'afficher une galerie d'images."
 
 #. Default: "Add Gallery"
 #: ./portlets.py:216
 msgid "gallery_portlet_add_form_title"
-msgstr ""
+msgstr "Ajouter un portlet galerie"
 
 #. Default: "This portlet allows you to show gallery images in a portlet."
 #: ./portlets.py:231
 msgid "gallery_portlet_edit_form_description"
-msgstr ""
+msgstr "Ce portlet permet d'afficher une galerie d'images."
 
 #. Default: "Edit Gallery Portlet"
 #: ./portlets.py:229
 msgid "gallery_portlet_edit_form_title"
-msgstr ""
+msgstr "Editer une galerie d'images"
 
 #. Default: "The gallery to show in this portlet."
 #: ./portlets.py:28
 msgid "gallery_portlet_gallery_description"
-msgstr ""
+msgstr "La galerie à afficher dans ce portlet."
 
 #. Default: "Gallery"
 #: ./portlets.py:27
 msgid "gallery_portlet_gallery_title"
-msgstr ""
+msgstr "Galerie"
 
 #. Default: "The height of the image in the portlet.If 0, no height is set."
 #: ./portlets.py:50
 msgid "gallery_portlet_height_description"
-msgstr ""
+msgstr "La hauteur des images affichées dans le portlet.  Si '0', aucune hauteur n'est appliquée."
 
 #. Default: "Height in pixels"
 #: ./portlets.py:49
 msgid "gallery_portlet_height_title"
-msgstr ""
+msgstr "Hauteur en pixels"
 
 #. Default: "Hide Controls"
 #: ./portlets.py:64
 msgid "gallery_portlet_hide_controls"
-msgstr ""
+msgstr "Cacher les contrôles"
 
 #. Default: "Hide portlet gallery controls"
 #: ./portlets.py:65
 msgid "gallery_portlet_hide_controls_description"
-msgstr ""
+msgstr "Cacher les contrôles qui apparaîssent au survol du portlet galerie"
 
 #. Default: "Mini gallery"
 #: ./portlets.py:34
 msgid "gallery_portlet_mini"
-msgstr ""
+msgstr "Mini galerie"
 
 #. Default: "If false, the actual full gallery will render in an iframe and will follow the width and height settings"
 #: ./portlets.py:35
 msgid "gallery_portlet_mini_desc"
-msgstr ""
+msgstr "Si décoché, la galerie s'affichera dans un iframe et respectera les largeurs et hauteurs renseignées"
 
 #. Default: "Check to show the title of the gallery in the portlet"
 #: ./portlets.py:22
 msgid "gallery_portlet_show_title_description"
-msgstr ""
+msgstr "Cocher pour afficher le titre de la galerie dans le portlet"
 
 #. Default: "Show Title?"
 #: ./portlets.py:21
 msgid "gallery_portlet_show_title_title"
-msgstr ""
+msgstr "Montrer le titre?"
 
 #. Default: "Do you want the gallery to be timed?"
 #: ./portlets.py:58
 msgid "gallery_portlet_timed_description"
-msgstr ""
+msgstr "Activer le défilement automatiue des images?"
 
 #. Default: "Timed"
 #: ./portlets.py:57
 msgid "gallery_portlet_timed_title"
-msgstr ""
+msgstr "Défilement automatique"
 
 #. Default: "The width of the image in the portlet"
 #: ./portlets.py:43
 msgid "gallery_portlet_width_description"
-msgstr ""
+msgstr "La largeur des images affichées dans le portlet"
 
 #. Default: "Width in pixels"
 #: ./portlets.py:42
 msgid "gallery_portlet_width_title"
-msgstr ""
+msgstr "Largeur en pixels"
 
 #. Default: "Gallery"
 #: ./browser/views/settings.py:31
 msgid "heading_gallery_settings_form"
-msgstr ""
+msgstr "Galerie"
 
 #. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
 #: ./galleryadapters/base.py:27
 msgid "label_base_gallery_type"
-msgstr ""
+msgstr "de base: ce n'est pas vraiment une galerie type. Pensez classe abstraite ici ..."
 
 #. Default: "Batch Size"
 #: ./interfaces.py:251
 msgid "label_batch_size"
-msgstr ""
+msgstr "Taille des lots d'images"
 
 #. Default: "Use Plone To Manage Images"
 #: ./galleryadapters/basic.py:25
 msgid "label_default_gallery_type"
-msgstr "Optimaliser Plone for bilder"
+msgstr "Par défaut: Utiliser Plone pour la gestion des images"
 
 #. Default: "Delay"
 #: ./interfaces.py:228
 msgid "label_delay"
-msgstr "Forsinkelse"
+msgstr "Délai de défilement des images"
 
 #. Default: "Flickr"
 #: ./galleryadapters/flickr.py:28
 msgid "label_flickr_gallery_type"
-msgstr "flickr: Et galleri for fotoalbum flickr."
+msgstr "flickr: Une gallery qui utilise un album photo Flickr"
 
 #. Default: "Flickr Set"
 #: ./interfaces.py:277
-#, fuzzy
 msgid "label_flickr_set"
-msgstr "Set"
+msgstr "Ensemble Flickr"
 
 #. Default: "flickr username"
 #: ./interfaces.py:270
-#, fuzzy
 msgid "label_flickr_username"
-msgstr "Brukernavn/id på flickr kontoen. "
+msgstr "Le nom d'utilisateur ou identifiant de votre compte Flickr"
 
 #. Default: "Gallery Display Type"
 #: ./interfaces.py:179
 msgid "label_gallery_display_type"
-msgstr ""
+msgstr "Type de galerie"
 
 #. Default: "Choose the method in which the gallery should be displayed"
 #: ./interfaces.py:181
 msgid "label_gallery_display_type_description"
-msgstr ""
+msgstr "Choisissez le type de galerie à utiliser pour afficher les images"
 
 #. Default: "Size"
 #: ./interfaces.py:191
 msgid "label_gallery_size"
-msgstr "Størrelse "
+msgstr "Taille"
 
 #. Default: "Type"
 #: ./interfaces.py:170
 msgid "label_gallery_type"
-msgstr "Type "
+msgstr "Type"
 
 #. Default: "Change Duration"
 #: ./interfaces.py:236
 msgid "label_image_change_duration"
-msgstr ""
+msgstr "Durée du changement d'image"
 
 #. Default: "mini"
 #: ./interfaces.py:215
 msgid "label_mini"
-msgstr ""
+msgstr "mini"
 
 #. Default: "There are no images in this gallery."
 #: ./browser/views/templates/layout.pt:21
 msgid "label_no_images_in_gallery"
-msgstr "Det er ingen bilder i galleriet."
+msgstr "Il n'y a pas d'images dans la galerie."
 
 #. Default: "Picasa Album"
 #: ./interfaces.py:294
-#, fuzzy
 msgid "label_picasa_album"
-msgstr "Album "
+msgstr "Album Picasa"
 
 #. Default: "Picasa Web Albums"
 #: ./galleryadapters/picasa.py:32
 msgid "label_picasa_gallery_type"
-msgstr "picasa: Et galleri for bilder Picasa"
+msgstr "picasa: Une galerie qui utilise un album photo Picasa Web"
 
 #. Default: "GMail address"
 #: ./interfaces.py:287
-#, fuzzy
 msgid "label_picasa_username"
-msgstr "e-post til den dette albument tilhører."
+msgstr "Adresse email du propriétaire de l'album (terminant par @gmail.com)"
 
 #. Default: "preview"
 #: ./interfaces.py:216
 msgid "label_preview"
-msgstr ""
+msgstr "preview"
 
 #. Default: "Show Sub-Galleries?"
 #: ./interfaces.py:244
 msgid "label_show_subgalleries"
-msgstr ""
+msgstr "Afficher les sous-galeries contenues?"
 
 #. Default: "Large"
 #: ./interfaces.py:202
 msgid "label_size_large"
-msgstr "Stor"
+msgstr "Grande"
 
 #. Default: "Medium"
 #: ./interfaces.py:200
 msgid "label_size_medium"
-msgstr "Medium"
+msgstr "Moyenne"
 
 #. Default: "Small"
 #: ./interfaces.py:198
 msgid "label_size_small"
-msgstr "Lite"
+msgstr "Petite"
 
 #. Default: "thumb"
 #: ./interfaces.py:214
 msgid "label_thumb"
-msgstr ""
+msgstr "thumb"
 
 #. Default: "Thumbnail image size"
 #: ./interfaces.py:206
 msgid "label_thumb_size"
-msgstr ""
+msgstr "Taille des miniatures"
 
 #. Default: "tile"
 #: ./interfaces.py:213
 msgid "label_tile"
-msgstr ""
+msgstr "tile"
 
 #. Default: "Timed?"
 #: ./interfaces.py:221
 msgid "label_timed"
-msgstr "Automatisk (\"timed\")"
+msgstr "Défilement automatique?"
 
 #. Default: "Could not find flickr set."
 #: ./validators.py:79
-#, fuzzy
 msgid "label_validate_flickr_find_set"
-msgstr "Kunne ikke finne et flickr set."
+msgstr "Erreur Flickr: l'album n'a pas été trouvé"
 
 #. Default: "You must specify a flickr set to use."
 #: ./validators.py:65
-#, fuzzy
 msgid "label_validate_flickr_specify_user"
-msgstr "Du må oppgi et flickr set."
+msgstr "Erreur Flickr: vous devez entrer un ensemble Flickr à utiliser."
 
 #. Default: "You must specify a username."
 #: ./validators.py:105
-#, fuzzy
 msgid "label_validate_flickr_specify_username"
-msgstr "Flickr error. Du må oppgi brukernavn."
+msgstr "Erreur Flickr: vous devez entrer un nom d'utilisateur."
 
 #. Default: "Could not find flickr user."
 #: ./validators.py:116
-#, fuzzy
 msgid "label_validate_flickr_user"
-msgstr "Flickr error: Kunne ikke validere bruker"
+msgstr "Erreur Flickr: l'utilisateur Flickr ne peut pas être validé."
 
 #. Default: "You must specify a picasa album."
 #: ./validators.py:160
 msgid "label_validate_picasa_ablum_empty"
-msgstr ""
+msgstr "Erreur Picasa : vous devez renseigner un album Picasa."
 
 #. Default: "Could not find album."
 #: ./validators.py:173
-#, fuzzy
 msgid "label_validate_picasa_find_album"
-msgstr "Picasa Error: Kunne ikkke finne album."
+msgstr "Erreur Picasa: l'album n'a pas été trouvé."
 
 #. Default: "You must specify a picasa username."
 #: ./validators.py:139
-#, fuzzy
 msgid "label_validate_picasa_specify_username"
-msgstr "Picasa Eroor: Du må oppgi a picasa brukernavn med '@gmal.com'"
+msgstr "Erreur Picasa: vous devez renseigner le nom d'utilisateur Picasa, terminant par @gmail.com."
 
 #. Default: "There are no changes in the Gallery settings."
 #: ./browser/views/settings.py:37
 msgid "noChangesMessage_gallery_settings_form"
-msgstr ""
+msgstr "Aucunes modifications effectuées."
 
 #: ./browser/views/templates/subgallery.pt:13
 msgid "or"
-msgstr ""
+msgstr "ou"
 
 #. Default: "Gallery Settings Saved."
 #: ./browser/views/settings.py:35
 msgid "successMessage_gallery_settings_form"
-msgstr ""
+msgstr "Modifications sauvegardées."
 

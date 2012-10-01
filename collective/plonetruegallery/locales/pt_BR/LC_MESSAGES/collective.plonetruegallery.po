@@ -47,6 +47,10 @@ msgstr "Principal"
 msgid "PloneTruegallery Default Settings"
 msgstr ""
 
+#: ./profiles/default/actions.xml
+msgid "Refresh Gallery"
+msgstr ""
+
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
 msgstr ""

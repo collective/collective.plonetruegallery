@@ -1,19 +1,16 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 1.1\n"
 "POT-Creation-Date: 2012-07-10 13:58+0000\n"
-"PO-Revision-Date: 2010-01-15\n"
-"Last-Translator: Busico Mirto Silvio <m.busico@ieee.org>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2010-03-18 15:01+0100\n"
+"Last-Translator: Martijn Schenk <martijn.schenk@fourdigits.nl>\n"
+"Language-Team: Rob Gietema <rob@fourdigits.nl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: it\n"
-"Language-Name: Italiano\n"
+"Language-Code: nl\n"
+"Language-Name: Dutch\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.plonetruegallery\n"
 
@@ -47,6 +44,10 @@ msgstr ""
 msgid "PloneTruegallery Default Settings"
 msgstr ""
 
+#: ./profiles/default/actions.xml
+msgid "Refresh Gallery"
+msgstr ""
+
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
 msgstr ""
@@ -67,18 +68,18 @@ msgstr ""
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
 #: ./interfaces.py:229
 msgid "description_delay"
-msgstr "Se lo slide-show è temporizzato: il ritardo indica il tempo, in millisecondi, pima di mostrare l'immagine successiva"
+msgstr "Indien de slide show op tijd is ingesteld laat de vertraging zien hoe lang het duurt in miliseconden voordat de nieuwe afbeelding getoond zal worden."
 
 #. Default: "The amount of time the change effect should take in miliseconds."
 #: ./interfaces.py:237
 msgid "description_fade_in_duration"
-msgstr "La durata dell'effetto di transizione in millisecondi"
+msgstr "De totale effect welke het schermwissel effect nodig heeft in miliseconden."
 
 #. Default: "Name/id of your flickr set.(*flickr* gallery type)"
 #: ./interfaces.py:278
 #, fuzzy
 msgid "description_flickr_set"
-msgstr "Nome/Id del tuo insieme flickr"
+msgstr "Naam of ID van uw Flickr account."
 
 #. Default: "The username/id of your flickr account. (*flickr* gallery type)"
 #: ./interfaces.py:271
@@ -98,13 +99,13 @@ msgstr ""
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
 #: ./interfaces.py:171
 msgid "description_gallery_type"
-msgstr "Seleziona il tipo di galleria. Se selezioni qualcosa di differente dal predefinito, devi impostare le informazioni nella linguetta corrispondente al tipo di galleria"
+msgstr "Selecteer het passende type gallery. Als u iets anders selecteerd dan de standaard gallery, dient u de informatie hiervan in de corresponderende tab aan te vullen."
 
 #. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
 #: ./interfaces.py:295
 #, fuzzy
 msgid "description_picasa_album"
-msgstr "Il nome del tuo web album di picasa. Deve essere il nome completamente qualificato che vedi nella barra degli indirizzi. Se hai un album che si chiama \"My Favorites\" nella barra degli indirizzi è molto probabile che il nome dell'album sia \"MyFavorites\" Usa questo nome ..."
+msgstr "De naam van uw picasa web album. Dit zal tevens de naam zijn welke u in uw adresbalk ziet. Als u een album heeft met de titel \"Mijn Favorieten\" in de adresbalk, dan ziet u hoogstwaarschijnlijk dat de naam van uw album \"MijnFavorieten\" is. Gebruik dan die naam...Name of your picasa web album.  This will be the qualified name you'll see in the address bar.  If you have an album named \"My Favorites\" in the address bar you'll most likely see that album name is \"MyFavorites\"  Use that name..."
 
 #. Default: "GMail address of who this album belongs to. (*Picasa* gallery type)"
 #: ./interfaces.py:288
@@ -124,7 +125,7 @@ msgstr ""
 #. Default: "Should this gallery automatically change images for the user?"
 #: ./interfaces.py:222
 msgid "description_timed"
-msgstr "Questa galleria deve cambiare automaticamente le immagini per l'utente?"
+msgstr "Moet deze gallery automatisch afbeeldingen veranderen voor de gebruiker?"
 
 #. Default: "This portlet allows you to show galleryimages in a portlet."
 #: ./portlets.py:217
@@ -224,7 +225,7 @@ msgstr ""
 #. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
 #: ./galleryadapters/base.py:27
 msgid "label_base_gallery_type"
-msgstr "Questo non è veramente un tipo di galleria. Pensalo come una classe astratta..."
+msgstr "basis: Dit is geen gallery typ. Denk hier aan de abstracte versie..."
 
 #. Default: "Batch Size"
 #: ./interfaces.py:251
@@ -235,55 +236,55 @@ msgstr ""
 #: ./galleryadapters/basic.py:25
 #, fuzzy
 msgid "label_default_gallery_type"
-msgstr "Predefinito: utilizzare semplicemente Plone per gestire le immagini"
+msgstr "standaard: Gebruik Plone om uw Afbeeldingen te Beheren"
 
 #. Default: "Delay"
 #: ./interfaces.py:228
 msgid "label_delay"
-msgstr "Ritardo"
+msgstr "Vertraging"
 
 #. Default: "Flickr"
 #: ./galleryadapters/flickr.py:28
 #, fuzzy
 msgid "label_flickr_gallery_type"
-msgstr "flikr: una galleria che utilizza un insieme di immagini Flickr "
+msgstr "flickr: Een Gallery welke Flickr Instellingen gebruikt voor Afbeeldingen"
 
 #. Default: "Flickr Set"
 #: ./interfaces.py:277
 #, fuzzy
 msgid "label_flickr_set"
-msgstr "Insieme"
+msgstr "Stel in"
 
 #. Default: "flickr username"
 #: ./interfaces.py:270
 #, fuzzy
 msgid "label_flickr_username"
-msgstr "Lo username/id del tuo utente Flickr"
+msgstr "De gebruikersnaam/uw ID van uw Flickr account"
 
 #. Default: "Gallery Display Type"
 #: ./interfaces.py:179
 msgid "label_gallery_display_type"
-msgstr "Tipo di presentazione della galleria"
+msgstr "Gallery weergave type"
 
 #. Default: "Choose the method in which the gallery should be displayed"
 #: ./interfaces.py:181
 msgid "label_gallery_display_type_description"
-msgstr "Scegli il metodo con cui questa galleria deve essere visualizzata"
+msgstr "Kies de manier waarop de gallery weergegeven moet worden"
 
 #. Default: "Size"
 #: ./interfaces.py:191
 msgid "label_gallery_size"
-msgstr "Dimensione"
+msgstr "Grootte"
 
 #. Default: "Type"
 #: ./interfaces.py:170
 msgid "label_gallery_type"
-msgstr "Tipo"
+msgstr "Type"
 
 #. Default: "Change Duration"
 #: ./interfaces.py:236
 msgid "label_image_change_duration"
-msgstr "Durata del cambiamento"
+msgstr "Duur van de overgang van afbeeldingen"
 
 #. Default: "mini"
 #: ./interfaces.py:215
@@ -293,7 +294,7 @@ msgstr ""
 #. Default: "There are no images in this gallery."
 #: ./browser/views/templates/layout.pt:21
 msgid "label_no_images_in_gallery"
-msgstr "Non ci sono immagini in questa galleria"
+msgstr "Er bevinden zich geen afbeeldingen in deze gallery"
 
 #. Default: "Picasa Album"
 #: ./interfaces.py:294
@@ -305,13 +306,13 @@ msgstr "Album"
 #: ./galleryadapters/picasa.py:32
 #, fuzzy
 msgid "label_picasa_gallery_type"
-msgstr "picasa: una galleia che utilizza un Web Album di picasa per le immagini"
+msgstr "Een Gallery welke Picasa Web Album gebruikt voor de afbeeldingen"
 
 #. Default: "GMail address"
 #: ./interfaces.py:287
 #, fuzzy
 msgid "label_picasa_username"
-msgstr "Indirizzo email del proprietario di questo album (incluso @gmail.com)"
+msgstr "Emailadres van de eigenaar van het album (inclusief bijvoorbeeld @gmail.com)"
 
 #. Default: "preview"
 #: ./interfaces.py:216
@@ -326,17 +327,17 @@ msgstr ""
 #. Default: "Large"
 #: ./interfaces.py:202
 msgid "label_size_large"
-msgstr "Grande"
+msgstr "Groot"
 
 #. Default: "Medium"
 #: ./interfaces.py:200
 msgid "label_size_medium"
-msgstr "Media"
+msgstr "Gemiddeld"
 
 #. Default: "Small"
 #: ./interfaces.py:198
 msgid "label_size_small"
-msgstr "Piccola"
+msgstr "Klein"
 
 #. Default: "thumb"
 #: ./interfaces.py:214
@@ -356,31 +357,31 @@ msgstr ""
 #. Default: "Timed?"
 #: ./interfaces.py:221
 msgid "label_timed"
-msgstr "Temporizzata?"
+msgstr "Getimed?"
 
 #. Default: "Could not find flickr set."
 #: ./validators.py:79
 #, fuzzy
 msgid "label_validate_flickr_find_set"
-msgstr "Errore Flickr: non trovo l'insieme"
+msgstr "Flickr Error: Er konden geen Flickr instellingen gevonden worden."
 
 #. Default: "You must specify a flickr set to use."
 #: ./validators.py:65
 #, fuzzy
 msgid "label_validate_flickr_specify_user"
-msgstr "Errore Flickr: devi specificare l'insieme flicks da utilizzare"
+msgstr "Flickr Error: U moet een Flickr gebruikersnaam opgeven."
 
 #. Default: "You must specify a username."
 #: ./validators.py:105
 #, fuzzy
 msgid "label_validate_flickr_specify_username"
-msgstr "Errore Flickr: devi specificare uno username"
+msgstr "Flicker Error: U moet een Flicker gebruikersnaam opgeven."
 
 #. Default: "Could not find flickr user."
 #: ./validators.py:116
 #, fuzzy
 msgid "label_validate_flickr_user"
-msgstr "Errore Flickr: non riesco a validare l'utente flickr"
+msgstr "Flickr Error: Er kon geen geldinge Flickr gebruiker gevonden worden."
 
 #. Default: "You must specify a picasa album."
 #: ./validators.py:160
@@ -391,13 +392,13 @@ msgstr ""
 #: ./validators.py:173
 #, fuzzy
 msgid "label_validate_picasa_find_album"
-msgstr "Errore Picasa: non trovo l'album"
+msgstr "Picasa Error: Er kon geen album gevonden worden."
 
 #. Default: "You must specify a picasa username."
 #: ./validators.py:139
 #, fuzzy
 msgid "label_validate_picasa_specify_username"
-msgstr "Errore Picasa: devi specificare lo username picasa col suffisso '@gmail.com' "
+msgstr "Picasa Error: U dient een Picasa gebruikersnaam op te geven inclusief de  '@gmail.com'"
 
 #. Default: "There are no changes in the Gallery settings."
 #: ./browser/views/settings.py:37
