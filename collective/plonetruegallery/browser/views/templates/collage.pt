@@ -1,5 +1,8 @@
 <tal:manager replace="structure provider:collage.ContentManager" />
 
-<tal:replace tal:replace="structure view/displayer/css" />
-<tal:replace tal:replace="structure view/displayer/javascript" />
-<p metal:use-macro="view/context/@@collective.plonetruegallery.macros/main" />
+<tal:gallery tal:define="macros nocall:context/@@collective.plonetruegallery.macros;
+                         displayer nocall:view/displayer;">
+    <tal:replace tal:replace="structure displayer/css" />
+    <tal:replace tal:replace="structure displayer/javascript" />
+    <p metal:use-macro="macros/main|macros/content-core" />
+</tal:gallery>
