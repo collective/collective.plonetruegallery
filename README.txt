@@ -57,11 +57,12 @@ Buildout configuration
 Installing all
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to install all all avalable galleries, you could add
+If you want to install all avalable galleries, you could add
 
 collective.ptg.allnewest
 
-to buildout's egg section
+to buildout's egg section.
+This will also install some galleries that are "under development".
 
 
 
