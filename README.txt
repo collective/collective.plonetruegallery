@@ -18,7 +18,7 @@ Supported Display Types
 -----------------------
 
 To install any of the various extra display types, you need to install
-the dependant js package in buildout
+the dependant package in buildout
 
  - galleria(ships with)
  - contact sheet(collective.ptg.contactsheet)
@@ -52,6 +52,18 @@ Buildout configuration
     collective.ptg.thumbnailzoom
     collective.ptg.contactsheet
     ...
+
+
+Installing all
+~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to install all all avalable galleries, you could add
+
+collective.ptg.allnewest
+
+to buildout's egg section
+
+
 
 Features
 --------
