@@ -71,6 +71,11 @@ msgstr ""
 msgid "description_delay"
 msgstr ""
 
+#. Default: "Should copyright notices be attached to each image?"
+#: ./interfaces.py:229
+msgid "description_copyright"
+msgstr ""
+
 #. Default: "The amount of time the change effect should take in miliseconds."
 #: ./interfaces.py:237
 msgid "description_fade_in_duration"
@@ -229,6 +234,11 @@ msgstr ""
 #. Default: "Batch Size"
 #: ./interfaces.py:251
 msgid "label_batch_size"
+msgstr ""
+
+#. Default: "Copyright notice?"
+#: ./interfaces.py:228
+msgid "label_copyright"
 msgstr ""
 
 #. Default: "Use Plone To Manage Images"
