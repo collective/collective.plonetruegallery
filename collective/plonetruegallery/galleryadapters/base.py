@@ -121,6 +121,7 @@ class BaseImageInformationRetriever(object):
             'link': self.get_link_url(image),
             'title': image.Title,
             'description': image.Description,
+            'copyright':   self.get_copyright(image),
             'portal_type': image.portal_type
         }
 
@@ -137,3 +138,13 @@ class BaseImageInformationRetriever(object):
         if not gallery_thumbnail_size:
             gallery_thumbnail_size = 'tile'
         return "%s/image_%s" % (image.getURL(), gallery_thumbnail_size)
+
+    def get_copyright (self, image):
+        if self.gallery_adapter.settings.copyright:
+            obj = image.getObject ()
+            copyright = obj.Rights()
+            if copyright:
+                #return "&nbsp;&copy;%s" % copyright
+                return copyright
+        return ""
+
