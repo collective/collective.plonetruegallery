@@ -68,6 +68,11 @@ msgstr ""
 msgid "description_batch_size"
 msgstr ""
 
+#. Default: "Should copyright notices be attached to each image?"
+#: ./interfaces.py:229
+msgid "description_copyright"
+msgstr "Sollen die Urheber jedes Bildes angezeigt werden?"
+
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
 #: ./interfaces.py:229
 msgid "description_delay"
@@ -234,6 +239,11 @@ msgstr ""
 #: ./interfaces.py:251
 msgid "label_batch_size"
 msgstr ""
+
+#. Default: "Copyright notice?"
+#: ./interfaces.py:228
+msgid "label_copyright"
+msgstr "Urheber?"
 
 #. Default: "Use Plone To Manage Images"
 #: ./galleryadapters/basic.py:25
