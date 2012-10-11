@@ -104,6 +104,7 @@ class AJAX(BrowserView):
             'src': image['image_url'],
             'title': image['title'],
             'description': image['description'],
+            'copyright': image['copyright'],
             'image-link': portlet_adapter.image_link(),
             'next-url': portlet_adapter.next_image_url_params(),
             'prev-url': portlet_adapter.prev_image_url_params()
