@@ -142,9 +142,9 @@ class BaseImageInformationRetriever(object):
     def get_copyright (self, image):
         if self.gallery_adapter.settings.copyright:
             obj = image.getObject ()
-            copyright = obj.Rights()
-            if copyright:
-                #return "&nbsp;&copy;%s" % copyright
-                return copyright
+            if hasattr (obj, 'Rights') and callable (obj.Rights):
+                copyright = obj.Rights()
+                if copyright:
+                    return copyright
         return ""
 
