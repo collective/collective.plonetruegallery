@@ -1,6 +1,13 @@
 Changelog
 =========
 
+3.1 (2012-10-12)
+----------------
+
+- be able to show copyright information
+  [eehmke]
+
+
 3.0 (2012-10-08)
 ----------------
 

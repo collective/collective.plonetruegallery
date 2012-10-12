@@ -139,12 +139,11 @@ class BaseImageInformationRetriever(object):
             gallery_thumbnail_size = 'tile'
         return "%s/image_%s" % (image.getURL(), gallery_thumbnail_size)
 
-    def get_copyright (self, image):
+    def get_copyright(self, image):
         if self.gallery_adapter.settings.copyright:
-            obj = image.getObject ()
-            if hasattr (obj, 'Rights') and callable (obj.Rights):
+            obj = image.getObject()
+            if hasattr(obj, 'Rights') and callable(obj.Rights):
                 copyright = obj.Rights()
                 if copyright:
                     return copyright
         return ""
-
