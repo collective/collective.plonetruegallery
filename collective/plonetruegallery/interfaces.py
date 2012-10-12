@@ -224,6 +224,13 @@ class IGallerySettings(Interface):
                     u"change images for the user?"
         ),
         default=True)
+    copyright = schema.Bool(
+        title=_(u"label_copyright", default=u"Copyright notice?"),
+        description=_(u"description_copyright",
+            default=u"Should copyright notices be attached "
+                    u"to each image?"
+        ),
+        default=False)
     delay = schema.Int(
         title=_(u"label_delay", default=u"Delay"),
         description=_(u"description_delay",
@@ -329,4 +336,6 @@ class IImageInformationRetriever(Interface):
             The image title
         description
             The image description
+        copyright
+            The image copyright
         """
