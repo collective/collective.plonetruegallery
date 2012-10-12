@@ -230,7 +230,7 @@ class IGallerySettings(Interface):
             default=u"Should copyright notices be attached "
                     u"to each image?"
         ),
-        default=True)
+        default=False)
     delay = schema.Int(
         title=_(u"label_delay", default=u"Delay"),
         description=_(u"description_delay",
