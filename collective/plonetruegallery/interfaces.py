@@ -60,59 +60,6 @@ class IBasicAdapter(IGalleryAdapter):
     size_map = Attribute("allows us to map specific sizes to plone urls")
 
 
-class IFlickrAdapter(IGalleryAdapter):
-    """
-    """
-
-    flickr = Attribute("returns a flickrapi object for the api key")
-
-    def get_flickr_user_id(username):
-        """
-        Returns the actual user id of someone given a username.
-        if a username is not given, it will use the one in its
-        settings
-        """
-
-    def get_flickr_photoset_id(theset=None, userid=None):
-        """
-        Returns the photoset id given a set name and user id.
-        Uses the set and get_flickr_user_id() if they are
-        not specified.
-        """
-
-    def get_mini_photo_url(photo):
-        """
-        takes a photo and creates the thumbnail photo url
-        """
-
-    def get_photo_link(photo):
-        """
-        creates the photo link url
-        """
-
-    def get_large_photo_url(photo):
-        """
-        create the large photo url
-        """
-
-
-class IPicasaAdapter(IGalleryAdapter):
-    """
-    """
-
-    gd_client = Attribute("property for gd_client instance")
-
-    def get_album_name(name, user):
-        """
-        Returns the selected album name and user.
-        Uses name and user in settings if not specified.
-        """
-
-    def feed():
-        """
-        Returns the picasa feed for the given album.
-        """
-
 
 class IDisplayType(Interface):
     name = Attribute("name of display type")
@@ -270,42 +217,6 @@ class IBaseSettings(Interface):
 
 class IBasicGallerySettings(IBaseSettings):
     pass
-
-
-class IFlickrGallerySettings(IBaseSettings):
-    flickr_username = schema.TextLine(
-        title=_(u"label_flickr_username", default=u"flickr username"),
-        description=_(u"description_flickr_username",
-            default=u"The username/id of your flickr account. "
-                    u"(*flickr* gallery type)"
-        ),
-        required=False)
-    flickr_set = schema.TextLine(
-        title=_(u"label_flickr_set", default="Flickr Set"),
-        description=_(u"description_flickr_set",
-            default=u"Name/id of your flickr set."
-                    u"(*flickr* gallery type)"
-        ),
-        required=False)
-
-
-class IPicasaGallerySettings(IBaseSettings):
-    picasa_username = schema.TextLine(
-        title=_(u"label_picasa_username", default=u"GMail address"),
-        description=_(u"description_picasa_username",
-            default=u"GMail address of who this album belongs to. "
-                    u"(*Picasa* gallery type)"
-        ),
-        required=False)
-    picasa_album = schema.TextLine(
-        title=_(u"label_picasa_album", default=u"Picasa Album"),
-        description=_(u"description_picasa_album",
-            default=u"Name of your picasa web album. "
-                    u"This will be the qualified name you'll see in "
-                    u"the address bar or the full length name of the "
-                    u"album. (*Picasa* gallery type)"
-        ),
-        required=False)
 
 
 class IImageInformationRetriever(Interface):

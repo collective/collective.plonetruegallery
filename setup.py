@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 import os
 
-version = "3.1"
+version = "3.2a1"
 
 setup(name='collective.plonetruegallery',
       version=version,
       description="A gallery/slideshow product for plone that can aggregate "
-                  "from picasa and flickr or use plone images.",
+                  "from picasa (add collective.ptg.flickr) and flickr (add collective.ptg.flickr) or use plone images.",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
@@ -34,15 +34,6 @@ setup(name='collective.plonetruegallery',
           'plone.app.z3cform',
           'collective.ptg.galleria'
       ],
-      extras_require=dict(
-          tests=[
-            'flickrapi',
-            'gdata',
-          ],
-          flickr=['flickrapi'],
-          picasa=['gdata'],
-          all=['flickrapi', 'gdata']
-      ),
       entry_points="""
       # -*- Entry points: -*-
 
