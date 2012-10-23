@@ -38,18 +38,14 @@ class BasicAdapter(BaseAdapter):
     }
     
 
-    # Not sure if this is the right way to add the
-    # custom image sizes
-    #customsizes = ["mini", "preview"]
-    #for item in customsizes:
-    #    size_map[item] = item
-
-    #size_map.update(extra_size)
-
-
-
-
-    
+    # Not sure how to add the
+    # custom image sizes dynamically
+    #from plone.app.imaging.utils import getAllowedSizes
+    #something = getAllowedSizes()
+    #for scale_name, sizes in something.items():
+    extra_sizes = {'mini' : 'mini', 'preview' : 'preview', 'visual' : 'visual', 'big' : 'big', 'large' : 'large'}
+    size_map.update(extra_sizes)
+ 
     _inverted_size_map = dict([(v, k) for (k, v) in size_map.iteritems()])
 
     # since some default sizes Plone has are rather small,
