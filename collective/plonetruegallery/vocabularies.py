@@ -66,14 +66,14 @@ def SizeVocabulary(context):
         site = getSite()
         portal_properties = getToolByName(site, 'portal_properties', None)
         if 'imaging_properties' in portal_properties.objectIds():
-                sizes = portal_properties.imaging_properties.getProperty(
+            sizes = portal_properties.imaging_properties.getProperty(
             'allowed_sizes')
-                terms = [SimpleTerm(value=format_size(pair),
-                            token=format_size(pair),
-                            title=pair) for pair in sizes]
-                return SimpleVocabulary(terms)
+            terms = [SimpleTerm(value=format_size(pair),
+                        token=format_size(pair),
+                            title=pair) for pair in sizes if not pair in ['icon 32:32', 'tile 64:64', 'listing 16:16']]
+            return SimpleVocabulary(terms)
         else:
-                return SimpleVocabulary([
+            return SimpleVocabulary([
             SimpleTerm('small', 'small', _(u"label_size_small",
                                             default=u'Small')),
             SimpleTerm('medium', 'medium', _(u"label_size_medium",

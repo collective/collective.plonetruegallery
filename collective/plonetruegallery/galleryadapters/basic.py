@@ -21,6 +21,13 @@ except:
     has_pai = False
 
 
+from plone.app.imaging.utils import getAllowedSizes
+# user has plone.app.imaging installed, add
+# custom image size settings
+_allowed_sizes = getAllowedSizes()
+print _allowed_sizes
+mysizes = ['listing', 'preview']
+
 class BasicAdapter(BaseAdapter):
     implements(IBasicAdapter, IGalleryAdapter)
 
@@ -30,13 +37,18 @@ class BasicAdapter(BaseAdapter):
 
     schema = IBasicGallerySettings
     cook_delay = 0
-
+    
     size_map = {
         'small': 'mini',
         'medium': 'preview',
         'large': 'large',
-        'thumb': 'tile'
+        'thumb': 'tile',
     }
+    
+    for item in mysizes:
+        size_map[item]=item
+    #size_map.update(mysizes)
+    
     _inverted_size_map = dict([(v, k) for (k, v) in size_map.iteritems()])
 
     # since some default sizes Plone has are rather small,
