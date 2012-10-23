@@ -1,3 +1,13 @@
+To do
+=======
+1) Get the dynamic size_map to work (actually, I am not sure why this is needed at all)
+2) Add the original sizes back to the vocabulary
+
+
+
+
+
+
 collective.plonetruegallery Documentation
 =========================================
 
