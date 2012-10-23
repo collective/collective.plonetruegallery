@@ -141,14 +141,8 @@ class IGallerySettings(Interface):
                     u"gallery type that is used since different services "
                     u"have different size constraints."),
         default='medium',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('small', 'small', _(u"label_size_small",
-                                            default=u'Small')),
-            SimpleTerm('medium', 'medium', _(u"label_size_medium",
-                                            default=u'Medium')),
-            SimpleTerm('large', 'large', _(u"label_size_large",
-                                            default=u'Large'))
-        ]))
+        vocabulary"collective.plonetruegallery.SizeVocabulary",
+        )
     thumb_size = schema.Choice(
         title=_(u"label_thumb_size", default=u"Thumbnail image size"),
         description=_(u"description_thumb_size",

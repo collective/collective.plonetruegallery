@@ -51,6 +51,11 @@
         />
     <utility
         provides="zope.schema.interfaces.IVocabularyFactory"
+        component=".vocabularies.SizeVocabulary"
+        name="collective.plonetruegallery.SizeVocabulary"
+        />
+    <utility
+        provides="zope.schema.interfaces.IVocabularyFactory"
         component=".vocabularies.DisplayTypeVocabulary"
         name="collective.plonetruegallery.DisplayTypes"
         />

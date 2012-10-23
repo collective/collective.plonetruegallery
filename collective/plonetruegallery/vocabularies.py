@@ -7,7 +7,7 @@ from plone.app.vocabularies.catalog import SearchableTextSource
 from plone.app.vocabularies.catalog import parse_query
 from collective.plonetruegallery.interfaces import IGallery
 from Products.CMFCore.utils import getToolByName
-
+from zope.app.component.hooks import getSite
 
 class PTGVocabulary(SimpleVocabulary):
     """
@@ -58,6 +58,29 @@ def GalleryTypeVocabulary(context):
 
     return PTGVocabulary(items,
                 default=IGallerySettings['gallery_type'].default)
+
+def format_size(size):
+    return size.split(' ')[0]
+
+def SizeVocabulary(context):
+        site = getSite()
+        portal_properties = getToolByName(site, 'portal_properties', None)
+        if 'imaging_properties' in portal_properties.objectIds():
+                sizes = portal_properties.imaging_properties.getProperty(
+            'allowed_sizes')
+                terms = [SimpleTerm(value=format_size(pair),
+                            token=format_size(pair),
+                            title=pair) for pair in sizes]
+                return SimpleVocabulary(terms)
+        else:
+                return SimpleVocabulary([
+            SimpleTerm('small', 'small', _(u"label_size_small",
+                                            default=u'Small')),
+            SimpleTerm('medium', 'medium', _(u"label_size_medium",
+                                            default=u'Medium')),
+            SimpleTerm('large', 'large', _(u"label_size_large",
+                                            default=u'Large'))
+        ])
 
 
 class GallerySearchableTextSource(SearchableTextSource):
