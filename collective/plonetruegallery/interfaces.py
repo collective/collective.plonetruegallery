@@ -140,8 +140,8 @@ class IGallerySettings(Interface):
             default=u"The actual sizes used can vary depending on the "
                     u"gallery type that is used since different services "
                     u"have different size constraints."),
-        default='medium',
-        vocabulary"collective.plonetruegallery.SizeVocabulary",
+        default='large',
+        vocabulary="collective.plonetruegallery.SizeVocabulary",
         )
     thumb_size = schema.Choice(
         title=_(u"label_thumb_size", default=u"Thumbnail image size"),
