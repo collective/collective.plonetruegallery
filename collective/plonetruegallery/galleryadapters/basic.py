@@ -20,14 +20,6 @@ try:
 except:
     has_pai = False
 
-
-from plone.app.imaging.utils import getAllowedSizes
-# user has plone.app.imaging installed, add
-# custom image size settings
-_allowed_sizes = getAllowedSizes()
-print _allowed_sizes
-mysizes = ['listing', 'preview']
-
 class BasicAdapter(BaseAdapter):
     implements(IBasicAdapter, IGalleryAdapter)
 
@@ -45,9 +37,20 @@ class BasicAdapter(BaseAdapter):
         'thumb': 'tile',
     }
     
-    for item in mysizes:
-        size_map[item]=item
-    #size_map.update(mysizes)
+
+
+    # Not sure if this is the right way to add the
+    # custom image size settings
+    allsizes = allowed_sizes
+    for pair in allsizes:
+        newsize = pair.split(' ')[0]
+        size_map[newsize] = newsize
+
+    #size_map.update(extra_size)
+
+
+
+
     
     _inverted_size_map = dict([(v, k) for (k, v) in size_map.iteritems()])
 
