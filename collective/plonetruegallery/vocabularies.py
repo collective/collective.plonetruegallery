@@ -7,6 +7,7 @@ from plone.app.vocabularies.catalog import SearchableTextSource
 from plone.app.vocabularies.catalog import parse_query
 from collective.plonetruegallery.interfaces import IGallery
 from Products.CMFCore.utils import getToolByName
+from collective.plonetruegallery import PTGMessageFactory as _
 from zope.app.component.hooks import getSite
 
 class PTGVocabulary(SimpleVocabulary):
@@ -63,6 +64,14 @@ def format_size(size):
     return size.split(' ')[0]
 
 def SizeVocabulary(context):
+        defaultvoc = [
+            SimpleTerm('small', 'small', _(u"label_size_small",
+                                            default=u'Small')),
+            SimpleTerm('medium', 'medium', _(u"label_size_medium",
+                                            default=u'Medium')),
+            SimpleTerm('large', 'large', _(u"label_size_large",
+                                            default=u'Large'))
+        ]
         site = getSite()
         portal_properties = getToolByName(site, 'portal_properties', None)
         if 'imaging_properties' in portal_properties.objectIds():
@@ -70,17 +79,11 @@ def SizeVocabulary(context):
             'allowed_sizes')
             terms = [SimpleTerm(value=format_size(pair),
                         token=format_size(pair),
-                            title=pair) for pair in sizes if not pair in ['icon 32:32', 'tile 64:64', 'listing 16:16']]
+                            title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'large']]
+            terms = defaultvoc + terms
             return SimpleVocabulary(terms)
         else:
-            return SimpleVocabulary([
-            SimpleTerm('small', 'small', _(u"label_size_small",
-                                            default=u'Small')),
-            SimpleTerm('medium', 'medium', _(u"label_size_medium",
-                                            default=u'Medium')),
-            SimpleTerm('large', 'large', _(u"label_size_large",
-                                            default=u'Large'))
-        ])
+            return SimpleVocabulary(defaultvoc)
 
 
 class GallerySearchableTextSource(SearchableTextSource):
