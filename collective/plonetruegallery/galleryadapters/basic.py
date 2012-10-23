@@ -38,13 +38,11 @@ class BasicAdapter(BaseAdapter):
     }
     
 
-
     # Not sure if this is the right way to add the
-    # custom image size settings
-    allsizes = allowed_sizes
-    for pair in allsizes:
-        newsize = pair.split(' ')[0]
-        size_map[newsize] = newsize
+    # custom image sizes
+    #customsizes = ["mini", "preview"]
+    #for item in customsizes:
+    #    size_map[item] = item
 
     #size_map.update(extra_size)
 
