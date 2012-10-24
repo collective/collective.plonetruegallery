@@ -69,11 +69,11 @@ class BasicAdapter(BaseAdapter):
             for scale_name, sizes in _allowed_sizes.items():
                 width, height = sizes
                 #we need to check this code
-                if scale_name in ['thumb', 'icon', 'tile']:
+                if scale_name in ['thumb', 'icon', 'tile', 'mini']:
                     continue
                 if scale_name not in self._inverted_size_map:            
                     self._inverted_size_map[str(scale_name)] = str(scale_name)
-                
+                    self.size_map[str(scale_name)] = str(scale_name)
                 size_name = self._inverted_size_map[scale_name]
                 allowed_sizes[size_name] = {'width': width, 'height': height}
 
