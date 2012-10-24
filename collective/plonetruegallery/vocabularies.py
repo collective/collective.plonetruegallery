@@ -64,7 +64,7 @@ def format_size(size):
     return size.split(' ')[0]
 
 def SizeVocabulary(context):
-        defaultvoc = [
+        image_terms = [
             SimpleTerm('small', 'small', _(u"label_size_small",
                                             default=u'Small')),
             SimpleTerm('medium', 'medium', _(u"label_size_medium",
@@ -80,10 +80,9 @@ def SizeVocabulary(context):
             terms = [SimpleTerm(value=format_size(pair),
                         token=format_size(pair),
                             title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'large']]
-            terms = defaultvoc + terms
-            return SimpleVocabulary(terms)
-        else:
-            return SimpleVocabulary(defaultvoc)
+            image_terms =image_terms + terms
+
+        return SimpleVocabulary(image_terms)
 
 
 class GallerySearchableTextSource(SearchableTextSource):
