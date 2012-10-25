@@ -48,22 +48,25 @@ class BasicAdapter(BaseAdapter):
          
     #this code needs to be checked
     @property
+    @memoize_contextless
     def size_map(self):
         image_sizes = { 'small': 'mini',
                         'medium': 'preview',
                         'large': 'large',
                         'thumb': 'tile' }
         
-        # Not sure how to add the
-        # custom image sizes dynamically
+        # Here we try to get the custom sizes 
+        # we skip some scales, since they are already 'taken'
         from plone.app.imaging.utils import getAllowedSizes
         all_sizes = getAllowedSizes()
         for scale_name, sizes in all_sizes.items():
-            image_sizes[str(scale_name)] = str(scale_name)
+            if scale_name not in ['small', 'medium', 'mini', 'preview', 'large', 'thumb' ]:
+                image_sizes[str(scale_name)] = str(scale_name)
         
         return image_sizes
                 
     @property
+    @memoize_contextless
     def _inverted_size_map(self):  
         return dict([(v, k) for (k, v) in self.size_map.iteritems()])
  

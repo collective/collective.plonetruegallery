@@ -74,14 +74,17 @@ def SizeVocabulary(context):
         ]
         site = getSite()
         portal_properties = getToolByName(site, 'portal_properties', None)
+        # here we add the custom image sizes, we skip the small ones and
+        # preview, lare since they are already added.
+        #if we add them back, be sure to do it in basic.py, too
         if 'imaging_properties' in portal_properties.objectIds():
             sizes = portal_properties.imaging_properties.getProperty(
             'allowed_sizes')
             terms = [SimpleTerm(value=format_size(pair),
                         token=format_size(pair),
-                            title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'large']]
+                            title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large']]
             image_terms =image_terms + terms
-
+        
         return SimpleVocabulary(image_terms)
 
 
