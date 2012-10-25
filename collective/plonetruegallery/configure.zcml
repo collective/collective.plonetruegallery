@@ -56,6 +56,11 @@
         />
     <utility
         provides="zope.schema.interfaces.IVocabularyFactory"
+        component=".vocabularies.ThumbVocabulary"
+        name="collective.plonetruegallery.ThumbVocabulary"
+        />
+    <utility
+        provides="zope.schema.interfaces.IVocabularyFactory"
         component=".vocabularies.DisplayTypeVocabulary"
         name="collective.plonetruegallery.DisplayTypes"
         />

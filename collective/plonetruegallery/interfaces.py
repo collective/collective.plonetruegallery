@@ -150,13 +150,8 @@ class IGallerySettings(Interface):
                     u"Will only work with plone image gallery type."
         ),
         default='thumb',
-        vocabulary=SimpleVocabulary([
-            SimpleTerm('tile', 'tile', _(u"label_tile", default=u"tile")),
-            SimpleTerm('thumb', 'thumb', _(u"label_thumb", default=u"thumb")),
-            SimpleTerm('mini', 'mini', _(u"label_mini", default=u"mini")),
-            SimpleTerm('preview', 'preview', _(u"label_preview",
-                                                default=u"preview")),
-        ]))
+        vocabulary="collective.plonetruegallery.ThumbVocabulary",
+        )
     # the options for the display type will also be added dynamically
     timed = schema.Bool(
         title=_(u"label_timed", default=u"Timed?"),
