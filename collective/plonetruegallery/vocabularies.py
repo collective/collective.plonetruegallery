@@ -80,7 +80,7 @@ def SizeVocabulary(context):
         # preview, large since they are already added.
         #if we add them back, be sure to do it in basic.py, too
         # we also need to test if gallery_type == 'basic':
-        # not sure if this is right, it might be the overall seting
+        # dont think this is right, it might be the overall seting
         if IGallerySettings['gallery_type'].default  == 'basic':
             if 'imaging_properties' in portal_properties.objectIds():
                 sizes = portal_properties.imaging_properties.getProperty(
