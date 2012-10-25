@@ -29,18 +29,10 @@ class BasicAdapter(BaseAdapter):
 
     schema = IBasicGallerySettings
     cook_delay = 0
-    
-    size_map = {
-            'small': 'mini',
-            'medium': 'preview',
-            'large': 'large',
-            'thumb': 'tile',
-        }
-        
-        
+
     # since some default sizes Plone has are rather small,
     # let's setup a mechanism to upgrade sizes.
-        
+    
     minimum_sizes = {
             'small': {
                 'width': 320,
@@ -54,7 +46,27 @@ class BasicAdapter(BaseAdapter):
             }
         }
          
-    _inverted_size_map = dict([(v, k) for (k, v) in size_map.iteritems()])
+    #this code needs to be checked
+    @property
+    def size_map(self):
+        image_sizes = { 'small': 'mini',
+                        'medium': 'preview',
+                        'large': 'large',
+                        'thumb': 'tile' }
+        
+        # Not sure how to add the
+        # custom image sizes dynamically
+        from plone.app.imaging.utils import getAllowedSizes
+        all_sizes = getAllowedSizes()
+        for scale_name, sizes in all_sizes.items():
+            image_sizes[str(scale_name)] = str(scale_name)
+        
+        return image_sizes
+                
+    @property
+    def _inverted_size_map(self):  
+        return dict([(v, k) for (k, v) in self.size_map.iteritems()])
+ 
  
     @property
     @memoize_contextless
@@ -68,12 +80,8 @@ class BasicAdapter(BaseAdapter):
 
             for scale_name, sizes in _allowed_sizes.items():
                 width, height = sizes
-                #we need to check this code
-                if scale_name in ['thumb', 'icon', 'tile', 'mini']:
+                if scale_name not in self._inverted_size_map:
                     continue
-                if scale_name not in self._inverted_size_map:            
-                    self._inverted_size_map[str(scale_name)] = str(scale_name)
-                    self.size_map[str(scale_name)] = str(scale_name)
                 size_name = self._inverted_size_map[scale_name]
                 allowed_sizes[size_name] = {'width': width, 'height': height}
 
