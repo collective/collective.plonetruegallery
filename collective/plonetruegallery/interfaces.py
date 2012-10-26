@@ -139,7 +139,8 @@ class IGallerySettings(Interface):
         description=_(u"description_gallery_size",
             default=u"The actual sizes used can vary depending on the "
                     u"gallery type that is used since different services "
-                    u"have different size constraints."),
+                    u"have different size constraints. "
+                    u"Only 'Small, Medium and Large' work with Flickr and Picasa"),
         default='large',
         vocabulary="collective.plonetruegallery.SizeVocabulary",
         )

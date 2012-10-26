@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2012-07-10 13:58+0000\n"
-"PO-Revision-Date: 2009-05-17 16:14+0100\n"
+"PO-Revision-Date: 2012-10-26 17:56+0100\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr ""
 
 #: ./browser/views/settings.py:20
 msgid "Main"
-msgstr ""
+msgstr "Hoved"
 
 #: ./configlet.py:12
 msgid "PloneTruegallery Default Settings"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: ./browser/views/templates/subgallery.pt:20
 msgid "Show All"
-msgstr ""
+msgstr "Vis alle"
 
 #. Default: "The amount of images shown in one page. This is not used for all display types."
 #: ./interfaces.py:252
@@ -90,12 +90,12 @@ msgstr ""
 #. Default: "Configure the parameters for this gallery."
 #: ./browser/views/settings.py:32
 msgid "description_gallery_settings_form"
-msgstr ""
+msgstr "Konfigurer instillingene for dette gallerier"
 
 #. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints."
 #: ./interfaces.py:192
 msgid "description_gallery_size"
-msgstr ""
+msgstr "Størrelsen kan variere etter hvilken galleritype du har valgt. Kun 'Liten, Medium og Stor\" virker med Picasa og Flickr."
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
 #: ./interfaces.py:171
@@ -111,7 +111,7 @@ msgstr "Navnet på ditt piscasa web album. Dette er navnet du ser i adressfeltet
 #. Default: "GMail address of who this album belongs to. (*Picasa* gallery type)"
 #: ./interfaces.py:288
 msgid "description_picasa_username"
-msgstr ""
+msgstr "Gmail adressen til den som Picasa galleriet tilhører"
 
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
 #: ./interfaces.py:245
@@ -288,7 +288,7 @@ msgstr ""
 #. Default: "mini"
 #: ./interfaces.py:215
 msgid "label_mini"
-msgstr ""
+msgstr "mini"
 
 #. Default: "There are no images in this gallery."
 #: ./browser/views/templates/layout.pt:21
@@ -335,7 +335,7 @@ msgstr "Medium"
 #. Default: "Small"
 #: ./interfaces.py:198
 msgid "label_size_small"
-msgstr "Lite"
+msgstr "Liten"
 
 #. Default: "thumb"
 #: ./interfaces.py:214
@@ -405,7 +405,7 @@ msgstr ""
 
 #: ./browser/views/templates/subgallery.pt:13
 msgid "or"
-msgstr ""
+msgstr "eller"
 
 #. Default: "Gallery Settings Saved."
 #: ./browser/views/settings.py:35
