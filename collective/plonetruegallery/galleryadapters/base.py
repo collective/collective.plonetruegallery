@@ -122,7 +122,8 @@ class BaseImageInformationRetriever(object):
             'title': image.Title,
             'description': image.Description,
             'copyright':   self.get_copyright(image),
-            'portal_type': image.portal_type
+            'portal_type': image.portal_type,
+            'keywords' :  ' '.join(image.Subject),
         }
 
     def get_link_url(self, image):
