@@ -9,17 +9,6 @@
         factory=".basic.BasicAdapter"
         provides="collective.plonetruegallery.interfaces.IBasicAdapter" />
 
-    <gallery:type
-        factory=".flickr.FlickrAdapter"
-        provides="collective.plonetruegallery.interfaces.IFlickrAdapter"
-        condition=".flickr.add_condition"
-    />
-
-    <gallery:type
-        factory=".picasa.PicasaAdapter"
-        provides="collective.plonetruegallery.interfaces.IPicasaAdapter"
-		condition=".picasa.add_condition"
-    />
 
     <adapter factory=".basic.BasicImageInformationRetriever" />
     <adapter factory=".basic.BasicTopicImageInformationRetriever" />

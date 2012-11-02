@@ -20,7 +20,6 @@ try:
 except:
     has_pai = False
 
-
 class BasicAdapter(BaseAdapter):
     implements(IBasicAdapter, IGalleryAdapter)
 
@@ -31,29 +30,47 @@ class BasicAdapter(BaseAdapter):
     schema = IBasicGallerySettings
     cook_delay = 0
 
-    size_map = {
-        'small': 'mini',
-        'medium': 'preview',
-        'large': 'large',
-        'thumb': 'tile'
-    }
-    _inverted_size_map = dict([(v, k) for (k, v) in size_map.iteritems()])
-
     # since some default sizes Plone has are rather small,
     # let's setup a mechanism to upgrade sizes.
+    
     minimum_sizes = {
-        'small': {
-            'width': 320,
-            'height': 320,
-            'next_scale': 'preview'
-        },
-        'medium': {
-            'width': 576,
-            'height': 576,
-            'next_scale': 'large'
+            'small': {
+                'width': 320,
+                'height': 320,
+                'next_scale': 'preview'
+            },
+            'medium': {
+                'width': 576,
+                'height': 576,
+                'next_scale': 'large'
+            }
         }
-    }
-
+         
+    #this code needs to be checked
+    @property
+    @memoize_contextless
+    def size_map(self):
+        image_sizes = { 'small': 'mini',
+                        'medium': 'preview',
+                        'large': 'large',
+                        'thumb': 'tile' }
+        
+        # Here we try to get the custom sizes 
+        # we skip some scales, since they are already 'taken'
+        from plone.app.imaging.utils import getAllowedSizes
+        all_sizes = getAllowedSizes()
+        for scale_name, sizes in all_sizes.items():
+            if scale_name not in ['small', 'medium', 'mini', 'preview', 'thumb', 'tile', 'large']:
+                image_sizes[str(scale_name)] = str(scale_name)
+        
+        return image_sizes
+                
+    @property
+    @memoize_contextless
+    def _inverted_size_map(self):  
+        return dict([(v, k) for (k, v) in self.size_map.iteritems()])
+ 
+ 
     @property
     @memoize_contextless
     def sizes(self):

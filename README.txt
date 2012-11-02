@@ -1,3 +1,13 @@
+To do
+=======
+1) Get the dynamic size_map to work (actually, I am not sure why this is needed at all)
+2) Add the original sizes back to the vocabulary
+
+
+
+
+
+
 collective.plonetruegallery Documentation
 =========================================
 
@@ -86,16 +96,12 @@ Flickr and Picasa Web Album Support
 -----------------------------------
 * to add support for these type of galleries you must install additional
   packages
-* install flickrapi version 1.2 or higher for flickr support
-* install gdata version 1.2.3 or higher for Picasa Web Album
+* install collectivev.ptg.flickr for Flickr support
+* install collective.ptg.picasa for Picasa Web Album
   Support(tested with 1.3.3 and 2.0.12)
 * on Plone 3.x you must also manually install hashlib for picasa support
 * these can just be added to your buildout or installed with easy_install
   or you can add the package to your egg section like::
-
-    collective.plonetruegallery[picasa] # for picasa support
-    collective.plonetruegallery[flickr] # for flickr support
-    collective.plonetruegallery[all] # for both flickr and picasa support
 
 
 Displaying Gallery inline
@@ -242,6 +248,7 @@ type uses the `Creative Commons Attribution-NonCommercial 2.5 License
 <http://creativecommons.org/licenses/by-nc/2.5/>`_ and is only for
 non-commercial use unless you have purchased a commercial license from
 the `Highslide <http://www.highslide.com/>`_ website.
+collective.ptg.pixelentity gallery (under construction) also requires a license
 
 Credits
 =======
