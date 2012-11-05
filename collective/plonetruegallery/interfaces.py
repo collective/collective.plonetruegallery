@@ -199,6 +199,12 @@ class IGallerySettings(Interface):
         ),
         default=50,
         required=True)
+    enable_bodytext = schema.Bool(
+        title=_(u"label_enable_bodytext", default=u"Enable bodytext"),
+        description=_(u"description_bodytext",
+            default=u"This is only used for customized templates to show body text"
+        ),
+        default=False)
 
 
 class IBaseSettings(Interface):
