@@ -124,6 +124,7 @@ class BaseImageInformationRetriever(object):
             'copyright':   self.get_copyright(image),
             'portal_type': image.portal_type,
             'keywords' :  ' '.join(image.Subject),
+            'bodytext' : self.get_bodytext(image),
         }
 
     def get_link_url(self, image):
@@ -147,4 +148,10 @@ class BaseImageInformationRetriever(object):
                 copyright = obj.Rights()
                 if copyright:
                     return copyright
+        return ""
+        
+    def get_bodytext(self, image):
+        if self.gallery_adapter.settings.enable_bodytext:
+            if image.portal_type =='News Item':
+                return image.getObject().getText()
         return ""
