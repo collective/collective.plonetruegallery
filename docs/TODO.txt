@@ -1,9 +1,5 @@
 * make uninstall automatic
 * check that render slider inline is working properly. Are there tests for this?
-* make work with plone.app.collection
-* Provide a way to easily override css
-* be able to specify custom width and heights, or maybe just heights? Then dynamically decide which scale is best for it
-* Add control panel for default gallery settings on site
-* Could it be possible to 'block options for gallerytype' ( a setting in portal_registry) ? For example the 'Presentation', 'Galleria', 'Contact Sheet', 'Thumbnailzoom' which are always present ?  
-* Be able to control which viewlets the gallery will display in.
-* be able to add a gallery to any page, in those viewlets.
+* Could it be possible to 'block options for gallerytype' ( a setting in portal_registry) ? For example 'Galleria',  which is always present ?  
+* Be able to control which viewlets / fill slot the gallery will display in.
+* be able to add a gallery to any page (like medialog.galleryviewlet, only better :) ).
