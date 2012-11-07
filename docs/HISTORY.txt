@@ -1,8 +1,8 @@
 Changelog
 =========
 
-3.2a (unreleased)
-----------------
+3.2a (2012-11-07)
+-----------------
 
 - moved picas and flickr support to their own products [espenmn]
 - added vocabulary for image sizes [espenmn]
