@@ -91,7 +91,7 @@ Flickr and Picasa Web Album Support
   Support(tested with 1.3.3 and 2.0.12)
 * on Plone 3.x you must also manually install hashlib for picasa support
 * these can just be added to your buildout or installed with easy_install
-  or you can add the package to your egg section like::
+  or you can add the package to your egg section like
 
 
 Displaying Gallery inline
