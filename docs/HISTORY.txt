@@ -1,6 +1,14 @@
 Changelog
 =========
 
+3.2a2 (unreleased)
+------------------
+
+- explicitly close the iframe tag in the embedded
+  portlet gallery--fixes some browsers borking on the tag
+  [vangheem]
+
+
 3.2a (2012-11-07)
 -----------------
 
