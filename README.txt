@@ -117,7 +117,16 @@ For showing a gallery in another page, try something like this::
     <param name="data" value="path/to/gallery" />
   </object>
 
-You will have to "whitelist" <object> and <param> in portal_transform safe-html.
+Notes for successful inline object tag usage:
+* You will have to "whitelist" <object> and <param> in portal_transform safe-html.
+* When editing in Plone 4.2 you will have to switch your editor to Kupu since TinyMCE fracks
+  up the object tag into a flash item. 
+* If testing without Apache in front of your Plone you will need to make sure that the
+  "path/to/gallery" path from the example above includes any levels above the Plone object
+  in the Zope instance (eg. if your Plone object is inside of a folder named "version1", and
+  the name of your gallery is "mygallery", then the path should read "/version1/Plone/mygallery".
+  Of course, you will need to remove the "/version1/Plone" part when you put Apache in front
+  of your Plone.
 
 Or you can do the same with an iframe
 
