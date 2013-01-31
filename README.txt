@@ -57,7 +57,7 @@ Buildout configuration
 Installing all
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to install all avalable galleries, you could add
+If you want to install all available galleries, you could add
 
 collective.ptg.allnewest
 
