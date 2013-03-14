@@ -1,5 +1,8 @@
 from Products.CMFCore.utils import getToolByName
-import json
+try:
+    import json
+except ImportError:
+    import simplejson as json
 from collective.plonetruegallery.settings import GallerySettings
 from collective.plonetruegallery.settings import ANNOTATION_KEY
 from zope.annotation.interfaces import IAnnotations

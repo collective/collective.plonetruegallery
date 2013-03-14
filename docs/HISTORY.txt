@@ -1,8 +1,10 @@
 Changelog
 =========
 
-3.2a2 (unreleased)
+3.3a1 (unreleased)
 ------------------
+
+- restore plone 3 compatibility
 
 - explicitly close the iframe tag in the embedded
   portlet gallery--fixes some browsers borking on the tag

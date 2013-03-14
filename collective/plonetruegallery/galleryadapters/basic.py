@@ -57,19 +57,22 @@ class BasicAdapter(BaseAdapter):
         
         # Here we try to get the custom sizes 
         # we skip some scales, since they are already 'taken'
-        from plone.app.imaging.utils import getAllowedSizes
-        all_sizes = getAllowedSizes()
-        for scale_name, sizes in all_sizes.items():
-            if scale_name not in ['small', 'medium', 'mini', 'preview', 'thumb', 'tile', 'large']:
-                image_sizes[str(scale_name)] = str(scale_name)
-        
+        try:
+            from plone.app.imaging.utils import getAllowedSizes
+            all_sizes = getAllowedSizes()
+            for scale_name, sizes in all_sizes.items():
+                if scale_name not in ['small', 'medium', 'mini', 'preview',
+                                      'thumb', 'tile', 'large']:
+                    image_sizes[str(scale_name)] = str(scale_name)
+        except ImportError:
+            # plone 3 without plone.app.blob... We still have defaults...
+            pass
         return image_sizes
                 
     @property
     @memoize_contextless
     def _inverted_size_map(self):  
         return dict([(v, k) for (k, v) in self.size_map.iteritems()])
- 
  
     @property
     @memoize_contextless

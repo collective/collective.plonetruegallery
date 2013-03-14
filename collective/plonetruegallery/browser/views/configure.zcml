@@ -24,10 +24,19 @@
 		factory="collective.plonetruegallery.settings.GallerySettings" />
 
 	<browser:page
+		zcml:condition="have plone-4"
 		for="collective.plonetruegallery.interfaces.IGallery"
 		name="galleryview"
 		class=".galleryview.GalleryView"
 		template="templates/layout.pt"
+		permission="zope2.View" />
+
+	<browser:page
+		zcml:condition="not-have plone-4"
+		for="collective.plonetruegallery.interfaces.IGallery"
+		name="galleryview"
+		class=".galleryview.GalleryView"
+		template="templates/layout_p3.pt"
 		permission="zope2.View" />
 
 	<!-- non-displaytype views -->
