@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="collective.plonetruegallery">
+
+  <metal:css fill-slot="style_slot">
+    <tal:replace tal:replace="structure view/displayer/css" />
+  </metal:css>
+  <metal:js fill-slot="javascript_head_slot">
+    <tal:replace tal:replace="structure view/displayer/javascript" />
+  </metal:js>
+
+  <body>
+    <metal:core fill-slot="main">
+      <tal:core-macro metal:define-macro="main">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"> 
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+        
+        <div class="noimages" tal:condition="python: view.adapter.number_of_images == 0">
+          <p class="discreet" i18n:translate="label_no_images_in_gallery">
+            There are no images in this gallery.
+          </p>
+        </div>
+
+        <tal:display tal:condition="python: view.adapter.number_of_images > 0" tal:content="structure view/displayer/content" />
+
+        <tal:batch tal:condition="view/is_batch">
+          <tal:def tal:define="batch view/displayer/batch">
+            <div metal:use-macro="view/context/batch_macros/macros/navigation">
+              Navigation
+            </div>
+          </tal:def>
+        </tal:batch>
+
+        <p tal:replace="structure context/getText|nothing" />
+
+        <tal:subgallery tal:replace="structure view/subgallery_template" />
+
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+            show related items if they exist
+        </div>
+    
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+      </tal:core-macro>
+    </metal:core>
+  </body>
+</html>

@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 - restore plone 3 compatibility
+  [vangheem]
 
 - explicitly close the iframe tag in the embedded
   portlet gallery--fixes some browsers borking on the tag

@@ -152,6 +152,9 @@ class BaseImageInformationRetriever(object):
         
     def get_bodytext(self, image):
         if self.gallery_adapter.settings.enable_bodytext:
-            if image.portal_type =='News Item':
-                return image.getObject().getText()
+            if image.portal_type in ('News Item', 'GalleryImage'):
+                obj = image.getObject()
+                field = obj.getField('text')
+                if field:
+                    return field.get(obj)
         return ""
