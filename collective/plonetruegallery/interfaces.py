@@ -205,6 +205,14 @@ class IGallerySettings(Interface):
             default=u"This is only used for customized templates to show body text"
         ),
         default=False)
+    custom_stylesheet = schema.TextLine(
+        title=_(u"label_custom_stylesheet", default=u"Custom stylesheet"),
+        description=_(u"description_custom_stylesheet",
+            default=u"Relative path from the root of the site where the stylesheet "
+                    u"will be referenced from. This will be included after the display "
+                    u"gallery type's styles and is a good entry point for customization."
+        ),
+        default=u"")
 
 
 class IBaseSettings(Interface):

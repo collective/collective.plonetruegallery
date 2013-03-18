@@ -107,6 +107,70 @@ class BaseAdapter(object):
         return self.settings.cooked_images
 
 
+class ImageInfo(object):
+
+    def __init__(self, brain, info_retriever):
+        self.brain = brain
+        self.info_retriever = info_retriever
+        self.gallery_adapter = self.info_retriever.gallery_adapter
+        self._obj = None
+        self.base_url = self.brain.getURL()
+        self.portal_type = brain.portal_type
+        self.enable_bodytext = self.gallery_adapter.settings.enable_bodytext
+
+    @property
+    def obj(self):
+        if self._obj is None:
+            self._obj = self.brain.getObject()
+        return self._obj
+
+    @property
+    def image_url(self):
+        scale = self.gallery_adapter.size_map[self.gallery_adapter.settings.size]
+        return "%s/image_%s" % (self.base_url, scale)
+
+    @property
+    def thumb_url(self):
+        base_url = self.base_url
+        if self.portal_type in ('GalleryImage',):
+            field = self.obj.getField('thumbnailImage')
+            if field:
+                if field.get_size(self.obj) > 0:
+                    return '%s/@@thumbnailImage' % base_url
+        gallery_thumbnail_size = self.gallery_adapter.settings.thumb_size
+        if not gallery_thumbnail_size:
+            gallery_thumbnail_size = 'tile'
+        return "%s/image_%s" % (base_url, gallery_thumbnail_size)
+
+    @property
+    def link_url(self):
+        if self.enable_bodytext and self.portal_type in ('GalleryImage',):
+            field = self.obj.getField('linksTo')
+            if field:
+                val = field.get(self.obj)
+                if val:
+                    return val
+        return self.base_url
+
+    @property
+    def copyright(self):
+        if self.gallery_adapter.settings.copyright:
+            if hasattr(self.obj, 'Rights') and callable(self.obj.Rights):
+                copyright = self.obj.Rights()
+                if copyright:
+                    return copyright
+        return ""
+        
+    @property
+    def bodytext(self):
+        if self.enable_bodytext:
+            if self.portal_type in ('News Item', 'GalleryImage'):
+                field = self.obj.getField('text')
+                if field:
+                    return field.get(self.obj)
+        return ""
+
+
 class BaseImageInformationRetriever(object):
 
     def __init__(self, context, gallery_adapter):
@@ -115,46 +179,15 @@ class BaseImageInformationRetriever(object):
         self.gallery_adapter = gallery_adapter
 
     def assemble_image_information(self, image):
+        info = ImageInfo(image, self)
         return {
-            'image_url': self.get_image_url(image),
-            'thumb_url': self.get_thumb_url(image),
-            'link': self.get_link_url(image),
+            'image_url': info.image_url,
+            'thumb_url': info.thumb_url,
+            'link': info.link_url,
             'title': image.Title,
             'description': image.Description,
-            'copyright':   self.get_copyright(image),
+            'copyright':   info.copyright,
             'portal_type': image.portal_type,
-            'keywords' :  ' '.join(image.Subject),
-            'bodytext' : self.get_bodytext(image),
+            'keywords':  ' '.join(image.Subject),
+            'bodytext': info.bodytext
         }
-
-    def get_link_url(self, image):
-        return image.getURL()
-
-    def get_image_url(self, image):
-        return "%s/image_%s" % (
-                image.getURL(), self.
-                gallery_adapter.size_map[self.gallery_adapter.settings.size])
-
-    def get_thumb_url(self, image):
-        gallery_thumbnail_size = self.gallery_adapter.settings.thumb_size
-        if not gallery_thumbnail_size:
-            gallery_thumbnail_size = 'tile'
-        return "%s/image_%s" % (image.getURL(), gallery_thumbnail_size)
-
-    def get_copyright(self, image):
-        if self.gallery_adapter.settings.copyright:
-            obj = image.getObject()
-            if hasattr(obj, 'Rights') and callable(obj.Rights):
-                copyright = obj.Rights()
-                if copyright:
-                    return copyright
-        return ""
-        
-    def get_bodytext(self, image):
-        if self.gallery_adapter.settings.enable_bodytext:
-            if image.portal_type in ('News Item', 'GalleryImage'):
-                obj = image.getObject()
-                field = obj.getField('text')
-                if field:
-                    return field.get(obj)
-        return ""

@@ -60,6 +60,10 @@ class GalleryView(BrowserView):
             kwargs['Subject'] = self.request.get('category')
         return self.adapter.get_subgalleries(**kwargs)
 
+    @property
+    def custom_stylesheet(self):
+        return self.adapter.settings.custom_stylesheet.lstrip('/')
+
 
 class ForceCookingOfImages(BrowserView):
 
