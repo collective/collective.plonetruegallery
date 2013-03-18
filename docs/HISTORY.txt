@@ -4,6 +4,9 @@ Changelog
 3.3a1 (unreleased)
 ------------------
 
+- provide "original_image_url" image data
+  [vangheem]
+
 - add ability to provide custom css for gallery to override styles
   [vangheem]
 

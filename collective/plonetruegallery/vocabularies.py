@@ -24,7 +24,6 @@ class PTGVocabulary(SimpleVocabulary):
         try:
             super(PTGVocabulary, self).__init__(terms, *interfaces)
         except:
-            import pdb; pdb.set_trace()
             raise
         if 'default' in config:
             self.default = config['default']

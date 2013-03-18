@@ -149,7 +149,7 @@ class ImageInfo(object):
             if field:
                 val = field.get(self.obj)
                 if val:
-                    return val
+                    return val.absolute_url()
         return self.base_url
 
     @property
@@ -170,6 +170,10 @@ class ImageInfo(object):
                     return field.get(self.obj)
         return ""
 
+    @property
+    def original_image_url(self):
+        return self.base_url + '/image'
+
 
 class BaseImageInformationRetriever(object):
 
@@ -183,6 +187,7 @@ class BaseImageInformationRetriever(object):
         return {
             'image_url': info.image_url,
             'thumb_url': info.thumb_url,
+            'original_image_url': info.original_image_url,
             'link': info.link_url,
             'title': image.Title,
             'description': image.Description,
