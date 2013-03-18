@@ -6,7 +6,7 @@
   metal:use-macro="context/main_template/macros/master"
   i18n:domain="collective.plonetruegallery">
 
-  <metal:css fill-slot="style_slot" tal:define="custom_stylesheet view/custom_stylesheet">
+  <metal:css fill-slot="style_slot" tal:define="custom_stylesheet view/custom_stylesheet|nothing">
     <tal:replace tal:replace="structure view/displayer/css" />
     <link rel="stylesheet" type="text/css" tal:condition="custom_stylesheet"
           tal:attributes="href string:${context/portal_url}/${custom_stylesheet}" />
