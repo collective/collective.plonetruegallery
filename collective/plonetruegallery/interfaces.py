@@ -212,7 +212,8 @@ class IGallerySettings(Interface):
                     u"will be referenced from. This will be included after the display "
                     u"gallery type's styles and is a good entry point for customization."
         ),
-        default=u"")
+        default=u"",
+        required=False)
 
 
 class IBaseSettings(Interface):
