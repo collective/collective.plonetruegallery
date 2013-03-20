@@ -46,7 +46,6 @@ class BasicAdapter(BaseAdapter):
             }
         }
          
-    #this code needs to be checked
     @property
     @memoize_contextless
     def size_map(self):
@@ -60,11 +59,11 @@ class BasicAdapter(BaseAdapter):
         try:
             from plone.app.imaging.utils import getAllowedSizes
             all_sizes = getAllowedSizes()
-            for scale_name, sizes in all_sizes.items():
+            for scale_name in all_sizes.keys():
                 if scale_name not in ['small', 'medium', 'mini', 'preview',
                                       'thumb', 'tile', 'large']:
                     image_sizes[str(scale_name)] = str(scale_name)
-        except ImportError:
+        except (ImportError, AttributeError):
             # plone 3 without plone.app.blob... We still have defaults...
             pass
         return image_sizes

@@ -1,6 +1,13 @@
 Changelog
 =========
 
+3.3.0a1 (unreleased)
+--------------------
+
+- provide "download_url" in image data
+  [vangheem]
+
+
 3.3.0a1 (2013-03-18)
 --------------------
 

@@ -171,6 +171,10 @@ class ImageInfo(object):
         return ""
 
     @property
+    def download_url(self):
+        return self.base_url + '/at_download/image'
+
+    @property
     def original_image_url(self):
         return self.base_url + '/image'
 
@@ -188,6 +192,7 @@ class BaseImageInformationRetriever(object):
             'image_url': info.image_url,
             'thumb_url': info.thumb_url,
             'original_image_url': info.original_image_url,
+            'download_url': info.download_url,
             'link': info.link_url,
             'title': image.Title,
             'description': image.Description,
