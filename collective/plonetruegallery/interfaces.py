@@ -254,4 +254,8 @@ class IImageInformationRetriever(Interface):
             The image description
         copyright
             The image copyright
+        keywords'
+            image tags
+        bodytext
+            the body text (html)
         """
