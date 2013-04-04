@@ -167,7 +167,7 @@ class ImageInfo(object):
             if self.portal_type in ('News Item', 'GalleryImage'):
                 field = self.obj.getField('text')
                 if field:
-                    return field.get(self.obj)
+                    return field.getRaw(self.obj)
         return ""
 
     @property

@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.3.1a1 (unreleased)
+3.3.1a2 (2013-04-04)
 --------------------
 
 - provide "download_url" in image data
