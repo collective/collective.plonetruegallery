@@ -75,3 +75,7 @@ div.spacer {
     font-size: 1px;
     line-height: 1px;
 }
+
+.template-galleryview .contentActions {
+	z-index: 12;
+}
