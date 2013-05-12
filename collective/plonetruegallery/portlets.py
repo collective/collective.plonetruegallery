@@ -160,6 +160,10 @@ class PortletGalleryAdapter(object):
     def image(self):
         return self.adapter.cooked_images[self.image_index]
 
+    @property
+    def images(self):
+        return self.adapter.cooked_images
+
 
 class GalleryRenderer(base.Renderer):
 
@@ -199,6 +203,10 @@ class GalleryRenderer(base.Renderer):
     @property
     def current_image(self):
         return self.portlet_adapter.image
+
+    @property
+    def all_images(self):
+        return self.portlet_adapter.images
 
     @property
     @memoize
