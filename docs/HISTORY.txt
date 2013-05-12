@@ -1,6 +1,11 @@
 Changelog
 =========
 
+3.3.1b2 (unreleased)
+
+- fix character encoding in portlet image titles
+  [bouchardsyl]
+
 3.3.1b1 (2013-05-06)
 --------------------
 

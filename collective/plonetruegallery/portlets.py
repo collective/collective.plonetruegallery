@@ -123,7 +123,7 @@ class PortletGalleryAdapter(object):
 
         return "%s/view?%s" % (
             self.adapter.gallery.absolute_url(),
-            urllib.urlencode({'start_image': image['title']})
+            urllib.urlencode({'start_image': image['title'].encode('utf8')})
         )
 
     def next_image_url_params(self):
