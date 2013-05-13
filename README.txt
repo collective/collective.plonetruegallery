@@ -257,6 +257,7 @@ Coding Contributions
 * Patrick Gerken - huge help with 0.8 release
 * Espen Moe-Nilssen
 * Harald Friessnegger
+* Sylvain Bouchard
 
 Translations
 ------------

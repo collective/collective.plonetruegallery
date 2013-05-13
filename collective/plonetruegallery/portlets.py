@@ -123,7 +123,7 @@ class PortletGalleryAdapter(object):
 
         return "%s/view?%s" % (
             self.adapter.gallery.absolute_url(),
-            urllib.urlencode({'start_image': image['title']})
+            urllib.urlencode({'start_image': image['title'].encode('utf8')})
         )
 
     def next_image_url_params(self):
@@ -159,6 +159,10 @@ class PortletGalleryAdapter(object):
     @property
     def image(self):
         return self.adapter.cooked_images[self.image_index]
+
+    @property
+    def images(self):
+        return self.adapter.cooked_images
 
 
 class GalleryRenderer(base.Renderer):
@@ -199,6 +203,10 @@ class GalleryRenderer(base.Renderer):
     @property
     def current_image(self):
         return self.portlet_adapter.image
+
+    @property
+    def all_images(self):
+        return self.portlet_adapter.images
 
     @property
     @memoize
