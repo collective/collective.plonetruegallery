@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2012-07-10 13:58+0000\n"
-"PO-Revision-Date: 2012-10-26 17:56+0100\n"
+"PO-Revision-Date: 2013-05-02 19:37+0100\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -411,4 +411,7 @@ msgstr "eller"
 #: ./browser/views/settings.py:35
 msgid "successMessage_gallery_settings_form"
 msgstr ""
+
+msgid "quicksand_radio_eveything"
+msgstr "Alt"
 
