@@ -1,8 +1,8 @@
 Changelog
 =========
 
-3.3.1b2 (unreleased)
---------------------
+3.3.1 (2013-05-31)
+------------------
 
 - give site administrator manage galleries permission
   [vangheem]
