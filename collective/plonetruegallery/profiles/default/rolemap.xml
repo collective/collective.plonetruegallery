@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="collective.plonetruegallery: manage galleries"
+                acquire="True">
+      <role name="Site Administrator"/>
+    </permission>
+  </permissions>
+</rolemap>
+
