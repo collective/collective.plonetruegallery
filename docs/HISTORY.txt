@@ -2,12 +2,17 @@ Changelog
 =========
 
 3.3.1b2 (unreleased)
+--------------------
+
+- give site administrator manage galleries permission
+  [vangheem]
 
 - fix character encoding in portlet image titles
   [bouchardsyl]
 
 - add portlet methods to return all images
   [bouchardsyl]
+
 
 3.3.1b1 (2013-05-06)
 --------------------
