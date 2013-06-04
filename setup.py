@@ -16,10 +16,11 @@ setup(name='collective.plonetruegallery',
         "Framework :: Plone :: 3.3",
         "Framework :: Plone :: 4.0",
         "Framework :: Plone :: 4.1",
-        "Framework :: Plone :: 4.2"
+        "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 4.3"
         ],
       keywords='gallery plone slideshow photo photos image images picasa '
-               'flickr highslide nivoslider nivogallery pikachoose fancybox '
+               'flickr highslide nivoslider nivogallery pikachoose fancybox supersized quicksand'
                'galleriffic galleria',
       author='Nathan Van Gheem',
       author_email='vangheem@gmail.com',
