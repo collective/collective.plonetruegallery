@@ -22,7 +22,7 @@ the dependant package in buildout
 
  - galleria(ships with)
  - contact sheet(collective.ptg.contactsheet)
- - thumbnail zoom gallery(collective.js.thumbnailzoom)
+ - thumbnail zoom gallery(collective.ptg.thumbnailzoom)
  - presentation(collective.ptg.presentation)
  - galleriffic(collective.ptg.galleriffic)
  - highslide(collective.ptg.highslide)
@@ -119,8 +119,7 @@ For showing a gallery in another page, try something like this::
 
 Notes for successful inline object tag usage:
 * You will have to "whitelist" <object> and <param> in portal_transform safe-html.
-* When editing in Plone 4.2 you will have to switch your editor to Kupu since TinyMCE fracks
-  up the object tag into a flash item. 
+* When editing in Plone 4.2 you will have to switch your editor to Kupu since TinyMCE fracks up the object tag into a flash item. 
 * If testing without Apache in front of your Plone you will need to make sure that the
   "path/to/gallery" path from the example above includes any levels above the Plone object
   in the Zope instance (eg. if your Plone object is inside of a folder named "version1", and

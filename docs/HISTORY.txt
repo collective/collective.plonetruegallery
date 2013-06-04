@@ -1,4 +1,4 @@
-Changelog
+	Changelog
 =========
 
 3.3.1 (2013-05-31)
