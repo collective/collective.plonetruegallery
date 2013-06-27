@@ -1,5 +1,12 @@
-	Changelog
+Changelog
 =========
+
+3.3.2 (Unreleased)
+------------------
+
+- fix character encoding in portlet image titles (so it works with images on Plone and Flickr)
+  [kysr]
+
 
 3.3.1 (2013-05-31)
 ------------------
