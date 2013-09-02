@@ -86,7 +86,7 @@ Flickr and Picasa Web Album Support
 -----------------------------------
 * to add support for these type of galleries you must install additional
   packages
-* install collectivev.ptg.flickr for Flickr support
+* install collective.ptg.flickr for Flickr support
 * install collective.ptg.picasa for Picasa Web Album
   Support(tested with 1.3.3 and 2.0.12)
 * on Plone 3.x you must also manually install hashlib for picasa support
