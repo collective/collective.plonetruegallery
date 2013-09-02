@@ -18,7 +18,7 @@ Supported Display Types
 -----------------------
 
 To install any of the various extra display types, you need to install
-the dependant package in buildout
+the dependent package in buildout
 
  - galleria(ships with)
  - contact sheet(collective.ptg.contactsheet)
@@ -78,7 +78,7 @@ Features
 * Galleria, Galleriffic, Highslide JS, s3slider, Pikachoose and Fancybox display types
 * display gallery inline
 * Products.Collage integration
-* Compatible with new-style plone collections
+* Compatible with new-style Plone collections
 * Provides base settings configlet
 
 
@@ -130,7 +130,7 @@ Notes for successful inline object tag usage:
 Or you can do the same with an iframe
 
 
-Troubleshouting safe-html
+Troubleshooting safe-html
 -------------------------
 
   If you have trouble, do this:
@@ -141,7 +141,7 @@ Troubleshouting safe-html
   1. Zope root app ZMI
   2. Control Panel
   3. Database
-  4. main (or wathever zodb you have)
+  4. main (or whatever zodb you have)
   5. Flush Cache tab
   6. Press "Minimize" button
 
