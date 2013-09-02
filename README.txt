@@ -59,9 +59,14 @@ Installing all
 
 If you want to install all available galleries, you could add
 
-collective.ptg.allnewest
+  eggs = 
+    ...
+    collective.plonetruegallery
+    collective.ptg.allnewest
+    ...
 
 to buildout's egg section.
+
 This will also install some galleries that are "under development".
 
 
