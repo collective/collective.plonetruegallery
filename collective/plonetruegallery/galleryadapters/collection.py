@@ -7,6 +7,10 @@ from plone.app.collection.interfaces import ICollection
 from collective.plonetruegallery.interfaces import IBasicAdapter
 from plone.app.querystring import queryparser
 
+try:
+    from plone.app.contenttypes.behaviors.leadimage import ILeadImage
+except:
+    pass
 
 class BasicCollectionImageInformationRetriever(
                             BasicTopicImageInformationRetriever):
@@ -16,7 +20,13 @@ class BasicCollectionImageInformationRetriever(
         limit = self.context.limit
         query = queryparser.parseFormquery(self.context,
             self.context.getRawQuery())
-        query.update({'object_provides': IImageContent.__identifier__})
+        try:
+            query.update({'object_provides': {
+                          'query':[IImageContent.__identifier__,
+                                  ILeadImage.__identifier__],
+                           'operator': 'or'}})
+        except:
+            query.update({'object_provides': IImageContent.__identifier__})
         query['sort_limit'] = limit
         catalog = getToolByName(self.context, 'portal_catalog')
         images = catalog(query)

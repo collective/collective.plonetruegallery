@@ -19,6 +19,10 @@ try:
     import plone.app.imaging.utils
 except:
     has_pai = False
+try:
+    from plone.app.contenttypes.behaviors.leadimage import ILeadImage
+except:
+    pass
 
 class BasicAdapter(BaseAdapter):
     implements(IBasicAdapter, IGalleryAdapter)
@@ -154,7 +158,7 @@ class BasicImageInformationRetriever(BaseImageInformationRetriever):
         catalog = getToolByName(self.context, 'portal_catalog')
         gallery_path = self.context.getPhysicalPath()
         images = catalog.searchResults(
-            object_provides=IImageContent.__identifier__,
+            object_provides=[IImageContent.__identifier__, ILeadImage.__identifier__],
             path='/'.join(gallery_path),
             sort_on='getObjPositionInParent'
         )
@@ -186,7 +190,13 @@ class BasicTopicImageInformationRetriever(BaseImageInformationRetriever):
                 should_limit = False
             if should_limit:
                 query['sort_limit'] = limit
-            query.update({'object_provides': IImageContent.__identifier__})
+            try:
+                query.update({'object_provides': {
+                             'query':[IImageContent.__identifier__,
+                                  ILeadImage.__identifier__],
+                             'operator': 'or'}})
+            except:
+                query.update({'object_provides': IImageContent.__identifier__})
             catalog = getToolByName(self.context, 'portal_catalog')
             images = catalog(query)
             if should_limit:

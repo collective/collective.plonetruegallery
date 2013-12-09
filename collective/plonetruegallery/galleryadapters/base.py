@@ -127,7 +127,7 @@ class ImageInfo(object):
     @property
     def image_url(self):
         scale = self.gallery_adapter.size_map[self.gallery_adapter.settings.size]
-        return "%s/image_%s" % (self.base_url, scale)
+        return "%s/@@images/image/%s" % (self.base_url, scale)
 
     @property
     def thumb_url(self):
@@ -140,7 +140,7 @@ class ImageInfo(object):
         gallery_thumbnail_size = self.gallery_adapter.settings.thumb_size
         if not gallery_thumbnail_size:
             gallery_thumbnail_size = 'tile'
-        return "%s/image_%s" % (base_url, gallery_thumbnail_size)
+            return "%s/@@images/image/%s" % (base_url, gallery_thumbnail_size)
 
     @property
     def link_url(self):
