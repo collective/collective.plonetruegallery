@@ -74,6 +74,7 @@ This will also install some galleries that are "under development".
 Features
 --------
 * Flickr and Picasa Support!
+* Dexterity "Lead Image behaviour" support
 * Works with 'Image', 'News Item' and other content types that has a Image Field (provides IImageContent). 
 * Also works with redturtle.smartlink and collective.contentleadimage (install http://pypi.python.org/pypi/collective.ptg.contentleadimage )
 * Customize gallery size, transition(limited transitions right now), timed and
