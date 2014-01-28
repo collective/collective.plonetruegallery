@@ -1,6 +1,7 @@
 from Products.CMFCore.interfaces import IPropertiesTool
 from zope.component import getUtility
 
+from collective.plonetruegallery.interfaces import IGallerySettings
 from collective.plonetruegallery.settings import GallerySettings
 from collective.ptg.galleria import IGalleriaDisplaySettings
 from collective.plonetruegallery.tests import BaseTest

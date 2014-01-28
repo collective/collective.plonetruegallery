@@ -4,6 +4,9 @@ Changelog
 3.4.0 (unreleased)
 ------------------
 
+- Drop support for Plone 3.3 and 4.0.
+  [hvelarde]
+
 - The Topic type is now deprecated
   [ale-rt]
 
