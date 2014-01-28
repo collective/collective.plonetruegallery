@@ -1,4 +1,5 @@
 from zope.component import getUtilitiesFor
+from zope.component.hooks import getSite
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from collective.plonetruegallery.interfaces import IGallerySettings, IDisplayType
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
@@ -7,13 +8,6 @@ from plone.app.vocabularies.catalog import parse_query
 from collective.plonetruegallery.interfaces import IGallery
 from Products.CMFCore.utils import getToolByName
 from collective.plonetruegallery import PTGMessageFactory as _
-
-try:
-    #plone 4.3
-    from zope.component.hooks import getSite
-except:
-    #Plone 3, probably
-    from zope.app.component.hooks import getSite
 
 #from collective.plonetruegallery.utils import getGalleryAdapter
     
