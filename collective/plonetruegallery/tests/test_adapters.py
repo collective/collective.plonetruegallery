@@ -20,14 +20,14 @@ class TestRegistration(BaseTest):
         for t in gallerytypes:
             adapter = getMultiAdapter((self.gallery, self.request),
                                       name=named_adapter_prefix + t.name)
-            self.failUnless(isinstance(adapter, t))
+            self.assertTrue(isinstance(adapter, t))
 
     def test_displaytypes_registered(self):
         displaytypes = getAllDisplayTypes()
         for t in displaytypes:
             adapter = getMultiAdapter((self.gallery, self.request),
                                       name=DISPLAY_NAME_VIEW_PREFIX + t.name)
-            self.failUnless(isinstance(adapter, t))
+            self.assertTrue(isinstance(adapter, t))
 
 
 class TestBasicAdapter(BaseTest):
@@ -39,14 +39,14 @@ class TestBasicAdapter(BaseTest):
     def test_should_cook_images_on_invoking(self):
         adapter = self.get_basic_adapter()
 
-        self.assertEquals(len(adapter.cooked_images), 20)
-        self.assertEquals(adapter.number_of_images, 20)
+        self.assertEqual(len(adapter.cooked_images), 20)
+        self.assertEqual(adapter.number_of_images, 20)
 
     def test_should_order_images_according_to_folder_order(self):
         adapter = self.get_basic_adapter()
 
         first_image = self.gallery[self.gallery.objectIds()[0]]
-        self.assertEquals(first_image.Title(),
+        self.assertEqual(first_image.Title(),
                           adapter.cooked_images[0]['title'])
 
         self.gallery.moveObjectsByDelta(first_image.getId(), 1)
@@ -55,7 +55,7 @@ class TestBasicAdapter(BaseTest):
 
         adapter = self.get_basic_adapter()
         first_image = self.gallery[self.gallery.objectIds()[0]]
-        self.assertEquals(first_image.Title(),
+        self.assertEqual(first_image.Title(),
                           adapter.cooked_images[0]['title'])
 
 
@@ -70,27 +70,23 @@ class TestBatchingDisplayType(BaseTest):
         displayer = BatchingDisplayType(self.gallery, self.request)
         displayer.adapter.settings.batch_size = 5
 
-        self.assertEquals(displayer.start_image_index, 3)
-        self.assertEquals(displayer.b_start, 10)
-        self.assertEquals(displayer.get_page(), 2)
+        self.assertEqual(displayer.start_image_index, 3)
+        self.assertEqual(displayer.b_start, 10)
+        self.assertEqual(displayer.get_page(), 2)
 
     def test_should_work_no_start_no_batch(self):
         displayer = BatchingDisplayType(self.gallery, self.request)
         displayer.adapter.settings.batch_size = 5
 
-        self.assertEquals(displayer.start_image_index, 0)
-        self.assertEquals(displayer.b_start, 0)
-        self.assertEquals(displayer.get_page(), 0)
+        self.assertEqual(displayer.start_image_index, 0)
+        self.assertEqual(displayer.b_start, 0)
+        self.assertEqual(displayer.get_page(), 0)
 
     def test_with_b_start_specified(self):
         self.request.form.update({'b_start': '10'})
         displayer = BatchingDisplayType(self.gallery, self.request)
         displayer.adapter.settings.batch_size = 5
 
-        self.assertEquals(displayer.start_image_index, 0)
-        self.assertEquals(displayer.b_start, 10)
-        self.assertEquals(displayer.get_page(), 0)
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
+        self.assertEqual(displayer.start_image_index, 0)
+        self.assertEqual(displayer.b_start, 10)
+        self.assertEqual(displayer.get_page(), 0)

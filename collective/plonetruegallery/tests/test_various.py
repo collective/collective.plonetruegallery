@@ -15,26 +15,26 @@ class TestSettings(BaseTest):
 
     def test_settings_should_return_default_value(self):
         settings = GallerySettings(self.get_gallery())
-        self.assertEquals(settings.gallery_type,
+        self.assertEqual(settings.gallery_type,
                         IGallerySettings['gallery_type'].default)
 
     def test_added_interface_settings_should_return_default_value(self):
         settings = GallerySettings(self.get_gallery(),
                                    interfaces=[IGalleriaDisplaySettings])
-        self.assertEquals(settings.galleria_theme, 'light')
+        self.assertEqual(settings.galleria_theme, 'light')
 
     def test_should_always_have_IGallerySettings_no_matter_what(self):
         settings = GallerySettings(self.get_gallery(), interfaces=[])
-        self.failUnless(IGallerySettings in settings._interfaces)
+        self.assertTrue(IGallerySettings in settings._interfaces)
 
     def test_should_handle_passing_in_single_item(self):
         settings = GallerySettings(self.get_gallery(),
                                    interfaces=IGalleriaDisplaySettings)
-        self.assertEquals(settings.galleria_theme, 'light')
+        self.assertEqual(settings.galleria_theme, 'light')
 
     def test_should_return_default_to_None_if_it_is_not_in_an_interface(self):
         settings = GallerySettings(self.get_gallery())
-        self.assertEquals(None, settings.foobar)
+        self.assertEqual(None, settings.foobar)
 
 
 
@@ -42,24 +42,24 @@ class TestUtils(BaseTest):
 
     def test_getGalleryAdapter(self):
         adapter = getGalleryAdapter(self.portal['test_gallery'], self.request)
-        self.assertEquals(adapter.name, "basic")
-        self.assertEquals(adapter.settings.gallery_type, "basic")
+        self.assertEqual(adapter.name, "basic")
+        self.assertEqual(adapter.settings.gallery_type, "basic")
 
     def test_getDisplayAdapter(self):
         gadapter = getGalleryAdapter(self.portal['test_gallery'],
                                      self.request)
         displayer = getDisplayAdapter(gadapter)
-        self.assertEquals(displayer.name, 'galleria')
-        self.assertEquals(gadapter.settings.display_type, 'galleria')
+        self.assertEqual(displayer.name, 'galleria')
+        self.assertEqual(gadapter.settings.display_type, 'galleria')
 
     def test_getGalleryAdapter_when_asking_for_non_existant_type(self):
         gadapter = getGalleryAdapter(self.portal['test_gallery'],
             self.request, gallery_type="foobar")
         displayer = getDisplayAdapter(gadapter)
-        self.assertEquals(displayer.name, 'galleria')
-        self.assertEquals(gadapter.settings.display_type, 'galleria')
-        self.assertEquals(gadapter.name, 'basic')
-        self.assertEquals(gadapter.settings.gallery_type, 'basic')
+        self.assertEqual(displayer.name, 'galleria')
+        self.assertEqual(gadapter.settings.display_type, 'galleria')
+        self.assertEqual(gadapter.name, 'basic')
+        self.assertEqual(gadapter.settings.gallery_type, 'basic')
 
 
 class TestPloneAppImagingIntegration(BaseTest):
@@ -70,12 +70,12 @@ class TestPloneAppImagingIntegration(BaseTest):
         if imaging_properties:
             adapter = getGalleryAdapter(self.portal['test_gallery'],
                                         self.request)
-            self.assertEquals(adapter.sizes['small']['width'], 320)
-            self.assertEquals(adapter.sizes['small']['height'], 320)
-            self.assertEquals(adapter.sizes['medium']['width'], 576)
-            self.assertEquals(adapter.sizes['medium']['height'], 576)
-            self.assertEquals(adapter.sizes['large']['width'], 768)
-            self.assertEquals(adapter.sizes['large']['height'], 768)
+            self.assertEqual(adapter.sizes['small']['width'], 320)
+            self.assertEqual(adapter.sizes['small']['height'], 320)
+            self.assertEqual(adapter.sizes['medium']['width'], 576)
+            self.assertEqual(adapter.sizes['medium']['height'], 576)
+            self.assertEqual(adapter.sizes['large']['width'], 768)
+            self.assertEqual(adapter.sizes['large']['height'], 768)
 
 
 def test_suite():
