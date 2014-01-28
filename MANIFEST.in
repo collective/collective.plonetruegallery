@@ -1,2 +1,2 @@
-graft collective *
-graft docs *
+graft collective
+graft docs
