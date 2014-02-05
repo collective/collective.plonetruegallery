@@ -38,6 +38,7 @@ setup(name='collective.plonetruegallery',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          'collective.ptg.galleria',
           'plone.app.collection',
           'plone.app.contentmenu',
           'plone.app.contenttypes <=1.0',
@@ -67,7 +68,6 @@ setup(name='collective.plonetruegallery',
       ],
       extras_require={
           'test': [
-              'collective.ptg.galleria',
               'plone.app.testing',
               'plone.testing',
               'unittest2',
