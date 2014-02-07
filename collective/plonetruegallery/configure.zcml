@@ -4,16 +4,11 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:zcml="http://namespaces.zope.org/zcml"
-    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.plonetruegallery">
 
     <include package="Products.CMFCore" zcml:condition="have plone-41" file="permissions.zcml" />
 
-    <plone:behavior
-        zcml:condition="installed plone.behavior"
-        title="Plone True Gallery"
-        description="Enable Plone True Gallery support"
-        provides=".interfaces.IGallery" />
+    <include file="behavior.zcml" zcml:condition="installed plone.behavior" />
 
      <!-- permission for managing galleries -->
     <permission
