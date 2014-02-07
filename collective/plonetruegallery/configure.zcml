@@ -8,7 +8,7 @@
 
     <include package="Products.CMFCore" zcml:condition="have plone-41" file="permissions.zcml" />
 
-    <include file="behavior.zcml" zcml:condition="installed plone.behavior" />
+    <include zcml:condition="installed plone.behavior" file="behavior.zcml" />
 
      <!-- permission for managing galleries -->
     <permission
