@@ -22,7 +22,14 @@ except:
 try:
     from plone.app.contenttypes.behaviors.leadimage import ILeadImage
 except:
-    pass
+    ILeadImage = None
+try:
+    from plone.app.contenttypes.interfaces import IImage
+except:
+    IImage = None
+
+IMAGE_IFACES = filter(None, [IImageContent, ILeadImage, IImage])
+
 
 class BasicAdapter(BaseAdapter):
     implements(IBasicAdapter, IGalleryAdapter)
@@ -36,7 +43,7 @@ class BasicAdapter(BaseAdapter):
 
     # since some default sizes Plone has are rather small,
     # let's setup a mechanism to upgrade sizes.
-    
+
     minimum_sizes = {
             'small': {
                 'width': 320,
@@ -49,7 +56,7 @@ class BasicAdapter(BaseAdapter):
                 'next_scale': 'large'
             }
         }
-         
+
     @property
     @memoize_contextless
     def size_map(self):
@@ -57,8 +64,8 @@ class BasicAdapter(BaseAdapter):
                         'medium': 'preview',
                         'large': 'large',
                         'thumb': 'tile' }
-        
-        # Here we try to get the custom sizes 
+
+        # Here we try to get the custom sizes
         # we skip some scales, since they are already 'taken'
         try:
             from plone.app.imaging.utils import getAllowedSizes
@@ -71,12 +78,12 @@ class BasicAdapter(BaseAdapter):
             # plone 3 without plone.app.blob... We still have defaults...
             pass
         return image_sizes
-                
+
     @property
     @memoize_contextless
-    def _inverted_size_map(self):  
+    def _inverted_size_map(self):
         return dict([(v, k) for (k, v) in self.size_map.iteritems()])
- 
+
     @property
     @memoize_contextless
     def sizes(self):
@@ -158,7 +165,7 @@ class BasicImageInformationRetriever(BaseImageInformationRetriever):
         catalog = getToolByName(self.context, 'portal_catalog')
         gallery_path = self.context.getPhysicalPath()
         images = catalog.searchResults(
-            object_provides=[IImageContent.__identifier__, ILeadImage.__identifier__],
+            object_provides=[_.__identifier__ for _ in IMAGE_IFACES],
             path='/'.join(gallery_path),
             sort_on='getObjPositionInParent'
         )
@@ -192,11 +199,10 @@ class BasicTopicImageInformationRetriever(BaseImageInformationRetriever):
                 query['sort_limit'] = limit
             try:
                 query.update({'object_provides': {
-                             'query':[IImageContent.__identifier__,
-                                  ILeadImage.__identifier__],
+                             'query': [_.__identifier__ for _ in IMAGE_IFACES],
                              'operator': 'or'}})
             except:
-                query.update({'object_provides': IImageContent.__identifier__})
+                query.update({'object_provides': [_.__identifier__ for _ in IMAGE_IFACES]})
             catalog = getToolByName(self.context, 'portal_catalog')
             images = catalog(query)
             if should_limit:

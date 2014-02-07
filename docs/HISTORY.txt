@@ -4,6 +4,9 @@ Changelog
 3.4.0 (unreleased)
 ------------------
 
+- Support plone.app.contentypes' Image
+  [jaroel]
+
 - Drop support for Plone 3.3 and 4.0.
   [hvelarde]
 
@@ -175,7 +178,7 @@ Changelog
 
 - Add ability to have default settings control panel[espen]
 
-- fixed Thumbnailzoom, Contactsheet and Presentation to use Batch Size setting. 
+- fixed Thumbnailzoom, Contactsheet and Presentation to use Batch Size setting.
 
 - compatible with new-style collections[vangheem]
 
@@ -321,7 +324,7 @@ Changelog
 - Change the way the display types are used so
   that they can now be customized through
   portal_view_customizations
-  
+
 
 1.2.1 (2011-07-06)
 ------------------
@@ -332,7 +335,7 @@ Changelog
 1.2.0 (2011-06-30)
 ------------------
 
-- Add option to set size for thumbnail images. 
+- Add option to set size for thumbnail images.
   TODO: Take available scales from plone.app.imaging
   (http://plone.org/products/plone-true-gallery/issues/48)
   [hink]
@@ -372,12 +375,12 @@ Changelog
 - remove the restriction on requiring picasa web album accounts to
   end with '@gmail.com'. Fixes http://plone.org/products/plone-true-gallery/issues/41
   [vangheem]
-  
+
 
 1.0.2 ~ (2011-01-12)
 --------------------
 
-- Enable re-use of view template macro. collective.collage.plonetruegallery 
+- Enable re-use of view template macro. collective.collage.plonetruegallery
   uses this.
   [khink]
 
