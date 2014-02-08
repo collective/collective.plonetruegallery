@@ -18,7 +18,7 @@ setup(name='collective.plonetruegallery',
           'Environment :: Web Environment',
           'Framework :: Plone :: 4.1',
           'Framework :: Plone :: 4.2',
-          'Framework :: Plone :: 4.3'
+          'Framework :: Plone :: 4.3',
           'Framework :: Plone',
           'License :: OSI Approved :: GNU General Public License (GPL)',
           'Operating System :: OS Independent',
