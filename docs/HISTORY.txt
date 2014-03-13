@@ -4,6 +4,9 @@ Changelog
 3.4.1dev (unreleased)
 ---------------------
 
+ - Remove plone.app.contenttypes version fix.
+   [thet]
+
 
 3.4.0 (2014-02-08)
 ------------------
