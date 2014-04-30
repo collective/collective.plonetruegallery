@@ -20,3 +20,5 @@ include/
 lib/
 parts/
 var/
+
+*.gz
