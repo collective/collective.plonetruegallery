@@ -4,7 +4,8 @@ Changelog
 3.4.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- fix thumbnails...
+  [vangheem]
 
 
 3.4.1 (2014-04-30)
