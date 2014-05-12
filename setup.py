@@ -5,7 +5,7 @@ from setuptools import setup
 
 import os
 
-version = "3.4.2"
+version = "3.4.3"
 
 setup(name='collective.plonetruegallery',
       version=version,
@@ -41,7 +41,6 @@ setup(name='collective.plonetruegallery',
           'collective.ptg.galleria',
           'plone.app.collection',
           'plone.app.contentmenu',
-          'plone.app.contenttypes',
           'plone.app.form',
           'plone.app.imaging',
           'plone.app.portlets',

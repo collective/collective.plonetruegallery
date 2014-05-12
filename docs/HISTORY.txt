@@ -1,6 +1,14 @@
 Changelog
 =========
 
+3.4.3 (2014-05-12)
+------------------
+
+- remove requirements for plone.app.contenttypes which likely broke a lot of
+  buildouts on a minor version bump.
+  [vangheem]
+
+
 3.4.2 (2014-05-11)
 ------------------
 
