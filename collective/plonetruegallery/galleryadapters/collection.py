@@ -1,7 +1,7 @@
 from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 from collective.plonetruegallery.galleryadapters.basic import \
-    BasicTopicImageInformationRetriever
+    BasicTopicImageInformationRetriever as BTIIR
 from Products.ATContentTypes.interface.image import IImageContent
 from plone.app.collection.interfaces import ICollection
 from collective.plonetruegallery.interfaces import IBasicAdapter
@@ -9,23 +9,27 @@ from plone.app.querystring import queryparser
 
 try:
     from plone.app.contenttypes.behaviors.leadimage import ILeadImage
-except:
-    pass
+except ImportError:
+    ILeadImage = None
 
-class BasicCollectionImageInformationRetriever(
-                            BasicTopicImageInformationRetriever):
+
+class BasicCollectionImageInformationRetriever(BTIIR):
     adapts(ICollection, IBasicAdapter)
 
     def getImageInformation(self):
         limit = self.context.limit
-        query = queryparser.parseFormquery(self.context,
-            self.context.getRawQuery())
-        try:
-            query.update({'object_provides': {
-                          'query':[IImageContent.__identifier__,
-                                  ILeadImage.__identifier__],
-                           'operator': 'or'}})
-        except:
+        query = queryparser.parseFormquery(
+            self.context, self.context.getRawQuery())
+        if ILeadImage:
+            query.update({
+                'object_provides': {
+                    'query': [
+                        IImageContent.__identifier__,
+                        ILeadImage.__identifier__],
+                    'operator': 'or'
+                }
+            })
+        else:
             query.update({'object_provides': IImageContent.__identifier__})
         query['sort_limit'] = limit
         catalog = getToolByName(self.context, 'portal_catalog')

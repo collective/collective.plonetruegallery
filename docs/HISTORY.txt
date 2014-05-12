@@ -4,7 +4,9 @@ Changelog
 3.4.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove plone.app.contenttypes dependency at all. It's only used with
+  conditional imports.
+  [thet]
 
 
 3.4.1 (2014-04-30)

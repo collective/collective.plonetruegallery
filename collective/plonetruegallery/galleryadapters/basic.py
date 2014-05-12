@@ -17,15 +17,15 @@ from plone.memoize.instance import memoize
 has_pai = True
 try:
     import plone.app.imaging.utils
-except:
+except ImportError:
     has_pai = False
 try:
     from plone.app.contenttypes.behaviors.leadimage import ILeadImage
-except:
+except ImportError:
     ILeadImage = None
 try:
     from plone.app.contenttypes.interfaces import IImage
-except:
+except ImportError:
     IImage = None
 
 IMAGE_IFACES = filter(None, [IImageContent, ILeadImage, IImage])
@@ -35,8 +35,8 @@ class BasicAdapter(BaseAdapter):
     implements(IBasicAdapter, IGalleryAdapter)
 
     name = u"basic"
-    description = _(u"label_default_gallery_type",
-        default=u"Use Plone To Manage Images")
+    description = _(
+        u"label_default_gallery_type", default=u"Use Plone To Manage Images")
 
     schema = IBasicGallerySettings
     cook_delay = 0
@@ -45,25 +45,27 @@ class BasicAdapter(BaseAdapter):
     # let's setup a mechanism to upgrade sizes.
 
     minimum_sizes = {
-            'small': {
-                'width': 320,
-                'height': 320,
-                'next_scale': 'preview'
-            },
-            'medium': {
-                'width': 576,
-                'height': 576,
-                'next_scale': 'large'
-            }
+        'small': {
+            'width': 320,
+            'height': 320,
+            'next_scale': 'preview'
+        },
+        'medium': {
+            'width': 576,
+            'height': 576,
+            'next_scale': 'large'
         }
+    }
 
     @property
     @memoize_contextless
     def size_map(self):
-        image_sizes = { 'small': 'mini',
-                        'medium': 'preview',
-                        'large': 'large',
-                        'thumb': 'tile' }
+        image_sizes = {
+            'small': 'mini',
+            'medium': 'preview',
+            'large': 'large',
+            'thumb': 'tile'
+        }
 
         # Here we try to get the custom sizes
         # we skip some scales, since they are already 'taken'
@@ -104,10 +106,10 @@ class BasicAdapter(BaseAdapter):
                 if size_name in self.minimum_sizes:
                     if width < self.minimum_sizes[size_name]['width']:
                         allowed_sizes[size_name]['width'] = \
-                                self.minimum_sizes[size_name]['width']
+                            self.minimum_sizes[size_name]['width']
                     if height < self.minimum_sizes[size_name]['height']:
                         allowed_sizes[size_name]['height'] = \
-                                self.minimum_sizes[size_name]['height']
+                            self.minimum_sizes[size_name]['height']
 
                     self.size_map[size_name] = \
                         self.minimum_sizes[size_name]['next_scale']
@@ -135,7 +137,8 @@ class BasicAdapter(BaseAdapter):
             }
 
     def retrieve_images(self):
-        adapter = getMultiAdapter((self.gallery, self),
+        adapter = getMultiAdapter(
+            (self.gallery, self),
             IImageInformationRetriever)
         return adapter.getImageInformation()
 
@@ -171,8 +174,8 @@ class BasicImageInformationRetriever(BaseImageInformationRetriever):
         )
 
         # filter out image images that are not directly in its path..
-        filterfunc = lambda i: len(i.getPath().split('/')) == \
-                                            len(gallery_path) + 1
+        filterfunc = lambda i:\
+            len(i.getPath().split('/')) == len(gallery_path) + 1
         images = filter(filterfunc, images)
         return map(self.assemble_image_information, images)
 
@@ -202,7 +205,9 @@ class BasicTopicImageInformationRetriever(BaseImageInformationRetriever):
                              'query': [_.__identifier__ for _ in IMAGE_IFACES],
                              'operator': 'or'}})
             except:
-                query.update({'object_provides': [_.__identifier__ for _ in IMAGE_IFACES]})
+                query.update({
+                    'object_provides': [
+                        _.__identifier__ for _ in IMAGE_IFACES]})
             catalog = getToolByName(self.context, 'portal_catalog')
             images = catalog(query)
             if should_limit:
