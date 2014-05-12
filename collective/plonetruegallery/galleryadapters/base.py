@@ -140,7 +140,7 @@ class ImageInfo(object):
         gallery_thumbnail_size = self.gallery_adapter.settings.thumb_size
         if not gallery_thumbnail_size:
             gallery_thumbnail_size = 'tile'
-            return "%s/@@images/image/%s" % (base_url, gallery_thumbnail_size)
+        return "%s/@@images/image/%s" % (base_url, gallery_thumbnail_size)
 
     @property
     def link_url(self):
