@@ -1,6 +1,13 @@
 Changelog
 =========
 
+3.4.4 (unreleased)
+------------------
+
+- Exclude our own sizes when building the size vocabulary.
+  [witsch]
+
+
 3.4.3 (2014-05-12)
 ------------------
 

@@ -86,7 +86,7 @@ def SizeVocabulary(context):
                 'allowed_sizes')
                 terms = [SimpleTerm(value=format_size(pair),
                             token=format_size(pair),
-                                title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large']]
+                                title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large', 'small', 'medium']]
                 image_terms =image_terms + terms
         
         return SimpleVocabulary(image_terms)

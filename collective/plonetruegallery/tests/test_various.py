@@ -7,6 +7,7 @@ from collective.ptg.galleria import IGalleriaDisplaySettings
 from collective.plonetruegallery.tests import BaseTest
 from collective.plonetruegallery.utils import getGalleryAdapter, \
     getDisplayAdapter
+from collective.plonetruegallery.vocabularies import SizeVocabulary
 
 import unittest2 as unittest
 
@@ -76,6 +77,15 @@ class TestPloneAppImagingIntegration(BaseTest):
             self.assertEqual(adapter.sizes['medium']['height'], 576)
             self.assertEqual(adapter.sizes['large']['width'], 768)
             self.assertEqual(adapter.sizes['large']['height'], 768)
+
+    def test_size_vocabulary_with_extra_allowed_sizes(self):
+        props = getUtility(IPropertiesTool)
+        imaging_properties = props.get('imaging_properties', None)
+        if imaging_properties:
+            imaging_properties.manage_changeProperties(
+                allowed_sizes=['small 23:23', 'medium 42:42', 'big 91:91'])
+        self.assertEqual(SizeVocabulary(None).by_token.keys(),
+            ['small', 'large', 'medium', 'big'])
 
 
 def test_suite():
