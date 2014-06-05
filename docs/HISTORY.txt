@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.4.4 (unreleased)
+3.4.4 (2014-06-05)
 ------------------
 
 - Exclude our own sizes when building the size vocabulary.
