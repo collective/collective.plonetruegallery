@@ -4,9 +4,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.plonetruegallery\n"
-"POT-Creation-Date: 2012-07-10 13:58+0000\n"
+"POT-Creation-Date: 2015-04-23 09:00+0000\n"
 "PO-Revision-Date: 2011-07-01 11:53-0300\n"
-"Last-Translator: Rafahela Bazzanella <rafahela@gmail.com>\n"
+"Last-Translator: Luciano Camargo Cruz [lccruz] <luciano@lccruz.net>\n"
 "Language-Team: TcheZope.org <tchezope@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Language-Name: Brazilian Portuguese\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.plonetruegallery\n"
+"X-Poedit-Language: Português do Brasil\n"
 
 #: ./browser/views/settings.py:82
 #: ./configlet.py:15
@@ -24,11 +25,11 @@ msgstr "Salvar"
 
 #: ./browser/views/templates/subgallery.pt:5
 msgid "Browse By"
-msgstr ""
+msgstr "Procurar por"
 
 #: ./configlet.py:13
 msgid "Default settings to use for all galleries on site."
-msgstr ""
+msgstr "Configurações padrão que serão usadas por todas as galerias do portal"
 
 #: ./profiles/default/actions.xml
 msgid "Gallery Settings"
@@ -45,23 +46,23 @@ msgstr "Principal"
 
 #: ./configlet.py:12
 msgid "PloneTruegallery Default Settings"
-msgstr ""
+msgstr "Configurações padrão do PloneTruegallery"
 
 #: ./profiles/default/actions.xml
 msgid "Refresh Gallery"
-msgstr ""
+msgstr "Atualizar Galeria"
 
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
-msgstr ""
+msgstr "Pesquisar Galerias"
 
 #: ./browser/views/templates/subgallery.pt:8
 msgid "Select Category"
-msgstr ""
+msgstr "Selecionar Categoria"
 
 #: ./browser/views/templates/subgallery.pt:20
 msgid "Show All"
-msgstr ""
+msgstr "Mostrar todas"
 
 #. Default: "The amount of images shown in one page. This is not used for all display types."
 #: ./interfaces.py:252
@@ -146,12 +147,12 @@ msgstr "Adicionar Galeria"
 #: ./portlets.py:231
 #, fuzzy
 msgid "gallery_portlet_edit_form_description"
-msgstr "Editar a portlet da galeria"
+msgstr "Permite mostrar as imagens da galeria em uma portlet."
 
 #. Default: "Edit Gallery Portlet"
 #: ./portlets.py:229
 msgid "gallery_portlet_edit_form_title"
-msgstr ""
+msgstr "Editar a portlet da galeria"
 
 #. Default: "The gallery to show in this portlet."
 #: ./portlets.py:28
@@ -166,12 +167,12 @@ msgstr "Galeria"
 #. Default: "The height of the image in the portlet.If 0, no height is set."
 #: ./portlets.py:50
 msgid "gallery_portlet_height_description"
-msgstr ""
+msgstr "A altura da imagem no portlet. Se for 0, altura não é setada"
 
 #. Default: "Height in pixels"
 #: ./portlets.py:49
 msgid "gallery_portlet_height_title"
-msgstr ""
+msgstr "Altura em pixels"
 
 #. Default: "Hide Controls"
 #: ./portlets.py:64
@@ -186,12 +187,12 @@ msgstr "Se marcado, os controles da galeria serão ocultados."
 #. Default: "Mini gallery"
 #: ./portlets.py:34
 msgid "gallery_portlet_mini"
-msgstr ""
+msgstr "Galeria pequena"
 
 #. Default: "If false, the actual full gallery will render in an iframe and will follow the width and height settings"
 #: ./portlets.py:35
 msgid "gallery_portlet_mini_desc"
-msgstr ""
+msgstr "Se for falso, a galeria atual irá ser renderizada em um iframe e seguirá as configurações de largura e altura"
 
 #. Default: "Check to show the title of the gallery in the portlet"
 #: ./portlets.py:22
@@ -402,7 +403,7 @@ msgstr "Não há alterações nas configurações."
 
 #: ./browser/views/templates/subgallery.pt:13
 msgid "or"
-msgstr ""
+msgstr "ou"
 
 #. Default: "Gallery Settings Saved."
 #: ./browser/views/settings.py:35
