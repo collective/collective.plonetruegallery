@@ -95,6 +95,12 @@ class BaseAdapter(object):
         else:
             return {}
 
+    def get_first_image(self):
+        if len(self.cooked_images) > 0:
+            return self.cooked_images[0]
+        else:
+            return {}
+
     @property
     def number_of_images(self):
         return len(self.cooked_images)

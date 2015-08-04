@@ -25,7 +25,7 @@
   <ul id="subgallery-galleries">
     <tal:galleries tal:repeat="gallery view/subgalleries">
       <li class="gallery" tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
-                                       image adapted/get_random_image">
+                                       image python:adapted.get_random_image() if view.settings.random_subgallery_lead else adapted.get_first_image()">
         <a tal:attributes="href gallery/getURL">
           <img tal:condition="image" tal:attributes="src image/thumb_url" />
           <p tal:content="gallery/Title" />

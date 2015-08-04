@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Truegallery VERSION\n"
-"POT-Creation-Date: 2016-04-15 15:29+0000\n"
+"POT-Creation-Date: 2016-04-18 13:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,6 +38,11 @@ msgstr ""
 
 #: ./profiles.zcml:12
 msgid "Extension profile for the \"collective.plonetruegallery\" Plone product."
+msgstr ""
+
+#. Default: "Gallery Settings"
+#: portal Actions
+msgid "Gallery Settings"
 msgstr ""
 
 #: ./browser/views/configure.zcml:65
@@ -81,33 +86,38 @@ msgstr ""
 msgid "collective.plonetruegallery Upgrade to 0.8 profile"
 msgstr ""
 
+#. Default: "If you select this option, the lead images for the subgalleries will be chosen at random. Otherwise the first image is chosen."
+#: ./interfaces.py:202
+msgid "desciption_random_subgallery_lead"
+msgstr ""
+
 #. Default: "The amount of images shown in one page. This is not used for all display types."
-#: ./interfaces.py:196
+#: ./interfaces.py:209
 msgid "description_batch_size"
 msgstr ""
 
 #. Default: "This is only used for customized templates to show body text"
-#: ./interfaces.py:204
+#: ./interfaces.py:217
 msgid "description_bodytext"
 msgstr ""
 
 #. Default: "Should copyright notices be attached to each image?"
-#: ./interfaces.py:166
+#: ./interfaces.py:172
 msgid "description_copyright"
 msgstr ""
 
 #. Default: "Relative path from the root of the site where the stylesheet will be referenced from. This will be included after the display gallery type's styles and is a good entry point for customization."
-#: ./interfaces.py:210
+#: ./interfaces.py:223
 msgid "description_custom_stylesheet"
 msgstr ""
 
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
-#: ./interfaces.py:173
+#: ./interfaces.py:179
 msgid "description_delay"
 msgstr ""
 
 #. Default: "The amount of time the change effect should take in miliseconds."
-#: ./interfaces.py:181
+#: ./interfaces.py:187
 msgid "description_fade_in_duration"
 msgstr ""
 
@@ -117,27 +127,27 @@ msgid "description_gallery_settings_form"
 msgstr ""
 
 #. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints. Only 'Small, Medium and Large' work with Flickr and Picasa"
-#: ./interfaces.py:139
+#: ./interfaces.py:145
 msgid "description_gallery_size"
 msgstr ""
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
-#: ./interfaces.py:118
+#: ./interfaces.py:124
 msgid "description_gallery_type"
 msgstr ""
 
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
-#: ./interfaces.py:189
+#: ./interfaces.py:195
 msgid "description_show_subgalleries"
 msgstr ""
 
 #. Default: "The size of thumbnail images. Will only work with plone image gallery type."
-#: ./interfaces.py:149
+#: ./interfaces.py:155
 msgid "description_thumb_size"
 msgstr ""
 
 #. Default: "Should this gallery automatically change images for the user?"
-#: ./interfaces.py:159
+#: ./interfaces.py:165
 msgid "description_timed"
 msgstr ""
 
@@ -242,17 +252,17 @@ msgid "label_base_gallery_type"
 msgstr ""
 
 #. Default: "Batch Size"
-#: ./interfaces.py:195
+#: ./interfaces.py:208
 msgid "label_batch_size"
 msgstr ""
 
 #. Default: "Copyright notice?"
-#: ./interfaces.py:165
+#: ./interfaces.py:171
 msgid "label_copyright"
 msgstr ""
 
 #. Default: "Custom stylesheet"
-#: ./interfaces.py:209
+#: ./interfaces.py:222
 msgid "label_custom_stylesheet"
 msgstr ""
 
@@ -262,37 +272,37 @@ msgid "label_default_gallery_type"
 msgstr ""
 
 #. Default: "Delay"
-#: ./interfaces.py:172
+#: ./interfaces.py:178
 msgid "label_delay"
 msgstr ""
 
 #. Default: "Enable bodytext"
-#: ./interfaces.py:203
+#: ./interfaces.py:216
 msgid "label_enable_bodytext"
 msgstr ""
 
 #. Default: "Gallery Display Type"
-#: ./interfaces.py:126
+#: ./interfaces.py:132
 msgid "label_gallery_display_type"
 msgstr ""
 
 #. Default: "Choose the method in which the gallery should be displayed"
-#: ./interfaces.py:128
+#: ./interfaces.py:134
 msgid "label_gallery_display_type_description"
 msgstr ""
 
 #. Default: "Size"
-#: ./interfaces.py:138
+#: ./interfaces.py:144
 msgid "label_gallery_size"
 msgstr ""
 
 #. Default: "Type"
-#: ./interfaces.py:117
+#: ./interfaces.py:123
 msgid "label_gallery_type"
 msgstr ""
 
 #. Default: "Change Duration"
-#: ./interfaces.py:180
+#: ./interfaces.py:186
 msgid "label_image_change_duration"
 msgstr ""
 
@@ -312,8 +322,13 @@ msgstr ""
 msgid "label_preview"
 msgstr ""
 
+#. Default: "Show random lead image for subgalleries?"
+#: ./interfaces.py:201
+msgid "label_random_subgallery_lead"
+msgstr ""
+
 #. Default: "Show Sub-Galleries?"
-#: ./interfaces.py:188
+#: ./interfaces.py:194
 msgid "label_show_subgalleries"
 msgstr ""
 
@@ -338,7 +353,7 @@ msgid "label_thumb"
 msgstr ""
 
 #. Default: "Thumbnail image size"
-#: ./interfaces.py:148
+#: ./interfaces.py:154
 msgid "label_thumb_size"
 msgstr ""
 
@@ -348,7 +363,7 @@ msgid "label_tile"
 msgstr ""
 
 #. Default: "Timed?"
-#: ./interfaces.py:158
+#: ./interfaces.py:164
 msgid "label_timed"
 msgstr ""
 
