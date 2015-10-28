@@ -45,7 +45,9 @@
            zcml:condition="installed plone.app.collection">
         <implements interface=".interfaces.IGallery" />
     </class>
-    <class class="plone.app.contenttypes.content.Folder">
+    <class
+        zcml:condition="installed plone.app.contenttypes"
+        class="plone.app.contenttypes.content.Folder">
         <implements interface=".interfaces.IGallery" />
     </class>
 
