@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.4.6 (unreleased)
+3.4.6 (2015-11-04)
 ------------------
 
 - Added dexterity folder to classes implementing IGallery to work with dexterity types and Plone 5.
