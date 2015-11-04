@@ -4,7 +4,11 @@ Changelog
 3.4.6 (unreleased)
 ------------------
 
-- Updated portuguese pt-br translation. [lccruz]
+- Added dexterity folder to classes implementing IGallery to work with dexterity types and Plone 5.
+  [sandrarum]
+
+- Updated portuguese pt-br translation. 
+  [lccruz]
 
 
 3.4.5 (2014-11-28)
