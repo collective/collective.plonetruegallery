@@ -1,2 +1,13 @@
+include *.py
+include *.txt
+include *.rst
+
+exclude .coveragerc
+exclude buildout.cfg
+exclude tox.ini
+exclude travis.cfg
+
 graft collective
 graft docs
+
+global-exclude *.pyc
