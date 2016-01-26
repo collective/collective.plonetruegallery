@@ -7,6 +7,7 @@ from plone.app.vocabularies.catalog import SearchableTextSource
 from plone.app.vocabularies.catalog import parse_query
 from collective.plonetruegallery.interfaces import IGallery
 from Products.CMFCore.utils import getToolByName
+from plone import api
 from collective.plonetruegallery import PTGMessageFactory as _
 
 #from collective.plonetruegallery.utils import getGalleryAdapter
