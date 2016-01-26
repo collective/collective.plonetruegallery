@@ -1,16 +1,17 @@
-from zope.component import getUtilitiesFor
-from zope.component.hooks import getSite
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
-from collective.plonetruegallery.interfaces import IGallerySettings, IDisplayType
+# -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
+from collective.plonetruegallery import PTGMessageFactory as _
+from collective.plonetruegallery.interfaces import IDisplayType
+from collective.plonetruegallery.interfaces import IGallery
+from collective.plonetruegallery.interfaces import IGallerySettings
+from plone import api
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.app.vocabularies.catalog import SearchableTextSource
 from plone.app.vocabularies.catalog import parse_query
-from collective.plonetruegallery.interfaces import IGallery
-from Products.CMFCore.utils import getToolByName
-from plone import api
-from collective.plonetruegallery import PTGMessageFactory as _
-
-#from collective.plonetruegallery.utils import getGalleryAdapter
+from zope.component import getUtilitiesFor
+from zope.component.hooks import getSite
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 class PTGVocabulary(SimpleVocabulary):
