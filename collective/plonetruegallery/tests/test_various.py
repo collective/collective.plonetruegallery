@@ -1,5 +1,6 @@
 from Products.CMFCore.interfaces import IPropertiesTool
 from zope.component import getUtility
+from zope.interface import alsoProvides
 
 from collective.plonetruegallery.interfaces import IGallerySettings
 from collective.plonetruegallery.settings import GallerySettings
@@ -8,7 +9,8 @@ from collective.plonetruegallery.tests import BaseTest
 from collective.plonetruegallery.utils import getGalleryAdapter, \
     getDisplayAdapter
 from collective.plonetruegallery.vocabularies import SizeVocabulary
-
+from collective.plonetruegallery.vocabularies import GallerySearchabelTextSourceBinder
+from plone import api
 import unittest2 as unittest
 
 
@@ -17,7 +19,7 @@ class TestSettings(BaseTest):
     def test_settings_should_return_default_value(self):
         settings = GallerySettings(self.get_gallery())
         self.assertEqual(settings.gallery_type,
-                        IGallerySettings['gallery_type'].default)
+                         IGallerySettings['gallery_type'].default)
 
     def test_added_interface_settings_should_return_default_value(self):
         settings = GallerySettings(self.get_gallery(),
@@ -38,7 +40,6 @@ class TestSettings(BaseTest):
         self.assertEqual(None, settings.foobar)
 
 
-
 class TestUtils(BaseTest):
 
     def test_getGalleryAdapter(self):
@@ -54,8 +55,8 @@ class TestUtils(BaseTest):
         self.assertEqual(gadapter.settings.display_type, 'galleria')
 
     def test_getGalleryAdapter_when_asking_for_non_existant_type(self):
-        gadapter = getGalleryAdapter(self.portal['test_gallery'],
-            self.request, gallery_type="foobar")
+        gadapter = getGalleryAdapter(
+            self.portal['test_gallery'], self.request, gallery_type="foobar")
         displayer = getDisplayAdapter(gadapter)
         self.assertEqual(displayer.name, 'galleria')
         self.assertEqual(gadapter.settings.display_type, 'galleria')
@@ -84,8 +85,39 @@ class TestPloneAppImagingIntegration(BaseTest):
         if imaging_properties:
             imaging_properties.manage_changeProperties(
                 allowed_sizes=['small 23:23', 'medium 42:42', 'big 91:91'])
-        self.assertEqual(SizeVocabulary(None).by_token.keys(),
+        self.assertEqual(
+            SizeVocabulary(None).by_token.keys(),
             ['small', 'large', 'medium', 'big'])
+
+
+class TestGallerySearchableTextSourceBinder(BaseTest):
+
+    def test_find_gallery_from_portlet(self):
+        gallery = self.get_gallery()
+        gallery.setLayout('galleryview')
+        context = self.get_gallery().aq_parent
+        gstsb = GallerySearchabelTextSourceBinder()
+        gsts = gstsb(context)
+        gen = gsts.search('')
+        results = [res for res in gen]
+        self.assertEqual(len(results), 1)
+
+    def test_find_gallery_from_portlet_with_nav_root_custom(self):
+        gallery = self.get_gallery()
+        gallery.setLayout('galleryview')
+        portal = api.portal.get()
+        nav_root = api.content.create(
+            container=portal,
+            type='Folder',
+            id='en')
+        api.content.move(source=gallery, target=nav_root)
+        from plone.app.layout.navigation.interfaces import INavigationRoot
+        alsoProvides(nav_root, INavigationRoot)
+        gstsb = GallerySearchabelTextSourceBinder()
+        gsts = gstsb(nav_root)
+        gen = gsts.search('')
+        results = [res for res in gen]
+        self.assertEqual(len(results), 1)
 
 
 def test_suite():
