@@ -4,7 +4,8 @@ Changelog
 3.4.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use root navigation path for finding gallery for portlets. That's fix portlet with plone.app.multilingual.
+  [bsuttor]
 
 
 3.4.6 (2015-11-04)
