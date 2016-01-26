@@ -17,7 +17,7 @@ def populate_gallery(context):
         id = str(i)
         context.invokeFactory(id=id, type_name="Image")
         context[id].setDescription(u"Description for %i" % i +
-            u'...and some unicode çòàéèÈ')
+                                   u'...and some unicode çòàéèÈ')
         context[id].setTitle("Title for %i" % i)
         context[id].indexObject()
 
@@ -30,7 +30,7 @@ class BaseTest(unittest.TestCase):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
         self.app = self.layer['app']
-        #alsoProvides(self.request, ILayer)
+        # alsoProvides(self.request, ILayer)
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.portal.invokeFactory(id="test_gallery", type_name="Folder")
         populate_gallery(self.portal.test_gallery)
@@ -41,7 +41,7 @@ class BaseTest(unittest.TestCase):
 
     def createImage(self, name="test.pdf", id='test1'):
         fi = createObject(self.portal, 'Image', id,
-            file=open(join(_images, name)))
+                          file=open(join(_images, name)))
         return fi
 
     def get_gallery(self):

@@ -25,7 +25,7 @@ class TestViews(BaseFunctionalTest):
         gallery.setLayout('galleryview')
         settings = GallerySettings(gallery)
         vocab = getUtility(IVocabularyFactory,
-            'collective.plonetruegallery.DisplayTypes')(gallery)
+                           'collective.plonetruegallery.DisplayTypes')(gallery)
         title = gallery.objectValues()[0].Title()
         import transaction
         transaction.commit()
