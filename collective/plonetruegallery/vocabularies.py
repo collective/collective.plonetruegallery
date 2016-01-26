@@ -10,7 +10,7 @@ from Products.CMFCore.utils import getToolByName
 from collective.plonetruegallery import PTGMessageFactory as _
 
 #from collective.plonetruegallery.utils import getGalleryAdapter
-    
+
 
 class PTGVocabulary(SimpleVocabulary):
     """
@@ -88,10 +88,10 @@ def SizeVocabulary(context):
                             token=format_size(pair),
                                 title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large', 'small', 'medium']]
                 image_terms =image_terms + terms
-        
+
         return SimpleVocabulary(image_terms)
-        
-        
+
+
 def ThumbVocabulary(context):
         image_terms = [
             SimpleTerm('tile', 'tile', _(u"label_tile", default=u"tile")),
@@ -110,21 +110,22 @@ def ThumbVocabulary(context):
                         token=format_size(pair),
                             title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large']]
             image_terms =image_terms + terms
-        
+
         return SimpleVocabulary(image_terms)
-    
+
 
 class GallerySearchableTextSource(SearchableTextSource):
 
     def search(self, query_string):
         results = super(GallerySearchableTextSource, self).search(query_string)
-        utils = getToolByName(self.context, 'plone_utils')
+        nav_root = api.portal.get_navigation_root(self.context)
+        nav_root_path = '/'.join(nav_root.getPhysicalPath())
         query = self.base_query.copy()
         if query_string == '':
             if self.default_query is not None:
-                query.update(parse_query(self.default_query, self.portal_path))
+                query.update(parse_query(self.default_query, nav_root_path))
         else:
-            query.update(parse_query(query_string, self.portal_path))
+            query.update(parse_query(query_string, nav_root_path))
         try:
             results = self.catalog(**query)
         except:
@@ -134,7 +135,7 @@ class GallerySearchableTextSource(SearchableTextSource):
         for result in results:
             try:
                 if utils.browserDefault(result.getObject())[1][0] ==\
-                                                        "galleryview":
+                        "galleryview":
                     yield result.getPath()[len(self.portal_path):]
             except:
                 pass
