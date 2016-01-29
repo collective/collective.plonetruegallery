@@ -23,22 +23,23 @@ Supported Display Types
 To install any of the various extra display types, you need to install
 the dependent package in buildout
 
- - galleria(ships with)
- - contact sheet(collective.ptg.contactsheet)
- - thumbnail zoom gallery(collective.ptg.thumbnailzoom)
- - presentation(collective.ptg.presentation)
- - galleriffic(collective.ptg.galleriffic)
- - highslide(collective.ptg.highslide)
- - fancybox(collective.ptg.fancybox)
- - pikachoose(collective.ptg.pikachoose)
- - s3slider(collective.ptg.s3slider)
- - nivo slider(collective.ptg.nivoslider)
- - nivo gallery(collective.ptg.nivogallery)
- - content flow(collective.ptg.contentflow)
- - supersized(collective.ptg.supersized)
+-  galleria(ships with)
+- contact sheet(collective.ptg.contactsheet)
+- thumbnail zoom gallery(collective.ptg.thumbnailzoom)
+- presentation(collective.ptg.presentation)
+- galleriffic(collective.ptg.galleriffic)
+- highslide(collective.ptg.highslide)
+- fancybox(collective.ptg.fancybox)
+- pikachoose(collective.ptg.pikachoose)
+- s3slider(collective.ptg.s3slider)
+- nivo slider(collective.ptg.nivoslider)
+- nivo gallery(collective.ptg.nivogallery)
+- content flow(collective.ptg.contentflow)
+- supersized(collective.ptg.supersized)
 
 Buildout configuration
 ~~~~~~~~~~~~~~~~~~~~~~
+::
 
   eggs = 
     ...
@@ -61,6 +62,7 @@ Installing all
 ~~~~~~~~~~~~~~
 
 If you want to install all available galleries, you could add
+::
 
   eggs = 
     ...
@@ -128,14 +130,14 @@ For showing a gallery in another page, try something like this::
 
 Notes for successful inline object tag usage:
 
- * You will have to "whitelist" <object> and <param> in portal_transform safe-html.
- * When editing in Plone 4.2 you will have to switch your editor to Kupu since TinyMCE fracks up the object tag into a flash item. 
- * If testing without Apache in front of your Plone you will need to make sure that the
-   "path/to/gallery" path from the example above includes any levels above the Plone object
-   in the Zope instance (eg. if your Plone object is inside of a folder named "version1", and
-   the name of your gallery is "mygallery", then the path should read "/version1/Plone/mygallery".
-   Of course, you will need to remove the "/version1/Plone" part when you put Apache in front
-   of your Plone.
+* You will have to "whitelist" <object> and <param> in portal_transform safe-html.
+* When editing in Plone 4.2 you will have to switch your editor to Kupu since TinyMCE fracks up the object tag into a flash item. 
+* If testing without Apache in front of your Plone you will need to make sure that the
+  "path/to/gallery" path from the example above includes any levels above the Plone object
+  in the Zope instance (eg. if your Plone object is inside of a folder named "version1", and
+  the name of your gallery is "mygallery", then the path should read "/version1/Plone/mygallery".
+  Of course, you will need to remove the "/version1/Plone" part when you put Apache in front
+  of your Plone.
 
 Or you can do the same with an iframe
 
@@ -143,17 +145,17 @@ Or you can do the same with an iframe
 Troubleshooting safe-html
 -------------------------
 
-  If you have trouble, do this:
-  Go to safe_html in portal_transforms tool
-  Make sure param and object are valid tags (not nasty tag).
+If you have trouble, do this:
+Go to safe_html in portal_transforms tool
+Make sure param and object are valid tags (not nasty tag).
 
-  After that, you should flush the cache of ZODB by going to
-  1. Zope root app ZMI
-  2. Control Panel
-  3. Database
-  4. main (or whatever zodb you have)
-  5. Flush Cache tab
-  6. Press "Minimize" button
+After that, you should flush the cache of ZODB by going to
+1. Zope root app ZMI
+2. Control Panel
+3. Database
+4. main (or whatever zodb you have)
+5. Flush Cache tab
+6. Press "Minimize" button
 
 This will remove from ZODB cache all cooked texts. This procedure is mentioned
 at the top of safe_html in portal_transforms.
@@ -206,14 +208,14 @@ For Plone 4.0::
 and Plone 3.x::
 
   [versions]
-	z3c.form = 1.9.0
-	plone.app.z3cform = 0.4.8
-	plone.z3cform = 0.5.10
-	zope.i18n = 3.4.0
-	zope.testing = 3.4.0
-	zope.component = 3.4.0
-	zope.securitypolicy = 3.4.0
-	zope.app.zcmlfiles = 3.4.3
+  z3c.form = 1.9.0
+  plone.app.z3cform = 0.4.8
+  plone.z3cform = 0.5.10
+  zope.i18n = 3.4.0
+  zope.testing = 3.4.0
+  zope.component = 3.4.0
+  zope.securitypolicy = 3.4.0
+  zope.app.zcmlfiles = 3.4.3
 
 
 These versions are not the exact versions plonetruegallery requires, it's
