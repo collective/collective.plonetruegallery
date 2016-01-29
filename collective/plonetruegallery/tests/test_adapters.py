@@ -47,7 +47,7 @@ class TestBasicAdapter(BaseTest):
 
         first_image = self.gallery[self.gallery.objectIds()[0]]
         self.assertEqual(first_image.Title(),
-                          adapter.cooked_images[0]['title'])
+                         adapter.cooked_images[0]['title'])
 
         self.gallery.moveObjectsByDelta(first_image.getId(), 1)
         plone_utils = getToolByName(self.gallery, 'plone_utils')
@@ -56,7 +56,7 @@ class TestBasicAdapter(BaseTest):
         adapter = self.get_basic_adapter()
         first_image = self.gallery[self.gallery.objectIds()[0]]
         self.assertEqual(first_image.Title(),
-                          adapter.cooked_images[0]['title'])
+                         adapter.cooked_images[0]['title'])
 
 
 class TestBatchingDisplayType(BaseTest):

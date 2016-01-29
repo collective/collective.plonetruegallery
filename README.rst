@@ -1,6 +1,9 @@
 collective.plonetruegallery Documentation
 =========================================
 
+.. image:: https://secure.travis-ci.org/collective/collective.plonetruegallery.png
+    :target: http://travis-ci.org/#!/collective/collective.plonetruegallery
+
 Introduction
 ------------
 collective.plonetruegallery is a Plone product that implements a very

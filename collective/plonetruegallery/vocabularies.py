@@ -1,16 +1,18 @@
-from zope.component import getUtilitiesFor
-from zope.component.hooks import getSite
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
-from collective.plonetruegallery.interfaces import IGallerySettings, IDisplayType
+# -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
+from collective.plonetruegallery import PTGMessageFactory as _
+from collective.plonetruegallery.interfaces import IDisplayType
+from collective.plonetruegallery.interfaces import IGallery
+from collective.plonetruegallery.interfaces import IGallerySettings
+from plone import api
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.app.vocabularies.catalog import SearchableTextSource
 from plone.app.vocabularies.catalog import parse_query
-from collective.plonetruegallery.interfaces import IGallery
-from Products.CMFCore.utils import getToolByName
-from collective.plonetruegallery import PTGMessageFactory as _
+from zope.component import getUtilitiesFor
+from zope.component.hooks import getSite
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
-#from collective.plonetruegallery.utils import getGalleryAdapter
-    
 
 class PTGVocabulary(SimpleVocabulary):
     """
@@ -49,7 +51,7 @@ def DisplayTypeVocabulary(context):
             terms.append(SimpleTerm(name, name, utility.description))
 
     return PTGVocabulary(terms,
-                default=IGallerySettings['display_type'].default)
+                         default=IGallerySettings['display_type'].default)
 
 
 def GalleryTypeVocabulary(context):
@@ -59,72 +61,77 @@ def GalleryTypeVocabulary(context):
         items.append(SimpleTerm(t.name, t.name, t.description))
 
     return PTGVocabulary(items,
-                default=IGallerySettings['gallery_type'].default)
+                         default=IGallerySettings['gallery_type'].default)
+
 
 def format_size(size):
     return size.split(' ')[0]
 
+
 def SizeVocabulary(context):
         image_terms = [
             SimpleTerm('small', 'small', _(u"label_size_small",
-                                            default=u'Small')),
+                                           default=u'Small')),
             SimpleTerm('medium', 'medium', _(u"label_size_medium",
-                                            default=u'Medium')),
+                                             default=u'Medium')),
             SimpleTerm('large', 'large', _(u"label_size_large",
-                                            default=u'Large'))
+                                           default=u'Large'))
         ]
         site = getSite()
         portal_properties = getToolByName(site, 'portal_properties', None)
         # here we add the custom image sizes, we skip the small ones and
         # preview, large since they are already added.
-        #if we add them back, be sure to do it in basic.py, too
+        # if we add them back, be sure to do it in basic.py, too
         # we also need to test if gallery_type == 'basic':
         # dont think this is right, it might be the overall seting
-        if IGallerySettings['gallery_type'].default  == 'basic':
+        if IGallerySettings['gallery_type'].default == 'basic':
             if 'imaging_properties' in portal_properties.objectIds():
                 sizes = portal_properties.imaging_properties.getProperty(
-                'allowed_sizes')
-                terms = [SimpleTerm(value=format_size(pair),
-                            token=format_size(pair),
-                                title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large', 'small', 'medium']]
-                image_terms =image_terms + terms
-        
+                    'allowed_sizes')
+                terms = [
+                    SimpleTerm(value=format_size(pair),
+                               token=format_size(pair),
+                               title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large', 'small', 'medium']]
+                image_terms = image_terms + terms
+
         return SimpleVocabulary(image_terms)
-        
-        
+
+
 def ThumbVocabulary(context):
         image_terms = [
             SimpleTerm('tile', 'tile', _(u"label_tile", default=u"tile")),
             SimpleTerm('thumb', 'thumb', _(u"label_thumb", default=u"thumb")),
             SimpleTerm('mini', 'mini', _(u"label_mini", default=u"mini")),
             SimpleTerm('preview', 'preview', _(u"label_preview",
-                                                default=u"preview"))
+                                               default=u"preview"))
         ]
         site = getSite()
         portal_properties = getToolByName(site, 'portal_properties', None)
         # these are only working for plone so everything should be OK here
         if 'imaging_properties' in portal_properties.objectIds():
             sizes = portal_properties.imaging_properties.getProperty(
-            'allowed_sizes')
-            terms = [SimpleTerm(value=format_size(pair),
-                        token=format_size(pair),
-                            title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large']]
-            image_terms =image_terms + terms
-        
+                'allowed_sizes')
+            terms = [
+                SimpleTerm(value=format_size(pair),
+                           token=format_size(pair),
+                           title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large']]
+            image_terms = image_terms + terms
+
         return SimpleVocabulary(image_terms)
-    
+
 
 class GallerySearchableTextSource(SearchableTextSource):
 
     def search(self, query_string):
         results = super(GallerySearchableTextSource, self).search(query_string)
-        utils = getToolByName(self.context, 'plone_utils')
+        nav_root = api.portal.get_navigation_root(self.context)
+        nav_root_path = '/'.join(nav_root.getPhysicalPath())
         query = self.base_query.copy()
         if query_string == '':
             if self.default_query is not None:
-                query.update(parse_query(self.default_query, self.portal_path))
+                query.update(parse_query(self.default_query, nav_root_path))
         else:
-            query.update(parse_query(query_string, self.portal_path))
+            query.update(parse_query(query_string, nav_root_path))
         try:
             results = self.catalog(**query)
         except:
@@ -134,7 +141,7 @@ class GallerySearchableTextSource(SearchableTextSource):
         for result in results:
             try:
                 if utils.browserDefault(result.getObject())[1][0] ==\
-                                                        "galleryview":
+                        "galleryview":
                     yield result.getPath()[len(self.portal_path):]
             except:
                 pass

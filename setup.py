@@ -11,7 +11,7 @@ setup(name='collective.plonetruegallery',
       version=version,
       description="A gallery/slideshow product for plone that can aggregate "
                   "from picasa (add collective.ptg.flickr) and flickr (add collective.ptg.flickr) or use plone images.",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
           'Development Status :: 5 - Production/Stable',
@@ -47,6 +47,7 @@ setup(name='collective.plonetruegallery',
           'plone.app.querystring',
           'plone.app.vocabularies',
           'plone.app.z3cform',
+          'plone.api',
           'plone.folder',
           'plone.memoize',
           'plone.portlets',
