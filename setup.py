@@ -5,7 +5,7 @@ from setuptools import setup
 
 import os
 
-version = '3.4.7'
+version = '3.4.8.dev0'
 
 setup(name='collective.plonetruegallery',
       version=version,
