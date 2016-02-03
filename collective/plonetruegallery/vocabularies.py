@@ -85,14 +85,18 @@ def SizeVocabulary(context):
         # we also need to test if gallery_type == 'basic':
         # dont think this is right, it might be the overall seting
         if IGallerySettings['gallery_type'].default == 'basic':
-            if 'imaging_properties' in portal_properties.objectIds():
-                sizes = portal_properties.imaging_properties.getProperty(
-                    'allowed_sizes')
-                terms = [
-                    SimpleTerm(value=format_size(pair),
+            try:
+                #Plone 5
+                sizes = api.portal.get_registry_record('plone.allowed_sizes')
+            except: 
+                #Plone 4
+                portal_properties = api.portal.get_tool(name='portal_properties')
+                if 'imaging_properties' in portal_properties.objectIds():
+                    sizes = portal_properties.imaging_properties.getProperty('allowed_sizes')
+            terms = [SimpleTerm(value=format_size(pair),
                                token=format_size(pair),
                                title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large', 'small', 'medium']]
-                image_terms = image_terms + terms
+            image_terms = image_terms + terms
 
         return SimpleVocabulary(image_terms)
 
@@ -108,14 +112,18 @@ def ThumbVocabulary(context):
         site = getSite()
         portal_properties = getToolByName(site, 'portal_properties', None)
         # these are only working for plone so everything should be OK here
-        if 'imaging_properties' in portal_properties.objectIds():
-            sizes = portal_properties.imaging_properties.getProperty(
-                'allowed_sizes')
-            terms = [
-                SimpleTerm(value=format_size(pair),
+        try:
+            #Plone 5
+            sizes = api.portal.get_registry_record('plone.allowed_sizes')
+        except: 
+            #Plone 4
+            portal_properties = api.portal.get_tool(name='portal_properties')
+            if 'imaging_properties' in portal_properties.objectIds():
+                sizes = portal_properties.imaging_properties.getProperty('allowed_sizes')
+        terms = [SimpleTerm(value=format_size(pair),
                            token=format_size(pair),
                            title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large']]
-            image_terms = image_terms + terms
+        image_terms = image_terms + terms
 
         return SimpleVocabulary(image_terms)
 
