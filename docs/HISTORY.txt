@@ -4,7 +4,7 @@ Changelog
 3.4.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Updated vocabulary so it works with Plone 5
 
 
 3.4.7 (2016-02-01)
