@@ -4,6 +4,9 @@ Changelog
 3.4.8 (unreleased)
 ------------------
 
+- Updated Dutch translations.
+  [fredvd]
+
 - Updated vocabulary so it works with Plone 5
 
 

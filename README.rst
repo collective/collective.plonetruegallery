@@ -279,6 +279,7 @@ Translations
 * German - Jens W. Klein, Harald Friessnegger
 * Italian - Mirto Silvio Busico
 * Spanish - Enrique Perez Arnaud
+* Dutch - Rob Gietema, Martijn Schenk, Fred van Dijk
 
 SDG
 
