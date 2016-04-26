@@ -4,6 +4,9 @@ Changelog
 3.4.8 (unreleased)
 ------------------
 
+- Don't show the message "There are no images in this gallery." if we enable showing subgalleries and there are actual subgalleries to display.
+  [fredvd]
+
 - Add option to disable the random lead image from galleries so that
   always the first image is returned. Also useful with subgalleries.
   [dveeze, fredvd]
