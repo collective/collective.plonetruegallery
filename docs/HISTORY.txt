@@ -4,6 +4,9 @@ Changelog
 3.4.8 (unreleased)
 ------------------
 
+- Respect folder sort order for showing subgalleries on the galleryview just as we do for images in the normal galleryview. Suggallery ordering was semi random until now because no order was passed into the catalog query for subgalleries. 
+  [fredvd]
+
 - Don't show the message "There are no images in this gallery." if we enable showing subgalleries and there are actual subgalleries to display.
   [fredvd]
 

@@ -58,6 +58,9 @@ class GalleryView(BrowserView):
             kwargs['SearchableText'] = self.request.get('q')
         elif 'category' in self.request.form:
             kwargs['Subject'] = self.request.get('category')
+
+        kwargs['sort_on'] = 'getObjPositionInParent'
+        kwargs['sort_order'] = 'ascending'
         return self.adapter.get_subgalleries(**kwargs)
 
     @property
