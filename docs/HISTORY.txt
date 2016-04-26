@@ -4,6 +4,10 @@ Changelog
 3.4.8 (unreleased)
 ------------------
 
+- Add option to disable the random lead image from galleries so that
+  always the first image is returned. Also useful with subgalleries.
+  [dveeze, fredvd]
+
 - Updated Dutch translations.
   [fredvd]
 
@@ -23,7 +27,7 @@ Changelog
 - Added dexterity folder to classes implementing IGallery to work with dexterity types and Plone 5.
   [sandrarum]
 
-- Updated portuguese pt-br translation. 
+- Updated portuguese pt-br translation.
   [lccruz]
 
 
@@ -856,4 +860,3 @@ Changelog
 .1 - Initial
 ------------
 * Initial release
-

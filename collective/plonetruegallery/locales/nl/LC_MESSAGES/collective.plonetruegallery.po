@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1\n"
-"POT-Creation-Date: 2016-04-15 15:29+0000\n"
+"POT-Creation-Date: 2016-04-18 13:38+0000\n"
 "PO-Revision-Date: 2010-03-18 15:01+0100\n"
-"Last-Translator: Martijn Schenk <martijn.schenk@fourdigits.nl>\n"
+"Last-Translator: Fred van Dijk <info@zestsoftware.nl>\n"
 "Language-Team: Rob Gietema <rob@fourdigits.nl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -38,6 +38,11 @@ msgstr "Activeer Plone True Gallery ondersteuning"
 #: ./profiles.zcml:12
 msgid "Extension profile for the \"collective.plonetruegallery\" Plone product."
 msgstr ""
+
+#. Default: "Gallery Settings"
+#: portal Actions
+msgid "Gallery Settings"
+msgstr "Galerij instellingen"
 
 #. Default: "Gallery View"
 #: ./browser/views/configure.zcml:65
@@ -81,33 +86,38 @@ msgstr ""
 msgid "collective.plonetruegallery Upgrade to 0.8 profile"
 msgstr ""
 
+#. Default: "If you select this option, the lead images for the subgalleries will be chosen at random. Otherwise the first image is chosen."
+#: ./interfaces.py:202
+msgid "desciption_random_subgallery_lead"
+msgstr "Indien gekozen zal de hoofdafbeelding van elke subgalerij willekeurig worden gekozen per weergave. Anders wordt altijd de eerste afbeelding getoond."
+
 #. Default: "The amount of images shown in one page. This is not used for all display types."
-#: ./interfaces.py:196
+#: ./interfaces.py:209
 msgid "description_batch_size"
 msgstr "Het aantal afbeeldingen op één pagina. Optioneel voor sommige galerijweergaven"
 
 #. Default: "This is only used for customized templates to show body text"
-#: ./interfaces.py:204
+#: ./interfaces.py:217
 msgid "description_bodytext"
 msgstr "Alleen van toepassingen voor maatwerksjablonen waarin de hoofdtekst staat"
 
 #. Default: "Should copyright notices be attached to each image?"
-#: ./interfaces.py:166
+#: ./interfaces.py:172
 msgid "description_copyright"
 msgstr "Voeg een auteursrecht-notitie toe aan elke afbeelding"
 
 #. Default: "Relative path from the root of the site where the stylesheet will be referenced from. This will be included after the display gallery type's styles and is a good entry point for customization."
-#: ./interfaces.py:210
+#: ./interfaces.py:223
 msgid "description_custom_stylesheet"
 msgstr "Een relatief pad vanaf de hoofdmap van de website waarvandaan een css stylesheet kan worden geladen. Deze stylesheet wordt achter de galerijspecifieke css geplaatst en is een basis voor verdere stijlaanpassing."
 
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
-#: ./interfaces.py:173
+#: ./interfaces.py:179
 msgid "description_delay"
 msgstr "Indien de slide show op tijd is ingesteld laat de vertraging zien hoe lang het duurt in miliseconden voordat de nieuwe afbeelding getoond zal worden."
 
 #. Default: "The amount of time the change effect should take in miliseconds."
-#: ./interfaces.py:181
+#: ./interfaces.py:187
 msgid "description_fade_in_duration"
 msgstr "De totale effect welke het schermwissel effect nodig heeft in miliseconden."
 
@@ -117,27 +127,27 @@ msgid "description_gallery_settings_form"
 msgstr "Wijzig de instellingen voor deze galerij."
 
 #. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints. Only 'Small, Medium and Large' work with Flickr and Picasa"
-#: ./interfaces.py:139
+#: ./interfaces.py:145
 msgid "description_gallery_size"
 msgstr "De werkelijke grootte hangt af van het galerijtype dat wordt ingesteld: sommige (externe) diensten hebben andere beperkingen. Voor Flickr en Picasa werkt alleen 'klein, middel en groot'."
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
-#: ./interfaces.py:118
+#: ./interfaces.py:124
 msgid "description_gallery_type"
 msgstr "Selecteer het passende type galerij. Als u iets anders selecteert dan de standaard galerij moet u de informatie hiervoor in de corresponderende tab aanvullen"
 
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
-#: ./interfaces.py:189
+#: ./interfaces.py:195
 msgid "description_show_subgalleries"
 msgstr "Deze optie toont onderaan de galerijweergave voorvertoningen van geneste galerijen in dezelfde map."
 
 #. Default: "The size of thumbnail images. Will only work with plone image gallery type."
-#: ./interfaces.py:149
+#: ./interfaces.py:155
 msgid "description_thumb_size"
-msgstr ""De grootte van voorvertoning. Werkt alleen bij Plone fotogalerijen.
+msgstr "De grootte van voorvertoning. Werkt alleen bij Plone fotogalerijen."
 
 #. Default: "Should this gallery automatically change images for the user?"
-#: ./interfaces.py:159
+#: ./interfaces.py:165
 msgid "description_timed"
 msgstr "Moet deze galerij automatisch afbeeldingen wisselen/afspelen voor de gebruiker?"
 
@@ -242,58 +252,57 @@ msgid "label_base_gallery_type"
 msgstr "basis: Dit is geen gallery typ. Denk hier aan de abstracte versie..."
 
 #. Default: "Batch Size"
-#: ./interfaces.py:195
+#: ./interfaces.py:208
 msgid "label_batch_size"
 msgstr "seriegrootte"
 
 #. Default: "Copyright notice?"
-#: ./interfaces.py:165
+#: ./interfaces.py:171
 msgid "label_copyright"
 msgstr "Toon auteursrecht?"
 
 #. Default: "Custom stylesheet"
-#: ./interfaces.py:209
+#: ./interfaces.py:222
 msgid "label_custom_stylesheet"
 msgstr "Aangepaste css-stijlen"
 
 #. Default: "Use Plone To Manage Images"
 #: ./galleryadapters/basic.py:38
-#, fuzzy
 msgid "label_default_gallery_type"
-msgstr "standaard: Gebruik Plone om uw Afbeeldingen te Beheren"
+msgstr "Gebruik Plone om afbeeldingen te beheren"
 
 #. Default: "Delay"
-#: ./interfaces.py:172
+#: ./interfaces.py:178
 msgid "label_delay"
 msgstr "Vertraging"
 
 #. Default: "Enable bodytext"
-#: ./interfaces.py:203
+#: ./interfaces.py:216
 msgid "label_enable_bodytext"
 msgstr "Toon hoofdtekst"
 
 #. Default: "Gallery Display Type"
-#: ./interfaces.py:126
+#: ./interfaces.py:132
 msgid "label_gallery_display_type"
-msgstr "Gallery weergave type"
+msgstr "Galerij weergave"
 
 #. Default: "Choose the method in which the gallery should be displayed"
-#: ./interfaces.py:128
+#: ./interfaces.py:134
 msgid "label_gallery_display_type_description"
 msgstr "Kies de manier waarop de gallery weergegeven moet worden"
 
 #. Default: "Size"
-#: ./interfaces.py:138
+#: ./interfaces.py:144
 msgid "label_gallery_size"
 msgstr "Grootte"
 
 #. Default: "Type"
-#: ./interfaces.py:117
+#: ./interfaces.py:123
 msgid "label_gallery_type"
 msgstr "Type"
 
 #. Default: "Change Duration"
-#: ./interfaces.py:180
+#: ./interfaces.py:186
 msgid "label_image_change_duration"
 msgstr "Duur van de overgang van afbeeldingen"
 
@@ -306,17 +315,22 @@ msgstr "mini"
 #: ./browser/views/templates/layout.pt:23
 #: ./browser/views/templates/layout_p3.pt:40
 msgid "label_no_images_in_gallery"
-msgstr "Er bevinden zich geen afbeeldingen in deze gallery"
+msgstr "Er bevinden zich geen afbeeldingen in deze galerij."
 
 #. Default: "preview"
 #: ./vocabularies.py:109
 msgid "label_preview"
 msgstr "preview"
 
+#. Default: "Show random lead image for subgalleries?"
+#: ./interfaces.py:201
+msgid "label_random_subgallery_lead"
+msgstr "Toon willekeurige hoofdafbeelding voor subgalerijen?"
+
 #. Default: "Show Sub-Galleries?"
-#: ./interfaces.py:188
+#: ./interfaces.py:194
 msgid "label_show_subgalleries"
-msgstr "Toon sub-galerijen"
+msgstr "Toon sub-galerijen?"
 
 #. Default: "Large"
 #: ./vocabularies.py:77
@@ -339,7 +353,7 @@ msgid "label_thumb"
 msgstr "thumb"
 
 #. Default: "Thumbnail image size"
-#: ./interfaces.py:148
+#: ./interfaces.py:154
 msgid "label_thumb_size"
 msgstr "Afbeeldingsgrootte voorvertoning"
 
@@ -349,7 +363,7 @@ msgid "label_tile"
 msgstr "tile"
 
 #. Default: "Timed?"
-#: ./interfaces.py:158
+#: ./interfaces.py:164
 msgid "label_timed"
 msgstr "Getimed?"
 
@@ -360,7 +374,7 @@ msgstr "Er zijn geen wijzigingen in de galerij-instellingen."
 
 #: ./browser/views/templates/subgallery.pt:13
 msgid "or"
-msgstr "van"
+msgstr "of"
 
 #. Default: "Gallery Settings Saved."
 #: ./browser/views/settings.py:35

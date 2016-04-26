@@ -31,6 +31,12 @@ class IGalleryAdapter(Interface):
         returns an empty dict if the gallery is empty.
         """
 
+    def get_first_image():
+        """
+        returns the first image with data.
+        returns an empty dict if the gallery is empty.
+        """
+
     def log_error():
         """
         provides an easy way to log errors in gallery adapters.
@@ -189,6 +195,13 @@ class IGallerySettings(Interface):
         description=_(u"description_show_subgalleries",
             default=u"If you select this option, previews for all "
                     u"nested galleries will show up below this gallery."
+        ),
+        default=True)
+    random_subgallery_lead = schema.Bool(
+        title=_(u"label_random_subgallery_lead", default=u"Show random lead image for subgalleries?"),
+        description=_(u"desciption_random_subgallery_lead",
+            default=u"If you select this option, the lead images for the subgalleries will be chosen at random. "
+                u"Otherwise the first image is chosen."
         ),
         default=True)
     batch_size = schema.Int(

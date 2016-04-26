@@ -16,9 +16,7 @@ msgstr ""
 "Domain: collective.plonetruegallery\n"
 
 
-#. Default: "Gallery View"
-#: ./browser/views/configure.zcml
-msgid "Gallery View"
+#. Default: "Gallery Settings"
+#: portal Actions
+msgid "Gallery Settings"
 msgstr ""
-
-
