@@ -31,6 +31,7 @@ class GalleryView(BrowserView):
     def is_batch(self):
         return IBatchingDisplayType.providedBy(self.displayer)
 
+    @property
     @memoize
     def show_subgalleries(self):
         return self.adapter.settings.show_subgalleries and \
