@@ -6,6 +6,7 @@ from interfaces import IGallerySettings
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 
 ANNOTATION_KEY = 'collective.plonetruegallery'
+_marker = object()
 
 
 class AnnotationStorage(object):
@@ -85,19 +86,24 @@ class GallerySettings(object):
         here, we have to interate over those interfaces to find the
         default values here.
         """
-        default = None
 
-        if name in self.defaults:
-            default = self.defaults[name]
+        value = self.storage.get(name, _marker)
+        if value is _marker:
+            value = None
 
-        if self.default_settings is None:
-            for iface in self._interfaces:
-                if name in iface.names():
-                    default = iface[name].default
-        else:
-            default = getattr(self.default_settings, name)
+            if name in self.defaults:
+                value = self.defaults[name]
 
-        value = self.storage.get(name, default)
+            if self.default_settings is None:
+                # Get default value from interface.
+                for iface in self._interfaces:
+                    if name in iface.names():
+                        value = iface[name].default
+                        break
+            else:
+                # Get value stored on Plone Site root in control panel.
+                value = getattr(self.default_settings, name)
+
         if name in self._inline_conversions:
             value = self._inline_conversions[name](value)
         return value
