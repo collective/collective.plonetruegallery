@@ -141,6 +141,14 @@ Notes for successful inline object tag usage:
 
 Or you can do the same with an iframe
 
+Re-use gallery in page template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to place the gallery in another page template, you can re-use the entire HTML as-is::
+
+  <tal:gallery tal:replace="structure context/fotos/@@placegalleryview" />
+
+This has the advantage, over <object> embedding, that a modal (pop-up) showing the enlarged image will take up the entire screen, instead of just the <object> area.
 
 Troubleshooting safe-html
 -------------------------
