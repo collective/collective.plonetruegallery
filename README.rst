@@ -6,15 +6,26 @@ collective.plonetruegallery Documentation
 
 Introduction
 ------------
-collective.plonetruegallery is a Plone product that implements a very
-customizable and sophisticated gallery. 
+collective.plonetruegallery is a Plone add-on that implements a very
+customizable and sophisticated gallery.
+
+
+Plone Version Compatibility
+---------------------------
+
+Works with Plone 5.0 and earlier.
+
 
 How It Works
 ------------
-All you need to do is select the ``Gallery View`` from the ``Display`` drop down
-item for any Folder or Collection content type. Once that is done, a
-``Gallery Settings`` tab is enabled for the type. With this, you can customize
-the various settings for the Gallery.
+collective.plonetruegallery adds a ``Gallery View`` to Folders and Collections.
+
+For any Folder or Collection containing or showing images, use the
+Display toolbar menu and select ``Gallery View``.
+
+Once that is done, a ``Gallery Settings`` toolbar menu is enabled for
+the type. With this, you can customize the various settings for the
+Gallery.
 
 
 Supported Display Types
@@ -23,19 +34,19 @@ Supported Display Types
 To install any of the various extra display types, you need to install
 the dependent package in buildout
 
--  galleria(ships with)
-- contact sheet(collective.ptg.contactsheet)
-- thumbnail zoom gallery(collective.ptg.thumbnailzoom)
-- presentation(collective.ptg.presentation)
-- galleriffic(collective.ptg.galleriffic)
-- highslide(collective.ptg.highslide)
-- fancybox(collective.ptg.fancybox)
-- pikachoose(collective.ptg.pikachoose)
-- s3slider(collective.ptg.s3slider)
-- nivo slider(collective.ptg.nivoslider)
-- nivo gallery(collective.ptg.nivogallery)
-- content flow(collective.ptg.contentflow)
-- supersized(collective.ptg.supersized)
+- galleria (included in default installation of collective.plonetruegallery)
+- contact sheet (collective.ptg.contactsheet)
+- thumbnail zoom gallery (collective.ptg.thumbnailzoom)
+- presentation (collective.ptg.presentation)
+- galleriffic (collective.ptg.galleriffic)
+- highslide (collective.ptg.highslide)
+- fancybox (collective.ptg.fancybox)
+- pikachoose (collective.ptg.pikachoose)
+- s3slider (collective.ptg.s3slider)
+- nivo slider (collective.ptg.nivoslider)
+- nivo gallery (collective.ptg.nivogallery)
+- content flow (collective.ptg.contentflow)
+- supersized (collective.ptg.supersized)
 
 Buildout configuration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -58,8 +69,8 @@ Buildout configuration
     ...
 
 
-Installing all
-~~~~~~~~~~~~~~
+Installing all galleries
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to install all available galleries, you could add
 ::
@@ -253,7 +264,7 @@ Fetching of Images Explained
 
 License Notes
 -------------
-This Plone product is under the GLP license; however, the Highslide JS display
+This Plone product is under the GPL license; however, the Highslide JS display
 type uses the `Creative Commons Attribution-NonCommercial 2.5 License
 <http://creativecommons.org/licenses/by-nc/2.5/>`_ and is only for
 non-commercial use unless you have purchased a commercial license from
