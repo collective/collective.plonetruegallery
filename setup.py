@@ -9,8 +9,8 @@ version = '3.4.8.dev0'
 
 setup(name='collective.plonetruegallery',
       version=version,
-      description="A gallery/slideshow product for plone that can aggregate "
-                  "from picasa (add collective.ptg.flickr) and flickr (add collective.ptg.flickr) or use plone images.",
+      description="A gallery/slideshow product for Plone that can aggregate "
+                  "from Picasa (add collective.ptg.flickr) and Flickr (add collective.ptg.flickr) or use Plone images.",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
@@ -19,6 +19,7 @@ setup(name='collective.plonetruegallery',
           'Framework :: Plone :: 4.1',
           'Framework :: Plone :: 4.2',
           'Framework :: Plone :: 4.3',
+          'Framework :: Plone :: 5.0',
           'Framework :: Plone',
           'License :: OSI Approved :: GNU General Public License (GPL)',
           'Operating System :: OS Independent',
