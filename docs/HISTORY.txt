@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.4.8 (unreleased)
+3.4.8 (2017-02-26)
 ------------------
 
 - mention Plone 5.0 compatibility, tweak README, add screen shots
