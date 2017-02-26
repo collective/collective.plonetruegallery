@@ -27,6 +27,11 @@ Once that is done, a ``Gallery Settings`` toolbar menu is enabled for
 the type. With this, you can customize the various settings for the
 Gallery.
 
+.. image:: https://raw.githubusercontent.com/collective/collective.plonetruegallery/master/docs/collective.plonetruegallery-screenshot-01.jpg
+.. image:: https://raw.githubusercontent.com/collective/collective.plonetruegallery/master/docs/collective.plonetruegallery-screenshot-02.jpg
+.. image:: https://raw.githubusercontent.com/collective/collective.plonetruegallery/master/docs/collective.plonetruegallery-screenshot-03.jpg
+.. image:: https://raw.githubusercontent.com/collective/collective.plonetruegallery/master/docs/collective.plonetruegallery-screenshot-04.jpg
+
 
 Supported Display Types
 -----------------------

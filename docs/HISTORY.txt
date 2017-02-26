@@ -4,6 +4,9 @@ Changelog
 3.4.8 (unreleased)
 ------------------
 
+- mention Plone 5.0 compatibility, tweak README, add screen shots
+  [tkimnguyen]
+
 - Refactored ``__getattr__`` in settings, for clarity and possibly
   some speed.  [maurits]
 
