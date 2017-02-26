@@ -4,6 +4,9 @@ Changelog
 3.4.8 (2017-02-26)
 ------------------
 
+- Document re-using gallery in page template
+  [khink]
+
 - mention Plone 5.0 compatibility, tweak README, add screen shots
   [tkimnguyen]
 
