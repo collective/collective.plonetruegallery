@@ -3,6 +3,8 @@ python: 2.7
 env:
   - PLONE_VERSION=4.2
   - PLONE_VERSION=4.3 QA=true
+  - PLONE_VERSION=5.0 QA=true
+  - PLONE_VERSION=5.1 QA=true  
 matrix:
   include:
     - python: 2.6
