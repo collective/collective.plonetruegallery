@@ -19,7 +19,7 @@ dl.applied-portlet-gallery div.gallery-portlet-controls{
     margin:auto;
     display:none;
     z-index:5;
-    background-image:url(++resource++plonetruegallery.resources/portlet/control.png);
+    background-image:url('++resource++plonetruegallery.resources/portlet/control.png');
 }
 
 dl.applied-portlet-gallery div.gallery-portlet-controls span{
@@ -48,12 +48,12 @@ dl.applied-portlet-gallery div.gallery-portlet-controls span.next{
 }
 
 dl.applied-portlet-gallery div.gallery-portlet-controls span.next a{
-    background-image:url(++resource++plonetruegallery.resources/portlet/next.png);
+    background-image:url('++resource++plonetruegallery.resources/portlet/next.png');
     width:25px;
 }
 
 dl.applied-portlet-gallery div.gallery-portlet-controls span.prev a{
-    background-image:url(++resource++plonetruegallery.resources/portlet/prev.png);
+    background-image:url('++resource++plonetruegallery.resources/portlet/prev.png');
     width:25px;
 }
 
@@ -67,7 +67,7 @@ dl.applied-portlet-gallery div.gallery-portlet-controls span.play-pause{
 }
 
 dl.applied-portlet-gallery div.gallery-portlet-controls span.play-pause a{
-    background-image:url(++resource++plonetruegallery.resources/portlet/play.png);
+    background-image:url('++resource++plonetruegallery.resources/portlet/play.png');
     width:20px;
     height:17px;
 }
@@ -78,7 +78,7 @@ dl.applied-portlet-gallery div.gallery-portlet-controls span.timed{
 }
 
 dl.applied-portlet-gallery div.gallery-portlet-controls span.timed a{
-    background-image:url(++resource++plonetruegallery.resources/portlet/pause.png);
+    background-image:url('++resource++plonetruegallery.resources/portlet/pause.png');
     width:16px;
     height:13px;
 }

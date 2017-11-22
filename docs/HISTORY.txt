@@ -4,7 +4,8 @@ Changelog
 3.4.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix CSS resource cooking in Plone >= 5.1
+  [petschki]
 
 
 3.4.8 (2017-02-26)
