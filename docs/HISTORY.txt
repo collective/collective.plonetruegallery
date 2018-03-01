@@ -4,6 +4,9 @@ Changelog
 3.4.9 (unreleased)
 ------------------
 
+- Extend the uninstall profile.
+  [thet]
+
 - Fix CSS resource cooking in Plone >= 5.1
   [petschki]
 

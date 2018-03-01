@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<object name="Large Plone Folder">
+    <property name="view_methods" purge="False">
+        <element remove="True" value="galleryview" />
+    </property>
+</object>
