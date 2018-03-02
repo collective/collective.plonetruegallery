@@ -1,81 +1,10 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
-
-    <javascript 
-        cacheable="True" 
-        compression="safe" 
-        cookable="True"
-        enabled="False" 
-        expression="python: here.portal_type == 'Gallery'"
-        id="++resource++jquery.js"
-        inline="False"
-        remove="True"
-    />
-
-  	<javascript 
-        cacheable="True" 
-        compression="safe" 
-        cookable="True"
-        enabled="True" 
-        expression="python: here.restrictedTraverse('@@plonetruegallery_util').should_include('classic')"
-        id="++resource++carousel.js"
-        inline="False"
-        remove="True"
-    />
-
-    <javascript 
-        cacheable="True" 
-        compression="safe" 
-        cookable="True"
-        enabled="True" 
-        expression="python: here.restrictedTraverse('@@plonetruegallery_util').should_include('classic')"
-        id="++resource++jq.timer.js" 
-        inline="False"
-        remove="True"
-    />
-    
-    <javascript 
-        cacheable="True" 
-        compression="safe" 
-        cookable="True"
-        enabled="True" 
-        expression="python: here.restrictedTraverse('@@plonetruegallery_util').should_include('classic')"
-        id="++resource++true-gallery.js" 
-        inline="False"
-        remove="True"
-    />
-    
-    <javascript 
-        cacheable="True" 
-        compression="safe" 
-        cookable="True"
-        enabled="True" 
-        expression="python: here.restrictedTraverse('@@plonetruegallery_util').should_include('slideshow')"
-        id="++resource++mootools.js" 
-        inline="False"
-        remove="True"
-    />
-    
-    <javascript 
-        cacheable="True" 
-        compression="safe" 
-        cookable="True"
-        enabled="True" 
-        expression="python: here.restrictedTraverse('@@plonetruegallery_util').should_include('slideshow')"
-        id="++resource++slideshow.js" 
-        inline="False"
-        remove="True"
-    />
-
-    <javascript 
-        cacheable="True" 
-        compression="safe" 
-        cookable="True"
-        enabled="True" 
-        expression=""
-        id="++resource++plonetruegallery-portlet.js" 
-        inline="False"
-        remove="True"
-    />
-
+  <javascript remove="True" id="++resource++jquery.js"/>
+	<javascript remove="True" id="++resource++carousel.js"/>
+  <javascript remove="True" id="++resource++jq.timer.js"/>
+  <javascript remove="True" id="++resource++true-gallery.js"/>
+  <javascript remove="True" id="++resource++mootools.js"/>
+  <javascript remove="True" id="++resource++slideshow.js"/>
+  <javascript remove="True" id="++resource++plonetruegallery-portlet.js"/>
 </object>
