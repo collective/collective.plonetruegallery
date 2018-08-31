@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1\n"
-"POT-Creation-Date: 2016-04-18 13:38+0000\n"
+"POT-Creation-Date: 2018-08-18 15:22+0000\n"
 "PO-Revision-Date: 2010-03-18 15:01+0100\n"
 "Last-Translator: Fred van Dijk <info@zestsoftware.nl>\n"
 "Language-Team: Rob Gietema <rob@fourdigits.nl>\n"

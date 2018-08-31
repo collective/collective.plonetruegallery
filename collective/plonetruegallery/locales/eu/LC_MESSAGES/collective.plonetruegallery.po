@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.plonetruegallery\n"
-"POT-Creation-Date: 2012-07-10 13:58+0000\n"
+"POT-Creation-Date: 2018-08-18 15:22+0000\n"
 "PO-Revision-Date: 2012-07-10 16:01+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: eu <eu@li.org>\n"
@@ -28,12 +28,25 @@ msgstr "Filtratu"
 msgid "Default settings to use for all galleries on site."
 msgstr "Atariko galeria guztien ezarpenak"
 
-#: ./profiles/default/actions.xml
+#: ./browser/views/configure.zcml:65
+msgid "Displays a gallery."
+msgstr ""
+
+#: ./behavior.zcml:11
+msgid "Enable Plone True Gallery support"
+msgstr ""
+
+#: ./profiles.zcml:12
+msgid "Extension profile for the \"collective.plonetruegallery\" Plone product."
+msgstr ""
+
+#. Default: "Gallery Settings"
+#: portal Actions
 msgid "Gallery Settings"
 msgstr "Galeriaren ezarpenak"
 
 #. Default: "Gallery View"
-#: ./browser/views/configure.zcml
+#: ./browser/views/configure.zcml:65
 msgid "Gallery View"
 msgstr "Galeria bista"
 
@@ -41,12 +54,17 @@ msgstr "Galeria bista"
 msgid "Main"
 msgstr "Nagusia"
 
+#: ./behavior.zcml:11
+#: ./profiles.zcml:12
+msgid "Plone True Gallery"
+msgstr ""
+
 #: ./configlet.py:12
 msgid "PloneTruegallery Default Settings"
 msgstr "PloneTruegallery-ren defektuzko ezarpenak"
 
-#: ./profiles/default/actions.xml
-msgid "Refresh Gallery"
+#: ./profiles.zcml:21
+msgid "Removes collective.plonetruegallery."
 msgstr ""
 
 #: ./browser/views/templates/subgallery.pt:16
@@ -61,88 +79,97 @@ msgstr "Etiketa aukeratu"
 msgid "Show All"
 msgstr "Guztiak ikusi"
 
+#: ./profiles.zcml:21
+msgid "collective.plonetruegallery Uninstall Profile"
+msgstr ""
+
+#: ./profiles.zcml:29
+msgid "collective.plonetruegallery Upgrade to 0.8 profile"
+msgstr ""
+
+#. Default: "If you select this option, the lead images for the subgalleries will be chosen at random. Otherwise the first image is chosen."
+#: ./interfaces.py:202
+msgid "desciption_random_subgallery_lead"
+msgstr ""
+
 #. Default: "The amount of images shown in one page. This is not used for all display types."
-#: ./interfaces.py:252
+#: ./interfaces.py:209
 msgid "description_batch_size"
 msgstr "Orrialde bakoitzean agertuko den irudi kopurua. Datu hau ez da bista-mota guztietan erabiltzen."
 
+#. Default: "This is only used for customized templates to show body text"
+#: ./interfaces.py:217
+msgid "description_bodytext"
+msgstr ""
+
+#. Default: "Should copyright notices be attached to each image?"
+#: ./interfaces.py:172
+msgid "description_copyright"
+msgstr ""
+
+#. Default: "Relative path from the root of the site where the stylesheet will be referenced from. This will be included after the display gallery type's styles and is a good entry point for customization."
+#: ./interfaces.py:223
+msgid "description_custom_stylesheet"
+msgstr ""
+
 #. Default: "If slide show is timed, the delay sets how long before the next image is shown in miliseconds."
-#: ./interfaces.py:229
+#: ./interfaces.py:179
 msgid "description_delay"
 msgstr "Hurrengo irudia kargatu aurreko atzerapena (milisegundutan). Datu honek denboraren araberako bistetan bakarrik du eragina."
 
 #. Default: "The amount of time the change effect should take in miliseconds."
-#: ./interfaces.py:237
+#: ./interfaces.py:187
 msgid "description_fade_in_duration"
 msgstr "Aldaketa efektuaren iraupena (milisegundutan)"
-
-#. Default: "Name/id of your flickr set.(*flickr* gallery type)"
-#: ./interfaces.py:278
-msgid "description_flickr_set"
-msgstr "Flickr-eko zure bildumaren identifikadorea"
-
-#. Default: "The username/id of your flickr account. (*flickr* gallery type)"
-#: ./interfaces.py:271
-msgid "description_flickr_username"
-msgstr "Zure flickr erabiltzailearen identifikadorea"
 
 #. Default: "Configure the parameters for this gallery."
 #: ./browser/views/settings.py:32
 msgid "description_gallery_settings_form"
 msgstr "Galeria honen ezarpenak aldatu"
 
-#. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints."
-#: ./interfaces.py:192
+#. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints. Only 'Small, Medium and Large' work with Flickr and Picasa"
+#: ./interfaces.py:145
+#, fuzzy
 msgid "description_gallery_size"
 msgstr "Tamainak ezberdinak izan daitezke erabiltzen den galeria-motaren arabera"
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
-#: ./interfaces.py:171
+#: ./interfaces.py:124
 msgid "description_gallery_type"
 msgstr "Galeria-mota aukeratu. Defektuzkoa ez den bat aukeratzen baduzu, dagokion fitxan bere ezarpenak bete beharko dituzu."
 
-#. Default: "Name of your picasa web album. This will be the qualified name you'll see in the address bar or the full length name of the album. (*Picasa* gallery type)"
-#: ./interfaces.py:295
-msgid "description_picasa_album"
-msgstr "Zure Picasa albumaren izena (Picasan zaudela albumaren tamaina osoko helbidea)"
-
-#. Default: "GMail address of who this album belongs to. (*Picasa* gallery type)"
-#: ./interfaces.py:288
-msgid "description_picasa_username"
-msgstr "Albumaren jabearen GMail helbidea"
-
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
-#: ./interfaces.py:245
+#: ./interfaces.py:195
 msgid "description_show_subgalleries"
 msgstr "Aukeratuz gero, azpiko galerien aurrebistak ere erakutsiko dira."
 
 #. Default: "The size of thumbnail images. Will only work with plone image gallery type."
-#: ./interfaces.py:207
+#: ./interfaces.py:155
 msgid "description_thumb_size"
 msgstr "Irudi txikien tamainak. Ploneko irudien galeriekin bakarrik funtzionatuko du."
 
 #. Default: "Should this gallery automatically change images for the user?"
-#: ./interfaces.py:222
+#: ./interfaces.py:165
 msgid "description_timed"
 msgstr "Automatikoki pasatu hurrengo irudira?"
 
 #. Default: "This portlet allows you to show galleryimages in a portlet."
-#: ./portlets.py:217
+#: ./portlets.py:225
 msgid "gallery_portlet_add_form_description"
 msgstr "Galeriako irudiak erakusteko portleta"
 
 #. Default: "Add Gallery"
-#: ./portlets.py:216
+#: ./portlets.py:224
 msgid "gallery_portlet_add_form_title"
 msgstr "Galeria gehitu"
 
 #. Default: "This portlet allows you to show gallery images in a portlet."
-#: ./portlets.py:231
+#: ./portlets.py:239
 msgid "gallery_portlet_edit_form_description"
 msgstr "Galeriako irudiak erakusteko portleta"
 
 #. Default: "Edit Gallery Portlet"
-#: ./portlets.py:229
+#: ./portlets.py:237
 msgid "gallery_portlet_edit_form_title"
 msgstr "Galeria portleta aldatu"
 
@@ -222,169 +249,125 @@ msgid "heading_gallery_settings_form"
 msgstr "Galeria"
 
 #. Default: "base: this isn't actually a gallery type.  Think abstract class here..."
-#: ./galleryadapters/base.py:27
+#: ./galleryadapters/base.py:32
 msgid "label_base_gallery_type"
 msgstr "oinarrizkoa: ez da berez galeria mota bat. "
 
 #. Default: "Batch Size"
-#: ./interfaces.py:251
+#: ./interfaces.py:208
 msgid "label_batch_size"
 msgstr "Tamaina"
 
+#. Default: "Copyright notice?"
+#: ./interfaces.py:171
+msgid "label_copyright"
+msgstr ""
+
+#. Default: "Custom stylesheet"
+#: ./interfaces.py:222
+msgid "label_custom_stylesheet"
+msgstr ""
+
 #. Default: "Use Plone To Manage Images"
-#: ./galleryadapters/basic.py:25
+#: ./galleryadapters/basic.py:38
 msgid "label_default_gallery_type"
 msgstr "Plone erabili irudiak kudeatzeko"
 
 #. Default: "Delay"
-#: ./interfaces.py:228
+#: ./interfaces.py:178
 msgid "label_delay"
 msgstr "Atzerapena"
 
-#. Default: "Flickr"
-#: ./galleryadapters/flickr.py:28
-msgid "label_flickr_gallery_type"
-msgstr "Flickr"
-
-#. Default: "Flickr Set"
-#: ./interfaces.py:277
-msgid "label_flickr_set"
-msgstr "Flickr set edo bilduma"
-
-#. Default: "flickr username"
-#: ./interfaces.py:270
-msgid "label_flickr_username"
-msgstr "Flickr erabiltzailea"
+#. Default: "Enable bodytext"
+#: ./interfaces.py:216
+msgid "label_enable_bodytext"
+msgstr ""
 
 #. Default: "Gallery Display Type"
-#: ./interfaces.py:179
+#: ./interfaces.py:132
 msgid "label_gallery_display_type"
 msgstr "Galeria"
 
 #. Default: "Choose the method in which the gallery should be displayed"
-#: ./interfaces.py:181
+#: ./interfaces.py:134
 msgid "label_gallery_display_type_description"
 msgstr "Galeria erakusteko modua aukeratu"
 
 #. Default: "Size"
-#: ./interfaces.py:191
+#: ./interfaces.py:144
 msgid "label_gallery_size"
 msgstr "Tamaina"
 
 #. Default: "Type"
-#: ./interfaces.py:170
+#: ./interfaces.py:123
 msgid "label_gallery_type"
 msgstr "Mota"
 
 #. Default: "Change Duration"
-#: ./interfaces.py:236
+#: ./interfaces.py:186
 msgid "label_image_change_duration"
 msgstr "Iraupena aldatu"
 
 #. Default: "mini"
-#: ./interfaces.py:215
+#: ./vocabularies.py:108
 msgid "label_mini"
 msgstr "mini"
 
 #. Default: "There are no images in this gallery."
-#: ./browser/views/templates/layout.pt:21
+#: ./browser/views/templates/layout.pt:23
+#: ./browser/views/templates/layout_p3.pt:40
 msgid "label_no_images_in_gallery"
 msgstr "Ez dago irudirik"
 
-#. Default: "Picasa Album"
-#: ./interfaces.py:294
-msgid "label_picasa_album"
-msgstr "Picasa Albuma"
-
-#. Default: "Picasa Web Albums"
-#: ./galleryadapters/picasa.py:32
-msgid "label_picasa_gallery_type"
-msgstr "Picasa Albuma"
-
-#. Default: "GMail address"
-#: ./interfaces.py:287
-msgid "label_picasa_username"
-msgstr "GMail helbidea"
-
 #. Default: "preview"
-#: ./interfaces.py:216
+#: ./vocabularies.py:109
 msgid "label_preview"
 msgstr "preview"
 
+#. Default: "Show random lead image for subgalleries?"
+#: ./interfaces.py:201
+msgid "label_random_subgallery_lead"
+msgstr ""
+
 #. Default: "Show Sub-Galleries?"
-#: ./interfaces.py:244
+#: ./interfaces.py:194
 msgid "label_show_subgalleries"
 msgstr "Azpigaleriak erakutsi?"
 
 #. Default: "Large"
-#: ./interfaces.py:202
+#: ./vocabularies.py:77
 msgid "label_size_large"
 msgstr "Handia"
 
 #. Default: "Medium"
-#: ./interfaces.py:200
+#: ./vocabularies.py:75
 msgid "label_size_medium"
 msgstr "Ertaina"
 
 #. Default: "Small"
-#: ./interfaces.py:198
+#: ./vocabularies.py:73
 msgid "label_size_small"
 msgstr "Txikia"
 
 #. Default: "thumb"
-#: ./interfaces.py:214
+#: ./vocabularies.py:107
 msgid "label_thumb"
 msgstr "txikia"
 
 #. Default: "Thumbnail image size"
-#: ./interfaces.py:206
+#: ./interfaces.py:154
 msgid "label_thumb_size"
 msgstr "Irudi txikiaren tamaina"
 
 #. Default: "tile"
-#: ./interfaces.py:213
+#: ./vocabularies.py:106
 msgid "label_tile"
 msgstr "tile"
 
 #. Default: "Timed?"
-#: ./interfaces.py:221
+#: ./interfaces.py:164
 msgid "label_timed"
 msgstr "Denboraren araberakoa"
-
-#. Default: "Could not find flickr set."
-#: ./validators.py:79
-msgid "label_validate_flickr_find_set"
-msgstr "Ezin izan da Flickr-eko bilduma aurkitu"
-
-#. Default: "You must specify a flickr set to use."
-#: ./validators.py:65
-msgid "label_validate_flickr_specify_user"
-msgstr "Flickr-eko erabiltzailea idatzi behar duzu"
-
-#. Default: "You must specify a username."
-#: ./validators.py:105
-msgid "label_validate_flickr_specify_username"
-msgstr "Erabiltzaile-izena idatzi behar duzu"
-
-#. Default: "Could not find flickr user."
-#: ./validators.py:116
-msgid "label_validate_flickr_user"
-msgstr "Ez da Flickr-eko erabiltzaile hori aurkitu"
-
-#. Default: "You must specify a picasa album."
-#: ./validators.py:160
-msgid "label_validate_picasa_ablum_empty"
-msgstr "Picasako bilduma bat adierazi behar duzu"
-
-#. Default: "Could not find album."
-#: ./validators.py:173
-msgid "label_validate_picasa_find_album"
-msgstr "Ezin izan da bilduma aurkitu"
-
-#. Default: "You must specify a picasa username."
-#: ./validators.py:139
-msgid "label_validate_picasa_specify_username"
-msgstr "Picasako erabiltzaile-izena idatzi behar duzu"
 
 #. Default: "There are no changes in the Gallery settings."
 #: ./browser/views/settings.py:37
@@ -399,4 +382,3 @@ msgstr "edo"
 #: ./browser/views/settings.py:35
 msgid "successMessage_gallery_settings_form"
 msgstr "Ezarpenak ondo gorde dira"
-

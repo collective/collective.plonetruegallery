@@ -4,6 +4,9 @@ Changelog
 3.4.9 (unreleased)
 ------------------
 
+- Updated the Gettext files.
+  [macagua]
+
 - Extend the uninstall profile.
   [thet]
 
