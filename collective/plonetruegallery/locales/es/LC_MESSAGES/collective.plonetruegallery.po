@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: collective.plonetruegallery\n"
 "POT-Creation-Date: 2018-08-18 15:22+0000\n"
-"PO-Revision-Date: 2018-08-31 16:48-0400\n"
+"PO-Revision-Date: 2018-08-31 17:37-0400\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish Team\n"
 "Language: es\n"
@@ -49,7 +49,7 @@ msgstr ""
 #. Default: "Gallery Settings"
 #: portal Actions
 msgid "Gallery Settings"
-msgstr "Configuración de galería"
+msgstr "Configurar Galería"
 
 #. Default: "Gallery View"
 #: ./browser/views/configure.zcml:65
@@ -67,15 +67,15 @@ msgstr "Plone True Gallery"
 
 #: ./configlet.py:12
 msgid "PloneTruegallery Default Settings"
-msgstr "Configuración por defecto de PloneTruegallery"
+msgstr "Configuración por defecto PloneTruegallery"
 
 #: ./profiles.zcml:21
 msgid "Removes collective.plonetruegallery."
-msgstr "Remover collective.plonetruegallery."
+msgstr "collective.plonetruegallery - Desinstalar."
 
 #: ./browser/views/templates/subgallery.pt:16
 msgid "Search Galleries"
-msgstr "Buscar galerías"
+msgstr "Buscar Galerías"
 
 #: ./browser/views/templates/subgallery.pt:8
 msgid "Select Category"
@@ -87,20 +87,18 @@ msgstr "Mostrar todos"
 
 #: ./profiles.zcml:21
 msgid "collective.plonetruegallery Uninstall Profile"
-msgstr "collective.plonetruegallery Perfil desintalación"
+msgstr "collective.plonetruegallery - Perfil desintalación"
 
 #: ./profiles.zcml:29
 msgid "collective.plonetruegallery Upgrade to 0.8 profile"
-msgstr "collective.plonetruegallery perfil de Actualización a 0.8"
+msgstr "collective.plonetruegallery - perfil de Actualización a 0.8"
 
 #. Default: "If you select this option, the lead images for the subgalleries will be chosen at random. Otherwise the first image is chosen."
 #: ./interfaces.py:202
-#, fuzzy
 msgid "desciption_random_subgallery_lead"
 msgstr ""
-"Si usted selecciona esta opción, la imágenes de cabecera para las "
-"sub-galerías serán elegidas aleatoriamente. Lo opuesto a la primera imagen es "
-"elegida. Otherwise the first image is chosen."
+"Si selecciona esta opción, las imágenes principales para las galerías "
+"secundarias se elegirán al azar. De lo contrario, se elige la primera imagen."
 
 #. Default: "The amount of images shown in one page. This is not used for all display types."
 #: ./interfaces.py:209
@@ -148,12 +146,11 @@ msgstr "Configurar parámetros para esta galería."
 
 #. Default: "The actual sizes used can vary depending on the gallery type that is used since different services have different size constraints. Only 'Small, Medium and Large' work with Flickr and Picasa"
 #: ./interfaces.py:145
-#, fuzzy
 msgid "description_gallery_size"
 msgstr ""
 "Los tamaños actuales pueden variar dependiendo del tipo de galería que es "
-"usado desde diferentes servicios que tiene diferentes tamaños constraints. "
-"Solamente 'Pequeño, Medio y Grande' trabaja con Flickr y Picasa"
+"usado desde diferentes servicios que tiene diferentes restricciones de "
+"tamaño. Solamente 'Pequeño, Medio y Grande' trabaja con Flickr y Picasa"
 
 #. Default: "Select the type of gallery you want this to be.  If you select something other than default, you must fill out the information in the corresponding tab for that gallery type."
 #: ./interfaces.py:124
@@ -163,7 +160,7 @@ msgstr "Seleccionar el tipo de galería."
 #. Default: "If you select this option, previews for all nested galleries will show up below this gallery."
 #: ./interfaces.py:195
 msgid "description_show_subgalleries"
-msgstr "¿Mostrar previsualización de sub-galerías?"
+msgstr "¿Mostrar previsualización de galerías secundarias?"
 
 #. Default: "The size of thumbnail images. Will only work with plone image gallery type."
 #: ./interfaces.py:155
@@ -335,7 +332,7 @@ msgstr "Duración de los cambios"
 #. Default: "mini"
 #: ./vocabularies.py:108
 msgid "label_mini"
-msgstr "mini"
+msgstr ""
 
 #. Default: "There are no images in this gallery."
 #: ./browser/views/templates/layout.pt:23
@@ -356,7 +353,7 @@ msgstr "¿Mostrar imagen de cabecera aleatoria para sub-galerías?"
 #. Default: "Show Sub-Galleries?"
 #: ./interfaces.py:194
 msgid "label_show_subgalleries"
-msgstr "Mostrar sub-galerías"
+msgstr "Mostrar galerías secundarias"
 
 #. Default: "Large"
 #: ./vocabularies.py:77
@@ -376,7 +373,7 @@ msgstr "Pequeño"
 #. Default: "thumb"
 #: ./vocabularies.py:107
 msgid "label_thumb"
-msgstr "thumb"
+msgstr ""
 
 #. Default: "Thumbnail image size"
 #: ./interfaces.py:154
@@ -386,7 +383,7 @@ msgstr "Tamaño de la imagen pequeña"
 #. Default: "tile"
 #: ./vocabularies.py:106
 msgid "label_tile"
-msgstr "tile"
+msgstr ""
 
 #. Default: "Timed?"
 #: ./interfaces.py:164
