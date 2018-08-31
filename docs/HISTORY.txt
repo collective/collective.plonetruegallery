@@ -4,6 +4,9 @@ Changelog
 3.4.9 (unreleased)
 ------------------
 
+- Updated Spanish translation.
+  [macagua]
+
 - Updated the Gettext files.
   [macagua]
 
