@@ -166,8 +166,8 @@ msgstr "¿Mostrar previsualización de galerías secundarias?"
 #: ./interfaces.py:155
 msgid "description_thumb_size"
 msgstr ""
-"Tamaño de las imágenes miniaturas. Solo funcionará con el tipo de galeria de "
-"imagen para plone"
+"Tamaño de las imágenes miniaturas. Solo funcionará con el tipo de galería de "
+"imagen para Plone"
 
 #. Default: "Should this gallery automatically change images for the user?"
 #: ./interfaces.py:165
@@ -212,7 +212,7 @@ msgstr "La altura de la imagen del portlet. Si es 0, no se le asignará tamaño.
 #. Default: "Height in pixels"
 #: ./portlets.py:49
 msgid "gallery_portlet_height_title"
-msgstr "Altura en pixels"
+msgstr "Altura en píxeles"
 
 #. Default: "Hide Controls"
 #: ./portlets.py:64
@@ -232,7 +232,7 @@ msgstr "Mini-galería"
 #. Default: "If false, the actual full gallery will render in an iframe and will follow the width and height settings"
 #: ./portlets.py:35
 msgid "gallery_portlet_mini_desc"
-msgstr "Si es falso, la actual galería se mostrará en un iframe y tendrá la altura y anchura de la configuración."
+msgstr "Si es falso, la actual galería se mostrará en un iframe HTML y tendrá la altura y anchura de la configuración."
 
 #. Default: "Check to show the title of the gallery in the portlet"
 #: ./portlets.py:22
@@ -262,7 +262,7 @@ msgstr "Ancho de la imagen en el portlet"
 #. Default: "Width in pixels"
 #: ./portlets.py:42
 msgid "gallery_portlet_width_title"
-msgstr "Ancho en pixels"
+msgstr "Ancho en píxeles"
 
 #. Default: "Gallery"
 #: ./browser/views/settings.py:31
