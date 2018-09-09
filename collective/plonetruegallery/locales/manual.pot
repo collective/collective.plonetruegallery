@@ -1,7 +1,7 @@
 # Manually defined message ids
 msgid ""
 msgstr ""
-"Project-Id-Version: Truegallery VERSION\n"
+"Project-Id-Version: collective.plonetruegallery VERSION\n"
 "POT-Creation-Date: 2007-08-15 02:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: \n"

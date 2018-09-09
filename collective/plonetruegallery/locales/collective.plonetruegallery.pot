@@ -1,7 +1,9 @@
-# Manually defined message ids
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Truegallery VERSION\n"
+"Project-Id-Version: collective.plonetruegallery VERSION\n"
 "POT-Creation-Date: 2018-08-18 15:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: \n"
