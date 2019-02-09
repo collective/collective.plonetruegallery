@@ -1,14 +1,14 @@
+from .interfaces import IGallerySettings
+from .settings import GallerySettings
+from .vocabularies import DisplayTypeVocabulary
+from .vocabularies import GalleryTypeVocabulary
 from collective.plonetruegallery.config import DISPLAY_NAME_VIEW_PREFIX
 from collective.plonetruegallery.config import named_adapter_prefix
 from collective.plonetruegallery.interfaces import IDisplayType
-from interfaces import IGallerySettings
-from settings import GallerySettings
-from vocabularies import DisplayTypeVocabulary
-from vocabularies import GalleryTypeVocabulary
 from zope.component import getMultiAdapter
 from zope.component import getUtilitiesFor
 from zope.component import getUtility
-from zope.interface import implements
+from zope.interface import implementer
 
 import string
 
@@ -51,8 +51,9 @@ def getAllDisplayTypes():
 
 
 def createSettingsFactory(schema):
+
+    @implementer(schema)
     class Settings(GallerySettings):
-        implements(schema)
 
         def __init__(self, context, interfaces=[schema]):
             super(Settings, self).__init__(context, interfaces)

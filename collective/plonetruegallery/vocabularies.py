@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from collective.plonetruegallery import PTGMessageFactory as _
 from collective.plonetruegallery.interfaces import IDisplayType
 from collective.plonetruegallery.interfaces import IGallery
 from collective.plonetruegallery.interfaces import IGallerySettings
@@ -10,8 +9,11 @@ from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from Products.CMFCore.utils import getToolByName
 from zope.component import getUtilitiesFor
 from zope.component.hooks import getSite
+from zope.i18nmessageid import MessageFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+
+_ = MessageFactory("collective.plonetruegallery")
 
 
 class PTGVocabulary(SimpleVocabulary):
@@ -87,7 +89,7 @@ def SizeVocabulary(context):
         try:
             # Plone 5
             sizes = api.portal.get_registry_record('plone.allowed_sizes')
-        except:
+        except Exception:
             # Plone 4
             portal_properties = api.portal.get_tool(name='portal_properties')
             if 'imaging_properties' in portal_properties.objectIds():
@@ -132,7 +134,7 @@ def ThumbVocabulary(context):
     try:
         # Plone 5
         sizes = api.portal.get_registry_record('plone.allowed_sizes')
-    except:
+    except Exception:
         # Plone 4
         portal_properties = api.portal.get_tool(name='portal_properties')
         if 'imaging_properties' in portal_properties.objectIds():
