@@ -1,13 +1,15 @@
-from zope.interface import implements
+from collective.plonetruegallery.config import DISPLAY_NAME_VIEW_PREFIX
+from collective.plonetruegallery.config import named_adapter_prefix
+from collective.plonetruegallery.interfaces import IDisplayType
+from interfaces import IGallerySettings
+from settings import GallerySettings
+from vocabularies import DisplayTypeVocabulary
+from vocabularies import GalleryTypeVocabulary
+from zope.component import getMultiAdapter
 from zope.component import getUtilitiesFor
 from zope.component import getUtility
-from collective.plonetruegallery.interfaces import IDisplayType
-from zope.component import getMultiAdapter
-from settings import GallerySettings
-from interfaces import IGallerySettings
-from collective.plonetruegallery.config import named_adapter_prefix
-from collective.plonetruegallery.config import DISPLAY_NAME_VIEW_PREFIX
-from vocabularies import GalleryTypeVocabulary, DisplayTypeVocabulary
+from zope.interface import implements
+
 import string
 
 
@@ -20,8 +22,7 @@ def getGalleryAdapter(gallery, request, gallery_type=None):
         gallery_type = IGallerySettings['gallery_type'].default
 
     return getMultiAdapter(
-        (gallery, request),
-        name=named_adapter_prefix + gallery_type
+        (gallery, request), name=named_adapter_prefix + gallery_type
     )
 
 
@@ -35,7 +36,7 @@ def getDisplayAdapter(adapter, display_type=None):
 
     return getMultiAdapter(
         (adapter.gallery, adapter.request),
-        name=DISPLAY_NAME_VIEW_PREFIX + display_type
+        name=DISPLAY_NAME_VIEW_PREFIX + display_type,
     )
 
 

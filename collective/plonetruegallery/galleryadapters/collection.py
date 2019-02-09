@@ -1,18 +1,26 @@
-from zope.component import adapts, getMultiAdapter, getUtilitiesFor
-from Products.CMFCore.utils import getToolByName
-from collective.plonetruegallery.galleryadapters.basic import \
-    BasicTopicImageInformationRetriever as BTIIR
-from Products.ATContentTypes.interface.image import IImageContent
-from plone.app.contenttypes.interfaces import ICollection, IImage
+from collective.plonetruegallery.galleryadapters.basic import (
+    BasicTopicImageInformationRetriever as BTIIR,
+)
 from collective.plonetruegallery.interfaces import IBasicAdapter
+from collective.plonetruegallery.interfaces import IGallery
+from collective.plonetruegallery.interfaces import IGalleryAdapter
+from plone.app.contenttypes.interfaces import ICollection
+from plone.app.contenttypes.interfaces import IImage
 from plone.app.querystring import queryparser
 from plone.app.querystring.interfaces import IParsedQueryIndexModifier
-from collective.plonetruegallery.interfaces import IGalleryAdapter, IGallery
+from Products.ATContentTypes.interface.image import IImageContent
+from Products.CMFCore.utils import getToolByName
+from zope.component import adapts
+from zope.component import getMultiAdapter
+from zope.component import getUtilitiesFor
+
 import types
+
 
 try:
     from plone.uuid.interfaces import IUUID
 except:
+
     def IUUID(_, _2=None):
         return None
 
@@ -32,7 +40,6 @@ class BasicCollectionImageInformationRetriever(BTIIR):
         self.gallery_adapter = gallery_adapter
 
         def get_subgalleries(self, **kwargs):
-
             def fix_query(parsedquery):
                 index_modifiers = getUtilitiesFor(IParsedQueryIndexModifier)
                 for name, modifier in index_modifiers:
@@ -46,38 +53,45 @@ class BasicCollectionImageInformationRetriever(BTIIR):
                             parsedquery[new_name] = query
                 return parsedquery
 
-            query = queryparser.parseFormquery(self.gallery,
-                                               self.gallery.query)
+            query = queryparser.parseFormquery(
+                self.gallery, self.gallery.query
+            )
             catalog = getToolByName(self.gallery, 'portal_catalog')
             if 'Subject' in kwargs:
                 if 'Subject' not in query:
                     query.update({'Subject': kwargs['Subject']})
                 else:
-                    query['Subject'] = {'operator': 'and',
-                                        'query': [kwargs['Subject']] +
-                                        query['Subject']['query']}
+                    query['Subject'] = {
+                        'operator': 'and',
+                        'query': [kwargs['Subject']]
+                        + query['Subject']['query'],
+                    }
 
             if 'object_provides' not in query:
                 query.update({'object_provides': IGallery.__identifier__})
             else:
-                query['object_provides'] = {'operator': 'and',
-                                            'query': [IGallery.__identifier__]
-                                            + query[
-                                                'object_provides']['query']}
+                query['object_provides'] = {
+                    'operator': 'and',
+                    'query': [IGallery.__identifier__]
+                    + query['object_provides']['query'],
+                }
 
             query = fix_query(query)
 
-            sort_order = ('reverse' if self.gallery.sort_reversed else
-                          'ascending')
+            sort_order = (
+                'reverse' if self.gallery.sort_reversed else 'ascending'
+            )
             b_size = self.gallery.item_count
             sort_on = self.gallery.sort_on
             limit = self.gallery.limit
 
-            results = catalog(query, b_size=b_size,
-                              sort_on=sort_on,
-                              sort_order=sort_order,
-                              limit=limit,
-                              )
+            results = catalog(
+                query,
+                b_size=b_size,
+                sort_on=sort_on,
+                sort_order=sort_order,
+                limit=limit,
+            )
 
             uid = IUUID(self.gallery, None)
             if uid is None:
@@ -85,30 +99,36 @@ class BasicCollectionImageInformationRetriever(BTIIR):
 
             def afilter(i):
                 """prevent same object and multiple nested galleries"""
-                return i.UID != uid and \
-                    getMultiAdapter((i.getObject(), self.request),
-                                    name='plonetruegallery_util'
-                                    ).enabled()
+                return (
+                    i.UID != uid
+                    and getMultiAdapter(
+                        (i.getObject(), self.request),
+                        name='plonetruegallery_util',
+                    ).enabled()
+                )
 
             return filter(afilter, results)
 
         self.gallery_adapter.get_subgalleries = types.MethodType(
-                get_subgalleries, self.gallery_adapter)
+            get_subgalleries, self.gallery_adapter
+        )
 
     def getImageInformation(self):
         limit = self.context.limit
-        query = queryparser.parseFormquery(
-            self.context, self.context.query)
+        query = queryparser.parseFormquery(self.context, self.context.query)
 
         if ILeadImage:
-            query.update({
-                'object_provides': {
-                    'query': [
-                        IImage.__identifier__,
-                        ILeadImage.__identifier__],
-                    'operator': 'or'
+            query.update(
+                {
+                    'object_provides': {
+                        'query': [
+                            IImage.__identifier__,
+                            ILeadImage.__identifier__,
+                        ],
+                        'operator': 'or',
+                    }
                 }
-            })
+            )
         else:
             query.update({'object_provides': IImage.__identifier__})
         query['sort_limit'] = limit

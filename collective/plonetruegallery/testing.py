@@ -1,15 +1,15 @@
-from plone.app.testing import TEST_USER_ID
-from Products.CMFCore.utils import getToolByName
-from plone.app.testing import setRoles
 from plone.app.testing import applyProfile
-from plone.app.testing import TEST_USER_NAME
-from plone.app.testing import TEST_USER_PASSWORD
-from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
-from zope.configuration import xmlconfig
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing import z2
+from Products.CMFCore.utils import getToolByName
+from zope.configuration import xmlconfig
 
 
 class PloneTrueGallery(PloneSandboxLayer):
@@ -18,12 +18,20 @@ class PloneTrueGallery(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         # load ZCML
         import collective.plonetruegallery
-        xmlconfig.file('configure.zcml', collective.plonetruegallery,
-            context=configurationContext)
+
+        xmlconfig.file(
+            'configure.zcml',
+            collective.plonetruegallery,
+            context=configurationContext,
+        )
         z2.installProduct(app, 'collective.plonetruegallery')
         import collective.ptg.galleria
-        xmlconfig.file('configure.zcml', collective.ptg.galleria,
-            context=configurationContext)
+
+        xmlconfig.file(
+            'configure.zcml',
+            collective.ptg.galleria,
+            context=configurationContext,
+        )
 
     def setUpPloneSite(self, portal):
         # install into the Plone site
@@ -35,9 +43,11 @@ class PloneTrueGallery(PloneSandboxLayer):
 
 PloneTrueGallery_FIXTURE = PloneTrueGallery()
 PloneTrueGallery_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(PloneTrueGallery_FIXTURE,), name="PloneTrueGallery:Integration")
+    bases=(PloneTrueGallery_FIXTURE,), name="PloneTrueGallery:Integration"
+)
 PloneTrueGallery_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(PloneTrueGallery_FIXTURE,), name="PloneTrueGallery:Functional")
+    bases=(PloneTrueGallery_FIXTURE,), name="PloneTrueGallery:Functional"
+)
 
 
 def browserLogin(portal, browser, username=None, password=None):
@@ -56,8 +66,9 @@ def browserLogin(portal, browser, username=None, password=None):
         browser.handleErrors = handleErrors
 
 
-def createObject(context, _type, id, delete_first=True,
-                 check_for_first=False, **kwargs):
+def createObject(
+    context, _type, id, delete_first=True, check_for_first=False, **kwargs
+):
     if delete_first and id in context.objectIds():
         context.manage_delObjects([id])
     if not check_for_first or id not in context.objectIds():

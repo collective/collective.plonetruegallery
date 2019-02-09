@@ -26,6 +26,8 @@ def export(context):
 
     settings = annotations.get(ANNOTATION_KEY, None)
     if settings is not None:
-        context.writeDataFile(SETTINGS_FILENAME,
-                              json.dumps(dict(settings), indent=4),
-                              'application/json')
+        context.writeDataFile(
+            SETTINGS_FILENAME,
+            json.dumps(dict(settings), indent=4),
+            'application/json',
+        )

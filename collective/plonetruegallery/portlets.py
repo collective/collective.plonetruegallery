@@ -1,78 +1,108 @@
+from collective.plonetruegallery import PTGMessageFactory as _
+from collective.plonetruegallery.vocabularies import (
+    GallerySearchabelTextSourceBinder,
+)
+from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
+from plone.app.portlets.portlets import base
+from plone.memoize.instance import memoize
+from plone.portlets.interfaces import IPortletDataProvider
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from utils import getGalleryAdapter
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import implements
-from plone.app.portlets.portlets import base
-from plone.portlets.interfaces import IPortletDataProvider
-import urllib
 
-from plone.memoize.instance import memoize
-from collective.plonetruegallery import PTGMessageFactory as _
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from collective.plonetruegallery.vocabularies import \
-    GallerySearchabelTextSourceBinder
-from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
-from utils import getGalleryAdapter
+import urllib
 
 
 class IGalleryPortlet(IPortletDataProvider):
 
     show_title = schema.Bool(
         title=_(u"gallery_portlet_show_title_title", default=u"Show Title?"),
-        description=_(u"gallery_portlet_show_title_description",
-            default=u"Check to show the title of the gallery in the portlet"),
-        default=True)
+        description=_(
+            u"gallery_portlet_show_title_description",
+            default=u"Check to show the title of the gallery in the portlet",
+        ),
+        default=True,
+    )
 
     gallery = schema.Choice(
         title=_(u"gallery_portlet_gallery_title", default=u"Gallery"),
-        description=_(u"gallery_portlet_gallery_description",
-            default=u"The gallery to show in this portlet."),
+        description=_(
+            u"gallery_portlet_gallery_description",
+            default=u"The gallery to show in this portlet.",
+        ),
         source=GallerySearchabelTextSourceBinder(),
-        required=True)
+        required=True,
+    )
 
     mini = schema.Bool(
         title=_(u'gallery_portlet_mini', default=u"Mini gallery"),
-        description=_(u'gallery_portlet_mini_desc',
-                default=u"If false, the actual full gallery will render "
-                        u"in an iframe and will follow the width and "
-                        u"height settings"),
-        default=True)
+        description=_(
+            u'gallery_portlet_mini_desc',
+            default=u"If false, the actual full gallery will render "
+            u"in an iframe and will follow the width and "
+            u"height settings",
+        ),
+        default=True,
+    )
 
     width = schema.Int(
         title=_(u"gallery_portlet_width_title", default=u"Width in pixels"),
-        description=_(u"gallery_portlet_width_description",
-            default=u"The width of the image in the portlet"),
+        description=_(
+            u"gallery_portlet_width_description",
+            default=u"The width of the image in the portlet",
+        ),
         required=True,
-        default=200)
+        default=200,
+    )
 
     height = schema.Int(
         title=_(u"gallery_portlet_height_title", default=u"Height in pixels"),
-        description=_(u"gallery_portlet_height_description",
+        description=_(
+            u"gallery_portlet_height_description",
             default=u"The height of the image in the portlet."
-                    u"If 0, no height is set."),
+            u"If 0, no height is set.",
+        ),
         required=True,
-        default=0)
+        default=0,
+    )
 
     timed = schema.Bool(
         title=_(u"gallery_portlet_timed_title", default=u"Timed"),
-        description=_(u"gallery_portlet_timed_description",
-            default=u"Do you want the gallery to be timed?"),
+        description=_(
+            u"gallery_portlet_timed_description",
+            default=u"Do you want the gallery to be timed?",
+        ),
         required=True,
-        default=True)
+        default=True,
+    )
 
     hide_controls = schema.Bool(
         title=_(u"gallery_portlet_hide_controls", default="Hide Controls"),
-        description=_(u"gallery_portlet_hide_controls_description",
-            default="Hide portlet gallery controls"),
+        description=_(
+            u"gallery_portlet_hide_controls_description",
+            default="Hide portlet gallery controls",
+        ),
         required=False,
-        default=False)
+        default=False,
+    )
 
 
 class GalleryAssignment(base.Assignment):
     implements(IGalleryPortlet)
 
-    def __init__(self, show_title=True, gallery=None, width=200, timed=True,
-                 hide_controls=False, mini=True, height=0):
+    def __init__(
+        self,
+        show_title=True,
+        gallery=None,
+        width=200,
+        timed=True,
+        hide_controls=False,
+        mini=True,
+        height=0,
+    ):
         self.show_title = show_title
         self.gallery = gallery
         self.width = width
@@ -86,6 +116,7 @@ class GalleryAssignment(base.Assignment):
 
     def set_hide_controls(self, val):
         self._hide_controls = val
+
     hide_controls = property(get_hide_controls, set_hide_controls)
 
     def get_mini(self):
@@ -93,6 +124,7 @@ class GalleryAssignment(base.Assignment):
 
     def set_mini(self, val):
         self._mini = val
+
     mini = property(get_mini, set_mini)
 
     def get_height(self):
@@ -100,6 +132,7 @@ class GalleryAssignment(base.Assignment):
 
     def set_height(self, val):
         self._height = val
+
     height = property(get_height, set_height)
 
     @property
@@ -108,13 +141,13 @@ class GalleryAssignment(base.Assignment):
 
 
 class PortletGalleryAdapter(object):
-
     def __init__(self, adapter):
         self.adapter = adapter
         self.request = adapter.request
         self.gallery_uid = self.adapter.gallery.UID()
-        self.request_uid = self.request.get('portlet-gallery-uid',
-                                            self.gallery_uid)
+        self.request_uid = self.request.get(
+            'portlet-gallery-uid', self.gallery_uid
+        )
         self.request_index = int(self.request.get('portlet-gallery-index', 0))
 
     def image_link(self, image=None):
@@ -123,26 +156,40 @@ class PortletGalleryAdapter(object):
 
         return "%s/view?%s" % (
             self.adapter.gallery.absolute_url(),
-            urllib.urlencode({'start_image': (isinstance(image['title'], unicode) and image['title'].encode('utf8') or image['title'])})
+            urllib.urlencode(
+                {
+                    'start_image': (
+                        isinstance(image['title'], unicode)
+                        and image['title'].encode('utf8')
+                        or image['title']
+                    )
+                }
+            ),
         )
 
     def next_image_url_params(self):
-        index = self.request_uid == self.gallery_uid and \
-                self.image_index + 1 or 1
+        index = (
+            self.request_uid == self.gallery_uid and self.image_index + 1 or 1
+        )
 
-        return urllib.urlencode({
-            'portlet-gallery-uid': self.gallery_uid,
-            'portlet-gallery-index': index
-        })
+        return urllib.urlencode(
+            {
+                'portlet-gallery-uid': self.gallery_uid,
+                'portlet-gallery-index': index,
+            }
+        )
 
     def prev_image_url_params(self):
-        index = self.request_uid == self.gallery_uid and \
-                self.image_index - 1 or -1
+        index = (
+            self.request_uid == self.gallery_uid and self.image_index - 1 or -1
+        )
 
-        return urllib.urlencode({
-            'portlet-gallery-uid': self.gallery_uid,
-            'portlet-gallery-index': index
-        })
+        return urllib.urlencode(
+            {
+                'portlet-gallery-uid': self.gallery_uid,
+                'portlet-gallery-index': index,
+            }
+        )
 
     @property
     def image_index(self):
@@ -173,8 +220,9 @@ class GalleryRenderer(base.Renderer):
     @memoize
     def gallery(self):
         try:
-            portal_state = getMultiAdapter((self.context, self.request),
-                                           name=u'plone_portal_state')
+            portal_state = getMultiAdapter(
+                (self.context, self.request), name=u'plone_portal_state'
+            )
             portal = portal_state.portal()
             path = self.data.gallery
             if path.startswith('/'):
@@ -211,10 +259,7 @@ class GalleryRenderer(base.Renderer):
     @property
     @memoize
     def gallery_adapter(self):
-        return getGalleryAdapter(
-            self.gallery,
-            self.request
-        )
+        return getGalleryAdapter(self.gallery, self.request)
 
 
 class GalleryAddForm(base.AddForm):
@@ -222,9 +267,11 @@ class GalleryAddForm(base.AddForm):
     form_fields['gallery'].custom_widget = UberSelectionWidget
 
     label = _(u"gallery_portlet_add_form_title", default=u"Add Gallery")
-    description = _(u"gallery_portlet_add_form_description",
+    description = _(
+        u"gallery_portlet_add_form_description",
         default=u"This portlet allows you to show gallery"
-                u"images in a portlet.")
+        u"images in a portlet.",
+    )
 
     def create(self, data):
         return GalleryAssignment(**data)
@@ -234,8 +281,11 @@ class GalleryEditForm(base.EditForm):
     form_fields = form.Fields(IGalleryPortlet)
     form_fields['gallery'].custom_widget = UberSelectionWidget
 
-    label = _(u"gallery_portlet_edit_form_title",
-        default=u"Edit Gallery Portlet")
-    description = _(u"gallery_portlet_edit_form_description",
+    label = _(
+        u"gallery_portlet_edit_form_title", default=u"Edit Gallery Portlet"
+    )
+    description = _(
+        u"gallery_portlet_edit_form_description",
         default=u"This portlet allows you to show gallery images in a "
-                u"portlet.")
+        u"portlet.",
+    )

@@ -1,25 +1,26 @@
-from zope.interface import implements
-from plone.memoize.view import memoize
-
 from Acquisition import aq_inner
+from collective.plonetruegallery.settings import GallerySettings
+from interfaces import IPTGUtility
+from plone.memoize.view import memoize
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
-
-from interfaces import IPTGUtility
-from collective.plonetruegallery.settings import GallerySettings
+from zope.interface import implements
 
 
 class PTGUtility(BrowserView):
     """Information about the state of the portal
     """
+
     implements(IPTGUtility)
 
     @memoize
     def should_include(self, display_type):
         context = aq_inner(self.context)
         try:
-            return self.enabled() and \
-                GallerySettings(context).display_type == display_type
+            return (
+                self.enabled()
+                and GallerySettings(context).display_type == display_type
+            )
         except TypeError:
             return False
 
@@ -33,5 +34,7 @@ class PTGUtility(BrowserView):
 
     @memoize
     def refresh_enabled(self):
-        return self.enabled() and \
-            GallerySettings(self.context).gallery_type != 'basic'
+        return (
+            self.enabled()
+            and GallerySettings(self.context).gallery_type != 'basic'
+        )

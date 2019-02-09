@@ -1,13 +1,13 @@
+from collective.plonetruegallery.interfaces import IBatchingDisplayType
+from collective.plonetruegallery.portlets import PortletGalleryAdapter
+from collective.plonetruegallery.settings import GallerySettings
+from collective.plonetruegallery.utils import getDisplayAdapter
+from collective.plonetruegallery.utils import getGalleryAdapter
+from plone.memoize import ram
+from plone.memoize.instance import memoize
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.memoize.instance import memoize
-from collective.plonetruegallery.utils import getGalleryAdapter
-from collective.plonetruegallery.utils import getDisplayAdapter
-from Products.CMFCore.utils import getToolByName
-from collective.plonetruegallery.settings import GallerySettings
-from collective.plonetruegallery.portlets import PortletGalleryAdapter
-from collective.plonetruegallery.interfaces import IBatchingDisplayType
-from plone.memoize import ram
 from time import time
 
 
@@ -24,7 +24,7 @@ class GalleryView(BrowserView):
         self.displayer = getDisplayAdapter(self.adapter)
         self.settings = GallerySettings(
             self.context,
-            interfaces=[self.adapter.schema, self.displayer.schema]
+            interfaces=[self.adapter.schema, self.displayer.schema],
         )
         return self.index()
 
@@ -34,8 +34,10 @@ class GalleryView(BrowserView):
     @property
     @memoize
     def show_subgalleries(self):
-        return self.adapter.settings.show_subgalleries and \
-            self.adapter.contains_sub_galleries
+        return (
+            self.adapter.settings.show_subgalleries
+            and self.adapter.contains_sub_galleries
+        )
 
     def getAdaptedGallery(self, gallery):
         return getGalleryAdapter(gallery, self.request)
@@ -70,7 +72,6 @@ class GalleryView(BrowserView):
 
 
 class ForceCookingOfImages(BrowserView):
-
     def __call__(self):
         adapter = getGalleryAdapter(self.context, self.request)
         adapter.cook()
@@ -78,15 +79,16 @@ class ForceCookingOfImages(BrowserView):
 
 
 class ForceCookingOfAllGalleries(BrowserView):
-
     def __call__(self):
         catalog = getToolByName(self.context, 'portal_catalog')
 
         for gallery in catalog.searchResults(portal_type="Gallery"):
             gallery = gallery.getObject()
 
-            self.request.response.write("cooking %s, located at %s\n" % (
-                gallery.Title(), gallery.absolute_url()))
+            self.request.response.write(
+                "cooking %s, located at %s\n"
+                % (gallery.Title(), gallery.absolute_url())
+            )
 
             adapter = getGalleryAdapter(gallery, self.request)
             adapter.cook()
@@ -95,7 +97,6 @@ class ForceCookingOfAllGalleries(BrowserView):
 
 
 class AJAX(BrowserView):
-
     def get_image(self):
         catalog = getToolByName(self.context, 'portal_catalog')
 
@@ -108,12 +109,14 @@ class AJAX(BrowserView):
         portlet_adapter = PortletGalleryAdapter(adapter)
         image = portlet_adapter.image
 
-        return str({
-            'src': image['image_url'],
-            'title': image['title'],
-            'description': image['description'],
-            'copyright': image['copyright'],
-            'image-link': portlet_adapter.image_link(),
-            'next-url': portlet_adapter.next_image_url_params(),
-            'prev-url': portlet_adapter.prev_image_url_params()
-        })
+        return str(
+            {
+                'src': image['image_url'],
+                'title': image['title'],
+                'description': image['description'],
+                'copyright': image['copyright'],
+                'image-link': portlet_adapter.image_link(),
+                'next-url': portlet_adapter.next_image_url_params(),
+                'prev-url': portlet_adapter.prev_image_url_params(),
+            }
+        )

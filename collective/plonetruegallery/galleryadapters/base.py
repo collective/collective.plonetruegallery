@@ -1,21 +1,24 @@
-import time
-import random
-
 from collective.plonetruegallery import PTGMessageFactory as _
-from collective.plonetruegallery.interfaces import IGalleryAdapter, IGallery
+from collective.plonetruegallery.interfaces import IGallery
+from collective.plonetruegallery.interfaces import IGalleryAdapter
 from collective.plonetruegallery.settings import GallerySettings
-
-from zLOG import LOG, INFO
-
+from plone.memoize.instance import memoize
+from Products.CMFCore.utils import getToolByName
+from zLOG import INFO
+from zLOG import LOG
+from zope.component import adapts
+from zope.component import getMultiAdapter
 from zope.interface import implements
-from zope.component import adapts, getMultiAdapter
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
-from Products.CMFCore.utils import getToolByName
-from plone.memoize.instance import memoize
+import random
+import time
+
+
 try:
     from plone.uuid.interfaces import IUUID
 except:
+
     def IUUID(_, _2=None):
         return None
 
@@ -29,9 +32,11 @@ class BaseAdapter(object):
     settings = None
     schema = None
     name = u"base"
-    description = _(u"label_base_gallery_type",
+    description = _(
+        u"label_base_gallery_type",
         default=u"base: this isn't actually a gallery type.  "
-                u"Think abstract class here...")
+        u"Think abstract class here...",
+    )
 
     cook_delay = 24 * 60 * 60  # will update once a day
 
@@ -62,12 +67,13 @@ class BaseAdapter(object):
 
         def afilter(i):
             """prevent same object and multiple nested galleries"""
-            return i.UID != uid and \
-                len(i.getPath().split('/')) == len(gallery_path) + 1 and \
-                getMultiAdapter(
-                    (i.getObject(), self.request),
-                    name='plonetruegallery_util'
+            return (
+                i.UID != uid
+                and len(i.getPath().split('/')) == len(gallery_path) + 1
+                and getMultiAdapter(
+                    (i.getObject(), self.request), name='plonetruegallery_util'
                 ).enabled()
+            )
 
         return filter(afilter, results)
 
@@ -76,13 +82,17 @@ class BaseAdapter(object):
         return len(self.subgalleries) > 0
 
     def time_to_cook(self):
-        return (self.settings.last_cooked_time_in_seconds + self.cook_delay) \
-            <= (time.time())
+        return (
+            self.settings.last_cooked_time_in_seconds + self.cook_delay
+        ) <= (time.time())
 
     def log_error(self, ex='', inst='', msg=""):
-        LOG('collective.plonetruegallery', INFO,
-            "%s adapter, gallery is %s\n%s\n%s\n%s" %
-            (self.name, str(self.gallery), msg, ex, inst))
+        LOG(
+            'collective.plonetruegallery',
+            INFO,
+            "%s adapter, gallery is %s\n%s\n%s\n%s"
+            % (self.name, str(self.gallery), msg, ex, inst),
+        )
 
     def cook(self):
         self.settings.cooked_images = self.retrieve_images()
@@ -90,8 +100,9 @@ class BaseAdapter(object):
 
     def get_random_image(self):
         if len(self.cooked_images) > 0:
-            return self.cooked_images[random.randint(0,
-                self.number_of_images - 1)]
+            return self.cooked_images[
+                random.randint(0, self.number_of_images - 1)
+            ]
         else:
             return {}
 
@@ -114,7 +125,6 @@ class BaseAdapter(object):
 
 
 class ImageInfo(object):
-
     def __init__(self, brain, info_retriever):
         self.brain = brain
         self.info_retriever = info_retriever
@@ -132,7 +142,9 @@ class ImageInfo(object):
 
     @property
     def image_url(self):
-        scale = self.gallery_adapter.size_map[self.gallery_adapter.settings.size]
+        scale = self.gallery_adapter.size_map[
+            self.gallery_adapter.settings.size
+        ]
         return "%s/@@images/image/%s" % (self.base_url, scale)
 
     @property
@@ -166,7 +178,7 @@ class ImageInfo(object):
                 if copyright:
                     return copyright
         return ""
-        
+
     @property
     def bodytext(self):
         if self.enable_bodytext:
@@ -186,7 +198,6 @@ class ImageInfo(object):
 
 
 class BaseImageInformationRetriever(object):
-
     def __init__(self, context, gallery_adapter):
         self.pm = getToolByName(context, 'portal_membership')
         self.context = context
@@ -202,8 +213,8 @@ class BaseImageInformationRetriever(object):
             'link': info.link_url,
             'title': image.Title,
             'description': image.Description,
-            'copyright':   info.copyright,
+            'copyright': info.copyright,
             'portal_type': image.portal_type,
-            'keywords':  ' '.join(image.Subject),
-            'bodytext': info.bodytext
+            'keywords': ' '.join(image.Subject),
+            'bodytext': info.bodytext,
         }

@@ -1,12 +1,15 @@
-from zope.interface import Interface, implements
-from zope.configuration.fields import GlobalObject
-from zope.component.zcml import IAdapterDirective, adapter as add_adapter
-from collective.plonetruegallery.interfaces import IGallery
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from collective.plonetruegallery.interfaces import IGalleryAdapter
-from collective.plonetruegallery.interfaces import IBaseSettings
 from collective.plonetruegallery.config import named_adapter_prefix
+from collective.plonetruegallery.interfaces import IBaseSettings
+from collective.plonetruegallery.interfaces import IGallery
+from collective.plonetruegallery.interfaces import IGalleryAdapter
 from collective.plonetruegallery.settings import GallerySettings
+from zope.component.zcml import adapter as add_adapter
+from zope.component.zcml import IAdapterDirective
+from zope.configuration.fields import GlobalObject
+from zope.interface import implements
+from zope.interface import Interface
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+
 
 GalleryTypes = []
 
@@ -19,8 +22,8 @@ class IBaseTypeDirective(Interface):
     condition = GlobalObject(
         title=u"Condition Method",
         description=u"Method that returns a boolean to "
-                    u"check whether or not the adapter should be used",
-        required=False
+        u"check whether or not the adapter should be used",
+        required=False,
     )
 
 
@@ -30,7 +33,6 @@ class IGalleryTypeDirective(IAdapterDirective, IBaseTypeDirective):
 
 
 def create_settings_factory(schema):
-
     class Settings(GallerySettings):
         implements(schema)
 
@@ -40,10 +42,17 @@ def create_settings_factory(schema):
     return [Settings]
 
 
-def add_gallery_type(_context, factory, provides=IGalleryAdapter,
-                     for_=[IGallery, IDefaultBrowserLayer],
-                     permission=None, name='', trusted=False,
-                     locate=False, condition=None):
+def add_gallery_type(
+    _context,
+    factory,
+    provides=IGalleryAdapter,
+    for_=[IGallery, IDefaultBrowserLayer],
+    permission=None,
+    name='',
+    trusted=False,
+    locate=False,
+    condition=None,
+):
     gallerytype = factory[0]
     if condition is not None and not condition():
         return
@@ -53,8 +62,8 @@ def add_gallery_type(_context, factory, provides=IGalleryAdapter,
 
     if not IGalleryAdapter.implementedBy(gallerytype):
         raise Exception(
-            "%s gallery adapter must implement IGalleryAdapter" %
-                gallerytype.name
+            "%s gallery adapter must implement IGalleryAdapter"
+            % gallerytype.name
         )
 
     if not gallerytype.schema.isOrExtends(IBaseSettings):
@@ -64,10 +73,22 @@ def add_gallery_type(_context, factory, provides=IGalleryAdapter,
         )
 
     GalleryTypes.append(gallerytype)
-    add_adapter(_context, factory, provides, for_, permission,
-        named_adapter_prefix + gallerytype.name, trusted, locate)
+    add_adapter(
+        _context,
+        factory,
+        provides,
+        for_,
+        permission,
+        named_adapter_prefix + gallerytype.name,
+        trusted,
+        locate,
+    )
 
     # also add an un-named adapter to handle form edits of this data
     # via z3c.forms...
-    add_adapter(_context, create_settings_factory(gallerytype.schema),
-        provides=gallerytype.schema, for_=[IGallery])
+    add_adapter(
+        _context,
+        create_settings_factory(gallerytype.schema),
+        provides=gallerytype.schema,
+        for_=[IGallery],
+    )

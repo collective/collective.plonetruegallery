@@ -1,12 +1,12 @@
-from collective.plonetruegallery.interfaces import IDisplayType
 from collective.plonetruegallery.interfaces import IBatchingDisplayType
-from plone.memoize.view import memoize
-from zope.interface import implements
+from collective.plonetruegallery.interfaces import IDisplayType
 from collective.plonetruegallery.settings import GallerySettings
-from Products.CMFPlone.PloneBatch import Batch
-from zope.component import getMultiAdapter
-from Products.Five import BrowserView
 from collective.plonetruegallery.utils import getGalleryAdapter
+from plone.memoize.view import memoize
+from Products.CMFPlone.PloneBatch import Batch
+from Products.Five import BrowserView
+from zope.component import getMultiAdapter
+from zope.interface import implements
 
 
 def jsbool(val):
@@ -27,15 +27,21 @@ class BaseDisplayType(BrowserView):
         super(BaseDisplayType, self).__init__(context, request)
         self.adapter = getGalleryAdapter(context, request)
         self.context = self.gallery = self.adapter.gallery
-        self.settings = GallerySettings(context,
-                            interfaces=[self.adapter.schema, self.schema])
-        portal_state = getMultiAdapter((context, request),
-                                        name='plone_portal_state')
+        self.settings = GallerySettings(
+            context, interfaces=[self.adapter.schema, self.schema]
+        )
+        portal_state = getMultiAdapter(
+            (context, request), name='plone_portal_state'
+        )
         self.portal_url = portal_state.portal_url()
-        self.staticFiles = "%s/%s" % (self.portal_url,
-                                      self.staticFilesRelative)
-        self.typeStaticFiles = '%s/%s' % (self.portal_url,
-                                          self.typeStaticFilesRelative)
+        self.staticFiles = "%s/%s" % (
+            self.portal_url,
+            self.staticFilesRelative,
+        )
+        self.typeStaticFiles = '%s/%s' % (
+            self.portal_url,
+            self.typeStaticFilesRelative,
+        )
 
     def content(self):
         return self.index()
@@ -75,8 +81,9 @@ class BatchingDisplayType(BaseDisplayType):
         """
         disable start image if a batch start is specified.
         """
-        return bool('start_image' in self.request) and \
-            not bool('b_start' in self.request)
+        return bool('start_image' in self.request) and not bool(
+            'b_start' in self.request
+        )
 
     @memoize
     def get_b_start(self):
@@ -106,11 +113,17 @@ class BatchingDisplayType(BaseDisplayType):
     @property
     @memoize
     def start_automatically(self):
-        return self.uses_start_image() or \
-            self.adapter.number_of_images < self.settings.batch_size
+        return (
+            self.uses_start_image()
+            or self.adapter.number_of_images < self.settings.batch_size
+        )
 
     @property
     @memoize
     def batch(self):
-        return Batch(self.adapter.cooked_images, self.settings.batch_size,
-                                              int(self.b_start), orphan=1)
+        return Batch(
+            self.adapter.cooked_images,
+            self.settings.batch_size,
+            int(self.b_start),
+            orphan=1,
+        )

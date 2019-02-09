@@ -1,13 +1,17 @@
 from collective.plonetruegallery import PTGMessageFactory as _
-from zope.interface import Interface
-from plone.z3cform.fieldsets import group as plonegroup
-from z3c.form import form, field, group, button
-from plone.app.z3cform.layout import wrap_form
 from collective.plonetruegallery.interfaces import IGallerySettings
 from collective.plonetruegallery.meta.zcml import getAllGalleryTypes
-from collective.plonetruegallery.utils import getDisplayType
-from collective.plonetruegallery.utils import getAllDisplayTypes
 from collective.plonetruegallery.settings import GallerySettings
+from collective.plonetruegallery.utils import getAllDisplayTypes
+from collective.plonetruegallery.utils import getDisplayType
+from plone.app.z3cform.layout import wrap_form
+from plone.z3cform.fieldsets import group as plonegroup
+from z3c.form import button
+from z3c.form import field
+from z3c.form import form
+from z3c.form import group
+from zope.interface import Interface
+
 import zope.i18n
 
 
@@ -29,13 +33,19 @@ class GallerySettingsForm(group.GroupForm, form.EditForm):
     groups = [MainSettingsGroup]
 
     label = _(u'heading_gallery_settings_form', default=u'Gallery')
-    description = _(u'description_gallery_settings_form',
-        default=u'Configure the parameters for this gallery.')
+    description = _(
+        u'description_gallery_settings_form',
+        default=u'Configure the parameters for this gallery.',
+    )
 
-    successMessage = _(u'successMessage_gallery_settings_form',
-        default=u'Gallery Settings Saved.')
-    noChangesMessage = _(u'noChangesMessage_gallery_settings_form',
-        default=u'There are no changes in the Gallery settings.')
+    successMessage = _(
+        u'successMessage_gallery_settings_form',
+        default=u'Gallery Settings Saved.',
+    )
+    noChangesMessage = _(
+        u'noChangesMessage_gallery_settings_form',
+        default=u'There are no changes in the Gallery settings.',
+    )
 
     def add_fields_to_group(self, type_, groupname):
         group = None
@@ -74,8 +84,10 @@ class GallerySettingsForm(group.GroupForm, form.EditForm):
         msg = zope.i18n.translate(msg)
 
         if display_type.userWarning is not None:
-            self.status = "%s %s" % (msg,
-                zope.i18n.translate(display_type.userWarning))
+            self.status = "%s %s" % (
+                msg,
+                zope.i18n.translate(display_type.userWarning),
+            )
         else:
             self.status = msg
 
@@ -96,5 +108,6 @@ class GallerySettingsForm(group.GroupForm, form.EditForm):
 
         self.set_status_message(settings, has_changes)
         return self.request.response.redirect(self.context.absolute_url())
+
 
 GallerySettingsView = wrap_form(GallerySettingsForm)

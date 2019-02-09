@@ -1,40 +1,43 @@
-from collective.plonetruegallery.tests import BaseTest
-
-from zope.component import getMultiAdapter
-from collective.plonetruegallery.meta.zcml import getAllGalleryTypes
-from collective.plonetruegallery.config import named_adapter_prefix
+from collective.plonetruegallery.browser.views.display import (
+    BatchingDisplayType,
+)
 from collective.plonetruegallery.config import DISPLAY_NAME_VIEW_PREFIX
+from collective.plonetruegallery.config import named_adapter_prefix
+from collective.plonetruegallery.meta.zcml import getAllGalleryTypes
+from collective.plonetruegallery.tests import BaseTest
 from collective.plonetruegallery.utils import getAllDisplayTypes
 from Products.CMFCore.utils import getToolByName
-from collective.plonetruegallery.browser.views.display import \
-    BatchingDisplayType
+from zope.component import getMultiAdapter
 
 import unittest2 as unittest
 
 
 class TestRegistration(BaseTest):
-
     def test_gallerytypes_registered(self):
         gallerytypes = getAllGalleryTypes()
 
         for t in gallerytypes:
-            adapter = getMultiAdapter((self.gallery, self.request),
-                                      name=named_adapter_prefix + t.name)
+            adapter = getMultiAdapter(
+                (self.gallery, self.request),
+                name=named_adapter_prefix + t.name,
+            )
             self.assertTrue(isinstance(adapter, t))
 
     def test_displaytypes_registered(self):
         displaytypes = getAllDisplayTypes()
         for t in displaytypes:
-            adapter = getMultiAdapter((self.gallery, self.request),
-                                      name=DISPLAY_NAME_VIEW_PREFIX + t.name)
+            adapter = getMultiAdapter(
+                (self.gallery, self.request),
+                name=DISPLAY_NAME_VIEW_PREFIX + t.name,
+            )
             self.assertTrue(isinstance(adapter, t))
 
 
 class TestBasicAdapter(BaseTest):
-
     def get_basic_adapter(self):
-        return getMultiAdapter((self.gallery, self.request),
-                               name=named_adapter_prefix + 'basic')
+        return getMultiAdapter(
+            (self.gallery, self.request), name=named_adapter_prefix + 'basic'
+        )
 
     def test_should_cook_images_on_invoking(self):
         adapter = self.get_basic_adapter()
@@ -46,8 +49,9 @@ class TestBasicAdapter(BaseTest):
         adapter = self.get_basic_adapter()
 
         first_image = self.gallery[self.gallery.objectIds()[0]]
-        self.assertEqual(first_image.Title(),
-                         adapter.cooked_images[0]['title'])
+        self.assertEqual(
+            first_image.Title(), adapter.cooked_images[0]['title']
+        )
 
         self.gallery.moveObjectsByDelta(first_image.getId(), 1)
         plone_utils = getToolByName(self.gallery, 'plone_utils')
@@ -55,15 +59,16 @@ class TestBasicAdapter(BaseTest):
 
         adapter = self.get_basic_adapter()
         first_image = self.gallery[self.gallery.objectIds()[0]]
-        self.assertEqual(first_image.Title(),
-                         adapter.cooked_images[0]['title'])
+        self.assertEqual(
+            first_image.Title(), adapter.cooked_images[0]['title']
+        )
 
 
 class TestBatchingDisplayType(BaseTest):
-
     def get_basic_adapter(self):
-        return getMultiAdapter((self.gallery, self.request),
-                               name=named_adapter_prefix + 'basic')
+        return getMultiAdapter(
+            (self.gallery, self.request), name=named_adapter_prefix + 'basic'
+        )
 
     def test_should_handle_exceeding_batch_size(self):
         self.request.form.update({'start_image': 'Title for 14'})

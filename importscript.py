@@ -1,11 +1,19 @@
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManager import setSecurityPolicy
+from datetime import datetime
+from datetime import timedelta
 from lxml.html import fromstring
-from zope.app.component.hooks import setSite
-import transaction
-from datetime import datetime, timedelta
-import requests
-import random
 from plone.i18n.normalizer import idnormalizer
+from Products.CMFCore.tests.base.security import OmnipotentUser
+from Products.CMFCore.tests.base.security import PermissiveSecurityPolicy
 from StringIO import StringIO
+from Testing.makerequest import makerequest
+from zope.app.component.hooks import setSite
+
+import random
+import requests
+import transaction
+
 
 SITE_ID = 'ptg'
 START_FOLDER_ID = 'gallery'
@@ -14,11 +22,6 @@ START_DATE = datetime(2012, 1, 1)
 MAX_GALLERY_SIZE = 100
 
 
-from Testing.makerequest import makerequest
-from AccessControl.SecurityManagement import newSecurityManager
-from AccessControl.SecurityManager import setSecurityPolicy
-from Products.CMFCore.tests.base.security import PermissiveSecurityPolicy, \
-    OmnipotentUser
 
 
 def spoofRequest(app):
