@@ -84,7 +84,7 @@ It should display images now...
     >>> browser.getLink("My Gallery").click()
     >>> "There are no images in this gallery." in browser.contents
     False
-    
+
 Right now there are not any sub-galleries, so there shouldn't be a header showing...
     >>> "<h3 class=\"centered-title\">sub-galleries</h3>" in browser.contents
     False

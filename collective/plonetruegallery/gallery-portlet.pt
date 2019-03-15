@@ -7,7 +7,7 @@
     tal:attributes="
       id string:gallery-portlet-${view/gallery/getId};
       class python: view.style_classes">
-    
+
     <dt class="portletHeader" tal:condition="view/data/show_title">
         <span class="portletTopLeft"></span>
         <a tal:attributes="href view/gallery/absolute_url">
