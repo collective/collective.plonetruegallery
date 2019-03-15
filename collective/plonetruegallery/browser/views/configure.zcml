@@ -1,80 +1,80 @@
 <configure
-	xmlns="http://namespaces.zope.org/zope"
-	xmlns:zcml="http://namespaces.zope.org/zcml"
-	xmlns:browser="http://namespaces.zope.org/browser"
-	xmlns:gallery="http://namespaces.zope.org/gallery"
-	xmlns:plone="http://namespaces.plone.org/plone"
-	xmlns:i18n="http://namespaces.zope.org/i18n"
-	i18n_domain="collective.plonetruegallery">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:gallery="http://namespaces.zope.org/gallery"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.plonetruegallery">
 
-	<include package="plone.app.contentmenu" />
+    <include package="plone.app.contentmenu" />
 
-	<include file="collage.zcml" zcml:condition="installed Products.Collage" />
+    <include file="collage.zcml" zcml:condition="installed Products.Collage" />
 
-	<browser:page
-		name="gallery-settings"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		class=".settings.GallerySettingsView"
-		permission="collective.plonetruegallery.manage"
-	/>
+    <browser:page
+        name="gallery-settings"
+        for="collective.plonetruegallery.interfaces.IGallery"
+        class=".settings.GallerySettingsView"
+        permission="collective.plonetruegallery.manage"
+    />
 
-	<adapter
-		for="collective.plonetruegallery.interfaces.IGallery"
-		provides="collective.plonetruegallery.interfaces.IGallerySettings"
-		factory="collective.plonetruegallery.settings.GallerySettings" />
+    <adapter
+        for="collective.plonetruegallery.interfaces.IGallery"
+        provides="collective.plonetruegallery.interfaces.IGallerySettings"
+        factory="collective.plonetruegallery.settings.GallerySettings" />
 
-	<browser:page
-		zcml:condition="have plone-4"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview"
-		class=".galleryview.GalleryView"
-		template="templates/layout.pt"
-		permission="zope2.View" />
+    <browser:page
+        zcml:condition="have plone-4"
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="galleryview"
+        class=".galleryview.GalleryView"
+        template="templates/layout.pt"
+        permission="zope2.View" />
 
-	<browser:page
-		zcml:condition="not-have plone-4"
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="galleryview"
-		class=".galleryview.GalleryView"
-		template="templates/layout_p3.pt"
-		permission="zope2.View" />
+    <browser:page
+        zcml:condition="not-have plone-4"
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="galleryview"
+        class=".galleryview.GalleryView"
+        template="templates/layout_p3.pt"
+        permission="zope2.View" />
 
-	<!-- non-displaytype views -->
-	<browser:page
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="placegalleryview"
-		class=".galleryview.GalleryView"
-		template="templates/placelayout.pt"
-		permission="zope2.View" />
-	<browser:page
-		for="collective.plonetruegallery.interfaces.IGallery"
-		name="refresh"
-		class=".galleryview.ForceCookingOfImages"
-		permission="collective.plonetruegallery.manage" />
-	<browser:page
-		for="*"
-		name="refresh_all_galleries"
-		class=".galleryview.ForceCookingOfAllGalleries"
-		permission="collective.plonetruegallery.manage" />
-  	<browser:menuItem
-    		for="collective.plonetruegallery.interfaces.IGallery"
-    		menu="plone_displayviews"
-    		title="Gallery View"
-    		action="galleryview"
-    		description="Displays a gallery."
-    		i18n:attributes="title; description" />
-	<browser:page
-		for="*"
-		name="get-image-for-gallery-portlet"
-		class=".galleryview.AJAX"
-		attribute="get_image"
-		permission="zope2.View" />
-	<!-- Enable re-use of view template macro -->
-	<browser:page
-		for="*"
-		name="collective.plonetruegallery.macros"
-		template="templates/layout.pt"
-		permission="zope2.View" />
-	<!-- End Views -->
+    <!-- non-displaytype views -->
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="placegalleryview"
+        class=".galleryview.GalleryView"
+        template="templates/placelayout.pt"
+        permission="zope2.View" />
+    <browser:page
+        for="collective.plonetruegallery.interfaces.IGallery"
+        name="refresh"
+        class=".galleryview.ForceCookingOfImages"
+        permission="collective.plonetruegallery.manage" />
+    <browser:page
+        for="*"
+        name="refresh_all_galleries"
+        class=".galleryview.ForceCookingOfAllGalleries"
+        permission="collective.plonetruegallery.manage" />
+    <browser:menuItem
+            for="collective.plonetruegallery.interfaces.IGallery"
+            menu="plone_displayviews"
+            title="Gallery View"
+            action="galleryview"
+            description="Displays a gallery."
+            i18n:attributes="title; description" />
+    <browser:page
+        for="*"
+        name="get-image-for-gallery-portlet"
+        class=".galleryview.AJAX"
+        attribute="get_image"
+        permission="zope2.View" />
+    <!-- Enable re-use of view template macro -->
+    <browser:page
+        for="*"
+        name="collective.plonetruegallery.macros"
+        template="templates/layout.pt"
+        permission="zope2.View" />
+    <!-- End Views -->
 
 </configure>

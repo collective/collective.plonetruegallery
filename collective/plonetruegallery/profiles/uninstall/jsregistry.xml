@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
   <javascript remove="True" id="++resource++jquery.js"/>
-	<javascript remove="True" id="++resource++carousel.js"/>
+    <javascript remove="True" id="++resource++carousel.js"/>
   <javascript remove="True" id="++resource++jq.timer.js"/>
   <javascript remove="True" id="++resource++true-gallery.js"/>
   <javascript remove="True" id="++resource++mootools.js"/>

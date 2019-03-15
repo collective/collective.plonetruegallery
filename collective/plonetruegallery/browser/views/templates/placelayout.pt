@@ -19,15 +19,15 @@
     </div>
 
     <tal:display tal:condition="python: view.adapter.number_of_images > 0" tal:content="structure view/displayer/content" />
-	
+    
     <tal:batch tal:condition="view/is_batch">
       <tal:def tal:define="batch view/displayer/batch">
-    	<div metal:use-macro="view/context/batch_macros/macros/navigation">
-	  Navigation
+        <div metal:use-macro="view/context/batch_macros/macros/navigation">
+      Navigation
         </div>
       </tal:def>
     </tal:batch>
-    <tal:subgallery tal:replace="structure view/subgallery_template" />	
+    <tal:subgallery tal:replace="structure view/subgallery_template" /> 
 
   </body>
   </html>

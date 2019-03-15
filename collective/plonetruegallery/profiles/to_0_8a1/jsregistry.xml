@@ -11,7 +11,7 @@
         remove="True"
     />
 
-  	<javascript
+    <javascript
         cacheable="True"
         compression="safe"
         cookable="True"

@@ -3,7 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.plonetruegallery">
 
-	<include package=".views" />
+    <include package=".views" />
 
     <browser:page
         name="plonetruegallery_util"
