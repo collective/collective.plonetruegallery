@@ -51,10 +51,8 @@ def getAllDisplayTypes():
 
 
 def createSettingsFactory(schema):
-
     @implementer(schema)
     class Settings(GallerySettings):
-
         def __init__(self, context, interfaces=[schema]):
             super(Settings, self).__init__(context, interfaces)
 

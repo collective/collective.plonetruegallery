@@ -75,7 +75,6 @@ class BaseDisplayType(BrowserView):
 
 @implementer(IDisplayType, IBatchingDisplayType)
 class BatchingDisplayType(BaseDisplayType):
-
     @memoize
     def uses_start_image(self):
         """
