@@ -7,7 +7,7 @@ galleries, selecting settings, adding sub-galleries, validation, and
 using different gallery types.
 
     >>> from plone.testing.z2 import Browser
-    
+
     >>> browser = Browser(self.app)
     >>> browser.handleErrors = False
     >>> from collective.plonetruegallery.testing import browserLogin
@@ -149,7 +149,7 @@ Select them again since we'll need them...
 
 
 We'll make some more nested galleries to make sure the galleries show up
-in the correct places.    
+in the correct places.
 
     >>> sub1 = my_gallery['subgallery-1']
     >>> sub1.invokeFactory(id='subgallery-3', type_name="Folder")
@@ -168,7 +168,7 @@ in the correct places.
 Select Gallery View for each of them too.
 
     >>> browser.open(sub1['subgallery-3'].absolute_url())
-    >>> browser.getLink(text="Gallery View").click()    
+    >>> browser.getLink(text="Gallery View").click()
     >>> browser.open(sub1['subgallery-4'].absolute_url())
     >>> browser.getLink(text="Gallery View").click()
     >>> browser.open(sub1['subgallery-3']['subgallery-5'].absolute_url())
