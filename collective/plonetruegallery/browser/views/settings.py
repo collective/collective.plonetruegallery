@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from collective.plonetruegallery.i18n import PTGMessageFactory as _
 from collective.plonetruegallery.interfaces import IGallerySettings
 from collective.plonetruegallery.meta.zcml import getAllGalleryTypes
 from collective.plonetruegallery.settings import GallerySettings
@@ -9,13 +11,9 @@ from z3c.form import button
 from z3c.form import field
 from z3c.form import form
 from z3c.form import group
-from zope.i18nmessageid import MessageFactory
 from zope.interface import Interface
 
 import zope.i18n
-
-
-_ = MessageFactory("collective.plonetruegallery")
 
 
 class INothing(Interface):

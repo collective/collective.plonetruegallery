@@ -1,14 +1,12 @@
+# -*- coding: utf-8 -*-
 from collective.plonetruegallery.browser.views.settings import (
     GallerySettingsForm,
 )
+from collective.plonetruegallery.i18n import PTGMessageFactory as _
 from plone.app.z3cform.layout import wrap_form
 from z3c.form import button
-from zope.i18nmessageid import MessageFactory
 
 import zope.i18n
-
-
-_ = MessageFactory('collective.plonetruegallery')
 
 
 class PloneTruegalleryControlPanelForm(GallerySettingsForm):

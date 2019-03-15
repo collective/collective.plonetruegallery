@@ -1,4 +1,4 @@
-from collective.plonetruegallery import PTGMessageFactory as _
+from collective.plonetruegallery.i18n import PTGMessageFactory as _
 from collective.plonetruegallery.vocabularies import (
     GallerySearchabelTextSourceBinder,
 )

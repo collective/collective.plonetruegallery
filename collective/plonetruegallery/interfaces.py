@@ -1,10 +1,8 @@
+# -*- coding: utf-8 -*-
+from collective.plonetruegallery.i18n import PTGMessageFactory as _
 from zope import schema
-from zope.i18nmessageid import MessageFactory
 from zope.interface import Attribute
 from zope.interface import Interface
-
-
-_ = MessageFactory("collective.plonetruegallery")
 
 
 class IGalleryAdapter(Interface):

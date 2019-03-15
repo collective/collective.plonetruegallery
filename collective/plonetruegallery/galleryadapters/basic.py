@@ -1,6 +1,6 @@
 from base import BaseAdapter
 from base import BaseImageInformationRetriever
-from collective.plonetruegallery import PTGMessageFactory as _
+from collective.plonetruegallery.i18n import PTGMessageFactory as _
 from collective.plonetruegallery.interfaces import IBasicAdapter
 from collective.plonetruegallery.interfaces import IBasicGallerySettings
 from collective.plonetruegallery.interfaces import IGalleryAdapter

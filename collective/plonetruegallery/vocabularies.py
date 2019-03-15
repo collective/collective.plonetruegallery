@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collective.plonetruegallery.i18n import PTGMessageFactory as _
 from collective.plonetruegallery.interfaces import IDisplayType
 from collective.plonetruegallery.interfaces import IGallery
 from collective.plonetruegallery.interfaces import IGallerySettings
@@ -9,12 +10,8 @@ from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from Products.CMFCore.utils import getToolByName
 from zope.component import getUtilitiesFor
 from zope.component.hooks import getSite
-from zope.i18nmessageid import MessageFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-
-
-_ = MessageFactory("collective.plonetruegallery")
 
 
 class PTGVocabulary(SimpleVocabulary):
