@@ -20,7 +20,7 @@
       <tal:core-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <h1 class="documentFirstHeading"> 
+        <h1 class="documentFirstHeading">
             <metal:field use-macro="python:here.widget('title', mode='view')">
             Title
             </metal:field>
@@ -35,7 +35,7 @@
         </p>
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
-        
+
         <div class="noimages" tal:condition="python: view.adapter.number_of_images == 0">
           <p class="discreet" i18n:translate="label_no_images_in_gallery">
             There are no images in this gallery.
@@ -59,7 +59,7 @@
         <div metal:use-macro="here/document_relateditems/macros/relatedItems">
             show related items if they exist
         </div>
-    
+
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
       </tal:core-macro>

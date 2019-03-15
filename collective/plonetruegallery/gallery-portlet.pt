@@ -15,18 +15,18 @@
         </a>
         <span class="portletTopRight"></span>
     </dt>
-    
+
     <dd class="portletItem"
         tal:define="image view/current_image">
         <div tal:attributes="class python: view.hide_controls() and 'gallery-portlet-controls hide' or 'gallery-portlet-controls'">
-          
+
           <span class="prev">
-            <a href="#" 
+            <a href="#"
             tal:attributes="href string:${view/context/absolute_url}?${view/portlet_adapter/prev_image_url_params}">prev</a>
           </span>
           <span style="display:none" class='play-pause'><a href='#'>pause</a></span>
           <span class="next">
-            <a href="#" 
+            <a href="#"
             tal:attributes="href string:${view/context/absolute_url}?${view/portlet_adapter/next_image_url_params}">next</a>
           </span>
         </div>
@@ -35,7 +35,7 @@
            tal:attributes="href python: view.portlet_adapter.image_link(image);
                            title image/description">
             <img tal:attributes="src image/image_url;
-                                 title image/title; 
+                                 title image/title;
                                  alt image/description;
                                  width string:${view/data/width}px;
                                  height python: height and str(height) + 'px' or '';"

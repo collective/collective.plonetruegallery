@@ -12,7 +12,7 @@
         class=".util.PTGUtility"
         allowed_interface=".interfaces.IPTGUtility"
         />
-    
+
     <!-- We need to make the request annotatable for this to work -->
     <class class="ZPublisher.BaseRequest.BaseRequest">
         <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
@@ -22,7 +22,7 @@
         name="plonetruegallery-portlet.css"
         file="files/portlet/portlet.css"
     />
-    
+
     <browser:resource
         name="plonetruegallery-portlet.js"
         file="files/portlet/portlet.js"

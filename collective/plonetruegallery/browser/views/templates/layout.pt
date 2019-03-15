@@ -18,7 +18,7 @@
   <body>
     <metal:core fill-slot="content-core">
       <tal:core-macro metal:define-macro="content-core">
-        
+
         <div class="noimages" tal:condition="python: (view.adapter.number_of_images == 0) and not view.show_subgalleries">
           <p class="discreet" i18n:translate="label_no_images_in_gallery">
             There are no images in this gallery.

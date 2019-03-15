@@ -1,12 +1,12 @@
-<metal:page define-macro="master"> 
+<metal:page define-macro="master">
   <html>
   <head>
     <div tal:replace="structure provider:plone.htmlhead" />
     <tal:replace tal:replace="structure view/displayer/css" />
     <tal:replace tal:replace="structure view/displayer/javascript" />
-    <script type="text/javascript"> 
+    <script type="text/javascript">
     $(document).ready(function() {
-         $(".placelayout a").attr("target", "_parent");    
+         $(".placelayout a").attr("target", "_parent");
     });
     </script>
   </head>
@@ -22,13 +22,13 @@
 	
     <tal:batch tal:condition="view/is_batch">
       <tal:def tal:define="batch view/displayer/batch">
-    	<div metal:use-macro="view/context/batch_macros/macros/navigation"> 
+    	<div metal:use-macro="view/context/batch_macros/macros/navigation">
 	  Navigation
         </div>
       </tal:def>
     </tal:batch>
     <tal:subgallery tal:replace="structure view/subgallery_template" />	
- 
+
   </body>
   </html>
 </metal:page>
