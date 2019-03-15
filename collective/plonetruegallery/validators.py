@@ -3,8 +3,6 @@ from collective.plonetruegallery.browser.views.settings import (
 )
 from z3c.form import error
 
-import zope.component
-
 
 # monkey patch error reporting of default error view and
 # make it work the obvious way it should be--without screwing up

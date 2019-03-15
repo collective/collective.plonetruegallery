@@ -13,6 +13,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
+
 _ = MessageFactory("collective.plonetruegallery")
 
 

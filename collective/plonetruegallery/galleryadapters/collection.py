@@ -3,12 +3,10 @@ from collective.plonetruegallery.galleryadapters.basic import (
 )
 from collective.plonetruegallery.interfaces import IBasicAdapter
 from collective.plonetruegallery.interfaces import IGallery
-from collective.plonetruegallery.interfaces import IGalleryAdapter
 from plone.app.contenttypes.interfaces import ICollection
 from plone.app.contenttypes.interfaces import IImage
 from plone.app.querystring import queryparser
 from plone.app.querystring.interfaces import IParsedQueryIndexModifier
-from Products.ATContentTypes.interface.image import IImageContent
 from Products.CMFCore.utils import getToolByName
 from zope.component import adapts
 from zope.component import getMultiAdapter

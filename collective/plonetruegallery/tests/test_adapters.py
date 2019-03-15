@@ -9,8 +9,6 @@ from collective.plonetruegallery.utils import getAllDisplayTypes
 from Products.CMFCore.utils import getToolByName
 from zope.component import getMultiAdapter
 
-import unittest2 as unittest
-
 
 class TestRegistration(BaseTest):
     def test_gallerytypes_registered(self):
