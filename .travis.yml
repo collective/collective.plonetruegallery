@@ -1,19 +1,11 @@
 language: python
 python: 2.7
 env:
-  - PLONE_VERSION=4.2
-  - PLONE_VERSION=4.3 QA=true
-matrix:
-  include:
-    - python: 2.6
-      env: PLONE_VERSION=4.1
-  allow_failures:
-    - python: 2.6
-      env: PLONE_VERSION=4.1
-    - python: 2.7
-      env: PLONE_VERSION=4.2
+  - PLONE_VERSION=5.1
+#  - PLONE_VERSION=5.1 QA=true
+#  - PLONE_VERSION=5.2
 install:
-  - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" travis.cfg
+  - sed -ie "s#travis-5.x.cfg#travis-$PLONE_VERSION.x.cfg#" travis.cfg
   - mkdir -p buildout-cache/downloads
   - python bootstrap.py -c travis.cfg
   - bin/buildout -c travis.cfg annotate
