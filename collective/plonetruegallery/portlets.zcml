@@ -1,9 +1,11 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.plonetruegallery">
 
     <plone:portlet
+        zcml:condition="installed plone.app.form"
         name="collective.plonetruegallery.gallery"
         interface=".portlets.IGalleryPortlet"
         assignment=".portlets.GalleryAssignment"
