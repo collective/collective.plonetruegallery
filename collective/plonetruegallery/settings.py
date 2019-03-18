@@ -1,10 +1,9 @@
-from interfaces import IGallerySettings
-from persistent.dict import PersistentDict
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
-from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
-
+from persistent.dict import PersistentDict
+from zope.annotation.interfaces import IAnnotations
+from interfaces import IGallerySettings
+from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 
 ANNOTATION_KEY = 'collective.plonetruegallery'
 _marker = object()
@@ -34,13 +33,15 @@ class GallerySettings(object):
     """
     Just uses Annotation storage to save and retrieve the data...
     """
-
     implements(IGallerySettings)
 
     # these are settings for defaults that are not listed
     # in the interface because I don't want them to show up
     # in the schema
-    defaults = {'last_cooked_time_in_seconds': 0, 'cooked_images': []}
+    defaults = {
+        'last_cooked_time_in_seconds': 0,
+        'cooked_images': []
+    }
 
     def __init__(self, context, interfaces=[IGallerySettings]):
         """
@@ -59,31 +60,22 @@ class GallerySettings(object):
             self._interfaces.remove(None)
 
         from collective.plonetruegallery.utils import convertMeasurementToInt
-
         self._inline_conversions = {
             'nivoslider_width': convertMeasurementToInt,
-            'nivoslider_height': convertMeasurementToInt,
+            'nivoslider_height': convertMeasurementToInt
         }
 
         self.storage = AnnotationStorage(context)
         if not IPloneSiteRoot.providedBy(context):
             site = getToolByName(context, 'portal_url').getPortalObject()
-            self.default_settings = GallerySettings(
-                site, interfaces=interfaces
-            )
+            self.default_settings = GallerySettings(site,
+                interfaces=interfaces)
         else:
             self.default_settings = None
 
     def __setattr__(self, name, value):
-        if name in (
-            'context',
-            '_metadata',
-            '_interfaces',
-            'defaults',
-            'storage',
-            '_inline_conversions',
-            'default_settings',
-        ):
+        if name in ('context', '_metadata', '_interfaces', 'defaults',
+                    'storage', '_inline_conversions', 'default_settings'):
             self.__dict__[name] = value
         else:
             self.storage.put(name, value)

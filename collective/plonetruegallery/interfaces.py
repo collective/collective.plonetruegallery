@@ -1,9 +1,7 @@
-from collective.plonetruegallery import PTGMessageFactory as _
+from zope.interface import Interface, Attribute
 from zope import schema
-from zope.interface import Attribute
-from zope.interface import Interface
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from collective.plonetruegallery import PTGMessageFactory as _
 
 
 class IGalleryAdapter(Interface):
@@ -11,11 +9,9 @@ class IGalleryAdapter(Interface):
     schema = Attribute("Schema of gallery specific")
     name = Attribute("Name of the gallery")
     description = Attribute("Description of gallery type")
-    cook_delay = Attribute(
-        "Time between updates of gallery images.  "
+    cook_delay = Attribute("Time between updates of gallery images.  "
         "This update of images can be forced by appending refresh on "
-        "a gallery."
-    )
+        "a gallery.")
     cooked_images = Attribute("The images after they've been cooked up.")
 
     def cook():
@@ -53,7 +49,6 @@ class IGalleryAdapter(Interface):
         """
         This method retrieves all the images to be cooked
         """
-
     def number_of_images():
         """"""
 
@@ -71,18 +66,17 @@ class IBasicAdapter(IGalleryAdapter):
     size_map = Attribute("allows us to map specific sizes to plone urls")
 
 
+
 class IDisplayType(Interface):
     name = Attribute("name of display type")
     description = Attribute("description of type")
     schema = Attribute("Options for this display type")
-    userWarning = Attribute(
-        "A warning to be displayed to to " "the user if they use this type."
-    )
+    userWarning = Attribute("A warning to be displayed to to "
+                            "the user if they use this type.")
     width = Attribute("The width of the gallery")
     height = Attribute("The height of the gallery")
-    start_image_index = Attribute(
-        "What image the gallery should " "start playing at."
-    )
+    start_image_index = Attribute("What image the gallery should "
+                                  "start playing at.")
 
     def content():
         """
@@ -101,6 +95,7 @@ class IDisplayType(Interface):
 
 
 class IBatchingDisplayType(Interface):
+
     def uses_start_image(self):
         """
         disable start image if a batch start is specified.
@@ -126,140 +121,112 @@ class IGallery(Interface):
 class IGallerySettings(Interface):
     gallery_type = schema.Choice(
         title=_(u"label_gallery_type", default=u"Type"),
-        description=_(
-            u"description_gallery_type",
+        description=_(u"description_gallery_type",
             default=u"Select the type of gallery you want this to be.  "
-            u"If you select something other than default, you "
-            u"must fill out the information in the corresponding "
-            u"tab for that gallery type.",
-        ),
+                    u"If you select something other than default, you "
+                    u"must fill out the information in the corresponding "
+                    u"tab for that gallery type."),
         vocabulary="collective.plonetruegallery.GalleryTypeVocabulary",
-        default="basic",
-    )
+        default="basic")
     display_type = schema.Choice(
-        title=_(
-            u"label_gallery_display_type", default=u"Gallery Display Type"
-        ),
+        title=_(u"label_gallery_display_type",
+                default=u"Gallery Display Type"),
         description=_(
             u"label_gallery_display_type_description",
             default=u"Choose the method in which the "
-            u"gallery should be displayed",
+                    u"gallery should be displayed"
         ),
         default="galleria",
-        vocabulary="collective.plonetruegallery.DisplayTypes",
-    )
+        vocabulary="collective.plonetruegallery.DisplayTypes")
     # the specific options for the gallery types will be added
     # dynamcially in the form
     size = schema.Choice(
         title=_(u"label_gallery_size", default=u"Size"),
-        description=_(
-            u"description_gallery_size",
+        description=_(u"description_gallery_size",
             default=u"The actual sizes used can vary depending on the "
-            u"gallery type that is used since different services "
-            u"have different size constraints. "
-            u"Only 'Small, Medium and Large' work with Flickr and Picasa",
-        ),
+                    u"gallery type that is used since different services "
+                    u"have different size constraints. "
+                    u"Only 'Small, Medium and Large' work with Flickr and Picasa"),
         default='large',
         vocabulary="collective.plonetruegallery.SizeVocabulary",
-    )
+        )
     thumb_size = schema.Choice(
         title=_(u"label_thumb_size", default=u"Thumbnail image size"),
-        description=_(
-            u"description_thumb_size",
+        description=_(u"description_thumb_size",
             default=u"The size of thumbnail images. "
-            u"Will only work with plone image gallery type.",
+                    u"Will only work with plone image gallery type."
         ),
         default='thumb',
         vocabulary="collective.plonetruegallery.ThumbVocabulary",
-    )
+        )
     # the options for the display type will also be added dynamically
     timed = schema.Bool(
         title=_(u"label_timed", default=u"Timed?"),
-        description=_(
-            u"description_timed",
+        description=_(u"description_timed",
             default=u"Should this gallery automatically "
-            u"change images for the user?",
+                    u"change images for the user?"
         ),
-        default=True,
-    )
+        default=True)
     copyright = schema.Bool(
         title=_(u"label_copyright", default=u"Copyright notice?"),
-        description=_(
-            u"description_copyright",
-            default=u"Should copyright notices be attached " u"to each image?",
+        description=_(u"description_copyright",
+            default=u"Should copyright notices be attached "
+                    u"to each image?"
         ),
-        default=False,
-    )
+        default=False)
     delay = schema.Int(
         title=_(u"label_delay", default=u"Delay"),
-        description=_(
-            u"description_delay",
+        description=_(u"description_delay",
             default=u"If slide show is timed, the delay sets "
-            u"how long before the next image is shown in miliseconds.",
+                    u"how long before the next image is shown in miliseconds."
         ),
         default=5000,
-        required=True,
-    )
+        required=True)
     duration = schema.Int(
         title=_(u"label_image_change_duration", default=u"Change Duration"),
-        description=_(
-            u"description_fade_in_duration",
+        description=_(u"description_fade_in_duration",
             default=u"The amount of time the change effect should "
-            u"take in miliseconds.",
+                    u"take in miliseconds."
         ),
         default=500,
-        required=True,
-    )
+        required=True)
     show_subgalleries = schema.Bool(
         title=_(u"label_show_subgalleries", default=u"Show Sub-Galleries?"),
-        description=_(
-            u"description_show_subgalleries",
+        description=_(u"description_show_subgalleries",
             default=u"If you select this option, previews for all "
-            u"nested galleries will show up below this gallery.",
+                    u"nested galleries will show up below this gallery."
         ),
-        default=True,
-    )
+        default=True)
     random_subgallery_lead = schema.Bool(
-        title=_(
-            u"label_random_subgallery_lead",
-            default=u"Show random lead image for subgalleries?",
-        ),
-        description=_(
-            u"desciption_random_subgallery_lead",
+        title=_(u"label_random_subgallery_lead", default=u"Show random lead image for subgalleries?"),
+        description=_(u"desciption_random_subgallery_lead",
             default=u"If you select this option, the lead images for the subgalleries will be chosen at random. "
-            u"Otherwise the first image is chosen.",
+                u"Otherwise the first image is chosen."
         ),
-        default=True,
-    )
+        default=True)
     batch_size = schema.Int(
         title=_(u"label_batch_size", default=u"Batch Size"),
-        description=_(
-            u"description_batch_size",
+        description=_(u"description_batch_size",
             default=u"The amount of images shown in one page. "
-            u"This is not used for all display types.",
+                    u"This is not used for all display types."
         ),
         default=50,
-        required=True,
-    )
+        required=True)
     enable_bodytext = schema.Bool(
         title=_(u"label_enable_bodytext", default=u"Enable bodytext"),
-        description=_(
-            u"description_bodytext",
-            default=u"This is only used for customized templates to show body text",
+        description=_(u"description_bodytext",
+            default=u"This is only used for customized templates to show body text"
         ),
-        default=False,
-    )
+        default=False)
     custom_stylesheet = schema.TextLine(
         title=_(u"label_custom_stylesheet", default=u"Custom stylesheet"),
-        description=_(
-            u"description_custom_stylesheet",
+        description=_(u"description_custom_stylesheet",
             default=u"Relative path from the root of the site where the stylesheet "
-            u"will be referenced from. This will be included after the display "
-            u"gallery type's styles and is a good entry point for customization.",
+                    u"will be referenced from. This will be included after the display "
+                    u"gallery type's styles and is a good entry point for customization."
         ),
         default=u"",
-        required=False,
-    )
+        required=False)
 
 
 class IBaseSettings(Interface):
@@ -275,7 +242,6 @@ class IImageInformationRetriever(Interface):
     This interface is interesting for everybody who wants to filter
     the items to be shown in a gallery view
     """
-
     def getImageInformation(self, size):
         """
         Return a list of Information relevant for gallery display for each

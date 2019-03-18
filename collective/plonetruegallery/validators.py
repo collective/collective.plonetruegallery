@@ -1,14 +1,11 @@
-from collective.plonetruegallery import PTGMessageFactory as _
-from collective.plonetruegallery.browser.views.settings import (
-    GallerySettingsForm,
-)
-from collective.plonetruegallery.utils import getGalleryAdapter
-from z3c.form import error
-from z3c.form import validator
-
-import zope.component
+from z3c.form import validator, error
 import zope.interface
+import zope.component
 import zope.schema
+from collective.plonetruegallery.utils import getGalleryAdapter
+from collective.plonetruegallery import PTGMessageFactory as _
+from collective.plonetruegallery.browser.views.settings import \
+    GallerySettingsForm
 
 
 # monkey patch error reporting of default error view and
@@ -20,7 +17,6 @@ def createMessage(self):
     else:
         return self.error.doc()
 
-
 error.ErrorViewSnippet.createMessage = createMessage
 
 
@@ -29,6 +25,7 @@ def empty(v):
 
 
 class Data(object):
+
     def __init__(self, view):
         if isinstance(view, GallerySettingsForm):
             self.view = view
@@ -50,3 +47,5 @@ class Data(object):
             return value[0]
         else:
             return value
+
+

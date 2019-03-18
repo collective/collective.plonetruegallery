@@ -1,13 +1,16 @@
-from collective.plonetruegallery.settings import GallerySettings
-from collective.plonetruegallery.testing import browserLogin
-from collective.plonetruegallery.tests import BaseFunctionalTest
-from collective.plonetruegallery.tests import populate_gallery
-from plone.testing.z2 import Browser
-from Testing import ZopeTestCase as ztc
-from zope.component import getUtility
-from zope.schema.interfaces import IVocabularyFactory
-
 import unittest2 as unittest
+
+from Testing import ZopeTestCase as ztc
+
+from zope.schema.interfaces import IVocabularyFactory
+from zope.component import getUtility
+
+from plone.testing.z2 import Browser
+from collective.plonetruegallery.tests import populate_gallery
+
+from collective.plonetruegallery.settings import GallerySettings
+from collective.plonetruegallery.tests import BaseFunctionalTest
+from collective.plonetruegallery.testing import browserLogin
 
 
 class TestViews(BaseFunctionalTest):
@@ -21,12 +24,10 @@ class TestViews(BaseFunctionalTest):
         populate_gallery(gallery)
         gallery.setLayout('galleryview')
         settings = GallerySettings(gallery)
-        vocab = getUtility(
-            IVocabularyFactory, 'collective.plonetruegallery.DisplayTypes'
-        )(gallery)
+        vocab = getUtility(IVocabularyFactory,
+                           'collective.plonetruegallery.DisplayTypes')(gallery)
         title = gallery.objectValues()[0].Title()
         import transaction
-
         transaction.commit()
         for display_type in vocab.by_value.keys():
             settings.display_type = display_type
@@ -37,17 +38,12 @@ class TestViews(BaseFunctionalTest):
 
 
 def test_suite():
-    return unittest.TestSuite(
-        [
-            ztc.FunctionalDocFileSuite(
-                'browser.txt',
-                package='collective.plonetruegallery',
-                test_class=BaseFunctionalTest,
-            ),
-            unittest.makeSuite(TestViews),
-        ]
-    )
-
+    return unittest.TestSuite([
+        ztc.FunctionalDocFileSuite(
+            'browser.txt', package='collective.plonetruegallery',
+            test_class=BaseFunctionalTest),
+        unittest.makeSuite(TestViews),
+    ])
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')

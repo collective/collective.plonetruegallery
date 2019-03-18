@@ -1,24 +1,19 @@
-from base import BaseAdapter
-from base import BaseImageInformationRetriever
-from collective.plonetruegallery import PTGMessageFactory as _
-from collective.plonetruegallery.interfaces import IBasicAdapter
-from collective.plonetruegallery.interfaces import IBasicGallerySettings
-from collective.plonetruegallery.interfaces import IGalleryAdapter
-from collective.plonetruegallery.interfaces import IImageInformationRetriever
-from plone.memoize.instance import memoize
-from plone.memoize.view import memoize_contextless
-from Products.ATContentTypes.interface import IATTopic
-from Products.ATContentTypes.interface.image import IImageContent
+from collective.plonetruegallery.interfaces import IBasicAdapter, \
+    IBasicGallerySettings, IImageInformationRetriever, IGalleryAdapter
 from Products.CMFCore.utils import getToolByName
-from zope.component import adapts
-from zope.component import getMultiAdapter
 from zope.interface import implements
-
-
+from zope.component import getMultiAdapter
+from zope.component import adapts
+from base import BaseAdapter, BaseImageInformationRetriever
+from collective.plonetruegallery import PTGMessageFactory as _
+from Products.ATContentTypes.interface.image import IImageContent
+from Products.ATContentTypes.interface import IATTopic
 try:
     from plone.folder.interfaces import IFolder as IBaseFolder
 except ImportError:
     from Products.Archetypes.interfaces import IBaseFolder
+from plone.memoize.view import memoize_contextless
+from plone.memoize.instance import memoize
 has_pai = True
 try:
     import plone.app.imaging.utils
@@ -41,8 +36,7 @@ class BasicAdapter(BaseAdapter):
 
     name = u"basic"
     description = _(
-        u"label_default_gallery_type", default=u"Use Plone To Manage Images"
-    )
+        u"label_default_gallery_type", default=u"Use Plone To Manage Images")
 
     schema = IBasicGallerySettings
     cook_delay = 0
@@ -51,8 +45,16 @@ class BasicAdapter(BaseAdapter):
     # let's setup a mechanism to upgrade sizes.
 
     minimum_sizes = {
-        'small': {'width': 320, 'height': 320, 'next_scale': 'preview'},
-        'medium': {'width': 576, 'height': 576, 'next_scale': 'large'},
+        'small': {
+            'width': 320,
+            'height': 320,
+            'next_scale': 'preview'
+        },
+        'medium': {
+            'width': 576,
+            'height': 576,
+            'next_scale': 'large'
+        }
     }
 
     @property
@@ -62,25 +64,17 @@ class BasicAdapter(BaseAdapter):
             'small': 'mini',
             'medium': 'preview',
             'large': 'large',
-            'thumb': 'tile',
+            'thumb': 'tile'
         }
 
         # Here we try to get the custom sizes
         # we skip some scales, since they are already 'taken'
         try:
             from plone.app.imaging.utils import getAllowedSizes
-
             all_sizes = getAllowedSizes()
             for scale_name in all_sizes.keys():
-                if scale_name not in [
-                    'small',
-                    'medium',
-                    'mini',
-                    'preview',
-                    'thumb',
-                    'tile',
-                    'large',
-                ]:
+                if scale_name not in ['small', 'medium', 'mini', 'preview',
+                                      'thumb', 'tile', 'large']:
                     image_sizes[str(scale_name)] = str(scale_name)
         except (ImportError, AttributeError):
             # plone 3 without plone.app.blob... We still have defaults...
@@ -97,7 +91,6 @@ class BasicAdapter(BaseAdapter):
     def sizes(self):
         if has_pai:
             from plone.app.imaging.utils import getAllowedSizes
-
             # user has plone.app.imaging installed, use
             # these image size settings
             _allowed_sizes = getAllowedSizes()
@@ -112,39 +105,41 @@ class BasicAdapter(BaseAdapter):
 
                 if size_name in self.minimum_sizes:
                     if width < self.minimum_sizes[size_name]['width']:
-                        allowed_sizes[size_name]['width'] = self.minimum_sizes[
-                            size_name
-                        ]['width']
+                        allowed_sizes[size_name]['width'] = \
+                            self.minimum_sizes[size_name]['width']
                     if height < self.minimum_sizes[size_name]['height']:
-                        allowed_sizes[size_name][
-                            'height'
-                        ] = self.minimum_sizes[size_name]['height']
+                        allowed_sizes[size_name]['height'] = \
+                            self.minimum_sizes[size_name]['height']
 
-                    self.size_map[size_name] = self.minimum_sizes[size_name][
-                        'next_scale'
-                    ]
+                    self.size_map[size_name] = \
+                        self.minimum_sizes[size_name]['next_scale']
 
             return allowed_sizes
         else:
             from Products.ATContentTypes.content.image import ATImageSchema
-
             return {
-                'small': {'width': 320, 'height': 320},
-                'medium': {'width': 576, 'height': 576},
+                'small': {
+                    'width': 320,
+                    'height': 320
+                },
+                'medium': {
+                    'width': 576,
+                    'height': 576
+                },
                 'large': {
                     'width': ATImageSchema['image'].sizes['large'][0],
-                    'height': ATImageSchema['image'].sizes['large'][1],
+                    'height': ATImageSchema['image'].sizes['large'][1]
                 },
                 'thumb': {
                     'width': ATImageSchema['image'].sizes['tile'][0],
-                    'height': ATImageSchema['image'].sizes['tile'][1],
-                },
+                    'height': ATImageSchema['image'].sizes['tile'][1]
+                }
             }
 
     def retrieve_images(self):
         adapter = getMultiAdapter(
-            (self.gallery, self), IImageInformationRetriever
-        )
+            (self.gallery, self),
+            IImageInformationRetriever)
         return adapter.getImageInformation()
 
     def cook(self):
@@ -175,20 +170,18 @@ class BasicImageInformationRetriever(BaseImageInformationRetriever):
         images = catalog.searchResults(
             object_provides=[_.__identifier__ for _ in IMAGE_IFACES],
             path='/'.join(gallery_path),
-            sort_on='getObjPositionInParent',
+            sort_on='getObjPositionInParent'
         )
 
         # filter out image images that are not directly in its path..
-        filterfunc = (
-            lambda i: len(i.getPath().split('/')) == len(gallery_path) + 1
-        )
+        filterfunc = lambda i:\
+            len(i.getPath().split('/')) == len(gallery_path) + 1
         images = filter(filterfunc, images)
         return map(self.assemble_image_information, images)
 
     def get_link_url(self, image):
-        retval = super(BasicImageInformationRetriever, self).get_link_url(
-            image
-        )
+        retval = super(BasicImageInformationRetriever, self).\
+            get_link_url(image)
         if self.pm.isAnonymousUser():
             return retval
         return retval + "/view"
@@ -208,22 +201,13 @@ class BasicTopicImageInformationRetriever(BaseImageInformationRetriever):
             if should_limit:
                 query['sort_limit'] = limit
             try:
-                query.update(
-                    {
-                        'object_provides': {
-                            'query': [_.__identifier__ for _ in IMAGE_IFACES],
-                            'operator': 'or',
-                        }
-                    }
-                )
+                query.update({'object_provides': {
+                             'query': [_.__identifier__ for _ in IMAGE_IFACES],
+                             'operator': 'or'}})
             except:
-                query.update(
-                    {
-                        'object_provides': [
-                            _.__identifier__ for _ in IMAGE_IFACES
-                        ]
-                    }
-                )
+                query.update({
+                    'object_provides': [
+                        _.__identifier__ for _ in IMAGE_IFACES]})
             catalog = getToolByName(self.context, 'portal_catalog')
             images = catalog(query)
             if should_limit:
@@ -233,9 +217,8 @@ class BasicTopicImageInformationRetriever(BaseImageInformationRetriever):
             return []
 
     def get_link_url(self, image):
-        retval = super(BasicTopicImageInformationRetriever, self).get_link_url(
-            image
-        )
+        retval = super(BasicTopicImageInformationRetriever, self).\
+            get_link_url(image)
         if self.pm.isAnonymousUser():
             return retval
         return retval + "/view"

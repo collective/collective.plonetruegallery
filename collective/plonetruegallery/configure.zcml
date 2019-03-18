@@ -20,38 +20,37 @@
 
     <!-- the order of these three lines is very important -->
     <include package=".meta" />
+    <include package=".galleryadapters" />
     <include package=".browser" />
 
     <include file="portlets.zcml" />
     <include file="profiles.zcml" />
     <include file="upgrades.zcml" />
 
-    <zcml condition="installed Products.ATContentTypes">
-        <include package=".galleryadapters" />
-        <i18n:registerTranslations directory="locales" />
+    <i18n:registerTranslations directory="locales" />
 
-        <class class="Products.ATContentTypes.content.folder.ATFolder">
-            <implements interface=".interfaces.IGallery" />
-        </class>
-        <class class="Products.ATContentTypes.content.folder.ATBTreeFolder">
-            <implements interface=".interfaces.IGallery" />
-        </class>
-        <class class="Products.ATContentTypes.content.topic.ATTopic">
-            <implements interface=".interfaces.IGallery" />
-        </class>
-        <class class="Products.CMFPlone.Portal.PloneSite">
-            <implements interface=".interfaces.IGallery" />
-        </class>
-        <class zcml:condition="installed plone.app.collection"
-            class="plone.app.contenttypes.content.Collection">
-            <implements interface=".interfaces.IGallery" />
-        </class>
-        <class
-            zcml:condition="installed plone.app.contenttypes"
-            class="plone.app.contenttypes.content.Folder">
-            <implements interface=".interfaces.IGallery" />
-        </class>
-    </zcml>
+    <class class="Products.ATContentTypes.content.folder.ATFolder">
+        <implements interface=".interfaces.IGallery" />
+    </class>
+    <class class="Products.ATContentTypes.content.folder.ATBTreeFolder">
+        <implements interface=".interfaces.IGallery" />
+    </class>
+    <class class="Products.ATContentTypes.content.topic.ATTopic">
+        <implements interface=".interfaces.IGallery" />
+    </class>
+    <class class="Products.CMFPlone.Portal.PloneSite">
+        <implements interface=".interfaces.IGallery" />
+    </class>
+    <class zcml:condition="installed plone.app.collection"
+        class="plone.app.contenttypes.content.Collection">
+        <implements interface=".interfaces.IGallery" />
+    </class>
+    <class
+        zcml:condition="installed plone.app.contenttypes"
+        class="plone.app.contenttypes.content.Folder">
+        <implements interface=".interfaces.IGallery" />
+    </class>
+
     <utility
         provides="zope.schema.interfaces.IVocabularyFactory"
         component=".vocabularies.GalleryTypeVocabulary"

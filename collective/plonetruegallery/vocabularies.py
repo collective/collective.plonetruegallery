@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
 from collective.plonetruegallery import PTGMessageFactory as _
 from collective.plonetruegallery.interfaces import IDisplayType
 from collective.plonetruegallery.interfaces import IGallery
 from collective.plonetruegallery.interfaces import IGallerySettings
 from plone import api
-from plone.app.vocabularies.catalog import parse_query
-from plone.app.vocabularies.catalog import SearchableTextSource
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
-from Products.CMFCore.utils import getToolByName
+from plone.app.vocabularies.catalog import SearchableTextSource
+from plone.app.vocabularies.catalog import parse_query
 from zope.component import getUtilitiesFor
 from zope.component.hooks import getSite
 from zope.schema.vocabulary import SimpleTerm
@@ -23,7 +23,10 @@ class PTGVocabulary(SimpleVocabulary):
     """
 
     def __init__(self, terms, *interfaces, **config):
-        super(PTGVocabulary, self).__init__(terms, *interfaces)
+        try:
+            super(PTGVocabulary, self).__init__(terms, *interfaces)
+        except:
+            raise
         if 'default' in config:
             self.default = config['default']
         else:
@@ -35,7 +38,7 @@ class PTGVocabulary(SimpleVocabulary):
             return self.by_value[value]
         except KeyError:
             return self.by_value[self.default]
-        except Exception:
+        except:
             raise LookupError(value)
 
 
@@ -47,21 +50,18 @@ def DisplayTypeVocabulary(context):
             name = utility.name or name
             terms.append(SimpleTerm(name, name, utility.description))
 
-    return PTGVocabulary(
-        terms, default=IGallerySettings['display_type'].default
-    )
+    return PTGVocabulary(terms,
+                         default=IGallerySettings['display_type'].default)
 
 
 def GalleryTypeVocabulary(context):
     from collective.plonetruegallery.meta.zcml import GalleryTypes
-
     items = []
     for t in GalleryTypes:
         items.append(SimpleTerm(t.name, t.name, t.description))
 
-    return PTGVocabulary(
-        items, default=IGallerySettings['gallery_type'].default
-    )
+    return PTGVocabulary(items,
+                         default=IGallerySettings['gallery_type'].default)
 
 
 def format_size(size):
@@ -69,90 +69,67 @@ def format_size(size):
 
 
 def SizeVocabulary(context):
-    image_terms = [
-        SimpleTerm('small', 'small', _(u"label_size_small", default=u'Small')),
-        SimpleTerm(
-            'medium', 'medium', _(u"label_size_medium", default=u'Medium')
-        ),
-        SimpleTerm('large', 'large', _(u"label_size_large", default=u'Large')),
-    ]
-    site = getSite()
-    portal_properties = getToolByName(site, 'portal_properties', None)
-    # here we add the custom image sizes, we skip the small ones and
-    # preview, large since they are already added.
-    # if we add them back, be sure to do it in basic.py, too
-    # we also need to test if gallery_type == 'basic':
-    # dont think this is right, it might be the overall seting
-    if IGallerySettings['gallery_type'].default == 'basic':
-        try:
-            # Plone 5
-            sizes = api.portal.get_registry_record('plone.allowed_sizes')
-        except:
-            # Plone 4
-            portal_properties = api.portal.get_tool(name='portal_properties')
-            if 'imaging_properties' in portal_properties.objectIds():
-                sizes = portal_properties.imaging_properties.getProperty(
-                    'allowed_sizes'
-                )
-        terms = [
-            SimpleTerm(
-                value=format_size(pair), token=format_size(pair), title=pair
-            )
-            for pair in sizes
-            if not format_size(pair)
-            in [
-                'icon',
-                'tile',
-                'listing',
-                'mini',
-                'preview',
-                'thumb',
-                'large',
-                'small',
-                'medium',
-            ]
+        image_terms = [
+            SimpleTerm('small', 'small', _(u"label_size_small",
+                                           default=u'Small')),
+            SimpleTerm('medium', 'medium', _(u"label_size_medium",
+                                             default=u'Medium')),
+            SimpleTerm('large', 'large', _(u"label_size_large",
+                                           default=u'Large'))
         ]
-        image_terms = image_terms + terms
+        site = getSite()
+        portal_properties = getToolByName(site, 'portal_properties', None)
+        # here we add the custom image sizes, we skip the small ones and
+        # preview, large since they are already added.
+        # if we add them back, be sure to do it in basic.py, too
+        # we also need to test if gallery_type == 'basic':
+        # dont think this is right, it might be the overall seting
+        if IGallerySettings['gallery_type'].default == 'basic':
+            try:
+                #Plone 5
+                sizes = api.portal.get_registry_record('plone.allowed_sizes')
+            except: 
+                #Plone 4
+                portal_properties = api.portal.get_tool(name='portal_properties')
+                if 'imaging_properties' in portal_properties.objectIds():
+                    sizes = portal_properties.imaging_properties.getProperty('allowed_sizes')
+            terms = [SimpleTerm(value=format_size(pair),
+                               token=format_size(pair),
+                               title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large', 'small', 'medium']]
+            image_terms = image_terms + terms
 
-    return SimpleVocabulary(image_terms)
+        return SimpleVocabulary(image_terms)
 
 
 def ThumbVocabulary(context):
-    image_terms = [
-        SimpleTerm('tile', 'tile', _(u"label_tile", default=u"tile")),
-        SimpleTerm('thumb', 'thumb', _(u"label_thumb", default=u"thumb")),
-        SimpleTerm('mini', 'mini', _(u"label_mini", default=u"mini")),
-        SimpleTerm(
-            'preview', 'preview', _(u"label_preview", default=u"preview")
-        ),
-    ]
-    site = getSite()
-    portal_properties = getToolByName(site, 'portal_properties', None)
-    # these are only working for plone so everything should be OK here
-    try:
-        # Plone 5
-        sizes = api.portal.get_registry_record('plone.allowed_sizes')
-    except:
-        # Plone 4
-        portal_properties = api.portal.get_tool(name='portal_properties')
-        if 'imaging_properties' in portal_properties.objectIds():
-            sizes = portal_properties.imaging_properties.getProperty(
-                'allowed_sizes'
-            )
-    terms = [
-        SimpleTerm(
-            value=format_size(pair), token=format_size(pair), title=pair
-        )
-        for pair in sizes
-        if not format_size(pair)
-        in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large']
-    ]
-    image_terms = image_terms + terms
+        image_terms = [
+            SimpleTerm('tile', 'tile', _(u"label_tile", default=u"tile")),
+            SimpleTerm('thumb', 'thumb', _(u"label_thumb", default=u"thumb")),
+            SimpleTerm('mini', 'mini', _(u"label_mini", default=u"mini")),
+            SimpleTerm('preview', 'preview', _(u"label_preview",
+                                               default=u"preview"))
+        ]
+        site = getSite()
+        portal_properties = getToolByName(site, 'portal_properties', None)
+        # these are only working for plone so everything should be OK here
+        try:
+            #Plone 5
+            sizes = api.portal.get_registry_record('plone.allowed_sizes')
+        except: 
+            #Plone 4
+            portal_properties = api.portal.get_tool(name='portal_properties')
+            if 'imaging_properties' in portal_properties.objectIds():
+                sizes = portal_properties.imaging_properties.getProperty('allowed_sizes')
+        terms = [SimpleTerm(value=format_size(pair),
+                           token=format_size(pair),
+                           title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large']]
+        image_terms = image_terms + terms
 
-    return SimpleVocabulary(image_terms)
+        return SimpleVocabulary(image_terms)
 
 
 class GallerySearchableTextSource(SearchableTextSource):
+
     def search(self, query_string):
         results = super(GallerySearchableTextSource, self).search(query_string)
         nav_root = api.portal.get_navigation_root(self.context)
@@ -171,16 +148,15 @@ class GallerySearchableTextSource(SearchableTextSource):
         utils = getToolByName(self.context, 'plone_utils')
         for result in results:
             try:
-                if (
-                    utils.browserDefault(result.getObject())[1][0]
-                    == "galleryview"
-                ):
-                    yield result.getPath()[len(self.portal_path) :]
+                if utils.browserDefault(result.getObject())[1][0] ==\
+                        "galleryview":
+                    yield result.getPath()[len(self.portal_path):]
             except:
                 pass
 
 
 class GallerySearchabelTextSourceBinder(SearchableTextSourceBinder):
+
     def __init__(self):
         self.query = {'object_provides': IGallery.__identifier__}
         self.default_query = 'path:'
@@ -189,5 +165,5 @@ class GallerySearchabelTextSourceBinder(SearchableTextSourceBinder):
         return GallerySearchableTextSource(
             context,
             base_query=self.query.copy(),
-            default_query=self.default_query,
+            default_query=self.default_query
         )
