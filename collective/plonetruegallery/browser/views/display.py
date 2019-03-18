@@ -6,15 +6,15 @@ from plone.memoize.view import memoize
 from Products.CMFPlone.PloneBatch import Batch
 from Products.Five import BrowserView
 from zope.component import getMultiAdapter
-from zope.interface import implementer
+from zope.interface import implements
 
 
 def jsbool(val):
     return str(val).lower()
 
 
-@implementer(IDisplayType)
 class BaseDisplayType(BrowserView):
+    implements(IDisplayType)
 
     name = None
     description = None
@@ -73,8 +73,8 @@ class BaseDisplayType(BrowserView):
         return ''
 
 
-@implementer(IDisplayType, IBatchingDisplayType)
 class BatchingDisplayType(BaseDisplayType):
+    implements(IDisplayType, IBatchingDisplayType)
 
     @memoize
     def uses_start_image(self):

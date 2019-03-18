@@ -1,10 +1,9 @@
+from collective.plonetruegallery import PTGMessageFactory as _
 from zope import schema
-from zope.i18nmessageid import MessageFactory
 from zope.interface import Attribute
 from zope.interface import Interface
-
-
-_ = MessageFactory("collective.plonetruegallery")
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 class IGalleryAdapter(Interface):

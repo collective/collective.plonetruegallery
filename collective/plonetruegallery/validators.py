@@ -1,9 +1,14 @@
+from collective.plonetruegallery import PTGMessageFactory as _
 from collective.plonetruegallery.browser.views.settings import (
     GallerySettingsForm,
 )
+from collective.plonetruegallery.utils import getGalleryAdapter
 from z3c.form import error
+from z3c.form import validator
 
 import zope.component
+import zope.interface
+import zope.schema
 
 
 # monkey patch error reporting of default error view and

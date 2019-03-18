@@ -1,9 +1,9 @@
-from .interfaces import IGallerySettings
+from interfaces import IGallerySettings
 from persistent.dict import PersistentDict
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from zope.annotation.interfaces import IAnnotations
-from zope.interface import implementer
+from zope.interface import implements
 
 
 ANNOTATION_KEY = 'collective.plonetruegallery'
@@ -30,11 +30,12 @@ class AnnotationStorage(object):
         return self._metadata.get(name, default)
 
 
-@implementer(IGallerySettings)
 class GallerySettings(object):
     """
     Just uses Annotation storage to save and retrieve the data...
     """
+
+    implements(IGallerySettings)
 
     # these are settings for defaults that are not listed
     # in the interface because I don't want them to show up
