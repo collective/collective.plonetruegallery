@@ -13,7 +13,9 @@ customizable and sophisticated gallery.
 Plone Version Compatibility
 ---------------------------
 
-Works with Plone 5.0 and earlier.
+Works with Plone 4.3 and earlier.
+For not-yet-working Plone 5 support, see the `plone5 branch <https://github.com/collective/collective.plonetruegallery/commits/plone5>`_
+and `issue #66 <https://github.com/collective/collective.plonetruegallery/issues/66>`_.
 
 
 How It Works
