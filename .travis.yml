@@ -18,8 +18,8 @@ install:
   - mkdir -p buildout-cache/downloads
   - pip install setuptools==26.1.1
   - pip install zc.buildout==1.7.1
-  - bin/buildout -c travis.cfg annotate
-  - bin/buildout -c travis.cfg -N -q
+  - buildout -c travis.cfg annotate
+  - buildout -c travis.cfg -N -q
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
