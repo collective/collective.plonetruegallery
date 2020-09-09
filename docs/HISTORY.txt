@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.4.9 (unreleased)
+3.4.9 (2020-09-09)
 ------------------
 
 - Updated Spanish translation.
